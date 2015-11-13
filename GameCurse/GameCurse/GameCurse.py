@@ -1,1 +1,3 @@
-print "Hallo Welt"
+﻿print "Hallo Welt"
+goto 1
+
