@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>852f4342-fcb5-4c8e-a454-98da18f41545</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>GameCurse.py</StartupFile>
+    <StartupFile>TextAdventure.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -23,6 +23,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="GameCurse.py" />
+    <Compile Include="TaleOfDragon.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TextAdventure.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Weltkarte.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
