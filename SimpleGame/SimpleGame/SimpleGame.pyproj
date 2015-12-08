@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>da9d3ad3-2ece-426a-a977-e83b691ddc1a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Main.py</StartupFile>
+    <StartupFile>Src\Main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -24,7 +24,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Main.py" />
+    <Compile Include="Src\Main.py" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="PythonEnv\">
@@ -40,7 +40,21 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Images\readme.txt" />
+    <Content Include="Assets\Sound\readme.txt" />
+    <Content Include="Deployment\readme.txt" />
+    <Content Include="Documentation\readme.txt" />
     <Content Include="requirements.txt" />
+    <Content Include="Tests\readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\" />
+    <Folder Include="Assets\Images\" />
+    <Folder Include="Assets\Sound\" />
+    <Folder Include="Documentation\" />
+    <Folder Include="Deployment\" />
+    <Folder Include="Tests\" />
+    <Folder Include="Src\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
