@@ -24,7 +24,28 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Src\GameColors.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\GameState.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Main.py" />
+    <Compile Include="Src\Utils.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ViewController.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Views\ViewModelBase.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Views\ViewStart.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Views\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="PythonEnv\">
@@ -50,9 +71,11 @@
   <ItemGroup>
     <Folder Include="Assets\" />
     <Folder Include="Assets\Images\" />
+    <Folder Include="Assets\Fonts\" />
     <Folder Include="Assets\Sound\" />
     <Folder Include="Documentation\" />
     <Folder Include="Deployment\" />
+    <Folder Include="Src\Views\" />
     <Folder Include="Tests\" />
     <Folder Include="Src\" />
   </ItemGroup>

@@ -1,41 +1,44 @@
-import os, sys
+﻿import os, sys
 import pygame
+import Utils
 from pygame.locals import *
+from GameColors import GameColors
+from GameState import GameState
+from ViewController import ViewController
 
 if not pygame.font: print ('Warning, fonts disabled')
 if not pygame.mixer: print ('Warning, sound disabled')
 
 
-# Define some colors
-BLACK = (0, 0, 0)
-WHITE = (255, 255, 255)
-GREEN = (0, 255, 0)
-RED = (255, 0, 0)
+class MainGame:
+    """The main game class"""
+    def __init__(self):
+        """Initialization of the main class."""
+        pygame.init()
+        self.colors = GameColors()
+        self.gameState = GameState()
+  
+        self.screen = pygame.display.set_mode(self.gameState.size)
+        self.viewController = ViewController(self.screen, self.gameState)
 
-pygame.init()
+    def cleanup(self):
+        pygame.quit()
 
-# Set the width and height of the screen [width, height]
-size = (700, 500)
-screen = pygame.display.set_mode(size)
- 
-pygame.display.set_caption("SimpleGame")
+    def run(self):
+        """Run the game loop"""
+        
+        pygame.display.set_caption("SimpleGame")
+        while not self.gameState.done:
+            self.viewController.currentView.runView()
 
-# Loop until the user clicks the close button.
-done = False
- 
-# Used to manage how fast the screen updates
-clock = pygame.time.Clock()
-
-while not done:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            done = True
-
-    screen.fill(WHITE)
-
-    pygame.display.flip()
-    clock.tick(60)
+if __name__ == "__main__":
+    game = MainGame()
+    game.run()
+    game.cleanup()
 
 
 
-pygame.quit()
+
+
+
+
