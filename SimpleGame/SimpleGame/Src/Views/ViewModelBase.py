@@ -5,6 +5,7 @@ from GameColors import GameColors
 class ViewModelBase:
     """description of class"""
     def __init__(self, state, screen):
+        """Inits the view."""
         self.state = state
         self.screen = screen
         self.colors = GameColors()
@@ -12,15 +13,15 @@ class ViewModelBase:
         self.allSprites = pygame.sprite.Group()
         self.font = pygame.font.Font(None, 36)
 
-
-        
     def runView(self):
+        """Runs the view."""
         self.handleEvent()
         self.updateScreen()
         self.flipScreen()
         pass
 
     def handleEvent(self):
+        """Handles the events..."""
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.state.done = True
@@ -44,6 +45,7 @@ class ViewModelBase:
         self.state.clock.tick(60)
     
     def moveSprites(self):
+        """Moves all sprites."""
         self.allSprites.draw(self.screen)
         pass
 

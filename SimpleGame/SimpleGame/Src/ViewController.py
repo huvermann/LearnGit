@@ -19,6 +19,7 @@ class ViewController(object):
         return newclass
 
     def run(self):
+        """Run the view."""
         self.currentView.runView()
 
 

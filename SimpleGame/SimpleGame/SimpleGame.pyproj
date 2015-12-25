@@ -30,6 +30,9 @@
     <Compile Include="Src\GameState.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\joystick.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Main.py" />
     <Compile Include="Src\Utils.py">
       <SubType>Code</SubType>
@@ -61,6 +64,7 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Fonts\readme.txt" />
     <Content Include="Assets\Images\readme.txt" />
     <Content Include="Assets\Sound\readme.txt" />
     <Content Include="Deployment\readme.txt" />
