@@ -1,11 +1,12 @@
-﻿from Utils import GetScreenSize
+﻿from Utils import Utils
+#from Utils import GetScreenSize
 import pygame
 
 class GameState(object):
     """states of the game"""
     def __init__(self):
         self.done = False
-        self.size = GetScreenSize()
+        self.size = Utils.GetScreenSize()
         self.clock = pygame.time.Clock()
 
 

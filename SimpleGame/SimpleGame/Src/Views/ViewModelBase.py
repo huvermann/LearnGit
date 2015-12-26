@@ -1,4 +1,7 @@
 ﻿import pygame
+import os.path
+import json
+from Views.DirHelper import getResourceFilePath
 from GameState import GameState
 from GameColors import GameColors
 
@@ -9,9 +12,26 @@ class ViewModelBase:
         self.state = state
         self.screen = screen
         self.colors = GameColors()
+        self.mapData = None
         # Container for all sprites
         self.allSprites = pygame.sprite.Group()
         self.font = pygame.font.Font(None, 36)
+
+    def loadMap(self, mapName):
+        self.mapFileName = getResourceFilePath(mapName + ".map")
+        self.mapImageFileName = getResourceFilePath(mapName + ".png")
+        if os.path.isfile(self.mapFileName):
+            # Load the map file
+            with open(self.mapFileName) as data_file:
+                self.mapData = json.load(data_file)
+        else:
+            # File not exist
+            raise FileNotFoundError(self.mapFileName)
+        if os.path.isfile(self.mapImageFileName):
+            # Load the map image
+            self.mapImage=pygame.image.load(self.mapImageFileName)
+        else:
+            raise FileNotFoundError(self.mapImageFileName)
 
     def runView(self):
         """Runs the view."""
