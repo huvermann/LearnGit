@@ -34,6 +34,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Main.py" />
+    <Compile Include="Src\Utils\UserEvents.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Utils\Utils.py">
       <SubType>Code</SubType>
     </Compile>
@@ -44,6 +47,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Views\DirHelper.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Views\View2.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Views\ViewModelBase.py">

@@ -1,4 +1,5 @@
 ﻿from Views.ViewStart import ViewStart
+from Views.View2 import *
 
 
 class ViewController(object):
@@ -7,16 +8,44 @@ class ViewController(object):
         """Initializes the view controler"""
         self.screen = screen
         self.gameState = gameState
-        self.currentView = self.changeView("ViewStart")
-        self.viewList = {'ViewStart': self.currentView};
-
-
+        self.viewList = {}
+        self.currentView = None
+        self.changeView("View1")
+        #self.currentView = self.viewFactory("ViewStart")
+        #self.viewList = {'ViewStart': self.currentView};
+        pass
+    
+    def ChangeViewCallback(self, viewName):
+        """Called by the view if the view is going to change."""
+        print("Changing to view: ", viewName)
+        # Todo: Implement change the view
+        self.changeView(viewName)
+        pass
 
     def changeView(self, viewName):
         """Changes the view by name."""
-        newclass = ViewStart(self.gameState, self.screen)
-        self.currentView = newclass
-        return newclass
+        #newclass = ViewStart(self.gameState, self.screen, self.ChangeViewCallback)
+        #self.currentView = newclass
+        if viewName in self.viewList:
+            self.currentView = self.viewList[viewName]
+            return self.currentView
+        else:
+            newView = self.viewFactory(viewName)
+            if newView:
+                self.currentView = newView
+                self.viewList[viewName] = newView
+
+        return newView
+    def viewFactory(self, viewName):
+        """Creates a view by name."""
+        if viewName == "View1":
+            return ViewStart(self.gameState, self.screen, self.ChangeViewCallback)
+        elif viewName == "View2":
+            return View2(self.gameState, self.screen, self.ChangeViewCallback)
+        # Todo implement all views
+        else: 
+            return None
+
 
     def run(self):
         """Run the view."""

@@ -1,0 +1,8 @@
+import pygame
+
+EVENT_CHANGEVIEW = pygame.USEREVENT + 0
+EVENT_MUSIC = pygame.USEREVENT + 1
+EVENT_NOISE = pygame.USEREVENT + 2
+EVENT_KEYJOYSTICK = pygame.USEREVENT + 3
+
+
