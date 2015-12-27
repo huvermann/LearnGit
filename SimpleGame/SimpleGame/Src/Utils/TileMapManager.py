@@ -40,9 +40,9 @@ class TileMapManager:
         shiftx = offsetX % tw
         shifty = offsetY % th
         rangex, rangey = self.getTileCount(screen)
-        for y in range(0,rangey):
+        for y in range(2,rangey):
             py=y*th-shifty
-            for x in range(0, rangex+1):
+            for x in range(0, rangex+2):
                 px=x*tw
                 screen.blit(self.calcTile(offsetX, offsetY, x,y, maxCols, maxRows), (x*tw-shiftx, py))
         pass

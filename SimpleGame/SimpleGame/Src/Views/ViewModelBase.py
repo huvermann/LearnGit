@@ -121,16 +121,31 @@ class ViewModelBase:
         # Todo: Implement offset
         self._mapManager.drawTiles(self._screen, self._positionX, self._positionY)
         self._positionX += 3
+
+    def drawScore(self):
+        background = self._screen.convert()
+        #text = self._font.render("Hallo Welt", 1, (10,10,10))
+        basicfont = pygame.font.SysFont(None, 48)
+        score = "x: {:d} y: {:d}".format(self._positionX, self._positionY)
+        text = basicfont.render(score, True, (255, 0, 0))
+        textpos = text.get_rect()
+        textpos.centerx = background.get_rect().centerx
+        background.blit(text, textpos)
+        self._screen.blit(background, (0,0))
+        pygame.display.flip()
+        pass
     
     def updateScreen(self):
         """Paint the screen."""
+        pygame.draw.rect(self._screen, self.colors.GREEN, self._screen.get_rect())
         self.drawTiles()
         self.moveSprites()
+        self.drawScore()
     
     def flipScreen(self):
         """Flip the screen."""
         pygame.display.flip()
-        self._state.clock.tick(30)
+        self._state.clock.tick(40)
     
     def moveSprites(self):
         """Moves all sprites."""
