@@ -1,5 +1,6 @@
 ﻿from Views.ViewStart import ViewStart
 from Views.View2 import *
+from Views.Level2 import *
 
 
 class ViewController(object):
@@ -42,6 +43,8 @@ class ViewController(object):
             return ViewStart(self.gameState, self.screen, self.ChangeViewCallback)
         elif viewName == "Level1":
             return View2(self.gameState, self.screen, self.ChangeViewCallback)
+        elif viewName == "Level2":
+            return Level2(self.gameState, self.screen, self.ChangeViewCallback)
         # Todo implement all views
         else: 
             return None

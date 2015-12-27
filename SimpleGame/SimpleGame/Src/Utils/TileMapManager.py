@@ -9,6 +9,7 @@ class TileMapManager:
         self._viewName = viewName
         self._position = (0, 0)
         self._mapData = TileMapManager.loadMap(viewName)
+        self._tileMapArray = TileMapManager.getTileMapArray(self._mapData)
         width = self._mapData["tilewidth"]
         height = self._mapData["tileheight"]
         self._tileSet = TileMapManager.loadTileSet(viewName, width, height)
@@ -30,24 +31,29 @@ class TileMapManager:
 
     def drawTiles(self, screen, offsetX, offsetY):
         #Todo: Consider offset for index calculation
+        th = self.tileHeight
+        tw = self.tileWidth
+
+        maxCols =self._mapData["tileswide"]
+        maxRows = self._mapData["tileshigh"]
+
+        shiftx = offsetX % tw
+        shifty = offsetY % th
         rangex, rangey = self.getTileCount(screen)
         for y in range(0,rangey):
-            py=y*self.tileHeight
-            for x in range(0, rangex):
-                px=x*self.tileWidth
-                screen.blit(self.calcTile(offsetX, offsetY, x,y), (px, py))
+            py=y*th-shifty
+            for x in range(0, rangex+1):
+                px=x*tw
+                screen.blit(self.calcTile(offsetX, offsetY, x,y, maxCols, maxRows), (x*tw-shiftx, py))
         pass
 
-    def calcTile(self, offsetX, offsetY, column, row):
+    def calcTile(self, offsetX, offsetY, column, row, maxCols, maxRows):
         """Calculate the tide index and return the correct tileSet."""
-        # Todo: Consider offset on index calculation
-        index = column + row * self.viewColCount
-        layer = self._mapData["layers"][0]["tiles"]
-        if len(layer) > index:
-            tileIndex = layer[index]["tile"]
-        else:
-            tileIndex = layer[0]["tile"]
-        return self._tileSet[tileIndex][0]
+
+        absRow=(row+offsetY//self.tileHeight*maxCols) % maxRows
+        absCol=(column+offsetX//self.tileWidth) % maxCols
+
+        return self._tileSet[self._tileMapArray[absRow][absCol]][0]
 
     def getTileCount(self, screen):
         width = screen.get_width()
@@ -78,6 +84,7 @@ class TileMapManager:
     def loadMap(mapName):
         """Loads the map from an json file."""
         mapData = None
+        mapArray = None
         mapFileName = getResourceFilePath(mapName + ".map")
         if os.path.isfile(mapFileName):
             with open(mapFileName) as data_file:
@@ -85,6 +92,20 @@ class TileMapManager:
         else:
             raise FileNotFoundError(mapFileName)
         return mapData
+
+    @staticmethod
+    def getTileMapArray(mapData):
+        cols = mapData["tileswide"]
+        rows = mapData["tileshigh"]
+        layer = mapData["layers"][0]["tiles"]
+        result = []
+        for y in range(rows):
+            line=[0]*cols
+            for x in range(cols):
+                index = x + y * cols
+                line[x]=layer[index]["tile"]
+            result.append(line)
+        return result
 
 
     def _getViewName(self):

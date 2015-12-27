@@ -74,6 +74,8 @@ class ViewModelBase:
             self._callback("View1")
         elif event.key == pygame.K_2:
             self._callback("Level1")
+        elif event.key == pygame.K_3:
+            self._callback("Level2")
 
         pass
     def onKeyboardJoystickEvent(self, event):
@@ -117,24 +119,18 @@ class ViewModelBase:
 
     def drawTiles(self):
         # Todo: Implement offset
-        self._mapManager.drawTiles(self._screen, 0, 0)
+        self._mapManager.drawTiles(self._screen, self._positionX, self._positionY)
+        self._positionX += 3
     
     def updateScreen(self):
         """Paint the screen."""
-        
-        self._screen.fill(self.colors.WHITE)
-        background = self._screen.convert()
-        text = self._font.render(self._demoText, 1, (10,10,10))
-        textpos = text.get_rect(centerx=background.get_width()/2)
-        background.blit(text, textpos)
-        self._screen.blit(background, (0,0))
         self.drawTiles()
         self.moveSprites()
     
     def flipScreen(self):
         """Flip the screen."""
         pygame.display.flip()
-        self._state.clock.tick(60)
+        self._state.clock.tick(30)
     
     def moveSprites(self):
         """Moves all sprites."""
