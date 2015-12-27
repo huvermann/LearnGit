@@ -34,6 +34,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Main.py" />
+    <Compile Include="Src\Utils\TileMapManager.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Utils\UserEvents.py">
       <SubType>Code</SubType>
     </Compile>
@@ -79,6 +82,9 @@
     <Content Include="Assets\Fonts\readme.txt" />
     <Content Include="Assets\Images\readme.txt" />
     <Content Include="Assets\Sound\readme.txt" />
+    <Content Include="Assets\Views\Level1\Level1.json" />
+    <Content Include="Assets\Views\Level1\Level1.png" />
+    <Content Include="Assets\Views\Level1\Level1.pyxel" />
     <Content Include="Assets\Views\View1\view1.json" />
     <Content Include="Assets\Views\View1\view1.png" />
     <Content Include="Assets\Views\View1\view1.pyxel" />
@@ -93,6 +99,8 @@
     <Folder Include="Assets\Fonts\" />
     <Folder Include="Assets\Views\" />
     <Folder Include="Assets\Sound\" />
+    <Folder Include="Assets\Views\Level1\" />
+    <Folder Include="Assets\Views\Level2\" />
     <Folder Include="Assets\Views\View1\" />
     <Folder Include="Documentation\" />
     <Folder Include="Deployment\" />

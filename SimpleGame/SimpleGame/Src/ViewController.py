@@ -40,7 +40,7 @@ class ViewController(object):
         """Creates a view by name."""
         if viewName == "View1":
             return ViewStart(self.gameState, self.screen, self.ChangeViewCallback)
-        elif viewName == "View2":
+        elif viewName == "Level1":
             return View2(self.gameState, self.screen, self.ChangeViewCallback)
         # Todo implement all views
         else: 

@@ -4,7 +4,7 @@ import json
 from Views.DirHelper import getResourceFilePath
 from GameState import GameState
 from GameColors import GameColors
-from Utils import UserEvents
+from Utils import UserEvents, TileMapManager
 
 class ViewModelBase:
     """description of class"""
@@ -25,33 +25,37 @@ class ViewModelBase:
         self._allSprites = pygame.sprite.Group()
         self._font = pygame.font.Font(None, 36)
 
-    def loadTileSet(self, filename, width, height):
-        image = pygame.image.load(filename).convert()
-        image_width, image_height = image.get_size()
-        tileset = []
-        for tile_x in range(0, image_width//width):
-            line = []
-            tileset.append(line)
-            for tile_y in range(0, image_height//height):
-                rect = (tile_x*width, tile_y*height, width, height)
-                line.append(image.subsurface(rect))
-        return tileset
+    #def loadTileSet(self, filename, width, height):
+    #    image = pygame.image.load(filename).convert()
+    #    image_width, image_height = image.get_size()
+    #    tileset = []
+    #    for tile_x in range(0, image_width//width):
+    #        line = []
+    #        tileset.append(line)
+    #        for tile_y in range(0, image_height//height):
+    #            rect = (tile_x*width, tile_y*height, width, height)
+    #            line.append(image.subsurface(rect))
+    #    return tileset
+
+    #def loadMap(self, mapName):
+    #    self.mapFileName = getResourceFilePath(mapName + ".map")
+    #    self.mapImageFileName = getResourceFilePath(mapName + ".png")
+    #    if os.path.isfile(self.mapFileName):
+    #        # Load the map file
+    #        with open(self.mapFileName) as data_file:
+    #            self._mapData = json.load(data_file)
+    #    else:
+    #        # File not exist
+    #        raise FileNotFoundError(self.mapFileName)
+    #    if os.path.isfile(self.mapImageFileName):
+    #        # Load the map image
+    #        self._tileSet = self.loadTileSet(self.mapImageFileName, 16, 16)
+    #    else:
+    #        raise FileNotFoundError(self.mapImageFileName)
 
     def loadMap(self, mapName):
-        self.mapFileName = getResourceFilePath(mapName + ".map")
-        self.mapImageFileName = getResourceFilePath(mapName + ".png")
-        if os.path.isfile(self.mapFileName):
-            # Load the map file
-            with open(self.mapFileName) as data_file:
-                self._mapData = json.load(data_file)
-        else:
-            # File not exist
-            raise FileNotFoundError(self.mapFileName)
-        if os.path.isfile(self.mapImageFileName):
-            # Load the map image
-            self._tileSet = self.loadTileSet(self.mapImageFileName, 16, 16)
-        else:
-            raise FileNotFoundError(self.mapImageFileName)
+        self._mapManager = TileMapManager.TileMapManager(mapName)
+        pass
 
     def runView(self):
         """Runs the view."""
@@ -96,7 +100,7 @@ class ViewModelBase:
         elif event.key == pygame.K_1:
             self._callback("View1")
         elif event.key == pygame.K_2:
-            self._callback("View2")
+            self._callback("Level1")
 
         pass
     def onKeyboardJoystickEvent(self, event):
@@ -139,9 +143,7 @@ class ViewModelBase:
 
 
     def drawTiles(self):
-        # Todo: draw all tiles
-        self._screen.blit(self._tileSet[0][0], (-2,0))
-        self._screen.blit(self._tileSet[1][0], (-2,16))
+        self._mapManager.drawTiles(self._screen)
     
     def updateScreen(self):
         """Paint the screen."""
@@ -153,8 +155,6 @@ class ViewModelBase:
         background.blit(text, textpos)
         self._screen.blit(background, (0,0))
         self.drawTiles()
-        
-
         self.moveSprites()
     
     def flipScreen(self):
