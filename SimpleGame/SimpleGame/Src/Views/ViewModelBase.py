@@ -116,7 +116,8 @@ class ViewModelBase:
 
 
     def drawTiles(self):
-        self._mapManager.drawTiles(self._screen)
+        # Todo: Implement offset
+        self._mapManager.drawTiles(self._screen, 0, 0)
     
     def updateScreen(self):
         """Paint the screen."""

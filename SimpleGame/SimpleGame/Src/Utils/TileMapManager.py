@@ -14,13 +14,45 @@ class TileMapManager:
         self._tileSet = TileMapManager.loadTileSet(viewName, width, height)
         pass
 
-    def drawTiles(self, screen):
-        i = 0
-        for tile in self._tileSet:
-            #print(tile)
-            screen.blit(tile[0], (30, 16*i))
-            i+=1
+    def _tileHeight(self):
+        return self._mapData["tileheight"]
+    def _tileWidth(self):
+        return self._mapData["tilewidth"]
+    def _viewColumnsCount(self):
+        return self._mapData["tileswide"]
+    def _viewRowCount(self):
+        return self._mapData["tileshigh"]
+    tileHeight = property(_tileHeight)
+    tileWidth = property(_tileWidth)
+    viewColCount = property(_viewColumnsCount)
+    viewRowCount = property(_viewRowCount)
+
+
+    def drawTiles(self, screen, offsetX, offsetY):
+        #Todo: Consider offset for index calculation
+        rangex, rangey = self.getTileCount(screen)
+        for y in range(0,rangey):
+            py=y*self.tileHeight
+            for x in range(0, rangex):
+                px=x*self.tileWidth
+                screen.blit(self.calcTile(offsetX, offsetY, x,y), (px, py))
         pass
+
+    def calcTile(self, offsetX, offsetY, column, row):
+        """Calculate the tide index and return the correct tileSet."""
+        # Todo: Consider offset on index calculation
+        index = column + row * self.viewColCount
+        layer = self._mapData["layers"][0]["tiles"]
+        if len(layer) > index:
+            tileIndex = layer[index]["tile"]
+        else:
+            tileIndex = layer[0]["tile"]
+        return self._tileSet[tileIndex][0]
+
+    def getTileCount(self, screen):
+        width = screen.get_width()
+        height = screen.get_height()
+        return (width//self.tileWidth, height//self.tileHeight)
 
     @staticmethod
     def loadTileSet(viewName, width, height):
