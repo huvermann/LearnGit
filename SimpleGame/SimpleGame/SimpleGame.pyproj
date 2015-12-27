@@ -49,7 +49,7 @@
     <Compile Include="Src\ViewController.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Src\Views\DirHelper.py">
+    <Compile Include="Src\Utils\DirHelper.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Views\View2.py">

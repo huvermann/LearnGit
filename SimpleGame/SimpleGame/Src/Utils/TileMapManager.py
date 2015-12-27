@@ -1,5 +1,5 @@
 import pygame
-from Views.DirHelper import getResourceFilePath
+from Utils.DirHelper import getResourceFilePath
 import os.path
 import json
 
