@@ -1,5 +1,4 @@
 ﻿from Utils import Utils
-#from Utils import GetScreenSize
 import pygame
 
 class GameState(object):

@@ -10,20 +10,20 @@ class ViewModelBase:
     """description of class"""
     def __init__(self, state, screen, changeViewCallback):
         """Inits the view."""
-        self.callback = changeViewCallback
-        self.state = state
-        self.screen = screen
+        self._callback = changeViewCallback
+        self._state = state
+        self._screen = screen
         self.colors = GameColors()
-        self.demoText = "This is the base view"
-        self.mapData = None
-        self.tileSet = None
-        self.positionX = 0
-        self.positionY = 0
-        self.keyboardSpeed = 10
-        self.keyboardCountdown = 10
+        self._demoText = "This is the base view"
+        self._mapData = None
+        self._tileSet = None
+        self._positionX = 0
+        self._positionY = 0
+        self._keyboardSpeed = 10
+        self._keyboardCountdown = 10
         # Container for all sprites
-        self.allSprites = pygame.sprite.Group()
-        self.font = pygame.font.Font(None, 36)
+        self._allSprites = pygame.sprite.Group()
+        self._font = pygame.font.Font(None, 36)
 
     def loadTileSet(self, filename, width, height):
         image = pygame.image.load(filename).convert()
@@ -43,13 +43,13 @@ class ViewModelBase:
         if os.path.isfile(self.mapFileName):
             # Load the map file
             with open(self.mapFileName) as data_file:
-                self.mapData = json.load(data_file)
+                self._mapData = json.load(data_file)
         else:
             # File not exist
             raise FileNotFoundError(self.mapFileName)
         if os.path.isfile(self.mapImageFileName):
             # Load the map image
-            self.tileSet = self.loadTileSet(self.mapImageFileName, 16, 16)
+            self._tileSet = self.loadTileSet(self.mapImageFileName, 16, 16)
         else:
             raise FileNotFoundError(self.mapImageFileName)
 
@@ -65,7 +65,7 @@ class ViewModelBase:
     def onEvent(self, event):
         """Handle events."""
         if event.type == pygame.QUIT:
-            self.state.done = True
+            self._state.done = True
         elif event.type == pygame.KEYDOWN:
             self.onKeyboardEvent(event)
         elif event.type == UserEvents.EVENT_MUSIC:
@@ -76,17 +76,27 @@ class ViewModelBase:
             self.onNoiseEvent(event)
         elif event.type == UserEvents.EVENT_KEYJOYSTICK:
             self.onKeyboardJoystickEvent(event)
+        elif event.type == pygame.JOYAXISMOTION:
+            self.onJoystickEvent(event)
+        elif event.type == pygame.JOYBUTTONDOWN:
+            self.onJoystickEvent(event)
+        else:
+            print ("Unhandled: ", event.type)
+        pass
+    def onJoystickEvent(self, event):
+        print("JoystickEvent")
+        pass
 
     def onKeyboardEvent(self, event):
         """Handle the keyboard events."""
         print("A key was pressed: ", event.key)
         if event.key == pygame.K_q:
             # Q Pressed, quit game
-            self.state.done = True
+            self._state.done = True
         elif event.key == pygame.K_1:
-            self.callback("View1")
+            self._callback("View1")
         elif event.key == pygame.K_2:
-            self.callback("View2")
+            self._callback("View2")
 
         pass
     def onKeyboardJoystickEvent(self, event):
@@ -107,7 +117,9 @@ class ViewModelBase:
         """Handle all events in event list"""
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                self.state.done = True
+                self._state.done = True
+            elif event.type == 4 or event.type == 1:
+                pass
             else:
                 self.onEvent(event)
         pass
@@ -117,29 +129,29 @@ class ViewModelBase:
 
     def keyboardJoystickChecker(self):
         """Raises the keyboard joystick event depending on the keyboardSpeed variable."""
-        if self.keyboardCountdown == 0:
-            self.keyboardCountdown = self.keyboardSpeed
+        if self._keyboardCountdown == 0:
+            self._keyboardCountdown = self._keyboardSpeed
             keyJoystickEvent = pygame.event.Event(UserEvents.EVENT_KEYJOYSTICK)
             pygame.event.post(keyJoystickEvent)
         else:
-            self.keyboardCountdown = self.keyboardCountdown - 1
+            self._keyboardCountdown = self._keyboardCountdown - 1
         pass
 
 
     def drawTiles(self):
         # Todo: draw all tiles
-        self.screen.blit(self.tileSet[0][0], (-2,0))
-        self.screen.blit(self.tileSet[1][0], (-2,16))
+        self._screen.blit(self._tileSet[0][0], (-2,0))
+        self._screen.blit(self._tileSet[1][0], (-2,16))
     
     def updateScreen(self):
         """Paint the screen."""
         
-        self.screen.fill(self.colors.WHITE)
-        background = self.screen.convert()
-        text = self.font.render(self.demoText, 1, (10,10,10))
+        self._screen.fill(self.colors.WHITE)
+        background = self._screen.convert()
+        text = self._font.render(self._demoText, 1, (10,10,10))
         textpos = text.get_rect(centerx=background.get_width()/2)
         background.blit(text, textpos)
-        self.screen.blit(background, (0,0))
+        self._screen.blit(background, (0,0))
         self.drawTiles()
         
 
@@ -148,11 +160,11 @@ class ViewModelBase:
     def flipScreen(self):
         """Flip the screen."""
         pygame.display.flip()
-        self.state.clock.tick(60)
+        self._state.clock.tick(60)
     
     def moveSprites(self):
         """Moves all sprites."""
-        self.allSprites.draw(self.screen)
+        self._allSprites.draw(self._screen)
         pass
 
 
