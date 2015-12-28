@@ -22,6 +22,7 @@ class ViewModelBase:
         self._positionY = 0
         self._keyboardSpeed = 10
         self._keyboardCountdown = 10
+        self._doRendering = True
         # Container for all sprites
         self._allSprites = pygame.sprite.Group()
         self._font = pygame.font.Font(None, 36)
@@ -76,7 +77,16 @@ class ViewModelBase:
             self._callback("Level1")
         elif event.key == pygame.K_3:
             self._callback("Level2")
+        elif event.key == pygame.K_a:
+            self.ToggleRendering()
 
+        pass
+
+    def ToggleRendering(self):
+        if self._doRendering:
+            self._doRendering = False
+        else:
+            self._doRendering = True
         pass
     def onKeyboardJoystickEvent(self, event):
         #print("Keyboard Joystick ckecked.")
@@ -123,10 +133,11 @@ class ViewModelBase:
         self._positionX += 3
 
     def drawScore(self):
+        
         background = self._screen.convert()
         #text = self._font.render("Hallo Welt", 1, (10,10,10))
         basicfont = pygame.font.SysFont(None, 48)
-        score = "x: {:d} y: {:d}".format(self._positionX, self._positionY)
+        score = "x: {:d} y: {:d} fps: {}".format(self._positionX, self._positionY, str(self._state.clock.get_fps()))
         text = basicfont.render(score, True, (255, 0, 0))
         textpos = text.get_rect()
         textpos.centerx = background.get_rect().centerx
@@ -138,14 +149,15 @@ class ViewModelBase:
     def updateScreen(self):
         """Paint the screen."""
         pygame.draw.rect(self._screen, self.colors.GREEN, self._screen.get_rect())
-        self.drawTiles()
-        self.moveSprites()
+        if self._doRendering:
+            self.drawTiles()
+            self.moveSprites()
         self.drawScore()
     
     def flipScreen(self):
         """Flip the screen."""
         pygame.display.flip()
-        self._state.clock.tick(40)
+        self._state.clock.tick(80)
     
     def moveSprites(self):
         """Moves all sprites."""
