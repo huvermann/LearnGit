@@ -27,7 +27,7 @@ class MainGame:
 
     def run(self):
         """Run the game loop"""
-        
+        pygame.display.set_icon(pygame.image.load(Utils.DirHelper.getResourceFilePath("icon")))
         pygame.display.set_caption("SimpleGame")
         while not self.gameState.done:
             self.viewController.currentView.runView()

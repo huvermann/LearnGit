@@ -15,5 +15,8 @@ def getResourceFilePath(resourceName):
         result = os.path.join(os.getcwd(), "Assets", "Views", "Level2", "Level2.json")    
     elif resourceName == "Level2.png":
         result = os.path.join(os.getcwd(), "Assets", "Views", "Level2", "Level2.png")
+    elif resourceName == "icon":
+        result = os.path.join(os.getcwd(), "Assets", "Images", "dog.png")
+        
 
     return result

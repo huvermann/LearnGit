@@ -118,8 +118,8 @@ class ViewModelBase:
 
 
     def drawTiles(self):
-        # Todo: Implement offset
         self._mapManager.drawTiles(self._screen, self._positionX, self._positionY)
+        # Todo: Implement Keyboard and Joystick movement
         self._positionX += 3
 
     def drawScore(self):

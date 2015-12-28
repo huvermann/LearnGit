@@ -83,6 +83,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Fonts\readme.txt" />
+    <Content Include="Assets\Images\dog.ico" />
+    <Content Include="Assets\Images\dog.png" />
     <Content Include="Assets\Images\readme.txt" />
     <Content Include="Assets\Sound\readme.txt" />
     <Content Include="Assets\Views\Level1\Level1.json" />
