@@ -27,8 +27,6 @@ class MainGame:
             raise
 
     def cleanup(self):
-        if Utils.DirHelper.isRunningInBundle():
-            a = input("Taste: ")
         pygame.quit()
 
     def run(self):
@@ -40,7 +38,7 @@ class MainGame:
                 self.viewController.currentView.runView()
         except Exception as e:
             print(e)
-            raise
+            self.gameState.done = True
 
 
     def initJoystick(self):
