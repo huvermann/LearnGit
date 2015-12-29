@@ -1,19 +1,19 @@
 ﻿from Views.ViewStart import ViewStart
 from Views.View2 import *
 from Views.Level2 import *
+import sys
 
 
 class ViewController(object):
     """description of class"""
     def __init__(self, screen, gameState):
         """Initializes the view controler"""
+        print ("Init viewController.")
         self.screen = screen
         self.gameState = gameState
         self.viewList = {}
         self.currentView = None
         self.changeView("View1")
-        #self.currentView = self.viewFactory("ViewStart")
-        #self.viewList = {'ViewStart': self.currentView};
         pass
     
     def ChangeViewCallback(self, viewName):
@@ -25,13 +25,17 @@ class ViewController(object):
 
     def changeView(self, viewName):
         """Changes the view by name."""
-        #newclass = ViewStart(self.gameState, self.screen, self.ChangeViewCallback)
-        #self.currentView = newclass
         if viewName in self.viewList:
             self.currentView = self.viewList[viewName]
             return self.currentView
         else:
-            newView = self.viewFactory(viewName)
+            try:
+                newView = self.viewFactory(viewName)
+            except Exception as e:
+                newView = None
+                print("exception:")
+                print(e)
+
             if newView:
                 self.currentView = newView
                 self.viewList[viewName] = newView

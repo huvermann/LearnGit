@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>da9d3ad3-2ece-426a-a977-e83b691ddc1a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Src\Main.py</StartupFile>
+    <StartupFile>Src\Game.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -24,6 +24,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Src\Game.py" />
     <Compile Include="Src\GameColors.py">
       <SubType>Code</SubType>
     </Compile>
@@ -33,7 +34,6 @@
     <Compile Include="Src\joystick.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Src\Main.py" />
     <Compile Include="Src\Utils\TileMapManager.py">
       <SubType>Code</SubType>
     </Compile>
@@ -82,6 +82,7 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Fonts\InknutAntiqua-Light.ttf" />
     <Content Include="Assets\Fonts\readme.txt" />
     <Content Include="Assets\Images\dog.ico" />
     <Content Include="Assets\Images\dog.png" />
@@ -96,6 +97,8 @@
     <Content Include="Assets\Views\View1\view1.json" />
     <Content Include="Assets\Views\View1\view1.png" />
     <Content Include="Assets\Views\View1\view1.pyxel" />
+    <Content Include="Deployment\Game.spec" />
+    <Content Include="Deployment\MakeExe.bat" />
     <Content Include="Deployment\readme.txt" />
     <Content Include="Documentation\readme.txt" />
     <Content Include="requirements.txt" />

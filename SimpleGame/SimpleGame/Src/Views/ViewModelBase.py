@@ -1,10 +1,11 @@
 ﻿import pygame
 import os.path
 import json
-from Utils.DirHelper import getResourceFilePath
 from GameState import GameState
 from GameColors import GameColors
 from Utils import UserEvents, TileMapManager
+from Utils.DirHelper import getFontResourceFile
+from pygame.color import THECOLORS
 
 class ViewModelBase:
     """description of class"""
@@ -25,7 +26,8 @@ class ViewModelBase:
         self._doRendering = True
         # Container for all sprites
         self._allSprites = pygame.sprite.Group()
-        self._font = pygame.font.Font(None, 36)
+        fontFile = getFontResourceFile("InknutAntiqua-Light")
+        self._font = pygame.font.Font(fontFile, 12)
 
     def loadMap(self, mapName):
         self._mapManager = TileMapManager.TileMapManager(mapName)
@@ -135,10 +137,8 @@ class ViewModelBase:
     def drawScore(self):
         
         background = self._screen.convert()
-        #text = self._font.render("Hallo Welt", 1, (10,10,10))
-        basicfont = pygame.font.SysFont(None, 48)
         score = "x: {:d} y: {:d} fps: {}".format(self._positionX, self._positionY, str(self._state.clock.get_fps()))
-        text = basicfont.render(score, True, (255, 0, 0))
+        text = self._font.render(score, True, (255, 0, 0))
         textpos = text.get_rect()
         textpos.centerx = background.get_rect().centerx
         background.blit(text, textpos)

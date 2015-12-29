@@ -1,5 +1,5 @@
 import pygame
-from Utils.DirHelper import getResourceFilePath
+from Utils.DirHelper import getMapImageResourceFile, getMapResourceFile
 import os.path
 import json
 
@@ -64,7 +64,7 @@ class TileMapManager:
     def loadTileSet(viewName, width, height):
         """Loads the tilesets and returns an array of tiles"""
         tileset = None
-        filename =getResourceFilePath(viewName + ".png")
+        filename =getMapImageResourceFile(viewName)
         if os.path.isfile(filename):
             image = pygame.image.load(filename).convert()
             image_width, image_height = image.get_size()
@@ -85,7 +85,7 @@ class TileMapManager:
         """Loads the map from an json file."""
         mapData = None
         mapArray = None
-        mapFileName = getResourceFilePath(mapName + ".map")
+        mapFileName = getMapResourceFile(mapName)
         if os.path.isfile(mapFileName):
             with open(mapFileName) as data_file:
                 mapData = json.load(data_file)

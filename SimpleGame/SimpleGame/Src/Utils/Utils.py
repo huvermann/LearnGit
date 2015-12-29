@@ -1,3 +1,5 @@
 
 def GetScreenSize():
-    return (700, 500)
+    """Returns the screen size."""
+    # Todo: Measure the screen size of the system and calculate the window size.
+    return (800, 600)

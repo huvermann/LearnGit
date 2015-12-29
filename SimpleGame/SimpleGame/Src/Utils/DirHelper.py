@@ -1,22 +1,43 @@
-import os.path
+import os.path, sys
 
-def getResourceFilePath(resourceName):
-    """Returns the file path of the resource"""
-    result = None
-    if resourceName == "View1.map":
-        result = os.path.join(os.getcwd(), "Assets", "Views", "View1", "view1.json")
-    elif resourceName == "View1.png":
-        result = os.path.join(os.getcwd(), "Assets", "Views", "View1", "view1.png")
-    elif resourceName == "Level1.map":
-        result = os.path.join(os.getcwd(), "Assets", "Views", "Level1", "Level1.json")    
-    elif resourceName == "Level1.png":
-        result = os.path.join(os.getcwd(), "Assets", "Views", "Level1", "Level1.png")
-    elif resourceName == "Level2.map":
-        result = os.path.join(os.getcwd(), "Assets", "Views", "Level2", "Level2.json")    
-    elif resourceName == "Level2.png":
-        result = os.path.join(os.getcwd(), "Assets", "Views", "Level2", "Level2.png")
-    elif resourceName == "icon":
-        result = os.path.join(os.getcwd(), "Assets", "Images", "dog.png")
-        
+def isRunningInBundle():
+    '''Checks if application is running in bundle'''
+    if getattr( sys, 'frozen', False ) :
+            return True
+    else :
+        return False
 
-    return result
+def getBasePath():
+    '''Gets the resouceBasePath '''
+    if isRunningInBundle():
+        return sys._MEIPASS
+    else:
+        return os.getcwd()
+
+def getMapResourceFile(viewName):
+    '''Returns the tile map file of the view.'''
+    return os.path.join(getBasePath(), "Assets", "Views", viewName, viewName + ".json")
+
+def getMapImageResourceFile(viewName):
+    '''Returns the tile image map of the view.'''
+    return os.path.join(getBasePath(), "Assets", "Views", viewName, viewName + ".png")
+
+def getMapSongResourceFile(viewName):
+    '''Returns the song file of the view.'''
+    raise NotImplementedError()
+
+def getImageResourceFile(resourceName):
+    '''Returns an image file path for a resource name.'''
+    return os.path.join(getBasePath(), "Assets", "Images", resourceName + ".png")
+
+def getFontResourceFile(fontName):
+    '''Gets the font file path of a font.'''
+    return os.path.join(getBasePath(), "Assets", "Fonts", fontName + ".ttf")
+
+def getIconResourceFile(resourceName):
+    '''Returns the icon resource file path.'''
+    return os.path.join(getBasePath(), "Assets", "Images", resourceName + ".ico")
+
+
+
+

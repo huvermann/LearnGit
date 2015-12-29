@@ -1,5 +1,6 @@
-﻿import os, sys
+# Main File.
 import pygame
+import os, sys
 import Utils
 from pygame.locals import *
 from GameColors import GameColors
@@ -14,23 +15,33 @@ class MainGame:
     """The main game class"""
     def __init__(self):
         """Initialization of the main class."""
-        pygame.init()
-        self.joystick = self.initJoystick()
-        self.colors = GameColors()
-        self.gameState = GameState()
-  
-        self.screen = pygame.display.set_mode(self.gameState.size)
-        self.viewController = ViewController(self.screen, self.gameState)
+        try:
+            pygame.init()
+            self.joystick = self.initJoystick()
+            self.colors = GameColors()
+            self.gameState = GameState()
+            self.screen = pygame.display.set_mode(self.gameState.size)
+            self.viewController = ViewController(self.screen, self.gameState)
+        except Exception as e:
+            print(e)
+            raise
 
     def cleanup(self):
+        if Utils.DirHelper.isRunningInBundle():
+            a = input("Taste: ")
         pygame.quit()
 
     def run(self):
         """Run the game loop"""
-        pygame.display.set_icon(pygame.image.load(Utils.DirHelper.getResourceFilePath("icon")))
+        #pygame.display.set_icon(pygame.image.load(Utils.DirHelper.getResourceFilePath("icon")))
         pygame.display.set_caption("SimpleGame")
-        while not self.gameState.done:
-            self.viewController.currentView.runView()
+        try:
+            while not self.gameState.done:
+                self.viewController.currentView.runView()
+        except Exception as e:
+            print(e)
+            raise
+
 
     def initJoystick(self):
         joystick = None
