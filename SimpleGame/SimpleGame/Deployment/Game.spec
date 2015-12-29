@@ -13,7 +13,7 @@ added_files = [
 ]
 
 a = Analysis(['..\\Src\\Game.py'],
-             pathex=['D:\\Daten\\Repositories\\LearnGit\\SimpleGame\\SimpleGame\\Deployment'],
+             pathex=['.\\'],
              binaries=None,
              datas=added_files,
              hiddenimports=[],
