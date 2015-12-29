@@ -10,17 +10,29 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Performance1.psess = Performance1.psess
 	EndProjectSection
 EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Setup", "Setup\Setup.wixproj", "{38165429-6E45-40B0-A4A6-B16CB5854DD1}"
+EndProject
 Global
 	GlobalSection(Performance) = preSolution
 		HasPerformanceSessions = true
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{DA9D3AD3-2ECE-426A-A977-E83B691DDC1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA9D3AD3-2ECE-426A-A977-E83B691DDC1A}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{DA9D3AD3-2ECE-426A-A977-E83B691DDC1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA9D3AD3-2ECE-426A-A977-E83B691DDC1A}.Release|x86.ActiveCfg = Release|Any CPU
+		{38165429-6E45-40B0-A4A6-B16CB5854DD1}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{38165429-6E45-40B0-A4A6-B16CB5854DD1}.Debug|x86.ActiveCfg = Debug|x86
+		{38165429-6E45-40B0-A4A6-B16CB5854DD1}.Debug|x86.Build.0 = Debug|x86
+		{38165429-6E45-40B0-A4A6-B16CB5854DD1}.Release|Any CPU.ActiveCfg = Release|x86
+		{38165429-6E45-40B0-A4A6-B16CB5854DD1}.Release|x86.ActiveCfg = Release|x86
+		{38165429-6E45-40B0-A4A6-B16CB5854DD1}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
