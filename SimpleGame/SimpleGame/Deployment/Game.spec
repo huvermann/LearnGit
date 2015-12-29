@@ -8,7 +8,8 @@ added_files = [
 ('..\\Assets\\Views\\Level2\\Level2.png', 'Assets\\Views\\Level2'),
 ('..\\Assets\\Views\\View1\\view1.json', 'Assets\\Views\\view1'),
 ('..\\Assets\\Views\\View1\\view1.png', 'Assets\\Views\\view1'),
-('..\\Assets\\Fonts\\InknutAntiqua-Light.ttf', 'Assets\\Fonts')
+('..\\Assets\\Fonts\\InknutAntiqua-Light.ttf', 'Assets\\Fonts'),
+('..\Assets\\Images\dog.ico', 'Assets\Images')
 ]
 
 a = Analysis(['..\\Src\\Game.py'],
@@ -33,4 +34,4 @@ exe = EXE(pyz,
           debug=False,
           strip=None,
           upx=True,
-          console=False )
+          console=False , icon='..\\Assets\\Images\\dog.ico')
