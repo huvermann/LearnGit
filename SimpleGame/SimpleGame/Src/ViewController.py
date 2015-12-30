@@ -1,6 +1,7 @@
 ﻿from Views.ViewStart import ViewStart
 from Views.View2 import *
 from Views.Level2 import *
+from Views.ViewModelMapLoader import ViewModelMapLoader
 import sys
 
 
@@ -47,11 +48,10 @@ class ViewController(object):
             return ViewStart(self.gameState, self.screen, self.ChangeViewCallback)
         elif viewName == "Level1":
             return View2(self.gameState, self.screen, self.ChangeViewCallback)
-        elif viewName == "Level2":
-            return Level2(self.gameState, self.screen, self.ChangeViewCallback)
         # Todo implement all views
-        else: 
-            return None
+        else:
+            # Loads any model 
+            return ViewModelMapLoader(viewName, self.gameState, self.screen, self.ChangeViewCallback)
 
 
     def run(self):

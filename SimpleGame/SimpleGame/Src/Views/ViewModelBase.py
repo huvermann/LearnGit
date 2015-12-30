@@ -24,6 +24,7 @@ class ViewModelBase:
         self._keyboardSpeed = 10
         self._keyboardCountdown = 10
         self._doRendering = True
+        self._viewModelName = None
         # Container for all sprites
         self._allSprites = pygame.sprite.Group()
         fontFile = getFontResourceFile("InknutAntiqua-Light")
@@ -163,6 +164,14 @@ class ViewModelBase:
         """Moves all sprites."""
         self._allSprites.draw(self._screen)
         pass
+
+    def _getViewModelName(self):
+        """Getter for viewModelName property."""
+        return self._viewModelName
+    def _setViewModelName(self, value):
+        """Sets the view model name property."""
+        self._viewModelName = value
+    viewModelName = property(_getViewModelName, _setViewModelName)
 
 
 
