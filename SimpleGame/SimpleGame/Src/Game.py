@@ -16,7 +16,7 @@ class MainGame:
     def __init__(self):
         """Initialization of the main class."""
         pygame.init()
-        self.joystick = self.initJoystick()
+        #self.joystick = self.initJoystick()
         self.colors = GameColors()
         self.gameState = GameState()
         self.screen = pygame.display.set_mode(self.gameState.size)
@@ -36,17 +36,6 @@ class MainGame:
         except Exception as e:
             print(e)
             self.gameState.done = True
-
-
-    def initJoystick(self):
-        joystick = None
-        joystickCount = pygame.joystick.get_count()
-        if joystickCount == 0:
-            print ("No joystick found")
-        else:
-            joystick = pygame.joystick.Joystick(0)
-            joystick.init()
-        return joystick
 
 if __name__ == "__main__":
     game = MainGame()

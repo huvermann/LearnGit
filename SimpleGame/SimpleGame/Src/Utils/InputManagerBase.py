@@ -9,9 +9,10 @@ class InputManagerBase():
         self._onExitCallback = None
         self._onStartCallback = None
         self._onButtonUpCallback = None
+        self._onJumpButtonReleaseCallback = None
         pass
 
-    def __init__(self, moveRight = None, moveLeft = None, moveUp = None, moveDown=None, jump=None, exit=None, start=None, buttonUp=None):
+    def __init__(self, moveRight = None, moveLeft = None, moveUp = None, moveDown=None, jump=None, jumpRelease=None, exit=None, start=None, buttonUp=None):
         self._onMoveRightCallback = moveRight
         self._onMoveLeftCallback = moveLeft
         self._onMoveUpCallback = moveUp
@@ -20,7 +21,21 @@ class InputManagerBase():
         self._onExitCallback = exit
         self._onStartCallback = start
         self._onButtonUpCallback = buttonUp
+        self._onJumpButtonReleaseCallback = jumpRelease
         pass
+
+    def mapCallbacks(self, onRelease, onRight, onLeft, onUp, onDown, onJump, onJumpRelease, onStart, onExit):
+        """Assigns the callbacks."""
+        self.onButtonUp = onRelease
+        self.onMoveRight = onRight
+        self.onMoveLeft = onLeft
+        self.onMoveUp = onUp
+        self.onMoveDown = onDown
+        self.onJump = onJump
+        self.onJumpButtonRelease = onJumpRelease
+        self.onStart = onStart
+        self.onExit = onExit
+
     def handleEvent(event):
         """Handles the events and calls the callbacks"""
         raise NotImplementedError("This is a base class, please derive from this class.")
@@ -88,6 +103,14 @@ class InputManagerBase():
     @onButtonUp.setter
     def onButtonUp(self, value):
         self._onButtonUpCallback = value
+        pass
+
+    @property
+    def onJumpButtonRelease(self):
+        return self._onJumpButtonReleaseCallback
+    @onJumpButtonRelease.setter
+    def onJumpButtonRelease(self, value):
+        self._onJumpButtonReleaseCallback = value
         pass
 
 

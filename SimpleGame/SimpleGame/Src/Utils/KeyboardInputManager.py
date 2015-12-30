@@ -14,16 +14,7 @@ class KeyboardInputManager(InputManagerBase):
         self._keyExit = keyExit
         self._keyReleaseButton = 3
 
-    def mapCallbacks(self, onRelease, onRight, onLeft, onUp, onDown, onJump, onStart, onExit):
-        """Assigns the callbacks."""
-        self.onButtonUp = onRelease
-        self.onMoveRight = onRight
-        self.onMoveLeft = onLeft
-        self.onMoveUp = onUp
-        self.onMoveDown = onDown
-        self.onJump = onJump
-        self.onStart = onStart
-        self.onExit = onExit
+    
 
 
     def handleEvent(self, event):

@@ -7,6 +7,7 @@ from Utils import UserEvents, TileMapManager
 from Utils.DirHelper import getFontResourceFile
 from pygame.color import THECOLORS
 from Utils.KeyboardInputManager import KeyboardInputManager
+from Utils.JoystickInputManager import JoystickInputManager
 
 class ViewModelBase:
     """description of class"""
@@ -33,6 +34,8 @@ class ViewModelBase:
         self._font = pygame.font.Font(fontFile, 12)
         self._keyboardEventHandler = self._initKeyboardManager()
         # Todo: implement JoystickEventHandler
+        self._joystickEventHandler = self._initJoystickManager()
+        # Todo: implement Timing-Manager
 
 
     def _initKeyboardManager(self):
@@ -45,10 +48,26 @@ class ViewModelBase:
             self.onMoveUp,
             self.onMoveDown,
             self.onJump,
+            self.onJumpButtonRelease,
             self.onKeyStart,
             self.onKeyExit)
 
         return result
+
+    def _initJoystickManager(self):
+        result = JoystickInputManager()
+        result.mapCallbacks(
+            self.onKeyRelease,
+            self.onMoveRight,
+            self.onMoveLeft,
+            self.onMoveUp,
+            self.onMoveDown,
+            self.onJump,
+            self.onJumpButtonRelease,
+            self.onKeyStart,
+            self.onKeyExit)
+        return result
+
 
     def onKeyRelease(self, event):
         self._moveVektorX = 0
@@ -67,10 +86,16 @@ class ViewModelBase:
         self._moveVektorY = 1
         pass
     def onJump(self, event):
+        print("Jump")
+        pass
+    def onJumpButtonRelease(self, event):
+        print("Jump release")
         pass
     def onKeyStart(self, event):
+        print("Start")
         pass
     def onKeyExit(self, event):
+        print("Exit")
         self._state.done = True
         pass
 
@@ -119,18 +144,19 @@ class ViewModelBase:
         #elif event.type == UserEvents.EVENT_KEYJOYSTICK:
         #    self.onKeyboardJoystickEvent(event)
         elif event.type == pygame.JOYAXISMOTION:
-            self.onJoystickEvent(event)
+            self._joystickEventHandler.handleEvent(event)
         elif event.type == pygame.JOYBUTTONDOWN:
-            self.onJoystickEvent(event)
+            self._joystickEventHandler.handleEvent(event)
+        elif event.type == pygame.JOYBUTTONUP:
+            self._joystickEventHandler.handleEvent(event)
+        elif event.type == pygame.JOYHATMOTION:
+            self._joystickEventHandler.handleEvent(event)
         else:
             print ("Unhandled: ", event.type)
+            if event.type != 27:
+                print (event) 
         pass
-    def onJoystickEvent(self, event):
-        print("JoystickEvent")
-        if event.type == pygame.JOYAXISMOTION:
-            print("JOYAXISMOTION")
 
-        pass
 
     def onKeyboardEvent(self, event):
         """Handle the keyboard events."""

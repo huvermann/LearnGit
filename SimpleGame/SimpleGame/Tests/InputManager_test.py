@@ -83,7 +83,7 @@ class Test_InputManager(unittest.TestCase):
     
     def test_allCallbacks(self):
         actual = InputManagerBase(self.mock.method1, self.mock.method2, self.mock.method3, self.mock.method4,
-                                  self.mock.method5, self.mock.method6, self.mock.method7, self.mock.method8)
+                                  self.mock.method5, self.mock.method6, self.mock.method7, self.mock.method8, self.mock.method9)
         actual.onMoveRight()
         actual.onMoveLeft()
         actual.onMoveUp()
@@ -92,6 +92,7 @@ class Test_InputManager(unittest.TestCase):
         actual.onStart()
         actual.onExit()
         actual.onButtonUp()
+        actual.onJumpButtonRelease()
 
         self.assertTrue(self.mock._method1Called)
         self.assertTrue(self.mock._method2Called)
@@ -101,6 +102,7 @@ class Test_InputManager(unittest.TestCase):
         self.assertTrue(self.mock._method6Called)
         self.assertTrue(self.mock._method7Called)
         self.assertTrue(self.mock._method8Called)
+        self.assertTrue(self.mock._method9Called)
 
 
 
