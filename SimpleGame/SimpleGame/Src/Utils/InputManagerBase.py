@@ -1,0 +1,89 @@
+class InputManagerBase():
+    """Input Manager Base Class to handle input events"""
+    def __init__(self):
+        self._onMoveRightCallback = None
+        self._onMoveLeftCallback = None
+        self._onMoveUpCallback = None
+        self._onMoveDownCallback = None
+        self._onJumpCallback = None
+        self._onExitCallback = None
+        self._onStartCallback = None
+        pass
+
+    def __init__(self, moveRight = None, moveLeft = None, moveUp = None, moveDown=None, jump=None, exit=None, start=None):
+        self._onMoveRightCallback = moveRight
+        self._onMoveLeftCallback = moveLeft
+        self._onMoveUpCallback = moveUp
+        self._onMoveDownCallback = moveDown
+        self._onJumpCallback = jump
+        self._onExitCallback = exit
+        self._onStartCallback = start
+        pass
+    def handleEvent(event):
+        """Handles the events and calls the callbacks"""
+        pass
+
+    @property
+    def onMoveRight(self):
+        return self._onMoveRightCallback
+    @onMoveRight.setter
+    def onMoveRight(self, value):
+        self._onMoveRightCallback = value
+        pass
+
+    @property
+    def onMoveLeft(self):
+        return self._onMoveLeftCallback
+    @onMoveLeft.setter
+    def onMoveLeft(self, value):
+        self._onMoveLeftCallback = value
+        pass
+
+    @property
+    def onMoveUp(self):
+        return self._onMoveUpCallback
+    @onMoveUp.setter
+    def onMoveUp(self, value):
+        self._onMoveUpCallback = value
+        pass
+
+    @property
+    def onMoveDown(self):
+        return self._onMoveDownCallback
+    @onMoveDown.setter
+    def onMoveDown(self, value):
+        self._onMoveDownCallback = value
+        pass
+
+    @property
+    def onJump(self):
+        return self._onJumpCallback
+    @onJump.setter
+    def onJump(self, value):
+        self._onJumpCallback = value
+        pass
+
+    @property
+    def onExit(self):
+        return self._onExitCallback
+    @onExit.setter
+    def onExit(self, value):
+        self._onExitCallback = value
+        pass
+
+    @property
+    def onStart(self):
+        return self._onStartCallback
+    @onStart.setter
+    def onStart(self, value):
+        self._onStartCallback = value
+        pass
+
+
+
+
+
+
+
+
+

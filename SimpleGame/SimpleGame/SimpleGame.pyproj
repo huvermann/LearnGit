@@ -34,6 +34,12 @@
     <Compile Include="Src\joystick.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\JoystickExample.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\InputManagerBase.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Utils\TileMapManager.py">
       <SubType>Code</SubType>
     </Compile>
@@ -68,6 +74,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Views\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\__init__py.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\MockHelper\MethodMock.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\MockHelper\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\InputManager_test.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -118,10 +136,12 @@
     <Folder Include="Assets\Views\View1\" />
     <Folder Include="Documentation\" />
     <Folder Include="Deployment\" />
+    <Folder Include="Src\Tests\" />
     <Folder Include="Src\Utils\" />
     <Folder Include="Src\Views\" />
     <Folder Include="Tests\" />
     <Folder Include="Src\" />
+    <Folder Include="Tests\MockHelper\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
