@@ -29,6 +29,9 @@ class MethodMock():
     def method7(self):
         self._method7Called = True
         pass
+    def method8(self):
+        self._method8Called = True
+        pass
 
 
 

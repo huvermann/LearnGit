@@ -6,6 +6,7 @@ from GameColors import GameColors
 from Utils import UserEvents, TileMapManager
 from Utils.DirHelper import getFontResourceFile
 from pygame.color import THECOLORS
+from Utils.KeyboardInputManager import KeyboardInputManager
 
 class ViewModelBase:
     """description of class"""
@@ -21,14 +22,58 @@ class ViewModelBase:
         self._mapManager = None
         self._positionX = 0
         self._positionY = 0
+        self._moveVektorX = 0
+        self._moveVektorY = 0
         self._keyboardSpeed = 10
         self._keyboardCountdown = 10
-        self._doRendering = True
         self._viewModelName = None
         # Container for all sprites
         self._allSprites = pygame.sprite.Group()
         fontFile = getFontResourceFile("InknutAntiqua-Light")
         self._font = pygame.font.Font(fontFile, 12)
+        self._keyboardEventHandler = self._initKeyboardManager()
+        # Todo: implement JoystickEventHandler
+
+
+    def _initKeyboardManager(self):
+        """Assigns the event handler for keys."""
+        result = KeyboardInputManager.default()
+        result.mapCallbacks(
+            self.onKeyRelease,
+            self.onMoveRight,
+            self.onMoveLeft,
+            self.onMoveUp,
+            self.onMoveDown,
+            self.onJump,
+            self.onKeyStart,
+            self.onKeyExit)
+
+        return result
+
+    def onKeyRelease(self, event):
+        self._moveVektorX = 0
+        self._moveVektorY = 0
+        pass
+    def onMoveRight(self, event):
+        self._moveVektorX = 1
+        pass
+    def onMoveLeft(self, event):
+        self._moveVektorX = -1
+        pass
+    def onMoveUp(self, event):
+        self._moveVektorY = -1
+        pass
+    def onMoveDown(self, event):
+        self._moveVektorY = 1
+        pass
+    def onJump(self, event):
+        pass
+    def onKeyStart(self, event):
+        pass
+    def onKeyExit(self, event):
+        self._state.done = True
+        pass
+
 
     def loadMap(self, mapName):
         self._mapManager = TileMapManager.TileMapManager(mapName)
@@ -38,25 +83,41 @@ class ViewModelBase:
         """Runs the view."""
         self.keyboardJoystickChecker()
         self.handleEvents()
+        self.calculateMovements()
         self.updateScreen()
         self.flipScreen()
         pass
+
+    def calculateMovements(self):
+        """Calculates the next view x,y position."""
+        if self._moveVektorX == 1:
+            self._positionX += 3
+        if self._moveVektorX == -1:
+            self._positionX -= 3
+        if self._moveVektorY == 1:
+            self._positionY +=3
+        if self._moveVektorY == -1:
+            self._positionY -=3
+
 
 
     def onEvent(self, event):
         """Handle events."""
         if event.type == pygame.QUIT:
             self._state.done = True
+        elif event.type == pygame.KEYUP:
+            self._keyboardEventHandler.handleEvent(event)
         elif event.type == pygame.KEYDOWN:
             self.onKeyboardEvent(event)
+            self._keyboardEventHandler.handleEvent(event)
         elif event.type == UserEvents.EVENT_MUSIC:
             self.onMusicEvent(event)
         elif event.type == UserEvents.EVENT_CHANGEVIEW:
             self.onViewChange(event)
         elif event.type == UserEvents.EVENT_NOISE:
             self.onNoiseEvent(event)
-        elif event.type == UserEvents.EVENT_KEYJOYSTICK:
-            self.onKeyboardJoystickEvent(event)
+        #elif event.type == UserEvents.EVENT_KEYJOYSTICK:
+        #    self.onKeyboardJoystickEvent(event)
         elif event.type == pygame.JOYAXISMOTION:
             self.onJoystickEvent(event)
         elif event.type == pygame.JOYBUTTONDOWN:
@@ -66,6 +127,9 @@ class ViewModelBase:
         pass
     def onJoystickEvent(self, event):
         print("JoystickEvent")
+        if event.type == pygame.JOYAXISMOTION:
+            print("JOYAXISMOTION")
+
         pass
 
     def onKeyboardEvent(self, event):
@@ -80,17 +144,9 @@ class ViewModelBase:
             self._callback("Level1")
         elif event.key == pygame.K_3:
             self._callback("Level2")
-        elif event.key == pygame.K_a:
-            self.ToggleRendering()
 
         pass
 
-    def ToggleRendering(self):
-        if self._doRendering:
-            self._doRendering = False
-        else:
-            self._doRendering = True
-        pass
     def onKeyboardJoystickEvent(self, event):
         #print("Keyboard Joystick ckecked.")
         pass
@@ -132,8 +188,6 @@ class ViewModelBase:
 
     def drawTiles(self):
         self._mapManager.drawTiles(self._screen, self._positionX, self._positionY)
-        # Todo: Implement Keyboard and Joystick movement
-        self._positionX += 3
 
     def drawScore(self):
         
@@ -150,9 +204,8 @@ class ViewModelBase:
     def updateScreen(self):
         """Paint the screen."""
         pygame.draw.rect(self._screen, self.colors.GREEN, self._screen.get_rect())
-        if self._doRendering:
-            self.drawTiles()
-            self.moveSprites()
+        self.drawTiles()
+        self.moveSprites()
         self.drawScore()
     
     def flipScreen(self):

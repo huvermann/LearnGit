@@ -15,16 +15,13 @@ class MainGame:
     """The main game class"""
     def __init__(self):
         """Initialization of the main class."""
-        try:
-            pygame.init()
-            self.joystick = self.initJoystick()
-            self.colors = GameColors()
-            self.gameState = GameState()
-            self.screen = pygame.display.set_mode(self.gameState.size)
-            self.viewController = ViewController(self.screen, self.gameState)
-        except Exception as e:
-            print(e)
-            raise
+        pygame.init()
+        self.joystick = self.initJoystick()
+        self.colors = GameColors()
+        self.gameState = GameState()
+        self.screen = pygame.display.set_mode(self.gameState.size)
+        self.viewController = ViewController(self.screen, self.gameState)
+
 
     def cleanup(self):
         pygame.quit()

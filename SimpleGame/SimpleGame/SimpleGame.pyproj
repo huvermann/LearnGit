@@ -40,6 +40,9 @@
     <Compile Include="Src\Utils\InputManagerBase.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Utils\KeyboardInputManager.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Utils\TileMapManager.py">
       <SubType>Code</SubType>
     </Compile>

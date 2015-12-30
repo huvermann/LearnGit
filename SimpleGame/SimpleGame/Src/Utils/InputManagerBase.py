@@ -8,9 +8,10 @@ class InputManagerBase():
         self._onJumpCallback = None
         self._onExitCallback = None
         self._onStartCallback = None
+        self._onButtonUpCallback = None
         pass
 
-    def __init__(self, moveRight = None, moveLeft = None, moveUp = None, moveDown=None, jump=None, exit=None, start=None):
+    def __init__(self, moveRight = None, moveLeft = None, moveUp = None, moveDown=None, jump=None, exit=None, start=None, buttonUp=None):
         self._onMoveRightCallback = moveRight
         self._onMoveLeftCallback = moveLeft
         self._onMoveUpCallback = moveUp
@@ -18,9 +19,11 @@ class InputManagerBase():
         self._onJumpCallback = jump
         self._onExitCallback = exit
         self._onStartCallback = start
+        self._onButtonUpCallback = buttonUp
         pass
     def handleEvent(event):
         """Handles the events and calls the callbacks"""
+        raise NotImplementedError("This is a base class, please derive from this class.")
         pass
 
     @property
@@ -77,6 +80,14 @@ class InputManagerBase():
     @onStart.setter
     def onStart(self, value):
         self._onStartCallback = value
+        pass
+
+    @property
+    def onButtonUp(self):
+        return self._onButtonUpCallback
+    @onButtonUp.setter
+    def onButtonUp(self, value):
+        self._onButtonUpCallback = value
         pass
 
 

@@ -9,7 +9,6 @@ class ViewController(object):
     """description of class"""
     def __init__(self, screen, gameState):
         """Initializes the view controler"""
-        print ("Init viewController.")
         self.screen = screen
         self.gameState = gameState
         self.viewList = {}
