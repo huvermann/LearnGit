@@ -13,6 +13,8 @@ class TileMapManager:
         width = self._mapData["tilewidth"]
         height = self._mapData["tileheight"]
         self._tileSet = TileMapManager.loadTileSet(viewName, width, height)
+        self._tileSetWith = len(self._tileSet)
+        self._tileSetHeight = len(self._tileSet[0])
         pass
 
     def _tileHeight(self):
@@ -52,8 +54,15 @@ class TileMapManager:
 
         absRow=(row+offsetY//self.tileHeight*maxCols) % maxRows
         absCol=(column+offsetX//self.tileWidth) % maxCols
-
-        return self._tileSet[self._tileMapArray[absRow][absCol]][0]
+        tileIndex = self._tileMapArray[absRow][absCol]
+        ix = tileIndex % self._tileSetWith
+        iy = tileIndex // self._tileSetWith
+        try:
+            result = self._tileSet[ix][iy]
+        except IndexError:
+            print("Index error! TileIndex:{} IX: {}. IY: {}".format(tileIndex, ix, iy))
+            result = self._tileSet[0][0]
+        return result
 
     def getTileCount(self, screen):
         width = screen.get_width()

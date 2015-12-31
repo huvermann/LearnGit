@@ -75,15 +75,19 @@ class ViewModelBase:
         pass
     def onMoveRight(self, event):
         self._moveVektorX = 1
+        print("MoveRight")
         pass
     def onMoveLeft(self, event):
         self._moveVektorX = -1
+        print("MoveLeft")
         pass
     def onMoveUp(self, event):
         self._moveVektorY = -1
+        print("MoveUp")
         pass
     def onMoveDown(self, event):
         self._moveVektorY = 1
+        print("MoveDown")
         pass
     def onJump(self, event):
         print("Jump")
@@ -106,7 +110,7 @@ class ViewModelBase:
 
     def runView(self):
         """Runs the view."""
-        self.keyboardJoystickChecker()
+        #self.keyboardJoystickChecker()
         self.handleEvents()
         self.calculateMovements()
         self.updateScreen()
@@ -200,17 +204,6 @@ class ViewModelBase:
 
     def onMusicEvent(self, event):
         pass
-
-    def keyboardJoystickChecker(self):
-        """Raises the keyboard joystick event depending on the keyboardSpeed variable."""
-        if self._keyboardCountdown == 0:
-            self._keyboardCountdown = self._keyboardSpeed
-            keyJoystickEvent = pygame.event.Event(UserEvents.EVENT_KEYJOYSTICK)
-            pygame.event.post(keyJoystickEvent)
-        else:
-            self._keyboardCountdown = self._keyboardCountdown - 1
-        pass
-
 
     def drawTiles(self):
         self._mapManager.drawTiles(self._screen, self._positionX, self._positionY)

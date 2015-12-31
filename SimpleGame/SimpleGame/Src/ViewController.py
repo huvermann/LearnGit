@@ -13,7 +13,7 @@ class ViewController(object):
         self.gameState = gameState
         self.viewList = {}
         self.currentView = None
-        self.changeView("View1")
+        self.changeView("Level2")
         pass
     
     def ChangeViewCallback(self, viewName):
