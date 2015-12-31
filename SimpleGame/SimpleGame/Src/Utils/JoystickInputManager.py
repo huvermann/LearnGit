@@ -9,6 +9,7 @@ class JoystickInputManager(InputManagerBase):
         pass
 
     def _initJoystick(self):
+        """Initialize the joystick."""
         joystick = None
         joystickCount = pygame.joystick.get_count()
         if joystickCount == 0:
@@ -19,17 +20,11 @@ class JoystickInputManager(InputManagerBase):
         return joystick
 
     def handleEvent(self, event):
+        """Handle joystick events."""
         if self._joystick:
             if event.type == pygame.JOYBUTTONDOWN:
-                # Check the Buttons
-                if event.button == 1:
-                    self.onMoveRight(event)
-                elif event.button == 3:
-                    self.onMoveLeft(event)
-                elif event.button == 0:
-                    self.onMoveUp(event)
-                elif event.button == 2:
-                    self.onMoveDown(event)
+                if event.button == 3:
+                    self.onJump(event)
                 elif event.button == 8:
                     self.onExit(event)
                 elif event.button == 9:
@@ -38,15 +33,21 @@ class JoystickInputManager(InputManagerBase):
                     print(event)
 
             elif event.type == pygame.JOYBUTTONUP:
-                self.onButtonUp(event)
+                if event.button == 3:
+                    self.onButtonUp(event)
+
             elif event.type == pygame.JOYHATMOTION:
                 x,y = event.value
-                if y == 1 and x == 0:
-                    self.onJump(event)
+                if (x == 1):
+                    self.onMoveRight(event)
+                if (x == -1):
+                    self.onMoveLeft(event)
+                if y == 1:
+                    self.onMoveUp(event)
+                if y == -1:
+                    self.onMoveDown(event)
                 elif y == 0 and x == 0:
-                    self.onJumpButtonRelease(event)
-
-
+                    self.onButtonUp(event)
         pass
 
 
