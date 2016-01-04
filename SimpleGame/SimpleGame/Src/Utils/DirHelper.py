@@ -18,6 +18,11 @@ def getMapResourceFile(viewName):
     '''Returns the tile map file of the view.'''
     return os.path.join(getBasePath(), "Assets", "Views", viewName, viewName + ".json")
 
+def getConfigurationFile(viewName):
+    '''Returns the configuration file of the view.'''
+    return os.path.join(getBasePath(), "Assets", "Views", viewName, "config.json")
+
+
 def getMapImageResourceFile(viewName):
     '''Returns the tile image map of the view.'''
     return os.path.join(getBasePath(), "Assets", "Views", viewName, viewName + ".png")

@@ -4,7 +4,7 @@ import json
 from GameState import GameState
 from GameColors import GameColors
 from Utils import UserEvents, TileMapManager
-from Utils.DirHelper import getFontResourceFile
+from Utils.DirHelper import getFontResourceFile, getConfigurationFile
 from pygame.color import THECOLORS
 from Utils.KeyboardInputManager import KeyboardInputManager
 from Utils.JoystickInputManager import JoystickInputManager
@@ -28,6 +28,7 @@ class ViewModelBase:
         self._keyboardSpeed = 10
         self._keyboardCountdown = 10
         self._viewModelName = None
+        self._configuration = None
         # Container for all sprites
         self._allSprites = pygame.sprite.Group()
         fontFile = getFontResourceFile("InknutAntiqua-Light")
@@ -36,6 +37,17 @@ class ViewModelBase:
         # Todo: implement JoystickEventHandler
         self._joystickEventHandler = self._initJoystickManager()
         # Todo: implement Timing-Manager
+
+    def _loadConfiguration(self, viewModelName):
+        """Loads the configuration file."""
+        result = None
+        file = getConfigurationFile(viewModelName)
+        if os.path.isfile(file):
+            with open(file) as data_file:
+                result = json.load(data_file)
+        return result
+
+        pass
 
 
     def _initKeyboardManager(self):
@@ -105,7 +117,14 @@ class ViewModelBase:
 
 
     def loadMap(self, mapName):
+        self._configuration = self._loadConfiguration(mapName)
         self._mapManager = TileMapManager.TileMapManager(mapName)
+        self._viewModelName = mapName
+        self._configure(self._configuration)
+        pass
+
+    def _configure(configuration):
+        """Configures the view."""
         pass
 
     def runView(self):
