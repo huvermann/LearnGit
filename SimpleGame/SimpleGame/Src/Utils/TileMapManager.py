@@ -9,13 +9,14 @@ class TileMapManager:
         self._viewName = viewName
         self._position = (0, 0)
         self._mapData = TileMapManager.loadMap(viewName)
+        self._backgroundImage = TileMapManager.loadBackgroundImage(viewName)
         self._tileMapArray = TileMapManager.getTileMapArray(self._mapData)
         width = self._mapData["tilewidth"]
         height = self._mapData["tileheight"]
-        self._tileSet = TileMapManager.loadTileSet(viewName, width, height)
+        self._tileSet = TileMapManager.loadTileSet(viewName, width, height, transparence=(self.loadBackgroundImage != None))
         self._tileSetWith = len(self._tileSet)
         self._tileSetHeight = len(self._tileSet[0])
-        self._backgroundImage = TileMapManager.loadBackgroundImage(viewName)
+
         pass
 
     def _tileHeight(self):
@@ -30,7 +31,6 @@ class TileMapManager:
     tileWidth = property(_tileWidth)
     viewColCount = property(_viewColumnsCount)
     viewRowCount = property(_viewRowCount)
-
 
     def _drawBackground(self, screen, image):
         screen.blit(image, (0,0))
@@ -99,20 +99,24 @@ class TileMapManager:
         return image
 
     @staticmethod
-    def loadTileSet(viewName, width, height):
+    def loadTileSet(viewName, width, height, transparence = False):
         """Loads the tilesets and returns an array of tiles"""
         tileset = None
         filename =getMapImageResourceFile(viewName)
         if os.path.isfile(filename):
             image = pygame.image.load(filename).convert()
             image_width, image_height = image.get_size()
+            transparencColor = image.get_at((0,0)) # get the transparence color
             tileset = []
             for tile_x in range(0, image_width//width):
               line = []
               tileset.append(line)
               for tile_y in range(0, image_height//height):
                 rect = (tile_x*width, tile_y*height, width, height)
-                line.append(image.subsurface(rect))
+                img = image.subsurface(rect)
+                if transparence:
+                    img.set_colorkey(transparencColor)
+                line.append(img)
         else:
             raise FileNotFoundError(filename)
 
