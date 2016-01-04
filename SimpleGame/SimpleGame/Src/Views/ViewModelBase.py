@@ -145,8 +145,6 @@ class ViewModelBase:
             self.onViewChange(event)
         elif event.type == UserEvents.EVENT_NOISE:
             self.onNoiseEvent(event)
-        #elif event.type == UserEvents.EVENT_KEYJOYSTICK:
-        #    self.onKeyboardJoystickEvent(event)
         elif event.type == pygame.JOYAXISMOTION:
             self._joystickEventHandler.handleEvent(event)
         elif event.type == pygame.JOYBUTTONDOWN:
@@ -177,10 +175,6 @@ class ViewModelBase:
 
         pass
 
-    def onKeyboardJoystickEvent(self, event):
-        #print("Keyboard Joystick ckecked.")
-        pass
-
     def onNoiseEvent(self, event):
         """Start a sound."""
         # Todo: implement play sound.
@@ -206,10 +200,11 @@ class ViewModelBase:
         pass
 
     def drawTiles(self):
+        """Draw the tiles to the screen."""
         self._mapManager.drawTiles(self._screen, (self._positionX, self._positionY))
 
     def drawScore(self):
-        
+        """Draws the score to the screen."""
         background = self._screen.convert()
         score = "x: {:d} y: {:d} fps: {}".format(self._positionX, self._positionY, str(self._state.clock.get_fps()))
         score = "x: {:d} y: {:d} ".format(self._positionX, self._positionY)
