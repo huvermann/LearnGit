@@ -31,30 +31,34 @@ class TileMapManager:
     viewRowCount = property(_viewRowCount)
 
 
-    def drawTiles(self, screen, offsetX, offsetY):
-        #Todo: Consider offset for index calculation
+    def drawTiles(self, screen, offset):
         th = self.tileHeight
         tw = self.tileWidth
 
+        shiftx = offset[0] % tw
+        shifty = offset[1] % th
+        rangex, rangey = self.getTileCount(screen)
+        for y in range(0,rangey+1):
+            py=y*th+shifty
+            for x in range(0, rangex+2):
+                px=x*tw
+                screen.blit(self.calcTile(offset, (x,y)), (x*tw-shiftx, py))
+        pass
+
+    def calcTile(self, offset, grid):
+        """Calculate the tide index and return the correct tileSet."""
+        tileIndex = self.calcTileMapIndex(offset, grid)
+        return self.getTileMapImage(tileIndex)
+
+    def calcTileMapIndex(self, offset, grid):
         maxCols =self._mapData["tileswide"]
         maxRows = self._mapData["tileshigh"]
 
-        shiftx = offsetX % tw
-        shifty = offsetY % th
-        rangex, rangey = self.getTileCount(screen)
-        for y in range(2,rangey):
-            py=y*th-shifty
-            for x in range(0, rangex+2):
-                px=x*tw
-                screen.blit(self.calcTile(offsetX, offsetY, x,y, maxCols, maxRows), (x*tw-shiftx, py))
-        pass
+        absRow=(grid[1]+offset[1]//self.tileHeight*maxCols) % maxRows
+        absCol=(grid[0]+offset[0]//self.tileWidth) % maxCols
+        return self._tileMapArray[absRow][absCol]
 
-    def calcTile(self, offsetX, offsetY, column, row, maxCols, maxRows):
-        """Calculate the tide index and return the correct tileSet."""
-
-        absRow=(row+offsetY//self.tileHeight*maxCols) % maxRows
-        absCol=(column+offsetX//self.tileWidth) % maxCols
-        tileIndex = self._tileMapArray[absRow][absCol]
+    def getTileMapImage(self, tileIndex):
         ix = tileIndex % self._tileSetWith
         iy = tileIndex // self._tileSetWith
         try:
@@ -63,6 +67,8 @@ class TileMapManager:
             print("Index error! TileIndex:{} IX: {}. IY: {}".format(tileIndex, ix, iy))
             result = self._tileSet[0][0]
         return result
+
+
 
     def getTileCount(self, screen):
         width = screen.get_width()

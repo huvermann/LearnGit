@@ -206,7 +206,7 @@ class ViewModelBase:
         pass
 
     def drawTiles(self):
-        self._mapManager.drawTiles(self._screen, self._positionX, self._positionY)
+        self._mapManager.drawTiles(self._screen, (self._positionX, self._positionY))
 
     def drawScore(self):
         

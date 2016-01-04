@@ -37,6 +37,15 @@
     <Compile Include="Src\JoystickExample.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Tests\DrawTilesTests.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Tests\TileTestHelper.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Tests\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Utils\InputManagerBase.py">
       <SubType>Code</SubType>
     </Compile>
@@ -86,6 +95,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tests\MockHelper\MethodMock.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\MockHelper\ScreenMock.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tests\MockHelper\__init__.py">
