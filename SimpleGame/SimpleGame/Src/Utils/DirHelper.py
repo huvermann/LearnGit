@@ -22,6 +22,10 @@ def getMapImageResourceFile(viewName):
     '''Returns the tile image map of the view.'''
     return os.path.join(getBasePath(), "Assets", "Views", viewName, viewName + ".png")
 
+def getBackgroundImageResourceFile(viewName):
+    '''Returns the background image file of a view.'''
+    return os.path.join(getBasePath(), "Assets", "Views", viewName, "background.png")
+
 def getMapSongResourceFile(viewName):
     '''Returns the song file of the view.'''
     raise NotImplementedError()

@@ -1,5 +1,5 @@
 import pygame
-from Utils.DirHelper import getMapImageResourceFile, getMapResourceFile
+from Utils.DirHelper import getMapImageResourceFile, getMapResourceFile, getBackgroundImageResourceFile
 import os.path
 import json
 
@@ -15,6 +15,7 @@ class TileMapManager:
         self._tileSet = TileMapManager.loadTileSet(viewName, width, height)
         self._tileSetWith = len(self._tileSet)
         self._tileSetHeight = len(self._tileSet[0])
+        self._backgroundImage = TileMapManager.loadBackgroundImage(viewName)
         pass
 
     def _tileHeight(self):
@@ -31,7 +32,15 @@ class TileMapManager:
     viewRowCount = property(_viewRowCount)
 
 
+    def _drawBackground(self, screen, image):
+        screen.blit(image, (0,0))
+        pass
+
+
     def drawTiles(self, screen, offset):
+        if self._backgroundImage:
+            self._drawBackground(screen, self._backgroundImage)
+
         th = self.tileHeight
         tw = self.tileWidth
 
@@ -41,8 +50,13 @@ class TileMapManager:
         for y in range(0,rangey+2):
             py=y*th-shifty
             for x in range(0, rangex+2):
-                px=x*tw
-                screen.blit(self.calcTile(offset, (x,y)), (x*tw-shiftx, py))
+                tileIndex=self.calcTileMapIndex(offset, (x,y))
+                if (tileIndex > 0) or (self._backgroundImage == None):
+                    # Draw all tiles except index 0
+                    px=x*tw
+                    screen.blit(self.calcTile(offset, (x,y)), (x*tw-shiftx, py))
+                  
+                
         pass
 
     def calcTile(self, offset, grid):
@@ -75,6 +89,14 @@ class TileMapManager:
         width = screen.get_width()
         height = screen.get_height()
         return (width//self.tileWidth, height//self.tileHeight)
+
+    @staticmethod
+    def loadBackgroundImage(viewName):
+        image = None
+        filename = getBackgroundImageResourceFile(viewName)
+        if os.path.isfile(filename):
+            image = pygame.image.load(filename).convert()
+        return image
 
     @staticmethod
     def loadTileSet(viewName, width, height):
