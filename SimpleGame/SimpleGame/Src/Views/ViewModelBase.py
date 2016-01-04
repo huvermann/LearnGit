@@ -212,6 +212,7 @@ class ViewModelBase:
         
         background = self._screen.convert()
         score = "x: {:d} y: {:d} fps: {}".format(self._positionX, self._positionY, str(self._state.clock.get_fps()))
+        score = "x: {:d} y: {:d} ".format(self._positionX, self._positionY)
         text = self._font.render(score, True, (255, 0, 0))
         textpos = text.get_rect()
         textpos.centerx = background.get_rect().centerx

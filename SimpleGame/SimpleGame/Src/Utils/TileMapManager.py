@@ -38,8 +38,8 @@ class TileMapManager:
         shiftx = offset[0] % tw
         shifty = offset[1] % th
         rangex, rangey = self.getTileCount(screen)
-        for y in range(0,rangey+1):
-            py=y*th+shifty
+        for y in range(0,rangey+2):
+            py=y*th-shifty
             for x in range(0, rangex+2):
                 px=x*tw
                 screen.blit(self.calcTile(offset, (x,y)), (x*tw-shiftx, py))
@@ -54,7 +54,8 @@ class TileMapManager:
         maxCols =self._mapData["tileswide"]
         maxRows = self._mapData["tileshigh"]
 
-        absRow=(grid[1]+offset[1]//self.tileHeight*maxCols) % maxRows
+        #absRow=(grid[1]+offset[1]//self.tileHeight*maxCols) % maxRows
+        absRow=(offset[1]//self.tileHeight+grid[1]) % maxRows
         absCol=(grid[0]+offset[0]//self.tileWidth) % maxCols
         return self._tileMapArray[absRow][absCol]
 
