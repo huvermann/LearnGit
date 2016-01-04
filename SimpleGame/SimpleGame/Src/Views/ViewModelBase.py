@@ -8,6 +8,7 @@ from Utils.DirHelper import getFontResourceFile, getConfigurationFile
 from pygame.color import THECOLORS
 from Utils.KeyboardInputManager import KeyboardInputManager
 from Utils.JoystickInputManager import JoystickInputManager
+from Utils.MusicPlayer import MusicPlayer
 
 class ViewModelBase:
     """description of class"""
@@ -29,6 +30,7 @@ class ViewModelBase:
         self._keyboardCountdown = 10
         self._viewModelName = None
         self._configuration = None
+        self._musicPlayer = None
         # Container for all sprites
         self._allSprites = pygame.sprite.Group()
         fontFile = getFontResourceFile("InknutAntiqua-Light")
@@ -123,8 +125,9 @@ class ViewModelBase:
         self._configure(self._configuration)
         pass
 
-    def _configure(configuration):
+    def _configure(self, configuration):
         """Configures the view."""
+        self._musicPlayer = MusicPlayer(self._configuration["Songs"])
         pass
 
     def runView(self):
@@ -172,6 +175,9 @@ class ViewModelBase:
             self._joystickEventHandler.handleEvent(event)
         elif event.type == pygame.JOYHATMOTION:
             self._joystickEventHandler.handleEvent(event)
+        elif event.type == UserEvents.EVENT_MUSIC_ENDED:
+            if self._musicPlayer:
+                self._musicPlayer.playNextSong()
         else:
             print ("Unhandled: ", event.type)
             if event.type != 27:

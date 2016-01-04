@@ -31,9 +31,10 @@ def getBackgroundImageResourceFile(viewName):
     '''Returns the background image file of a view.'''
     return os.path.join(getBasePath(), "Assets", "Views", viewName, "background.png")
 
-def getMapSongResourceFile(viewName):
-    '''Returns the song file of the view.'''
-    raise NotImplementedError()
+def getSongResourceFile(filename):
+    '''Returns the song filename.'''
+    return os.path.join(getBasePath(), "Assets", "Sound", filename)
+
 
 def getImageResourceFile(resourceName):
     '''Returns an image file path for a resource name.'''
