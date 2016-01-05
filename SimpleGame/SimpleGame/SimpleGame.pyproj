@@ -58,6 +58,12 @@
     <Compile Include="Src\Utils\MusicPlayer.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Utils\PlayerSprite.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\PlayerBaseClass.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Utils\TileMapManager.py">
       <SubType>Code</SubType>
     </Compile>
@@ -132,6 +138,9 @@
     <Content Include="Assets\Sound\m4rt3z_m4rt3z---Elemental-Energy-Oxy-320.mp3" />
     <Content Include="Assets\Sound\m4rt3z_m4rt3z---Primal-Snap-320.mp3" />
     <Content Include="Assets\Sound\readme.txt" />
+    <Content Include="Assets\Sprites\Jimbo\Jimbo.pyxel" />
+    <Content Include="Assets\Sprites\Jimbo\Jimbo_Left.png" />
+    <Content Include="Assets\Sprites\Jimbo\Jimbo_Right.png" />
     <Content Include="Assets\Views\Level1\Level1.json" />
     <Content Include="Assets\Views\Level1\Level1.png" />
     <Content Include="Assets\Views\Level1\Level1.pyxel" />
@@ -154,6 +163,8 @@
     <Folder Include="Assets\" />
     <Folder Include="Assets\Images\" />
     <Folder Include="Assets\Fonts\" />
+    <Folder Include="Assets\Sprites\" />
+    <Folder Include="Assets\Sprites\Jimbo\" />
     <Folder Include="Assets\Views\" />
     <Folder Include="Assets\Sound\" />
     <Folder Include="Assets\Views\Level1\" />

@@ -3,6 +3,27 @@
     { "Filename": "m4rt3z_m4rt3z---Primal-Snap-320.mp3" },
     { "Filename": "m4rt3z_m4rt3z---Elemental-Energy-Oxy-320.mp3" }
   ],
-  "PlayLoop": 1
+  "PlayLoop": 1,
+  "Volume": 3,
+  "StartAt": 
+  {
+    "x": 228,
+    "y": 87
+  },
+  "Sprites": [
+    {
+      "Name" :  "Coin1",
+      "SpriteType": "Coin",
+      "PosX": 100,
+      "PosY": 1024
+    },
+    {
+      "Name ":  "Coin2",
+      "SpriteType": "Coin",
+      "PosX": 120,
+      "PosY": 2024
+    }
+
+  ]
 
 }

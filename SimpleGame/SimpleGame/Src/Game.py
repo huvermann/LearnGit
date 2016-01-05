@@ -1,6 +1,7 @@
 # Main File.
 import pygame
 import os, sys
+import logging
 import Utils
 from pygame.locals import *
 from GameColors import GameColors
@@ -9,18 +10,22 @@ from ViewController import ViewController
 
 if not pygame.font: print ('Warning, fonts disabled')
 if not pygame.mixer: print ('Warning, sound disabled')
+from pgu import gui
 
 
 class MainGame:
     """The main game class"""
     def __init__(self):
         """Initialization of the main class."""
+        logging
         pygame.init()
+        logging.debug('Game started!')
         #self.joystick = self.initJoystick()
         self.colors = GameColors()
         self.gameState = GameState()
         self.screen = pygame.display.set_mode(self.gameState.size)
         self.viewController = ViewController(self.screen, self.gameState)
+
 
 
     def cleanup(self):

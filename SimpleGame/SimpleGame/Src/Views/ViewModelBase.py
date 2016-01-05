@@ -9,6 +9,8 @@ from pygame.color import THECOLORS
 from Utils.KeyboardInputManager import KeyboardInputManager
 from Utils.JoystickInputManager import JoystickInputManager
 from Utils.MusicPlayer import MusicPlayer
+from Utils.PlayerSprite import PlayerSprite
+
 
 class ViewModelBase:
     """description of class"""
@@ -24,15 +26,17 @@ class ViewModelBase:
         self._mapManager = None
         self._positionX = 0
         self._positionY = 0
-        self._moveVektorX = 0
-        self._moveVektorY = 0
+        self._moveVectorX = 0
+        self._moveVectorY = 0
         self._keyboardSpeed = 10
         self._keyboardCountdown = 10
         self._viewModelName = None
         self._configuration = None
         self._musicPlayer = None
+        self._player = PlayerSprite(screen, (300,300), "Jimbo")
         # Container for all sprites
         self._allSprites = pygame.sprite.Group()
+        self._allSprites.add(self._player)
         fontFile = getFontResourceFile("InknutAntiqua-Light")
         self._font = pygame.font.Font(fontFile, 12)
         self._keyboardEventHandler = self._initKeyboardManager()
@@ -84,23 +88,23 @@ class ViewModelBase:
 
 
     def onKeyRelease(self, event):
-        self._moveVektorX = 0
-        self._moveVektorY = 0
+        self._moveVectorX = 0
+        self._moveVectorY = 0
         pass
     def onMoveRight(self, event):
-        self._moveVektorX = 1
+        self._moveVectorX = 1
         print("MoveRight")
         pass
     def onMoveLeft(self, event):
-        self._moveVektorX = -1
+        self._moveVectorX = -1
         print("MoveLeft")
         pass
     def onMoveUp(self, event):
-        self._moveVektorY = -1
+        self._moveVectorY = -1
         print("MoveUp")
         pass
     def onMoveDown(self, event):
-        self._moveVektorY = 1
+        self._moveVectorY = 1
         print("MoveDown")
         pass
     def onJump(self, event):
@@ -127,7 +131,10 @@ class ViewModelBase:
 
     def _configure(self, configuration):
         """Configures the view."""
-        self._musicPlayer = MusicPlayer(self._configuration["Songs"])
+        self._musicPlayer = MusicPlayer(configuration["Songs"])
+        if configuration["StartAt"]:
+            self._positionX = configuration["StartAt"]["x"]
+            self._positionY = configuration["StartAt"]["y"]
         pass
 
     def runView(self):
@@ -141,14 +148,16 @@ class ViewModelBase:
 
     def calculateMovements(self):
         """Calculates the next view x,y position."""
-        if self._moveVektorX == 1:
+        if self._moveVectorX == 1:
             self._positionX += 3
-        if self._moveVektorX == -1:
+        if self._moveVectorX == -1:
             self._positionX -= 3
-        if self._moveVektorY == 1:
+        if self._moveVectorY == 1:
             self._positionY +=3
-        if self._moveVektorY == -1:
+        if self._moveVectorY == -1:
             self._positionY -=3
+        self._player.update((self._positionX, self._positionY), (self._moveVectorX, self._moveVectorY))
+
 
 
 
@@ -197,6 +206,8 @@ class ViewModelBase:
             self._callback("Level1")
         elif event.key == pygame.K_3:
             self._callback("Level2")
+        elif event.key == pygame.K_m:
+            self._musicPlayer.stop()
 
         pass
 
@@ -243,7 +254,7 @@ class ViewModelBase:
     
     def updateScreen(self):
         """Paint the screen."""
-        pygame.draw.rect(self._screen, self.colors.GREEN, self._screen.get_rect())
+        #pygame.draw.rect(self._screen, self.colors.GREEN, self._screen.get_rect())
         self.drawTiles()
         self.moveSprites()
         self.drawScore()

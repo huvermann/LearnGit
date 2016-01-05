@@ -48,6 +48,10 @@ def getIconResourceFile(resourceName):
     '''Returns the icon resource file path.'''
     return os.path.join(getBasePath(), "Assets", "Images", resourceName + ".ico")
 
+def getSpriteAnimationImage(resourceName, animationName):
+    '''Returns a sprite animation image file.'''
+    return os.path.join(getBasePath(), "Assets", "Sprites", resourceName, resourceName + "_" + animationName + ".png")
+
 
 
 
