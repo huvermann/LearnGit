@@ -37,7 +37,22 @@
     <Compile Include="Src\JoystickExample.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Sprites\JimboSprite.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Sprites\MockSprite.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Sprites\SpriteFactory.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Sprites\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Tests\DrawTilesTests.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Tests\SpriteFactoryTests.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Tests\TileTestHelper.py">
@@ -175,6 +190,7 @@
     <Folder Include="Assets\Views\View1\" />
     <Folder Include="Documentation\" />
     <Folder Include="Deployment\" />
+    <Folder Include="Src\Sprites\" />
     <Folder Include="Src\Tests\" />
     <Folder Include="Src\Utils\" />
     <Folder Include="Src\Views\" />

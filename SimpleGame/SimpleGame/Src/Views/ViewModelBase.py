@@ -10,7 +10,8 @@ from Utils.KeyboardInputManager import KeyboardInputManager
 from Utils.JoystickInputManager import JoystickInputManager
 from Utils.MusicPlayer import MusicPlayer
 from Utils.PlayerSprite import PlayerSprite
-
+#from Sprites.JimboSprite import *
+from Sprites.SpriteFactory import createSpriteInstance
 
 class ViewModelBase:
     """description of class"""
@@ -33,10 +34,11 @@ class ViewModelBase:
         self._viewModelName = None
         self._configuration = None
         self._musicPlayer = None
-        self._player = PlayerSprite(screen, "Jimbo")
+        self._playerSprite = None
         # Container for all sprites
         self._allSprites = pygame.sprite.Group()
-        self._allSprites.add(self._player)
+        if self._playerSprite:
+            self._allSprites.add(self._playerSprite)
         fontFile = getFontResourceFile("InknutAntiqua-Light")
         self._font = pygame.font.Font(fontFile, 12)
         self._keyboardEventHandler = self._initKeyboardManager()
@@ -131,6 +133,14 @@ class ViewModelBase:
 
     def _configure(self, configuration):
         """Configures the view."""
+        # Loads the sprite class for the player from config file.
+        playername = configuration["PlayerType"]
+        if len(playername) > 1:
+            # Creates the sprite instance.
+            self._playerSprite = createSpriteInstance(playername, self._screen)
+            # Adds the player to the sprite group.
+            self._allSprites.add(self._playerSprite)
+        # Gets the Song list from config and creates a music player
         self._musicPlayer = MusicPlayer(configuration["Songs"])
         if configuration["StartAt"]:
             self._positionX = configuration["StartAt"]["x"]
@@ -156,7 +166,8 @@ class ViewModelBase:
             self._positionY +=3
         if self._moveVectorY == -1:
             self._positionY -=3
-        self._player.update((self._positionX, self._positionY), (self._moveVectorX, self._moveVectorY))
+        if self._playerSprite:
+            self._playerSprite.update((self._positionX, self._positionY), (self._moveVectorX, self._moveVectorY))
 
 
 
