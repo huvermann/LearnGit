@@ -165,6 +165,7 @@
     <Folder Include="Assets\Fonts\" />
     <Folder Include="Assets\Sprites\" />
     <Folder Include="Assets\Sprites\Jimbo\" />
+    <Folder Include="Assets\Sprites\Jimbo\Coin\" />
     <Folder Include="Assets\Views\" />
     <Folder Include="Assets\Sound\" />
     <Folder Include="Assets\Views\Level1\" />
