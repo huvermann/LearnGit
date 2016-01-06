@@ -138,6 +138,8 @@
     <Content Include="Assets\Sound\m4rt3z_m4rt3z---Elemental-Energy-Oxy-320.mp3" />
     <Content Include="Assets\Sound\m4rt3z_m4rt3z---Primal-Snap-320.mp3" />
     <Content Include="Assets\Sound\readme.txt" />
+    <Content Include="Assets\Sprites\Jimbo\Coin\Coin.png" />
+    <Content Include="Assets\Sprites\Jimbo\Coin\Coin.pyxel" />
     <Content Include="Assets\Sprites\Jimbo\Jimbo.pyxel" />
     <Content Include="Assets\Sprites\Jimbo\Jimbo_Left.png" />
     <Content Include="Assets\Sprites\Jimbo\Jimbo_Right.png" />
