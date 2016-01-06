@@ -9,8 +9,8 @@ from pygame.color import THECOLORS
 from Utils.KeyboardInputManager import KeyboardInputManager
 from Utils.JoystickInputManager import JoystickInputManager
 from Utils.MusicPlayer import MusicPlayer
-from Utils.PlayerSprite import PlayerSprite
-#from Sprites.JimboSprite import *
+from Utils.Constants import Constants, ViewNames
+
 from Sprites.SpriteFactory import createSpriteInstance
 
 class ViewModelBase:
@@ -21,7 +21,6 @@ class ViewModelBase:
         self._state = state
         self._screen = screen
         self.colors = GameColors()
-        self._demoText = "This is the base view"
         self._mapData = None
         self._tileSet = None
         self._mapManager = None
@@ -35,6 +34,7 @@ class ViewModelBase:
         self._configuration = None
         self._musicPlayer = None
         self._playerSprite = None
+
         # Container for all sprites
         self._allSprites = pygame.sprite.Group()
         if self._playerSprite:
@@ -133,18 +133,19 @@ class ViewModelBase:
 
     def _configure(self, configuration):
         """Configures the view."""
-        # Loads the sprite class for the player from config file.
-        playername = configuration["PlayerType"]
-        if len(playername) > 1:
-            # Creates the sprite instance.
-            self._playerSprite = createSpriteInstance(playername, self._screen)
-            # Adds the player to the sprite group.
-            self._allSprites.add(self._playerSprite)
-        # Gets the Song list from config and creates a music player
-        self._musicPlayer = MusicPlayer(configuration["Songs"])
-        if configuration["StartAt"]:
-            self._positionX = configuration["StartAt"]["x"]
-            self._positionY = configuration["StartAt"]["y"]
+        if configuration:
+            # Loads the sprite class for the player from config file.
+            playername = configuration[Constants.PlayerType]
+            if len(playername) > 1:
+                # Creates the sprite instance.
+                self._playerSprite = createSpriteInstance(playername, self._screen)
+                # Adds the player to the sprite group.
+                self._allSprites.add(self._playerSprite)
+            # Gets the Song list from config and creates a music player
+            self._musicPlayer = MusicPlayer(configuration[Constants.Songs])
+            if configuration[Constants.StartPlayerAt]:
+                self._positionX = configuration[Constants.StartPlayerAt]["x"]
+                self._positionY = configuration[Constants.StartPlayerAt]["y"]
         pass
 
     def runView(self):
@@ -212,11 +213,11 @@ class ViewModelBase:
             # Q Pressed, quit game
             self._state.done = True
         elif event.key == pygame.K_1:
-            self._callback("View1")
+            self._callback(ViewNames.View1)
         elif event.key == pygame.K_2:
-            self._callback("Level1")
+            self._callback(ViewNames.Level1)
         elif event.key == pygame.K_3:
-            self._callback("Level2")
+            self._callback(ViewNames.Level2)
         elif event.key == pygame.K_m:
             self._musicPlayer.stop()
 

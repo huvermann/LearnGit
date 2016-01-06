@@ -1,6 +1,7 @@
 import pygame
 import os
 from Utils.DirHelper import getSpriteAnimationImage
+from Utils.Constants import AnimationNames
 
 class PlayerBaseClass(pygame.sprite.Sprite):
     """The player sprite base class."""
@@ -28,8 +29,8 @@ class PlayerBaseClass(pygame.sprite.Sprite):
 
     def loadAnimations(self, spriteName):
         """Loads all animation imanges from spritename folder."""
-        self._aniLeft = PlayerBaseClass.loadAnimationFile(spriteName, "Left")
-        self._aniRight = PlayerBaseClass.loadAnimationFile(spriteName, "Right")
+        self._aniLeft = PlayerBaseClass.loadAnimationFile(spriteName, AnimationNames.Left)
+        self._aniRight = PlayerBaseClass.loadAnimationFile(spriteName, AnimationNames.Right)
         # Get the transparency color
         if self._aniLeft:
             self._transparenceKey = self._aniLeft.get_at((0,0))

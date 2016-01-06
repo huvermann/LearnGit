@@ -5,7 +5,6 @@ class View2(Views.ViewModelBase.ViewModelBase):
     def __init__(self, state, screen, changeViewCallback):
         super().__init__(state, screen, changeViewCallback)
         self.loadMap("Level1") # Todo: change map name
-        self._demoText = "Dies ist view2"
 
 
 
