@@ -4,12 +4,11 @@ from Utils.DirHelper import getSpriteAnimationImage
 
 class PlayerBaseClass(pygame.sprite.Sprite):
     """The player sprite base class."""
-    def __init__(self, screen, mapPosition, spriteName):
+    def __init__(self, screen, spriteName):
         super().__init__()
         self.image = pygame.Surface([32,32])
         self.image.fill((0,0,0))
-        self._mapPosition = mapPosition
-        self.rect = self._calculateViewPosition(screen, mapPosition, self.image)
+        self.rect = self._calculateViewPosition(screen, self.image)
         self._spriteName = spriteName
         self._aniLeft = None
         self._aniRight = None
@@ -18,7 +17,7 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         #Todo: replace the counter with a clock
         self._moveCounter = 0
 
-    def _calculateViewPosition(self, screen, mapPosition, image):
+    def _calculateViewPosition(self, screen, image):
         #Todo: 
         screeenRect = screen.get_rect()
         result = image.get_rect()

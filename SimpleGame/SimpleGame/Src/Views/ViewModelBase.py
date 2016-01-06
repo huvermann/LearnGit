@@ -33,7 +33,7 @@ class ViewModelBase:
         self._viewModelName = None
         self._configuration = None
         self._musicPlayer = None
-        self._player = PlayerSprite(screen, (300,300), "Jimbo")
+        self._player = PlayerSprite(screen, "Jimbo")
         # Container for all sprites
         self._allSprites = pygame.sprite.Group()
         self._allSprites.add(self._player)
