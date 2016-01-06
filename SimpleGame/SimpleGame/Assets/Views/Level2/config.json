@@ -9,21 +9,6 @@
   {
     "x": 228,
     "y": 87
-  },
-  "Sprites": [
-    {
-      "Name" :  "Coin1",
-      "SpriteType": "Coin",
-      "PosX": 100,
-      "PosY": 1024
-    },
-    {
-      "Name ":  "Coin2",
-      "SpriteType": "Coin",
-      "PosX": 120,
-      "PosY": 2024
-    }
-
-  ]
+  }
 
 }
