@@ -49,9 +49,7 @@
     <Compile Include="Src\Sprites\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Src\Tests\DrawTilesTests.py">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Src\Tests\DrawTilesTests.py" />
     <Compile Include="Src\Tests\SpriteFactoryTests.py">
       <SubType>Code</SubType>
     </Compile>
