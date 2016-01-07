@@ -10,8 +10,6 @@ from ViewController import ViewController
 
 if not pygame.font: print ('Warning, fonts disabled')
 if not pygame.mixer: print ('Warning, sound disabled')
-from pgu import gui
-
 
 class MainGame:
     """The main game class"""
