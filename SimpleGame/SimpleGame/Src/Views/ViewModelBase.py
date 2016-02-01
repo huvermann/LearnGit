@@ -171,7 +171,7 @@ class ViewModelBase:
         self.flipScreen()
         pass
 
-    def calculateRightMove(self, xVector, startTime, startPos, speed):
+    def calculateGroundedMove(self, xVector, startTime, startPos, speed):
         now = pygame.time.get_ticks()
         result = self._positionX
         if startTime:
@@ -180,13 +180,14 @@ class ViewModelBase:
             result = int(startPos[0] + move)
         return result
             
+    def playerIsGrounded(self):
+        """Calculates if the player has a ground tile under his feeds."""
+
+        return True
 
     def calculateMovements(self):
         """Calculates the next view x,y position."""
-        #if self._moveVectorX == 1:
-        #    self._positionX += 3
-        #if self._moveVectorX == -1:
-        #    self._positionX -= 3
+
         #if self._moveVectorY == 1:
         #    self._positionY +=3
         #if self._moveVectorY == -1:
@@ -194,7 +195,8 @@ class ViewModelBase:
         
         if self._playerSprite:
             if self._moveStartTime:
-                self._positionX = self.calculateRightMove(self._moveVectorX, self._moveStartTime, self._moveStartPosition, self._playerSprite.speed)
+                if self.playerIsGrounded():
+                    self._positionX = self.calculateGroundedMove(self._moveVectorX, self._moveStartTime, self._moveStartPosition, self._playerSprite.speed)
             self._playerSprite.update(self._moveVectorX, self._moveVectorY)
 
 

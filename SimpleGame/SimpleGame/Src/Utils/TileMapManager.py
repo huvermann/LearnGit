@@ -16,7 +16,6 @@ class TileMapManager:
         self._tileSet = TileMapManager.loadTileSet(viewName, width, height, transparence=(self.loadBackgroundImage != None))
         self._tileSetWith = len(self._tileSet)
         self._tileSetHeight = len(self._tileSet[0])
-
         pass
 
     def _tileHeight(self):
@@ -36,7 +35,6 @@ class TileMapManager:
         screen.blit(image, (0,0))
         pass
 
-
     def drawTiles(self, screen, offset):
         if self._backgroundImage:
             self._drawBackground(screen, self._backgroundImage)
@@ -55,8 +53,6 @@ class TileMapManager:
                     # Draw all tiles except index 0
                     px=x*tw
                     screen.blit(self.calcTile(offset, (x,y)), (x*tw-shiftx, py))
-                  
-                
         pass
 
     def calcTile(self, offset, grid):
@@ -68,7 +64,6 @@ class TileMapManager:
         maxCols =self._mapData["tileswide"]
         maxRows = self._mapData["tileshigh"]
 
-        #absRow=(grid[1]+offset[1]//self.tileHeight*maxCols) % maxRows
         absRow=(offset[1]//self.tileHeight+grid[1]) % maxRows
         absCol=(grid[0]+offset[0]//self.tileWidth) % maxCols
         return self._tileMapArray[absRow][absCol]
@@ -82,8 +77,6 @@ class TileMapManager:
             print("Index error! TileIndex:{} IX: {}. IY: {}".format(tileIndex, ix, iy))
             result = self._tileSet[0][0]
         return result
-
-
 
     def getTileCount(self, screen):
         width = screen.get_width()
