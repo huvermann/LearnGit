@@ -17,6 +17,7 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         self.loadAnimations(spriteName)
         #Todo: replace the counter with a clock
         self._moveCounter = 0
+        self._speed = 120 # Default speed pixel per second
 
     def _calculateViewPosition(self, screen, image):
         #Todo: 
@@ -39,6 +40,11 @@ class PlayerBaseClass(pygame.sprite.Sprite):
             self._aniRight.set_colorkey(self._aniRight.get_at((0,0)))
         pass
 
+    @property
+    def speed(self):
+        return self._speed
+    
+
     @staticmethod
     def loadAnimationFile(spriteName, animationName):
         result = None
@@ -47,8 +53,16 @@ class PlayerBaseClass(pygame.sprite.Sprite):
             result = pygame.image.load(animationFile).convert()
         return result
 
-    def update(self, mapPosition, vectors):
+    def update(self, vectorX, vectorY):
+        
         # Todo: implement animation
+        
+        # Select the animation by x-vector
+        if vectorX == -1:
+            ani = self._aniLeft
+        else:
+            ani = self._aniRight
+        
         if self._moveCounter < 10:
             rect = (0,0, 32,32)
         else:
@@ -57,8 +71,8 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         if self._moveCounter > 20:
             self._moveCounter = 0
 
-        if self._aniLeft:
-            self.image = self._aniRight.subsurface(rect)
+        if ani:
+            self.image = ani.subsurface(rect)
 
 
 

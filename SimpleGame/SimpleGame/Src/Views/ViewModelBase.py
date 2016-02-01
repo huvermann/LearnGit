@@ -1,5 +1,6 @@
 ﻿import pygame
 import os.path
+from decimal import Decimal
 import json
 from GameState import GameState
 from GameColors import GameColors
@@ -34,6 +35,7 @@ class ViewModelBase:
         self._configuration = None
         self._musicPlayer = None
         self._playerSprite = None
+        self._moveStartTime = None
 
         # Container for all sprites
         self._allSprites = pygame.sprite.Group()
@@ -92,25 +94,31 @@ class ViewModelBase:
     def onKeyRelease(self, event):
         self._moveVectorX = 0
         self._moveVectorY = 0
+        self.saveStartingPosition()
         pass
     def onMoveRight(self, event):
         self._moveVectorX = 1
-        print("MoveRight")
+        self.saveStartingPosition()
+        # print("MoveRight")
         pass
     def onMoveLeft(self, event):
         self._moveVectorX = -1
-        print("MoveLeft")
+        self.saveStartingPosition()
+        # print("MoveLeft")
         pass
     def onMoveUp(self, event):
         self._moveVectorY = -1
+        self.saveStartingPosition()
         print("MoveUp")
         pass
     def onMoveDown(self, event):
         self._moveVectorY = 1
+        self.saveStartingPosition()
         print("MoveDown")
         pass
     def onJump(self, event):
         print("Jump")
+        self.saveStartingPosition()
         pass
     def onJumpButtonRelease(self, event):
         print("Jump release")
@@ -123,8 +131,14 @@ class ViewModelBase:
         self._state.done = True
         pass
 
+    def saveStartingPosition(self):
+        """Saves time and position when a move starts."""
+        self._moveStartTime = pygame.time.get_ticks()
+        self._moveStartPosition = (self._positionX, self._positionY)
+
 
     def loadMap(self, mapName):
+        """Loads the view map and configuration."""
         self._configuration = self._loadConfiguration(mapName)
         self._mapManager = TileMapManager.TileMapManager(mapName)
         self._viewModelName = mapName
@@ -157,18 +171,31 @@ class ViewModelBase:
         self.flipScreen()
         pass
 
+    def calculateRightMove(self, xVector, startTime, startPos, speed):
+        now = pygame.time.get_ticks()
+        result = self._positionX
+        if startTime:
+            duration = now - startTime
+            move = duration * speed / 1000 * xVector
+            result = int(startPos[0] + move)
+        return result
+            
+
     def calculateMovements(self):
         """Calculates the next view x,y position."""
-        if self._moveVectorX == 1:
-            self._positionX += 3
-        if self._moveVectorX == -1:
-            self._positionX -= 3
-        if self._moveVectorY == 1:
-            self._positionY +=3
-        if self._moveVectorY == -1:
-            self._positionY -=3
+        #if self._moveVectorX == 1:
+        #    self._positionX += 3
+        #if self._moveVectorX == -1:
+        #    self._positionX -= 3
+        #if self._moveVectorY == 1:
+        #    self._positionY +=3
+        #if self._moveVectorY == -1:
+        #    self._positionY -=3
+        
         if self._playerSprite:
-            self._playerSprite.update((self._positionX, self._positionY), (self._moveVectorX, self._moveVectorY))
+            if self._moveStartTime:
+                self._positionX = self.calculateRightMove(self._moveVectorX, self._moveStartTime, self._moveStartPosition, self._playerSprite.speed)
+            self._playerSprite.update(self._moveVectorX, self._moveVectorY)
 
 
 
