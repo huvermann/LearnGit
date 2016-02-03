@@ -3,6 +3,8 @@ class Constants(object):
     PlayerType = "PlayerType"
     StartPlayerAt = "StartPlayerAt"
     Songs = "Songs"
+    Sprites = "Sprites"
+
 
 class MapFields(object):
     Tileheight = "tileheight"

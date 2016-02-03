@@ -142,6 +142,15 @@ class ViewModelBase:
         self._configure(self._configuration)
         pass
 
+    def _initializeSprites(self, spriteConfig):
+        """Initializes all sprites from config file."""
+        for item in spriteConfig:
+            spriteType = item["Type"]
+            spritePosition = (item["x"], item["y"])
+            spriteInstance = createSpriteInstance(spriteType, self._screen, spritePosition)
+            self._allSprites.add(spriteInstance)
+        pass
+
     def _configure(self, configuration):
         """Configures the view."""
         if configuration:
@@ -157,6 +166,8 @@ class ViewModelBase:
             if configuration[Constants.StartPlayerAt]:
                 self._positionX = configuration[Constants.StartPlayerAt]["x"]
                 self._positionY = configuration[Constants.StartPlayerAt]["y"]
+            if configuration[Constants.Sprites]:
+                self._initializeSprites(configuration[Constants.Sprites])
         pass
 
     def runView(self):

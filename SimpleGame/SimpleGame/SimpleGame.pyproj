@@ -37,7 +37,16 @@
     <Compile Include="Src\JoystickExample.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Sprites\BlobSprite.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Sprites\CoinSprite.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Sprites\JimboSprite.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Sprites\MagicSpriteStrings.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Sprites\MockSprite.py">
@@ -75,6 +84,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\PlayerBaseClass.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\PlayerPhysicStateMachine.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\PlayerSpriteMoveState.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\SpriteItemBase.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\TileMapManager.py">

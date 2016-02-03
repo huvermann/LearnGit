@@ -10,6 +10,23 @@
   {
     "x": 228,
     "y": 87
-  }
+  },
+  "Sprites": [
+    {
+      "Type": "CoinSprite",
+      "x": 1000,
+      "y": 360
+    },
+    {
+      "Type": "CoinSprite",
+      "x": 1010,
+      "y": 364
+    },
+    {
+      "Type": "BlobSprite",
+      "x": 123,
+      "y": 234
+    }
 
+  ]
 }
