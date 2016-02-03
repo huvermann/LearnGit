@@ -10,7 +10,7 @@ from pygame.color import THECOLORS
 from Utils.KeyboardInputManager import KeyboardInputManager
 from Utils.JoystickInputManager import JoystickInputManager
 from Utils.MusicPlayer import MusicPlayer
-from Utils.Constants import Constants, ViewNames
+from Utils.Constants import Constants, ViewNames, Corners
 
 from Sprites.SpriteFactory import createSpriteInstance
 
@@ -22,15 +22,13 @@ class ViewModelBase:
         self._state = state
         self._screen = screen
         self.colors = GameColors()
-        self._mapData = None
+        #self._mapData = None
         self._tileSet = None
         self._mapManager = None
         self._positionX = 0
         self._positionY = 0
         self._moveVectorX = 0
         self._moveVectorY = 0
-        self._keyboardSpeed = 10
-        self._keyboardCountdown = 10
         self._viewModelName = None
         self._configuration = None
         self._musicPlayer = None
@@ -46,7 +44,6 @@ class ViewModelBase:
         self._keyboardEventHandler = self._initKeyboardManager()
         # Todo: implement JoystickEventHandler
         self._joystickEventHandler = self._initJoystickManager()
-        # Todo: implement Timing-Manager
 
     def _loadConfiguration(self, viewModelName):
         """Loads the configuration file."""
@@ -171,35 +168,61 @@ class ViewModelBase:
         self.flipScreen()
         pass
 
-    def calculateGroundedMove(self, xVector, startTime, startPos, speed):
-        now = pygame.time.get_ticks()
+    def calculateGroundedMove(self, xVector, startTime, startPos, speed, now):
+        
         result = self._positionX
         if startTime:
             duration = now - startTime
             move = duration * speed / 1000 * xVector
             result = int(startPos[0] + move)
         return result
-            
-    def playerIsGrounded(self):
-        """Calculates if the player has a ground tile under his feeds."""
 
+    def calculateHorizontalMove(self, yVector, startTime, startPos, speed, now):
+        result = self._positionY
+        if startTime:
+            duration = now - startTime
+            move = duration * speed / 1000 * yVector
+            result = int(startPos[1] + move)
+        return result
+
+    def _playerCanMove(self, xpos, ypos):
+        """Checks if player can move to that map position."""
+        coord = self._mapManager.getPlayerTileCoordinate(self._screen, (self._positionX, self._positionY))
+        tileType = self._mapManager.getTileType(coord[0], coord[1])
+        # Todo: Implement to check underlaying tiles.
         return True
+
+    def _playerIsFalling(self, tileInfo):
+        """Returns true, if player is not standing on ground"""
+        result = (tileInfo[Corners.GroundContact]["index"] == 0)
+        return result
 
     def calculateMovements(self):
         """Calculates the next view x,y position."""
 
-        #if self._moveVectorY == 1:
-        #    self._positionY +=3
-        #if self._moveVectorY == -1:
-        #    self._positionY -=3
-        
+        position = (self._positionX + self._playerSprite.rect.left, self._positionY+ self._playerSprite.rect.top)
+        info = self._mapManager.getTouchedTiles(position, self._playerSprite.rect.size)
+
         if self._playerSprite:
-            if self._moveStartTime:
-                if self.playerIsGrounded():
-                    self._positionX = self.calculateGroundedMove(self._moveVectorX, self._moveStartTime, self._moveStartPosition, self._playerSprite.speed)
+            if self._playerIsFalling(info):
+                # Player falls
+                self._positionY += 2 # Very simple gravity solution
+
+            elif self._moveStartTime:
+                now = pygame.time.get_ticks()
+                newX = self._positionX
+                newY = self._positionY
+
+                if self._moveVectorX != 0:
+                    newX = self.calculateGroundedMove(self._moveVectorX, self._moveStartTime, self._moveStartPosition, self._playerSprite.speed, now)
+                if self._moveVectorY != 0:
+                    newY = self.calculateHorizontalMove(self._moveVectorY, self._moveStartTime, self._moveStartPosition, self._playerSprite.speed+10, now)
+
+                if self._playerCanMove(newX, newY):
+                    self._positionX = newX
+                    self._positionY = newY
+            #Todo: update with move state
             self._playerSprite.update(self._moveVectorX, self._moveVectorY)
-
-
 
 
     def onEvent(self, event):
@@ -282,20 +305,19 @@ class ViewModelBase:
 
     def drawScore(self):
         """Draws the score to the screen."""
+
         background = self._screen.convert()
-        score = "x: {:d} y: {:d} fps: {}".format(self._positionX, self._positionY, str(self._state.clock.get_fps()))
-        score = "x: {:d} y: {:d} ".format(self._positionX, self._positionY)
+        score = "x: {:d} y: {:d}".format(self._positionX, self._positionY)
         text = self._font.render(score, True, (255, 0, 0))
         textpos = text.get_rect()
         textpos.centerx = background.get_rect().centerx
         background.blit(text, textpos)
         self._screen.blit(background, (0,0))
-        pygame.display.flip()
         pass
+
     
     def updateScreen(self):
         """Paint the screen."""
-        #pygame.draw.rect(self._screen, self.colors.GREEN, self._screen.get_rect())
         self.drawTiles()
         self.moveSprites()
         self.drawScore()

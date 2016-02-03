@@ -2,6 +2,7 @@ import pygame
 from Utils.DirHelper import getMapImageResourceFile, getMapResourceFile, getBackgroundImageResourceFile
 import os.path
 import json
+from Utils.Constants import MapFields, Corners
 
 class TileMapManager:
     """The Tile Map Manager Class."""
@@ -11,21 +12,22 @@ class TileMapManager:
         self._mapData = TileMapManager.loadMap(viewName)
         self._backgroundImage = TileMapManager.loadBackgroundImage(viewName)
         self._tileMapArray = TileMapManager.getTileMapArray(self._mapData)
-        width = self._mapData["tilewidth"]
-        height = self._mapData["tileheight"]
+        width = self._mapData[MapFields.Tilewidth]
+        height = self._mapData[MapFields.Tileheight]
         self._tileSet = TileMapManager.loadTileSet(viewName, width, height, transparence=(self.loadBackgroundImage != None))
         self._tileSetWith = len(self._tileSet)
         self._tileSetHeight = len(self._tileSet[0])
         pass
 
     def _tileHeight(self):
-        return self._mapData["tileheight"]
+        
+        return self._mapData[MapFields.Tileheight]
     def _tileWidth(self):
-        return self._mapData["tilewidth"]
+        return self._mapData[MapFields.Tilewidth]
     def _viewColumnsCount(self):
-        return self._mapData["tileswide"]
+        return self._mapData[MapFields.Tileswide]
     def _viewRowCount(self):
-        return self._mapData["tileshigh"]
+        return self._mapData[MapFields.Tileshigh]
     tileHeight = property(_tileHeight)
     tileWidth = property(_tileWidth)
     viewColCount = property(_viewColumnsCount)
@@ -51,7 +53,6 @@ class TileMapManager:
                 tileIndex=self.calcTileMapIndex(offset, (x,y))
                 if (tileIndex > 0) or (self._backgroundImage == None):
                     # Draw all tiles except index 0
-                    px=x*tw
                     screen.blit(self.calcTile(offset, (x,y)), (x*tw-shiftx, py))
         pass
 
@@ -61,8 +62,8 @@ class TileMapManager:
         return self.getTileMapImage(tileIndex)
 
     def calcTileMapIndex(self, offset, grid):
-        maxCols =self._mapData["tileswide"]
-        maxRows = self._mapData["tileshigh"]
+        maxCols =self._mapData[MapFields.Tileswide]
+        maxRows = self._mapData[MapFields.Tileshigh]
 
         absRow=(offset[1]//self.tileHeight+grid[1]) % maxRows
         absCol=(grid[0]+offset[0]//self.tileWidth) % maxCols
@@ -82,6 +83,49 @@ class TileMapManager:
         width = screen.get_width()
         height = screen.get_height()
         return (width//self.tileWidth, height//self.tileHeight)
+
+    @staticmethod
+    def getTouchedTileOf(position, mapData, tileMap, tileDimension):
+        col = (position[0] // tileDimension[0]) % mapData[MapFields.Tileswide]
+        row = (position[1] // tileDimension[1]) % mapData[MapFields.Tileshigh]
+        #index = self.getTileType(col, row)
+        index = tileMap[row][col]
+        return {"col": col, "row": row, "index": index}
+
+
+    def getTouchedTiles(self, playerPosition, spriteDimensions):
+        """Retuns the tiles that the sprite touches at the offset position."""
+        
+        #topLeft = playerPosition
+        topRight = (playerPosition[0]+spriteDimensions[0], playerPosition[1])
+        bottomLeft = (playerPosition[0], playerPosition[1]+spriteDimensions[1])
+        bottomRight = (playerPosition[0] + spriteDimensions[0], playerPosition[1] + spriteDimensions[1])
+        groundContact = (playerPosition[0] + spriteDimensions[0] // 2, playerPosition[1] + spriteDimensions[1] + 2)
+
+        tileDim = (self.tileWidth, self.tileHeight)
+        touched = {}
+        touched[Corners.TopLeft] = TileMapManager.getTouchedTileOf(playerPosition, self._mapData, self._tileMapArray, tileDim)
+        touched[Corners.TopRight] = TileMapManager.getTouchedTileOf(topRight, self._mapData, self._tileMapArray, tileDim)
+        touched[Corners.BottomLeft] = TileMapManager.getTouchedTileOf(bottomLeft, self._mapData, self._tileMapArray, tileDim)
+        touched[Corners.BottomRight] = TileMapManager.getTouchedTileOf(bottomRight, self._mapData, self._tileMapArray, tileDim)
+        touched[Corners.GroundContact] = TileMapManager.getTouchedTileOf(groundContact, self._mapData, self._tileMapArray, tileDim)
+       
+        return touched
+
+    def getPlayerTileCoordinate(self, screen, offset):
+        """Kachel-Koordinate des spielers berechnen."""
+        rangeX, rangeY = self.getTileCount(screen)
+        centerGrid = (rangeX // 2, rangeY // 2)
+        maxCols =self._mapData[MapFields.Tileswide]
+        maxRows = self._mapData[MapFields.Tileshigh]
+
+        absRow=((offset[1]//self.tileHeight+centerGrid[1]) % maxRows)+1
+        absCol=((centerGrid[0]+offset[0]//self.tileWidth) % maxCols)
+        return (absCol, absRow)
+
+    def getTileType(self, col, row):
+        return self._tileMapArray[row][col]
+
 
     @staticmethod
     def loadBackgroundImage(viewName):
@@ -130,15 +174,15 @@ class TileMapManager:
 
     @staticmethod
     def getTileMapArray(mapData):
-        cols = mapData["tileswide"]
-        rows = mapData["tileshigh"]
-        layer = mapData["layers"][0]["tiles"]
+        cols = mapData[MapFields.Tileswide]
+        rows = mapData[MapFields.Tileshigh]
+        layer = mapData[MapFields.Layers][0][MapFields.Tiles]
         result = []
         for y in range(rows):
             line=[0]*cols
             for x in range(cols):
                 index = x + y * cols
-                line[x]=layer[index]["tile"]
+                line[x]=layer[index][MapFields.Tile]
             result.append(line)
         return result
 

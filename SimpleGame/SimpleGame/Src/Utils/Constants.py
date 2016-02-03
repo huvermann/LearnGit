@@ -4,6 +4,23 @@ class Constants(object):
     StartPlayerAt = "StartPlayerAt"
     Songs = "Songs"
 
+class MapFields(object):
+    Tileheight = "tileheight"
+    Tilewidth = "tilewidth"
+    Tileswide = "tileswide"
+    Tileshigh = "tileshigh"
+    Layers = "layers"
+    Tiles = "tiles"
+    Tile = "tile"
+
+class Corners(object):
+    TopLeft = "TopLeft"
+    TopRight = "TopRight"
+    BottomLeft = "BottomLeft"
+    BottomRight = "BottomRight"
+    GroundContact = "GroundContact"
+
+
 class ViewNames(object):
     Level1 = "Level1"
     Level2 = "Level2"

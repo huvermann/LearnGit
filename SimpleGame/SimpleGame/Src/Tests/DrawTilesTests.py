@@ -112,6 +112,18 @@ class Test_DrawTilesTests(unittest.TestCase):
         tileIndex = self._testItem.calcTile((0,0), (0,0))
         self.assertEqual(0, tileIndex, "Expected tile index to be 0")
 
+    def test_getTouchedTilesReturnsSomeResult(self):
+        data = TileTestHelper()
+        self._testItem.initTestItem(data.tileHeigth, data.tileWidth, data.tilesWide, data.tilesHeight, data.tilesCountx, data.tilesCounty, data.tileSetWith, data.tileSetHeight)
+        self._testItem.mockTileMap(10,10)
+        playerPosition = (0,0)
+        spriteDimensions = (4,4)
+        actual = self._testItem.getTouchedTiles(playerPosition, spriteDimensions)
+        self.assertIsNotNone(actual, "Expected not to be null.")
+
+
+
+
 
 
          
