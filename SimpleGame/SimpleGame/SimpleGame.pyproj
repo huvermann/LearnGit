@@ -151,6 +151,11 @@
     <Content Include="Assets\Sound\m4rt3z_m4rt3z---Elemental-Energy-Oxy-320.mp3" />
     <Content Include="Assets\Sound\m4rt3z_m4rt3z---Primal-Snap-320.mp3" />
     <Content Include="Assets\Sound\readme.txt" />
+    <Content Include="Assets\Sprites\Bloob\bloob.pyxel" />
+    <Content Include="Assets\Sprites\Bloob\bloob_links_und_mitte.png" />
+    <Content Include="Assets\Sprites\Bloob\bloob_rechts_und_mitte.png" />
+    <Content Include="Assets\Sprites\Bloob\bloob_sterben.png" />
+    <Content Include="Assets\Sprites\Bloob\bollb_springen.png" />
     <Content Include="Assets\Sprites\Coin\Coin.png" />
     <Content Include="Assets\Sprites\Coin\Coin.pyxel" />
     <Content Include="Assets\Sprites\Jimbo\Jimbo.pyxel" />
@@ -181,6 +186,7 @@
     <Folder Include="Assets\Sprites\" />
     <Folder Include="Assets\Sprites\Jimbo\" />
     <Folder Include="Assets\Sprites\Coin\" />
+    <Folder Include="Assets\Sprites\Bloob\" />
     <Folder Include="Assets\Views\" />
     <Folder Include="Assets\Sound\" />
     <Folder Include="Assets\Views\Level1\" />
