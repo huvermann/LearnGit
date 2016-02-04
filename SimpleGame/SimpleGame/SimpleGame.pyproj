@@ -174,8 +174,8 @@
     <Content Include="Assets\Sprites\Bloob\bloob_rechts_und_mitte.png" />
     <Content Include="Assets\Sprites\Bloob\bloob_sterben.png" />
     <Content Include="Assets\Sprites\Bloob\bloob_springen.png" />
-    <Content Include="Assets\Sprites\Coin\Coin_Ani.png" />
     <Content Include="Assets\Sprites\Coin\Coin.pyxel" />
+    <Content Include="Assets\Sprites\Coin\Coin_Ani.png" />
     <Content Include="Assets\Sprites\Jimbo\Jimbo.pyxel" />
     <Content Include="Assets\Sprites\Jimbo\Jimbo_Left.png" />
     <Content Include="Assets\Sprites\Jimbo\Jimbo_Right.png" />
