@@ -37,6 +37,8 @@ class ViewModelBase:
 
         # Container for all sprites
         self._allSprites = pygame.sprite.Group()
+        self._movingSprites = pygame.sprite.Group()
+
         if self._playerSprite:
             self._allSprites.add(self._playerSprite)
         fontFile = getFontResourceFile("InknutAntiqua-Light")
@@ -149,6 +151,7 @@ class ViewModelBase:
             spritePosition = (item["x"], item["y"])
             spriteInstance = createSpriteInstance(spriteType, self._screen, spritePosition)
             self._allSprites.add(spriteInstance)
+            self._movingSprites.add(spriteInstance)
         pass
 
     def _configure(self, configuration):
@@ -234,6 +237,8 @@ class ViewModelBase:
                     self._positionY = newY
             #Todo: update with move state
             self._playerSprite.update(self._moveVectorX, self._moveVectorY)
+
+            self._movingSprites.update()
 
 
     def onEvent(self, event):
