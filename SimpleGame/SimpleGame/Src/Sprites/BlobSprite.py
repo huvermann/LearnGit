@@ -39,6 +39,7 @@ class BlobSprite(SpriteItemBase):
         """Update the blob sprite."""
         rect = SpriteItemBase.getRectTimeBased(self._currentAnimation["Count"], self._currentAnimation["ImageSize"], 100)
         self.image = self._currentAnimation["Image"].subsurface(rect)
+        self.rect.left, self.rect.top = self._calcScreenPositionCallback(self._position)
         pass
 
 
