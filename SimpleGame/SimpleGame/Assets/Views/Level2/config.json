@@ -14,18 +14,18 @@
   "Sprites": [
     {
       "Type": "CoinSprite",
-      "x": 1000,
-      "y": 360
+      "x": 824,
+      "y": 387
     },
     {
       "Type": "CoinSprite",
-      "x": 1010,
-      "y": 364
+      "x": 970,
+      "y": 450
     },
     {
       "Type": "BlobSprite",
-      "x": 123,
-      "y": 234
+      "x": 300,
+      "y": 200
     }
 
   ]
