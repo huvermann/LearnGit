@@ -10,9 +10,9 @@ class BlobNames(object):
 
 class BlobSprite(SpriteItemBase):
     """Implementation of the Blob sprite."""
-    def __init__(self, screen, position):
+    def __init__(self, position, calcScreenPositionCallback):
         spritename = SpriteNames.Bloob
-        super().__init__(screen, spritename, position)
+        super().__init__(spritename, position, calcScreenPositionCallback)
         self._animation = None
         self.rect.left = 100
         self.loadAnimations()

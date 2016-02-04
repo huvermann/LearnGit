@@ -4,9 +4,9 @@ from Sprites.MagicSpriteStrings import SpriteNames
 
 class CoinSprite(SpriteItemBase):
     """Implementation of the coin sprite."""
-    def __init__(self, screen, position):
+    def __init__(self, position, calcScreenPositionCallback):
         resourceName = SpriteNames.Coin
-        super().__init__(screen, resourceName, position)
+        super().__init__(resourceName, position, calcScreenPositionCallback)
         self._animation = None
         self.loadAnimations(resourceName)
         pass
@@ -17,6 +17,7 @@ class CoinSprite(SpriteItemBase):
         # calculate position
         rect = SpriteItemBase.getRectTimeBased(self._animation["Count"], self._animation["ImageSize"], 100)
         self.image = self._animation["Image"].subsurface(rect)
+        self.rect.left, self.rect.top = self._calcScreenPositionCallback(self._position)
         pass
 
     def loadAnimations(self, spriteName):

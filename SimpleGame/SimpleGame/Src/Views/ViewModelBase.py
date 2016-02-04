@@ -34,6 +34,7 @@ class ViewModelBase:
         self._musicPlayer = None
         self._playerSprite = None
         self._moveStartTime = None
+        self._infoText = "Info"
 
         # Container for all sprites
         self._allSprites = pygame.sprite.Group()
@@ -144,12 +145,18 @@ class ViewModelBase:
         self._configure(self._configuration)
         pass
 
+    def convertMapPositionToScreenPosition(self, mapPosition):
+        """Converts the absolute map position to relative screen position."""
+        result = (200,200)
+        result = (mapPosition[0] - self._positionX, mapPosition[1] - self._positionY)
+        return result
+
     def _initializeSprites(self, spriteConfig):
         """Initializes all sprites from config file."""
         for item in spriteConfig:
             spriteType = item["Type"]
             spritePosition = (item["x"], item["y"])
-            spriteInstance = createSpriteInstance(spriteType, self._screen, spritePosition)
+            spriteInstance = createSpriteInstance(spriteType, spritePosition, self.convertMapPositionToScreenPosition)
             self._allSprites.add(spriteInstance)
             self._movingSprites.add(spriteInstance)
         pass
@@ -240,6 +247,13 @@ class ViewModelBase:
 
             self._movingSprites.update()
 
+    def _mouseButtonUp(self, event):
+        self._infoText = ""
+        pass
+    def _mouseButtonDown(self, event):
+        self._infoText = "MapPos: {0}, {1}".format(self._positionX + event.pos[0], self._positionY + event.pos[1])
+        print(self._infoText)
+        pass
 
     def onEvent(self, event):
         """Handle events."""
@@ -267,6 +281,10 @@ class ViewModelBase:
         elif event.type == UserEvents.EVENT_MUSIC_ENDED:
             if self._musicPlayer:
                 self._musicPlayer.playNextSong()
+        elif event.type == pygame.MOUSEBUTTONUP:
+            self._mouseButtonUp(event)
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            self._mouseButtonDown(event)
         else:
             print ("Unhandled: ", event.type)
             if event.type != 27:
@@ -331,12 +349,25 @@ class ViewModelBase:
         self._screen.blit(background, (0,0))
         pass
 
-    
+    def drawInfoText(self):
+        background = self._screen.convert()
+        score = self._infoText
+        text = self._font.render(score, True, (255, 0, 0))
+        textpos = text.get_rect()
+        textpos.centerx = background.get_rect().centerx
+        textpos.top = background.get_rect().bottom - 50
+        background.blit(text, textpos)
+        self._screen.blit(background, (0,0))
+        pass
+
+
     def updateScreen(self):
         """Paint the screen."""
         self.drawTiles()
         self.moveSprites()
         self.drawScore()
+        self.drawInfoText()
+
     
     def flipScreen(self):
         """Flip the screen."""

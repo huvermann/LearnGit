@@ -6,19 +6,19 @@ import logging
 
 class SpriteItemBase(pygame.sprite.Sprite):
     """The sprite base class"""
-    def __init__(self, screen, spritename, position):
+    def __init__(self, spritename, position, calcScreenPositionCallback):
         super().__init__()
-        self._screen = screen
         self._spriteName = spritename
         self._position = position
+        self._calcScreenPositionCallback = calcScreenPositionCallback
         self.image = pygame.Surface([32,32])
         self.image.fill((0,0,0))
-        self.rect = SpriteItemBase._calculatePosition(screen, self.image)
+        self.rect = SpriteItemBase._calculatePosition(self.image)
         self._rotationSpeed = 200
         pass
 
     @staticmethod
-    def _calculatePosition(screen, image):
+    def _calculatePosition(image):
         result = image.get_rect()
         result.left = 10
         result.top = 20
