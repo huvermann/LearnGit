@@ -173,10 +173,20 @@ class TileMapManager:
         return mapData
 
     @staticmethod
+    def getLayerByName(mapLayerList, layerName):
+        result = None
+        liste = list(filter(lambda x: x["name"] == layerName, mapLayerList))
+        if liste:
+            result = liste[0][MapFields.Tiles]
+        else:
+            print("Layer not found: {0}".format(layerName))
+        return result
+
+    @staticmethod
     def getTileMapArray(mapData):
         cols = mapData[MapFields.Tileswide]
         rows = mapData[MapFields.Tileshigh]
-        layer = mapData[MapFields.Layers][0][MapFields.Tiles]
+        layer = TileMapManager.getLayerByName(mapData[MapFields.Layers], "Layer 0")
         result = []
         for y in range(rows):
             line=[0]*cols
