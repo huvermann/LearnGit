@@ -6,11 +6,11 @@ from Utils.Constants import MapFields, Corners
 
 class TileMapManager:
     """The Tile Map Manager Class."""
-    def __init__(self, viewName):
+    def __init__(self, viewName, backgroundfilename):
         self._viewName = viewName
         self._position = (0, 0)
         self._mapData = TileMapManager.loadMap(viewName)
-        self._backgroundImage = TileMapManager.loadBackgroundImage(viewName)
+        self._backgroundImage = TileMapManager.loadBackgroundImage(viewName, backgroundfilename)
         self._tileMapArray = TileMapManager.getTileMapArray(self._mapData)
         width = self._mapData[MapFields.Tilewidth]
         height = self._mapData[MapFields.Tileheight]
@@ -128,9 +128,9 @@ class TileMapManager:
 
 
     @staticmethod
-    def loadBackgroundImage(viewName):
+    def loadBackgroundImage(viewName, backgroundfilename):
         image = None
-        filename = getBackgroundImageResourceFile(viewName)
+        filename = getBackgroundImageResourceFile(viewName, backgroundfilename)
         if os.path.isfile(filename):
             image = pygame.image.load(filename).convert()
         return image

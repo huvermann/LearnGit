@@ -35,6 +35,7 @@ class ViewModelBase:
         self._playerSprite = None
         self._moveStartTime = None
         self._infoText = "Info"
+        self._backgroundImageFileName = "background.png" # default bg image name
 
         # Container for all sprites
         self._allSprites = pygame.sprite.Group()
@@ -140,9 +141,10 @@ class ViewModelBase:
     def loadMap(self, mapName):
         """Loads the view map and configuration."""
         self._configuration = self._loadConfiguration(mapName)
-        self._mapManager = TileMapManager.TileMapManager(mapName)
+        
         self._viewModelName = mapName
         self._configure(self._configuration)
+        self._mapManager = TileMapManager.TileMapManager(mapName, self._backgroundImageFileName)
         pass
 
     def convertMapPositionToScreenPosition(self, mapPosition):
@@ -178,6 +180,9 @@ class ViewModelBase:
                 self._positionY = configuration[Constants.StartPlayerAt]["y"]
             if configuration[Constants.Sprites]:
                 self._initializeSprites(configuration[Constants.Sprites])
+            if configuration[Constants.BackgroundImage]:
+                self._backgroundImageFileName = configuration[Constants.BackgroundImage]
+
         pass
 
     def runView(self):

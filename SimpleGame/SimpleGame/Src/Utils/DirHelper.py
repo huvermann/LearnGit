@@ -28,9 +28,9 @@ def getMapImageResourceFile(viewName):
     '''Returns the tile image map of the view.'''
     return os.path.join(getBasePath(), DIRS.ASSETS, DIRS.VIEWS, viewName, viewName + ".png")
 
-def getBackgroundImageResourceFile(viewName):
+def getBackgroundImageResourceFile(viewName, backgroundfilename):
     '''Returns the background image file of a view.'''
-    return os.path.join(getBasePath(), DIRS.ASSETS, DIRS.VIEWS, viewName, FILENAMES.BACKGROUND)
+    return os.path.join(getBasePath(), DIRS.ASSETS, DIRS.VIEWS, viewName, backgroundfilename)
 
 def getSongResourceFile(filename):
     '''Returns the song filename.'''

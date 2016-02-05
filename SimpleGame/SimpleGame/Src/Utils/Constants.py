@@ -4,6 +4,7 @@ class Constants(object):
     StartPlayerAt = "StartPlayerAt"
     Songs = "Songs"
     Sprites = "Sprites"
+    BackgroundImage = "BackgroundImage"
 
 
 class MapFields(object):
@@ -41,7 +42,6 @@ class DIRS(object):
     SPRITES = "Sprites"
 
 class FILENAMES(object):
-    BACKGROUND = "background.png"
     CONFIG = "config.json"
 
 
