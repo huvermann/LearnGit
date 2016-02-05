@@ -1,7 +1,16 @@
 import pygame
 import os
+import logging
 from Utils.DirHelper import getSpriteAnimationImage
 from Utils.Constants import AnimationNames
+
+class PlayerMoveState(object):
+    Standing = 1
+    Falling = 2
+    MoveLeft = 3
+    MoveRight = 4
+    JumpLeft = 5
+    JumpRight = 6
 
 class PlayerBaseClass(pygame.sprite.Sprite):
     """The player sprite base class."""
@@ -18,6 +27,8 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         #Todo: replace the counter with a clock
         self._moveCounter = 0
         self._speed = 120 # Default speed pixel per second
+        self._moveState = PlayerMoveState.Standing
+
 
     def _calculateViewPosition(self, screen, image):
         #Todo: 
@@ -41,6 +52,17 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         pass
 
     @property
+    def moveState(self):
+        return self._moveState
+    @moveState.setter
+    def moveState(self, value):
+        self._moveState = value
+
+    def joystickInput(self, externalInput):
+        """Drives the player movestate by external device."""
+        pass
+
+    @property
     def speed(self):
         return self._speed
     
@@ -53,8 +75,14 @@ class PlayerBaseClass(pygame.sprite.Sprite):
             result = pygame.image.load(animationFile).convert()
         return result
 
+    def update(self):
+        #todo implement state driven animation.
+        logging.debug("Update player")
+        pass
+
     def update(self, vectorX, vectorY):
-        
+        #Todo remove this method!
+
         # Todo: implement animation
         
         # Select the animation by x-vector

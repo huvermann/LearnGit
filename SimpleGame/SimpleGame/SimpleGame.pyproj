@@ -89,12 +89,6 @@
     <Compile Include="Src\Utils\PlayerBaseClass.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Src\Utils\PlayerPhysicStateMachine.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Src\Utils\PlayerSpriteMoveState.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Src\Utils\SpriteItemBase.py">
       <SubType>Code</SubType>
     </Compile>

@@ -11,8 +11,16 @@ from Utils.KeyboardInputManager import KeyboardInputManager
 from Utils.JoystickInputManager import JoystickInputManager
 from Utils.MusicPlayer import MusicPlayer
 from Utils.Constants import ConfigKey, ViewNames, Corners
-
 from Sprites.SpriteFactory import createSpriteInstance
+
+class MapPosition(object):
+    posX = 0
+    posY = 0
+
+    def __init__(self, x, y):
+        self.posX = x
+        self.posY = y
+        pass
 
 class ViewModelBase:
     """description of class"""
@@ -25,8 +33,7 @@ class ViewModelBase:
         #self._mapData = None
         self._tileSet = None
         self._mapManager = None
-        self._positionX = 0
-        self._positionY = 0
+        self._position = MapPosition(0,0)
         self._moveVectorX = 0
         self._moveVectorY = 0
         self._viewModelName = None
@@ -135,7 +142,7 @@ class ViewModelBase:
     def saveStartingPosition(self):
         """Saves time and position when a move starts."""
         self._moveStartTime = pygame.time.get_ticks()
-        self._moveStartPosition = (self._positionX, self._positionY)
+        self._moveStartPosition = (self._position.posX, self._position.posY)
 
 
     def loadMap(self, mapName):
@@ -150,7 +157,7 @@ class ViewModelBase:
     def convertMapPositionToScreenPosition(self, mapPosition):
         """Converts the absolute map position to relative screen position."""
         result = (200,200)
-        result = (mapPosition[0] - self._positionX, mapPosition[1] - self._positionY)
+        result = (mapPosition[0] - self._position.posX, mapPosition[1] - self._position.posY)
         return result
 
     def _initializeSprites(self, spriteConfig):
@@ -181,8 +188,8 @@ class ViewModelBase:
             # Gets the Song list from config and creates a music player
             self._musicPlayer = MusicPlayer(configuration[ConfigKey.Songs])
             if configuration[ConfigKey.StartPlayerAt]:
-                self._positionX = configuration[ConfigKey.StartPlayerAt]["x"]
-                self._positionY = configuration[ConfigKey.StartPlayerAt]["y"]
+                self._position.posX = configuration[ConfigKey.StartPlayerAt]["x"]
+                self._position.posY = configuration[ConfigKey.StartPlayerAt]["y"]
             if configuration[ConfigKey.Sprites]:
                 self._initializeSprites(configuration[ConfigKey.Sprites])
             if configuration[ConfigKey.BackgroundImage]:
@@ -196,14 +203,15 @@ class ViewModelBase:
         """Runs the view."""
         #self.keyboardJoystickChecker()
         self.handleEvents()
-        self.calculateMovements()
-        self.updateScreen()
+        self.updateSprites()
+        self.drawView()
+        self.checkClashes()
         self.flipScreen()
         pass
 
     def calculateGroundedMove(self, xVector, startTime, startPos, speed, now):
         
-        result = self._positionX
+        result = self._position.posX
         if startTime:
             duration = now - startTime
             move = duration * speed / 1000 * xVector
@@ -211,7 +219,7 @@ class ViewModelBase:
         return result
 
     def calculateHorizontalMove(self, yVector, startTime, startPos, speed, now):
-        result = self._positionY
+        result = self._position.posY
         if startTime:
             duration = now - startTime
             move = duration * speed / 1000 * yVector
@@ -220,7 +228,7 @@ class ViewModelBase:
 
     def _playerCanMove(self, xpos, ypos):
         """Checks if player can move to that map position."""
-        coord = self._mapManager.getPlayerTileCoordinate(self._screen, (self._positionX, self._positionY))
+        coord = self._mapManager.getPlayerTileCoordinate(self._screen, (self._position.posX, self._position.posY))
         tileType = self._mapManager.getTileType(coord[0], coord[1])
         # Todo: Implement to check underlaying tiles.
         return True
@@ -230,21 +238,21 @@ class ViewModelBase:
         result = (tileInfo[Corners.GroundContact]["index"] == 0)
         return result
 
-    def calculateMovements(self):
+    def updateSprites(self):
         """Calculates the next view x,y position."""
 
-        position = (self._positionX + self._playerSprite.rect.left, self._positionY+ self._playerSprite.rect.top)
+        position = (self._position.posX + self._playerSprite.rect.left, self._position.posY+ self._playerSprite.rect.top)
         info = self._mapManager.getTouchedTiles(position, self._playerSprite.rect.size)
 
         if self._playerSprite:
             if self._playerIsFalling(info):
                 # Player falls
-                self._positionY += 2 # Very simple gravity solution
+                self._position.posY += 2 # Very simple gravity solution
 
             elif self._moveStartTime:
                 now = pygame.time.get_ticks()
-                newX = self._positionX
-                newY = self._positionY
+                newX = self._position.posX
+                newY = self._position.posY
 
                 if self._moveVectorX != 0:
                     newX = self.calculateGroundedMove(self._moveVectorX, self._moveStartTime, self._moveStartPosition, self._playerSprite.speed, now)
@@ -252,8 +260,8 @@ class ViewModelBase:
                     newY = self.calculateHorizontalMove(self._moveVectorY, self._moveStartTime, self._moveStartPosition, self._playerSprite.speed+10, now)
 
                 if self._playerCanMove(newX, newY):
-                    self._positionX = newX
-                    self._positionY = newY
+                    self._position.posX = newX
+                    self._position.posY = newY
             #Todo: update with move state
             self._playerSprite.update(self._moveVectorX, self._moveVectorY)
 
@@ -263,7 +271,7 @@ class ViewModelBase:
         self._infoText = ""
         pass
     def _mouseButtonDown(self, event):
-        self._infoText = "MapPos: {0}, {1}".format(self._positionX + event.pos[0], self._positionY + event.pos[1])
+        self._infoText = "MapPos: {0}, {1}".format(self._position.posX + event.pos[0], self._position.posY + event.pos[1])
         print(self._infoText)
         pass
 
@@ -347,13 +355,13 @@ class ViewModelBase:
 
     def drawTiles(self):
         """Draw the tiles to the screen."""
-        self._mapManager.drawTiles(self._screen, (self._positionX, self._positionY))
+        self._mapManager.drawTiles(self._screen, (self._position.posX, self._position.posY))
 
     def drawScore(self):
         """Draws the score to the screen."""
 
         background = self._screen.convert()
-        score = "x: {:d} y: {:d}".format(self._positionX, self._positionY)
+        score = "x: {:d} y: {:d}".format(self._position.posX, self._position.posY)
         text = self._font.render(score, True, (255, 0, 0))
         textpos = text.get_rect()
         textpos.centerx = background.get_rect().centerx
@@ -387,15 +395,13 @@ class ViewModelBase:
         pass
 
 
-    def updateScreen(self):
-        """Paint the screen."""
+    def drawView(self):
+        """Paint the complete view (screen)."""
         self.drawTiles()
         self.drawSprites()
         self.drawScore()
         self.drawInfoText()
-        self.checkClashes()
-
-    
+   
     def flipScreen(self):
         """Flip the screen."""
         pygame.display.flip()
