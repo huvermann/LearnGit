@@ -1,6 +1,7 @@
 import pygame
 from Utils.SpriteItemBase import SpriteItemBase
 from Sprites.MagicSpriteStrings import SpriteNames
+from Utils.Constants import SoundNames
 
 class BlobNames(object):
     Left = "links_und_mitte"
@@ -17,6 +18,7 @@ class BlobSprite(SpriteItemBase):
         self.rect.left = 100
         self.loadAnimations()
         self._currentAnimation = self._animation[BlobNames.Jump]
+        self._collosionInfo.sound = SoundNames.BloobTouched
         pass
 
     def loadAnimationInfo(self, animationName):

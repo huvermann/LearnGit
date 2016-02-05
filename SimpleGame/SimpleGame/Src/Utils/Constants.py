@@ -5,7 +5,7 @@ class ConfigKey(object):
     Songs = "Songs"
     Sprites = "Sprites"
     BackgroundImage = "BackgroundImage"
-
+    Sounds = "Sounds"
 
 class MapFields(object):
     Tileheight = "tileheight"
@@ -43,6 +43,13 @@ class DIRS(object):
 
 class FILENAMES(object):
     CONFIG = "config.json"
+
+class SoundNames(object):
+    CoinTouched = "CoinTouched"
+    BloobTouched = "BloobTouched"
+    GameOver = "GameOver"
+
+
 
 
 

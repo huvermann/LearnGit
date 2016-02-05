@@ -2,10 +2,15 @@ import pygame
 import Utils.DirHelper
 from Utils.UserEvents import EVENT_MUSIC_ENDED
 import os
+import logging
 
 
 class MusicPlayer(object):
     """Class to play music in sequence."""
+
+    SoundDictionary = {}
+    SongDictionary = {}
+
     def __init__(self, songs, start = True, loop = True):
         pygame.mixer.init()
         pygame.mixer.music.set_endevent(EVENT_MUSIC_ENDED)
@@ -19,6 +24,24 @@ class MusicPlayer(object):
                 self.play(self._currentSongIndex)
         else:
             self._currentSongIndex = None
+        pass
+
+    def loadSounds(self, soundConfig):
+        for sound in soundConfig:
+            resourceFileName = Utils.DirHelper.getSongResourceFile(sound["FileName"])
+            if os.path.isfile(resourceFileName):
+                #load file
+                soundResource = pygame.mixer.Sound(resourceFileName)
+                MusicPlayer.SoundDictionary[sound["Name"]] = soundResource
+            else:
+                logging.error("Song file missing: {0}".format(resourceFileName))
+        pass
+
+    def playSoundByName(self, soundname):
+        if MusicPlayer.SoundDictionary[soundname]:
+            MusicPlayer.SoundDictionary[soundname].play()
+        else:
+            logging.error("Sound not found: {0}".format(soundname))
         pass
 
     def play(self, index = None):

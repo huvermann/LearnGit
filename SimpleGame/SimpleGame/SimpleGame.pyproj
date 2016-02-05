@@ -68,6 +68,9 @@
     <Compile Include="Src\Tests\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Utils\CollosionInfo.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Utils\Constants.py">
       <SubType>Code</SubType>
     </Compile>
@@ -166,7 +169,9 @@
     <Content Include="Assets\Images\dog.ico" />
     <Content Include="Assets\Images\dog.png" />
     <Content Include="Assets\Images\readme.txt" />
+    <Content Include="Assets\Sound\146725__fins__laser.wav" />
     <Content Include="Assets\Sound\172205__fins__jumping.wav" />
+    <Content Include="Assets\Sound\173859__jivatma07__j1game-over-mono.wav" />
     <Content Include="Assets\Sound\319200__18hiltc__pixel-game-beep.wav" />
     <Content Include="Assets\Sound\m4rt3z_m4rt3z---Elemental-Energy-Oxy-320.mp3" />
     <Content Include="Assets\Sound\m4rt3z_m4rt3z---Primal-Snap-320.mp3" />

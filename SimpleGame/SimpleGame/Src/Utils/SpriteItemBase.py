@@ -2,6 +2,7 @@ import pygame
 import os
 from Utils.DirHelper import getSpriteAnimationImage
 from Utils.Constants import AnimationNames
+from Utils.CollosionInfo import CollosionInfo
 import logging
 
 class SpriteItemBase(pygame.sprite.Sprite):
@@ -17,17 +18,14 @@ class SpriteItemBase(pygame.sprite.Sprite):
         self.rect.left = 20
         self.rect.top = 20
         self._rotationSpeed = 200
-        self._dieOnTouch = True
-        self._points = 10
+
+        self._collosionInfo = CollosionInfo(parent = self)
         self._collideCallback = self.doCollide
         pass
 
     def doCollide(self):
-        result = {}
-        result["Die"] = self._dieOnTouch
-        result["Points"] = self._points
-        result["Sprite"] = self
-        return result
+        """Is called when the player collides with this sprite."""
+        return self._collosionInfo
     
     @staticmethod
     def getRectTimeBased(numAnimations, imageSize, millisec):

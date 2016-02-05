@@ -11,6 +11,23 @@
     "x": 228,
     "y": 87
   },
+  "Sounds": [
+    {
+      "Name": "CoinTouched",
+      "FileName": "172205__fins__jumping.wav",
+      "Comment": "Spieler berührt eine Münze."
+    },
+    {
+      "Name": "BloobTouched",
+      "FileName": "146725__fins__laser.wav",
+      "Comment": "Spieler berührt einen Bloob."
+    },
+    {
+      "Name": "GameOver",
+      "FileName": "173859__jivatma07__j1game-over-mono.wav",
+      "Comment": "Game over buzzer."
+    }
+  ], 
   "Sprites": [
     {
       "Type": "CoinSprite",

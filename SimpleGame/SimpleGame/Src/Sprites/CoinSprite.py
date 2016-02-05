@@ -1,6 +1,7 @@
 import pygame
 from Utils.SpriteItemBase import SpriteItemBase
 from Sprites.MagicSpriteStrings import SpriteNames
+from Utils.Constants import SoundNames
 
 class CoinSprite(SpriteItemBase):
     """Implementation of the coin sprite."""
@@ -9,6 +10,7 @@ class CoinSprite(SpriteItemBase):
         super().__init__(resourceName, position, calcScreenPositionCallback)
         self._animation = None
         self.loadAnimations(resourceName)
+        self._collosionInfo.sound = SoundNames.CoinTouched
         pass
 
     def update(self):

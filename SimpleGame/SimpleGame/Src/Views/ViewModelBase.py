@@ -163,6 +163,11 @@ class ViewModelBase:
             self._movingSprites.add(spriteInstance)
         pass
 
+    def _loadSounds(self, soundConfig):
+        self._musicPlayer.loadSounds(soundConfig)
+
+        pass
+
     def _configure(self, configuration):
         """Configures the view."""
         if configuration:
@@ -182,6 +187,8 @@ class ViewModelBase:
                 self._initializeSprites(configuration[ConfigKey.Sprites])
             if configuration[ConfigKey.BackgroundImage]:
                 self._backgroundImageFileName = configuration[ConfigKey.BackgroundImage]
+            if configuration[ConfigKey.Sounds]:
+                self._loadSounds(configuration[ConfigKey.Sounds])
 
         pass
 
@@ -369,10 +376,14 @@ class ViewModelBase:
         clashes = pygame.sprite.spritecollide(self._playerSprite, self._movingSprites, False)
         for clash in clashes:
             info = clash._collideCallback()
-            if info["Points"]:
-                self._state.points += info["Points"]
-            if info["Die"] == True:
-                info["Sprite"].kill()
+            self._state.points += info.points
+            if info.sound:
+                self._musicPlayer.playSoundByName(info.sound)
+            if info.spriteDies and info.parent != None:
+                info.parent.kill()
+            if info.playerDies:
+                logging.debug("The player touched with deadly sprite.")
+                #Todo Kill the player
         pass
 
 
