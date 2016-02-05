@@ -10776,3 +10776,8 @@ ImportError: DLL load failed: Das angegebene Modul wurde nicht gefunden.
 2015-12-28T17:30:29: Saving group "D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\PyInstaller"
 2015-12-28T17:30:29: End of group "D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\PyInstaller"
 2015-12-28T17:30:30: Deleting 0 files
+
+2016-02-04T21:41:15: Start analysis
+2016-02-04T21:41:15: [WARNING] Library was set explicitly - skipping path detection
+2016-02-04T21:41:15: IncludeModulesFromModulePath = win32com
+2016-02-04T21:41:16: Deleting 0 files
