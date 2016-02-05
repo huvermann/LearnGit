@@ -7,6 +7,9 @@ class GameState(object):
         self.done = False
         self.size = Utils.GetScreenSize()
         self.clock = pygame.time.Clock()
+        self.points = 0
+        self.lifes = 3
+
 
 
 

@@ -12,5 +12,14 @@ http://sampleswap.org/mp3/song.php?id=493
 Artist:
 http://sampleswap.org/artist/m4rt3z
 
+Sound: 172205__fins__jumping.wav
+Quelle:
+http://www.freesound.org/people/fins/sounds/172205/
+
+Sound: 319200__18hiltc__pixel-game-beep.wav
+Quelle:
+http://www.freesound.org/people/18hiltc/sounds/319200/
+
+
 
 

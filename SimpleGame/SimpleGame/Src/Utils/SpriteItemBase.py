@@ -13,15 +13,20 @@ class SpriteItemBase(pygame.sprite.Sprite):
         self._calcScreenPositionCallback = calcScreenPositionCallback
         self.image = pygame.Surface([32,32])
         self.image.fill((0,0,0))
-        self.rect = SpriteItemBase._calculatePosition(self.image)
+        self.rect = self.image.get_rect()
+        self.rect.left = 20
+        self.rect.top = 20
         self._rotationSpeed = 200
+        self._dieOnTouch = True
+        self._points = 10
+        self._collideCallback = self.doCollide
         pass
 
-    @staticmethod
-    def _calculatePosition(image):
-        result = image.get_rect()
-        result.left = 10
-        result.top = 20
+    def doCollide(self):
+        result = {}
+        result["Die"] = self._dieOnTouch
+        result["Points"] = self._points
+        result["Sprite"] = self
         return result
     
     @staticmethod

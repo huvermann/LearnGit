@@ -31,13 +31,13 @@ class MainGame:
 
     def run(self):
         """Run the game loop"""
-        #pygame.display.set_icon(pygame.image.load(Utils.DirHelper.getResourceFilePath("icon")))
+        # pygame.display.set_icon(pygame.image.load(Utils.DirHelper.getResourceFilePath("icon")))
         pygame.display.set_caption("SimpleGame")
         try:
             while not self.gameState.done:
                 self.viewController.currentView.runView()
         except Exception as e:
-            print(e)
+            logging.error(e)
             self.gameState.done = True
 
 if __name__ == "__main__":

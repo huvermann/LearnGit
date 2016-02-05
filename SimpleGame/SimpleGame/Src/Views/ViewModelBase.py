@@ -360,13 +360,24 @@ class ViewModelBase:
         self._screen.blit(background, (0,0))
         pass
 
+    def checkClashes(self):
+        clashes = pygame.sprite.spritecollide(self._playerSprite, self._movingSprites, False)
+        for clash in clashes:
+            info = clash._collideCallback()
+            if info["Points"]:
+                self._state.points += info["Points"]
+            if info["Die"] == True:
+                info["Sprite"].kill()
+        pass
+
 
     def updateScreen(self):
         """Paint the screen."""
         self.drawTiles()
-        self.moveSprites()
+        self.drawSprites()
         self.drawScore()
         self.drawInfoText()
+        self.checkClashes()
 
     
     def flipScreen(self):
@@ -374,7 +385,7 @@ class ViewModelBase:
         pygame.display.flip()
         self._state.clock.tick(80)
     
-    def moveSprites(self):
+    def drawSprites(self):
         """Moves all sprites."""
         self._allSprites.draw(self._screen)
         pass

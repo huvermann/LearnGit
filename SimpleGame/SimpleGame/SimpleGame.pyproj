@@ -166,6 +166,8 @@
     <Content Include="Assets\Images\dog.ico" />
     <Content Include="Assets\Images\dog.png" />
     <Content Include="Assets\Images\readme.txt" />
+    <Content Include="Assets\Sound\172205__fins__jumping.wav" />
+    <Content Include="Assets\Sound\319200__18hiltc__pixel-game-beep.wav" />
     <Content Include="Assets\Sound\m4rt3z_m4rt3z---Elemental-Energy-Oxy-320.mp3" />
     <Content Include="Assets\Sound\m4rt3z_m4rt3z---Primal-Snap-320.mp3" />
     <Content Include="Assets\Sound\readme.txt" />

@@ -11,8 +11,6 @@ class CoinSprite(SpriteItemBase):
         self.loadAnimations(resourceName)
         pass
 
-
-
     def update(self):
         # calculate position
         rect = SpriteItemBase.getRectTimeBased(self._animation["Count"], self._animation["ImageSize"], 100)
