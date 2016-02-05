@@ -1,5 +1,5 @@
-class Constants(object):
-    """description of class"""
+class ConfigKey(object):
+    """Configuration keys for config.json"""
     PlayerType = "PlayerType"
     StartPlayerAt = "StartPlayerAt"
     Songs = "Songs"

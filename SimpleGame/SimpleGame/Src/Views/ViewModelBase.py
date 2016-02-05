@@ -10,7 +10,7 @@ from pygame.color import THECOLORS
 from Utils.KeyboardInputManager import KeyboardInputManager
 from Utils.JoystickInputManager import JoystickInputManager
 from Utils.MusicPlayer import MusicPlayer
-from Utils.Constants import Constants, ViewNames, Corners
+from Utils.Constants import ConfigKey, ViewNames, Corners
 
 from Sprites.SpriteFactory import createSpriteInstance
 
@@ -167,21 +167,21 @@ class ViewModelBase:
         """Configures the view."""
         if configuration:
             # Loads the sprite class for the player from config file.
-            playername = configuration[Constants.PlayerType]
+            playername = configuration[ConfigKey.PlayerType]
             if len(playername) > 1:
                 # Creates the sprite instance.
                 self._playerSprite = createSpriteInstance(playername, self._screen)
                 # Adds the player to the sprite group.
                 self._allSprites.add(self._playerSprite)
             # Gets the Song list from config and creates a music player
-            self._musicPlayer = MusicPlayer(configuration[Constants.Songs])
-            if configuration[Constants.StartPlayerAt]:
-                self._positionX = configuration[Constants.StartPlayerAt]["x"]
-                self._positionY = configuration[Constants.StartPlayerAt]["y"]
-            if configuration[Constants.Sprites]:
-                self._initializeSprites(configuration[Constants.Sprites])
-            if configuration[Constants.BackgroundImage]:
-                self._backgroundImageFileName = configuration[Constants.BackgroundImage]
+            self._musicPlayer = MusicPlayer(configuration[ConfigKey.Songs])
+            if configuration[ConfigKey.StartPlayerAt]:
+                self._positionX = configuration[ConfigKey.StartPlayerAt]["x"]
+                self._positionY = configuration[ConfigKey.StartPlayerAt]["y"]
+            if configuration[ConfigKey.Sprites]:
+                self._initializeSprites(configuration[ConfigKey.Sprites])
+            if configuration[ConfigKey.BackgroundImage]:
+                self._backgroundImageFileName = configuration[ConfigKey.BackgroundImage]
 
         pass
 
