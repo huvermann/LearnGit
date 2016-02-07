@@ -1,5 +1,6 @@
 ﻿import pygame
 import os.path
+import logging
 from decimal import Decimal
 import json
 from GameState import GameState
@@ -12,15 +13,10 @@ from Utils.JoystickInputManager import JoystickInputManager
 from Utils.MusicPlayer import MusicPlayer
 from Utils.Constants import ConfigKey, ViewNames, Corners
 from Sprites.SpriteFactory import createSpriteInstance
+from Utils.JoystickStates import JoystickEvents
+from Utils.MapPosition import MapPosition
 
-class MapPosition(object):
-    posX = 0
-    posY = 0
 
-    def __init__(self, x, y):
-        self.posX = x
-        self.posY = y
-        pass
 
 class ViewModelBase:
     """description of class"""
@@ -100,41 +96,56 @@ class ViewModelBase:
 
 
     def onKeyRelease(self, event):
+        logging.debug("Key release")
         self._moveVectorX = 0
         self._moveVectorY = 0
         self.saveStartingPosition()
+        self._playerSprite.joystickChanged(JoystickEvents.KeyReleased)
         pass
     def onMoveRight(self, event):
+        logging.debug("onMoveRight")
         self._moveVectorX = 1
         self.saveStartingPosition()
-        # print("MoveRight")
+        self._playerSprite.joystickChanged(JoystickEvents.MoveRight)
         pass
     def onMoveLeft(self, event):
+        logging.debug("onMoveLeft")
         self._moveVectorX = -1
         self.saveStartingPosition()
+        self._playerSprite.joystickChanged(JoystickEvents.MoveLeft)
         # print("MoveLeft")
         pass
     def onMoveUp(self, event):
+        logging.debug("onMoveUp")
         self._moveVectorY = -1
         self.saveStartingPosition()
+        self._playerSprite.joystickChanged(JoystickEvents.MoveUp)
         print("MoveUp")
         pass
     def onMoveDown(self, event):
+        logging.debug("onMoveDown")
         self._moveVectorY = 1
         self.saveStartingPosition()
         print("MoveDown")
+        self._playerSprite.joystickChanged(JoystickEvents.MoveDown)
         pass
     def onJump(self, event):
+        logging.debug("onJump")
         print("Jump")
         self.saveStartingPosition()
+        self._playerSprite.joystickChanged(JoystickEvents.JumpButton)
         pass
     def onJumpButtonRelease(self, event):
+        logging.debug("onJumpButtonRelease")
         print("Jump release")
+        self._playerSprite.joystickChanged(JoystickEvents.JumpButtonReleased)
         pass
     def onKeyStart(self, event):
+        logging.debug("onKeyStart")
         print("Start")
         pass
     def onKeyExit(self, event):
+        logging.debug("onKeyExit")
         print("Exit")
         self._state.done = True
         pass
@@ -182,7 +193,7 @@ class ViewModelBase:
             playername = configuration[ConfigKey.PlayerType]
             if len(playername) > 1:
                 # Creates the sprite instance.
-                self._playerSprite = createSpriteInstance(playername, self._screen)
+                self._playerSprite = createSpriteInstance(playername, self._screen, self._position)
                 # Adds the player to the sprite group.
                 self._allSprites.add(self._playerSprite)
             # Gets the Song list from config and creates a music player
@@ -241,31 +252,32 @@ class ViewModelBase:
     def updateSprites(self):
         """Calculates the next view x,y position."""
 
-        position = (self._position.posX + self._playerSprite.rect.left, self._position.posY+ self._playerSprite.rect.top)
-        info = self._mapManager.getTouchedTiles(position, self._playerSprite.rect.size)
+        #position = (self._position.posX + self._playerSprite.rect.left, self._position.posY+ self._playerSprite.rect.top)
+        #info = self._mapManager.getTouchedTiles(position, self._playerSprite.rect.size)
 
-        if self._playerSprite:
-            if self._playerIsFalling(info):
-                # Player falls
-                self._position.posY += 2 # Very simple gravity solution
+        #if self._playerSprite:
+        #    if self._playerIsFalling(info):
+        #        # Player falls
+        #        self._position.posY += 2 # Very simple gravity solution
 
-            elif self._moveStartTime:
-                now = pygame.time.get_ticks()
-                newX = self._position.posX
-                newY = self._position.posY
+        #    elif self._moveStartTime:
+        #        now = pygame.time.get_ticks()
+        #        newX = self._position.posX
+        #        newY = self._position.posY
 
-                if self._moveVectorX != 0:
-                    newX = self.calculateGroundedMove(self._moveVectorX, self._moveStartTime, self._moveStartPosition, self._playerSprite.speed, now)
-                if self._moveVectorY != 0:
-                    newY = self.calculateHorizontalMove(self._moveVectorY, self._moveStartTime, self._moveStartPosition, self._playerSprite.speed+10, now)
+        #        if self._moveVectorX != 0:
+        #            newX = self.calculateGroundedMove(self._moveVectorX, self._moveStartTime, self._moveStartPosition, self._playerSprite.speed, now)
+        #        if self._moveVectorY != 0:
+        #            newY = self.calculateHorizontalMove(self._moveVectorY, self._moveStartTime, self._moveStartPosition, self._playerSprite.speed+10, now)
 
-                if self._playerCanMove(newX, newY):
-                    self._position.posX = newX
-                    self._position.posY = newY
-            #Todo: update with move state
-            self._playerSprite.update(self._moveVectorX, self._moveVectorY)
+        #        if self._playerCanMove(newX, newY):
+        #            self._position.posX = newX
+        #            self._position.posY = newY
+        #    #Todo: update with move state
+        #    self._playerSprite.update(self._moveVectorX, self._moveVectorY)
 
-            self._movingSprites.update()
+        self._playerSprite.update()    
+        self._movingSprites.update()
 
     def _mouseButtonUp(self, event):
         self._infoText = ""

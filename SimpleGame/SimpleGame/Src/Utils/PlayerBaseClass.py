@@ -3,19 +3,15 @@ import os
 import logging
 from Utils.DirHelper import getSpriteAnimationImage
 from Utils.Constants import AnimationNames
+from Utils.JoystickStates import JoystickEvents, JoystickState
+from Utils.PlayerMoveStateMachine import PlayerMoveState, PlayerMoveStateMachine
 
-class PlayerMoveState(object):
-    Standing = 1
-    Falling = 2
-    MoveLeft = 3
-    MoveRight = 4
-    JumpLeft = 5
-    JumpRight = 6
 
 class PlayerBaseClass(pygame.sprite.Sprite):
     """The player sprite base class."""
-    def __init__(self, screen, spriteName):
+    def __init__(self, screen, spriteName, position):
         super().__init__()
+        self._position = position
         self.image = pygame.Surface([32,32])
         self.image.fill((0,0,0))
         self.rect = self._calculateViewPosition(screen, self.image)
@@ -27,7 +23,10 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         #Todo: replace the counter with a clock
         self._moveCounter = 0
         self._speed = 120 # Default speed pixel per second
-        self._moveState = PlayerMoveState.Standing
+        #self._joystickState = JoystickState()
+        self._moveStateMachine = PlayerMoveStateMachine()
+        self._moveStateMachine.currentPositionCallback = self.getCurrentPositionHandler
+
 
 
     def _calculateViewPosition(self, screen, image):
@@ -51,15 +50,18 @@ class PlayerBaseClass(pygame.sprite.Sprite):
             self._aniRight.set_colorkey(self._aniRight.get_at((0,0)))
         pass
 
+
     @property
     def moveState(self):
-        return self._moveState
+        return self._moveStateMachine.moveState
     @moveState.setter
     def moveState(self, value):
-        self._moveState = value
+        self._moveStateMachine.moveState = value
 
-    def joystickInput(self, externalInput):
+    def joystickChanged(self, externalInput):
         """Drives the player movestate by external device."""
+        #self._joystickState.joystickChanged(externalInput)
+        self._moveStateMachine.joystickChanged(externalInput)
         pass
 
     @property
@@ -75,32 +77,58 @@ class PlayerBaseClass(pygame.sprite.Sprite):
             result = pygame.image.load(animationFile).convert()
         return result
 
-    def update(self):
-        #todo implement state driven animation.
-        logging.debug("Update player")
-        pass
-
-    def update(self, vectorX, vectorY):
-        #Todo remove this method!
-
-        # Todo: implement animation
-        
-        # Select the animation by x-vector
-        if vectorX == -1:
+    def _getImage(self, moveState, time):
+        #Todo: Calculate rect by time or x position
+        rect = (0,0, 32,32)
+        if moveState == PlayerMoveState.MoveLeft:
             ani = self._aniLeft
         else:
             ani = self._aniRight
-        
-        if self._moveCounter < 10:
-            rect = (0,0, 32,32)
-        else:
-            rect = (32,0,32,32)
-        self._moveCounter +=1
-        if self._moveCounter > 20:
-            self._moveCounter = 0
+        result = ani.subsurface(rect)
+        return result
 
-        if ani:
-            self.image = ani.subsurface(rect)
+    def getCurrentPositionHandler(self):
+        """Handler to get the current position, used by the move state machine."""
+        return self._position.copy()
+
+    def _updatePosition(self, timeStamp, moveStateMachine):
+        if moveStateMachine.lastChange:
+            vectors = moveStateMachine.getVectors(moveStateMachine.moveState)
+            duration = timeStamp - moveStateMachine.lastChange
+            move = duration * self.speed / 1000 * vectors.X
+            self._position.posX = int(moveStateMachine.lastPosition.posX + move)
+        pass
+
+    def update(self):
+        #todo implement state driven animation.
+        #self._position.posX += 2
+        ticks = pygame.time.get_ticks()
+        self._moveStateMachine.updateState(ticks)
+        self.image = self._getImage(self.moveState, ticks)
+        self._updatePosition(ticks, self._moveStateMachine)
+        pass
+
+    #def update(self, vectorX, vectorY):
+    #    #Todo remove this method!
+
+    #    # Todo: implement animation
+        
+    #    # Select the animation by x-vector
+    #    if vectorX == -1:
+    #        ani = self._aniLeft
+    #    else:
+    #        ani = self._aniRight
+        
+    #    if self._moveCounter < 10:
+    #        rect = (0,0, 32,32)
+    #    else:
+    #        rect = (32,0,32,32)
+    #    self._moveCounter +=1
+    #    if self._moveCounter > 20:
+    #        self._moveCounter = 0
+
+    #    if ani:
+    #        self.image = ani.subsurface(rect)
 
 
 

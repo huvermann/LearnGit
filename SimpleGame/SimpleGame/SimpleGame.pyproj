@@ -80,7 +80,13 @@
     <Compile Include="Src\Utils\JoystickInputManager.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Utils\JoystickStates.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Utils\KeyboardInputManager.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\MapPosition.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\MusicPlayer.py">
@@ -89,6 +95,7 @@
     <Compile Include="Src\Utils\PlayerBaseClass.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Utils\PlayerMoveStateMachine.py" />
     <Compile Include="Src\Utils\SpriteItemBase.py">
       <SubType>Code</SubType>
     </Compile>
