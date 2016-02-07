@@ -221,35 +221,6 @@ class ViewModelBase:
         self.flipScreen()
         pass
 
-    def calculateGroundedMove(self, xVector, startTime, startPos, speed, now):
-        
-        result = self._position.posX
-        if startTime:
-            duration = now - startTime
-            move = duration * speed / 1000 * xVector
-            result = int(startPos[0] + move)
-        return result
-
-    def calculateHorizontalMove(self, yVector, startTime, startPos, speed, now):
-        result = self._position.posY
-        if startTime:
-            duration = now - startTime
-            move = duration * speed / 1000 * yVector
-            result = int(startPos[1] + move)
-        return result
-
-    def _playerCanMove(self, xpos, ypos):
-        """Checks if player can move to that map position."""
-        coord = self._mapManager.getPlayerTileCoordinate(self._screen, (self._position.posX, self._position.posY))
-        tileType = self._mapManager.getTileType(coord[0], coord[1])
-        # Todo: Implement to check underlaying tiles.
-        return True
-
-    def _playerIsFalling(self, tileInfo):
-        """Returns true, if player is not standing on ground"""
-        result = (tileInfo[Corners.GroundContact]["index"] == 0)
-        return result
-
     def updateSprites(self):
         """Calculates the next view x,y position."""
         self._playerSprite.update()    
