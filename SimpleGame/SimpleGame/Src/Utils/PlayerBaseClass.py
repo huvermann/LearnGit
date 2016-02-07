@@ -5,26 +5,35 @@ from Utils.DirHelper import getSpriteAnimationImage
 from Utils.Constants import AnimationNames
 from Utils.JoystickStates import JoystickEvents, JoystickState
 from Utils.PlayerMoveStateMachine import PlayerMoveState, PlayerMoveStateMachine
-
+from Utils.TileMapManager import TileMapManager
 
 class PlayerBaseClass(pygame.sprite.Sprite):
     """The player sprite base class."""
-    def __init__(self, screen, spriteName, position):
+    def __init__(self, screen, spriteName, position, tileMapManager):
         super().__init__()
         self._position = position
+        self._tileMapManager = tileMapManager
         self.image = pygame.Surface([32,32])
         self.image.fill((0,0,0))
         self.rect = self._calculateViewPosition(screen, self.image)
         self._spriteName = spriteName
+        self._mapManager = None
         self._aniLeft = None
         self._aniRight = None
         self._transparenceKey = None
         self.loadAnimations(spriteName)
         self._speed = 120 # Default speed pixel per second
+        self._fallSpeed = 200
         self._moveStateMachine = PlayerMoveStateMachine()
         self._moveStateMachine.currentPositionCallback = self.getCurrentPositionHandler
+        self._moveStateMachine._getTileInfoCallback = self._getTileInfoHandler
 
+    def _getTileInfoHandler(self):
+        result = None
+        playerPosition = (self._position.posX + self.rect.left, self._position.posY+ self.rect.top)
+        result = self._tileMapManager.getTouchedTiles(playerPosition, self.rect.size)
 
+        return result
 
     def _calculateViewPosition(self, screen, image):
         #Todo: 
@@ -64,8 +73,10 @@ class PlayerBaseClass(pygame.sprite.Sprite):
     @property
     def speed(self):
         return self._speed
+    @property
+    def fallSpeed(self):
+        return self._fallSpeed
     
-
     @staticmethod
     def loadAnimationFile(spriteName, animationName):
         result = None
@@ -89,11 +100,19 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         return self._position.copy()
 
     def _updatePosition(self, timeStamp, moveStateMachine):
-        if moveStateMachine.lastChange:
-            vectors = moveStateMachine.getVectors(moveStateMachine.moveState)
-            duration = timeStamp - moveStateMachine.lastChange
-            move = duration * self.speed / 1000 * vectors.X
-            self._position.posX = int(moveStateMachine.lastPosition.posX + move)
+        if moveStateMachine.moveState in [PlayerMoveState.Standing, PlayerMoveState.MoveLeft, PlayerMoveState.MoveRight]:
+            if moveStateMachine.lastChange:
+                vectors = moveStateMachine.getVectors(moveStateMachine.moveState)
+                duration = timeStamp - moveStateMachine.lastChange
+                move = duration * self.speed / 1000 * vectors.X
+                self._position.posX = int(moveStateMachine.lastPosition.posX + move)
+        elif moveStateMachine.moveState in [PlayerMoveState.Falling]:
+            #Falling
+            if moveStateMachine.lastChange:
+                duration = timeStamp - moveStateMachine.lastChange
+                move = duration * self.fallSpeed / 1000
+                self._position.posY = int(moveStateMachine.lastPosition.posY + move)
+
         pass
 
     def update(self):

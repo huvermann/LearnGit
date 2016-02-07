@@ -162,7 +162,7 @@ class ViewModelBase:
         
         self._viewModelName = mapName
         self._configure(self._configuration)
-        self._mapManager = TileMapManager.TileMapManager(mapName, self._backgroundImageFileName)
+        
         pass
 
     def convertMapPositionToScreenPosition(self, mapPosition):
@@ -189,11 +189,14 @@ class ViewModelBase:
     def _configure(self, configuration):
         """Configures the view."""
         if configuration:
+            if configuration[ConfigKey.BackgroundImage]:
+                self._backgroundImageFileName = configuration[ConfigKey.BackgroundImage]
+            self._mapManager = TileMapManager.TileMapManager(self.viewModelName, self._backgroundImageFileName)
             # Loads the sprite class for the player from config file.
             playername = configuration[ConfigKey.PlayerType]
             if len(playername) > 1:
                 # Creates the sprite instance.
-                self._playerSprite = createSpriteInstance(playername, self._screen, self._position)
+                self._playerSprite = createSpriteInstance(playername, self._screen, self._position, self._mapManager)
                 # Adds the player to the sprite group.
                 self._allSprites.add(self._playerSprite)
             # Gets the Song list from config and creates a music player
@@ -203,11 +206,9 @@ class ViewModelBase:
                 self._position.posY = configuration[ConfigKey.StartPlayerAt]["y"]
             if configuration[ConfigKey.Sprites]:
                 self._initializeSprites(configuration[ConfigKey.Sprites])
-            if configuration[ConfigKey.BackgroundImage]:
-                self._backgroundImageFileName = configuration[ConfigKey.BackgroundImage]
+            
             if configuration[ConfigKey.Sounds]:
                 self._loadSounds(configuration[ConfigKey.Sounds])
-
         pass
 
     def runView(self):

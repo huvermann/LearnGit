@@ -3,9 +3,9 @@ import pygame
 
 class JimboSprite(PlayerBaseClass):
     """Implementation of the Jimbo player behaviour."""
-    def __init__(self, screen, position):
+    def __init__(self, screen, position, tileMapManager):
         spriteName = "Jimbo"
-        return super().__init__(screen, spriteName, position)
+        return super().__init__(screen, spriteName, position, tileMapManager)
 
 
 

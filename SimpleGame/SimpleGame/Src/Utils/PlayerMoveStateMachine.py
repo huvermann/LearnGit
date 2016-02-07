@@ -81,6 +81,8 @@ class PlayerMoveStateMachine(object):
         if self._getTileInfoCallback:
             info = self._getTileInfoCallback()
             #todo: info auswerten, ob Spieler Bodenkontakt hat.
+            if info["GroundContact"]["index"] == 0:
+                result = False
         return result
 
     def _isBarrierLeft(self):
@@ -119,7 +121,7 @@ class PlayerMoveStateMachine(object):
     def _checkStanding(self, timeStamp):
         """Checks if the move state must be changed."""
         if not self._isPlayerGrounded():
-            self._changeToFalling()
+            self._changeToFalling(timeStamp)
         elif self._joystickState.keyState == JoystickEvents.MoveLeft:
             self._changeToDirection(JoystickEvents.MoveLeft, timeStamp)
         elif self._joystickState.keyState == JoystickEvents.MoveRight:
@@ -155,6 +157,8 @@ class PlayerMoveStateMachine(object):
         """Checks if the move state must be changed."""
         if self._isBarrierRight():
             self._changeToStanding(timeStamp)
+        elif not self._isPlayerGrounded():
+            self._changeToFalling(timeStamp)
         elif self._joystickState.keyState == JoystickEvents.MoveLeft:
             self._changeToDirection(JoystickEvents.MoveLeft, timeStamp)
         elif self._joystickState.keyState == JoystickEvents.KeyReleased:
