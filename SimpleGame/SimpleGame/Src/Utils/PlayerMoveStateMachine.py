@@ -1,5 +1,7 @@
 from Utils.JoystickStates import JoystickEvents, JoystickState
 from Utils.MapPosition import MapPosition
+from Utils.Constants import Corners
+
 
 class PlayerMoveState(object):
     Standing = 1
@@ -26,6 +28,7 @@ class PlayerMoveStateMachine(object):
         self._lastPosition = None
         self._getTileInfoCallback = None
         self._getCurrentPositionCallback = None
+        self._backgroundTiles = [0, 28, 29]
         return super().__init__(**kwargs)
 
     def getVectors(self, moveState):
@@ -81,19 +84,27 @@ class PlayerMoveStateMachine(object):
         if self._getTileInfoCallback:
             info = self._getTileInfoCallback()
             #todo: info auswerten, ob Spieler Bodenkontakt hat.
-            if info["GroundContact"]["index"] == 0:
+            if info[Corners.GroundContact]["index"] == 0:
                 result = False
         return result
 
     def _isBarrierLeft(self):
         """Checks if barrier on the left."""
-        #todo: implement
-        return False
+        result = False
+        if self._getTileInfoCallback:
+            info = self._getTileInfoCallback()
+            if  not info[Corners.Left]["index"] in self._backgroundTiles:
+                result = True
+        return result
 
     def _isBarrierRight(self):
         """Checks if barrier on the left."""
-        #todo: implement
-        return False
+        result = False
+        if self._getTileInfoCallback:
+            info = self._getTileInfoCallback()
+            if  not info[Corners.Right]["index"] in self._backgroundTiles:
+                result = True
+        return result
 
     def _isBarrierTopLeft():
         #todo: implement

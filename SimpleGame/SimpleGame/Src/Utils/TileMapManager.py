@@ -101,6 +101,9 @@ class TileMapManager:
         bottomLeft = (playerPosition[0], playerPosition[1]+spriteDimensions[1])
         bottomRight = (playerPosition[0] + spriteDimensions[0], playerPosition[1] + spriteDimensions[1])
         groundContact = (playerPosition[0] + spriteDimensions[0] // 2, playerPosition[1] + spriteDimensions[1] + 2)
+        left = (playerPosition[0] + 10, playerPosition[1] + spriteDimensions[1] // 2)
+        right = (playerPosition[0] + spriteDimensions[0] - 10, playerPosition[1] + spriteDimensions[1] // 2)
+        center = (playerPosition[0] + spriteDimensions[0] // 2, playerPosition[1] + spriteDimensions[1] // 2)
 
         tileDim = (self.tileWidth, self.tileHeight)
         touched = {}
@@ -109,6 +112,9 @@ class TileMapManager:
         touched[Corners.BottomLeft] = TileMapManager.getTouchedTileOf(bottomLeft, self._mapData, self._tileMapArray, tileDim)
         touched[Corners.BottomRight] = TileMapManager.getTouchedTileOf(bottomRight, self._mapData, self._tileMapArray, tileDim)
         touched[Corners.GroundContact] = TileMapManager.getTouchedTileOf(groundContact, self._mapData, self._tileMapArray, tileDim)
+        touched[Corners.Left] = TileMapManager.getTouchedTileOf(left, self._mapData, self._tileMapArray, tileDim)
+        touched[Corners.Right] = TileMapManager.getTouchedTileOf(right, self._mapData, self._tileMapArray, tileDim)
+        touched[Corners.Center] = TileMapManager.getTouchedTileOf(center, self._mapData, self._tileMapArray, tileDim)
        
         return touched
 

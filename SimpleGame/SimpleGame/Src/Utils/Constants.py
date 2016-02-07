@@ -22,6 +22,9 @@ class Corners(object):
     BottomLeft = "BottomLeft"
     BottomRight = "BottomRight"
     GroundContact = "GroundContact"
+    Left = "Left"
+    Right = "Right"
+    Center = "Center"
 
 
 class ViewNames(object):
