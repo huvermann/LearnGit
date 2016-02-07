@@ -20,10 +20,7 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         self._aniRight = None
         self._transparenceKey = None
         self.loadAnimations(spriteName)
-        #Todo: replace the counter with a clock
-        self._moveCounter = 0
         self._speed = 120 # Default speed pixel per second
-        #self._joystickState = JoystickState()
         self._moveStateMachine = PlayerMoveStateMachine()
         self._moveStateMachine.currentPositionCallback = self.getCurrentPositionHandler
 
