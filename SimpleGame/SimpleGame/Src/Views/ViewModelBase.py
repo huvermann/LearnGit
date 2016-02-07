@@ -252,31 +252,6 @@ class ViewModelBase:
 
     def updateSprites(self):
         """Calculates the next view x,y position."""
-
-        #position = (self._position.posX + self._playerSprite.rect.left, self._position.posY+ self._playerSprite.rect.top)
-        #info = self._mapManager.getTouchedTiles(position, self._playerSprite.rect.size)
-
-        #if self._playerSprite:
-        #    if self._playerIsFalling(info):
-        #        # Player falls
-        #        self._position.posY += 2 # Very simple gravity solution
-
-        #    elif self._moveStartTime:
-        #        now = pygame.time.get_ticks()
-        #        newX = self._position.posX
-        #        newY = self._position.posY
-
-        #        if self._moveVectorX != 0:
-        #            newX = self.calculateGroundedMove(self._moveVectorX, self._moveStartTime, self._moveStartPosition, self._playerSprite.speed, now)
-        #        if self._moveVectorY != 0:
-        #            newY = self.calculateHorizontalMove(self._moveVectorY, self._moveStartTime, self._moveStartPosition, self._playerSprite.speed+10, now)
-
-        #        if self._playerCanMove(newX, newY):
-        #            self._position.posX = newX
-        #            self._position.posY = newY
-        #    #Todo: update with move state
-        #    self._playerSprite.update(self._moveVectorX, self._moveVectorY)
-
         self._playerSprite.update()    
         self._movingSprites.update()
 
