@@ -178,6 +178,7 @@
     <Content Include="Assets\Sound\m4rt3z_m4rt3z---Primal-Snap-320.mp3" />
     <Content Include="Assets\Sound\readme.txt" />
     <Content Include="Assets\Sprites\Bloob\bloob.pyxel" />
+    <Content Include="Assets\Sprites\Bloob\bloob_gehen_links.png" />
     <Content Include="Assets\Sprites\Bloob\bloob_links_und_mitte.png" />
     <Content Include="Assets\Sprites\Bloob\bloob_maske.png" />
     <Content Include="Assets\Sprites\Bloob\bloob_rechts_und_mitte.png" />
