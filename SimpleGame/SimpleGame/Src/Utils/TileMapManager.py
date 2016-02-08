@@ -17,7 +17,15 @@ class TileMapManager:
         self._tileSet = TileMapManager.loadTileSet(viewName, width, height, transparence=(self.loadBackgroundImage != None))
         self._tileSetWith = len(self._tileSet)
         self._tileSetHeight = len(self._tileSet[0])
+        self._nonSolidTiles = [0]
         pass
+
+    @property
+    def nonSolidTiles(self):
+        return self._nonSolidTiles
+    @nonSolidTiles.setter
+    def nonSolidTiles(self, value):
+        self._nonSolidTiles = value
 
     def _tileHeight(self):
         
@@ -115,6 +123,7 @@ class TileMapManager:
         touched[Corners.Left] = TileMapManager.getTouchedTileOf(left, self._mapData, self._tileMapArray, tileDim)
         touched[Corners.Right] = TileMapManager.getTouchedTileOf(right, self._mapData, self._tileMapArray, tileDim)
         touched[Corners.Center] = TileMapManager.getTouchedTileOf(center, self._mapData, self._tileMapArray, tileDim)
+        touched["NonSolidTiles"] = self.nonSolidTiles
        
         return touched
 

@@ -93,7 +93,7 @@ class PlayerMoveStateMachine(object):
         result = False
         if self._getTileInfoCallback:
             info = self._getTileInfoCallback()
-            if  not info[Corners.Left]["index"] in self._backgroundTiles:
+            if  not info[Corners.Left]["index"] in info["NonSolidTiles"]:
                 result = True
         return result
 
@@ -102,7 +102,7 @@ class PlayerMoveStateMachine(object):
         result = False
         if self._getTileInfoCallback:
             info = self._getTileInfoCallback()
-            if  not info[Corners.Right]["index"] in self._backgroundTiles:
+            if  not info[Corners.Right]["index"] in info["NonSolidTiles"]:
                 result = True
         return result
 

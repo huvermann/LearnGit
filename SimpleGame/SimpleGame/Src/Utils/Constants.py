@@ -6,6 +6,7 @@ class ConfigKey(object):
     Sprites = "Sprites"
     BackgroundImage = "BackgroundImage"
     Sounds = "Sounds"
+    NonSolidTiles = "NonSolidTiles"
 
 class MapFields(object):
     Tileheight = "tileheight"
