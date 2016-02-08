@@ -191,6 +191,8 @@
     <Content Include="Assets\Sprites\Jimbo\Jimbo_Left_mask.png" />
     <Content Include="Assets\Sprites\Jimbo\Jimbo_Right.png" />
     <Content Include="Assets\Sprites\Jimbo\Jimbo_Right_mask.png" />
+    <Content Include="Assets\Views\Level1\background3.png" />
+    <Content Include="Assets\Views\Level1\config.json" />
     <Content Include="Assets\Views\Level1\Level1.json" />
     <Content Include="Assets\Views\Level1\Level1.png" />
     <Content Include="Assets\Views\Level1\Level1.pyxel" />
