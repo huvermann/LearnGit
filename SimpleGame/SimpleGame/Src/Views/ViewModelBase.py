@@ -278,7 +278,7 @@ class ViewModelBase:
             # Q Pressed, quit game
             self._state.done = True
         elif event.key == pygame.K_1:
-            self._callback(ViewNames.View1)
+            self._callback(ViewNames.Level1)
         elif event.key == pygame.K_2:
             self._callback(ViewNames.Level1)
         elif event.key == pygame.K_3:

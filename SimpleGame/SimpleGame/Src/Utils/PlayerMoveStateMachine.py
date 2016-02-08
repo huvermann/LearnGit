@@ -28,7 +28,7 @@ class PlayerMoveStateMachine(object):
         self._lastPosition = None
         self._getTileInfoCallback = None
         self._getCurrentPositionCallback = None
-        self._backgroundTiles = [0, 28, 29]
+        self._backgroundTiles = [0, 28, 29, 30, 31]
         return super().__init__(**kwargs)
 
     def getVectors(self, moveState):

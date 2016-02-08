@@ -43,9 +43,9 @@ class ViewController(object):
         return newView
     def viewFactory(self, viewName):
         """Creates a view by name."""
-        if viewName == "View1":
+        if viewName == "View1x":
             return ViewStart(self.gameState, self.screen, self.ChangeViewCallback)
-        elif viewName == "Level1":
+        elif viewName == "Level1x":
             return View2(self.gameState, self.screen, self.ChangeViewCallback)
         # Todo implement all views
         else:
