@@ -200,6 +200,7 @@
     <Content Include="Assets\Views\Level2\background.png" />
     <Content Include="Assets\Views\Level2\background.png.old" />
     <Content Include="Assets\Views\Level2\background3.png" />
+    <Content Include="Assets\Views\Level2\background6.png" />
     <Content Include="Assets\Views\Level2\config.json" />
     <Content Include="Assets\Views\Level2\Level2.json" />
     <Content Include="Assets\Views\Level2\Level2.png" />
