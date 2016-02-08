@@ -15,7 +15,7 @@ class MainGame:
     """The main game class"""
     def __init__(self):
         """Initialization of the main class."""
-        #logging.basicConfig(filename="gamelog.log", level=logging.DEBUG)
+        logging.basicConfig(filename="gamelog.log", level=logging.DEBUG)
         logging.info("Started")
         pygame.init()
         logging.debug('Game started!')
