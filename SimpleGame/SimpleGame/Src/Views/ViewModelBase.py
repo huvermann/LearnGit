@@ -188,27 +188,43 @@ class ViewModelBase:
 
     def _configure(self, configuration):
         """Configures the view."""
+        logging.debug("execute _configure")
         if configuration:
-            if configuration[ConfigKey.BackgroundImage]:
+            if ConfigKey.BackgroundImage in configuration:
                 self._backgroundImageFileName = configuration[ConfigKey.BackgroundImage]
             self._mapManager = TileMapManager.TileMapManager(self.viewModelName, self._backgroundImageFileName)
+            if ConfigKey.NonSolidTiles in configuration:
+                # Loads the list of non solid tiles.
+                self._mapManager.nonSolidTiles = configuration[ConfigKey.NonSolidTiles]
             # Loads the sprite class for the player from config file.
-            playername = configuration[ConfigKey.PlayerType]
-            if len(playername) > 1:
-                # Creates the sprite instance.
-                self._playerSprite = createSpriteInstance(playername, self._screen, self._position, self._mapManager)
-                # Adds the player to the sprite group.
-                self._allSprites.add(self._playerSprite)
+            if ConfigKey.PlayerType in configuration:
+                playername = configuration[ConfigKey.PlayerType]
+                if len(playername) > 1:
+                    # Creates the sprite instance.
+                    self._playerSprite = createSpriteInstance(playername, self._screen, self._position, self._mapManager)
+                    # Adds the player to the sprite group.
+                    self._allSprites.add(self._playerSprite)
             # Gets the Song list from config and creates a music player
-            self._musicPlayer = MusicPlayer(configuration[ConfigKey.Songs])
-            if configuration[ConfigKey.StartPlayerAt]:
+            if ConfigKey.Songs in configuration:
+                self._musicPlayer = MusicPlayer(configuration[ConfigKey.Songs])
+            else:
+                logging.warning("No song files in configuration")
+            if ConfigKey.StartPlayerAt in configuration:
                 self._position.posX = configuration[ConfigKey.StartPlayerAt]["x"]
                 self._position.posY = configuration[ConfigKey.StartPlayerAt]["y"]
-            if configuration[ConfigKey.Sprites]:
+            else:
+                logging.warn("No player start position configured for this map.")
+            if ConfigKey.Sprites in configuration:
                 self._initializeSprites(configuration[ConfigKey.Sprites])
+            else:
+                logging.warn("No sprites configured for this map.")
             
-            if configuration[ConfigKey.Sounds]:
+            if ConfigKey.Sounds in configuration:
                 self._loadSounds(configuration[ConfigKey.Sounds])
+            else:
+                logging.warn("No sounds configured for this map.")
+        else:
+            logging.error("Null configuration.")
         pass
 
     def runView(self):

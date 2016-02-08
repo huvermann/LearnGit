@@ -116,35 +116,11 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         pass
 
     def update(self):
-        #todo implement state driven animation.
-        #self._position.posX += 2
         ticks = pygame.time.get_ticks()
         self._moveStateMachine.updateState(ticks)
         self.image = self._getImage(self.moveState, ticks)
         self._updatePosition(ticks, self._moveStateMachine)
         pass
-
-    #def update(self, vectorX, vectorY):
-    #    #Todo remove this method!
-
-    #    # Todo: implement animation
-        
-    #    # Select the animation by x-vector
-    #    if vectorX == -1:
-    #        ani = self._aniLeft
-    #    else:
-    #        ani = self._aniRight
-        
-    #    if self._moveCounter < 10:
-    #        rect = (0,0, 32,32)
-    #    else:
-    #        rect = (32,0,32,32)
-    #    self._moveCounter +=1
-    #    if self._moveCounter > 20:
-    #        self._moveCounter = 0
-
-    #    if ani:
-    #        self.image = ani.subsurface(rect)
 
 
 

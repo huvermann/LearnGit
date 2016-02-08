@@ -27,7 +27,7 @@
       "FileName": "173859__jivatma07__j1game-over-mono.wav",
       "Comment": "Game over buzzer."
     }
-  ], 
+  ],
   "Sprites": [
     {
       "Type": "CoinSprite",
@@ -45,5 +45,6 @@
       "y": 448
     }
 
-  ]
+  ],
+  "NonSolidTiles": [ 0, 28, 29, 30, 31 ]
 }
