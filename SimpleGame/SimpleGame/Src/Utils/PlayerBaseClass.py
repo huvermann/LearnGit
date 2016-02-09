@@ -28,6 +28,10 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         self._moveStateMachine.currentPositionCallback = self.getCurrentPositionHandler
         self._moveStateMachine._getTileInfoCallback = self._getTileInfoHandler
 
+    def configure(self, configuration):
+        """Configure the player"""
+        pass
+
     def _getTileInfoHandler(self):
         result = None
         playerPosition = (self._position.posX + self.rect.left, self._position.posY+ self.rect.top)
