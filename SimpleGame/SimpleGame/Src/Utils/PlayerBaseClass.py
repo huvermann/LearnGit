@@ -2,7 +2,7 @@ import pygame
 import os
 import logging
 from Utils.DirHelper import getSpriteAnimationImage
-from Utils.Constants import AnimationNames
+from Utils.Constants import AnimationNames, ConfigKey
 from Utils.JoystickStates import JoystickEvents, JoystickState
 from Utils.PlayerMoveStateMachine import PlayerMoveState, PlayerMoveStateMachine
 from Utils.TileMapManager import TileMapManager
@@ -30,6 +30,28 @@ class PlayerBaseClass(pygame.sprite.Sprite):
 
     def configure(self, configuration):
         """Configure the player"""
+        if ConfigKey.Animations in configuration:
+            self.configureAnimations(configuration[ConfigKey.Animations])
+        else:
+            logging.warn("No player animation list found.")
+        pass
+
+    def configureAnimations(self, configuration):
+        """Configure the animation from config file."""
+        defaultAnimations = [AnimationNames.Standing, AnimationNames.Falling, AnimationNames.Left, AnimationNames.Right, AnimationNames.JumpLeft, AnimationNames.JumpRight, AnimationNames.JumpUp]
+        for aniName in defaultAnimations:
+            if aniName in configuration:
+                self.loadAnimationFromConfiguration(aniName, configuration[aniName])
+            else:
+                logging.warn("Animation: {0} in player configuration.".format(aniName))
+
+        if AnimationNames.Left in configuration:
+            self.loadAnimationFromConfiguration(AnimationNames.Left, configuration[AnimationNames.Left])
+        if AnimationNames.Right in configuration:
+            self.loadAnimationFromConfiguration(AnimationNames.Right, configuration[AnimationNames.Right])
+        pass
+
+    def loadAnimationFromConfiguration(self, animationname, configuration):
         pass
 
     def _getTileInfoHandler(self):

@@ -10,9 +10,10 @@ class PlayerMoveState(object):
     MoveRight = 4
     JumpLeft = 5
     JumpRight = 6
-    Dying = 7
-    Killed = 8
-    invisible = 9
+    JumpUp = 7
+    Dying = 8
+    Killed = 9
+    invisible = 10
 
 class MoveVector(object):
     X = 0

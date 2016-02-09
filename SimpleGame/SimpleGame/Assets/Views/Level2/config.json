@@ -1,9 +1,31 @@
 {
+  "Levelname": "Level2",
+
   "PlayerSpriteDefinition": {
     "PlayerType": "JimboSprite",
-    "Animations": [
+    "Animations": {
+      "Standing": {
 
-    ]
+      },
+      "Falling": {
+
+      },
+      "Left": {
+
+      },
+      "Right": {
+
+      },
+      "JumpLeft": {
+
+      },
+      "JumpRight": {
+
+      },
+      "JumpUp": {
+
+      }
+    }
   },
   
   "Songs": [
