@@ -3,6 +3,7 @@ from Utils.DirHelper import getMapImageResourceFile, getMapResourceFile, getBack
 import os.path
 import json
 from Utils.Constants import MapFields, Corners
+import logging
 
 class TileMapManager:
     """The Tile Map Manager Class."""
@@ -41,13 +42,31 @@ class TileMapManager:
     viewColCount = property(_viewColumnsCount)
     viewRowCount = property(_viewRowCount)
 
-    def _drawBackground(self, screen, image):
-        screen.blit(image, (0,0))
+    def _drawBackground(self, screen, image, offset):
+        """Draws the background image depending on the offset position."""
+        screenRect = screen.get_rect()
+        imageRect = image.get_rect()
+
+        mapWidht = self._tileWidth() * self._viewColumnsCount()
+        mapHeight = self._tileHeight() * self._viewRowCount()
+
+        # Don´t scroll the background in y direction
+        yoffset = offset[1]
+        if yoffset < 0:
+            xoffset = 0
+        elif yoffset > mapHeight:
+            yoffset = mapHeight
+            
+        screenRect.top = int((imageRect.size[1] - screenRect.size[1]) / mapHeight * (yoffset % mapHeight))
+        screenRect.left = int((imageRect.size[0] - screenRect.size[0]) / mapWidht * (offset[0] % mapWidht))
+        
+        partImage = image.subsurface(screenRect)
+        screen.blit(partImage, (0,0))
         pass
 
     def drawTiles(self, screen, offset):
         if self._backgroundImage:
-            self._drawBackground(screen, self._backgroundImage)
+            self._drawBackground(screen, self._backgroundImage, offset)
 
         th = self.tileHeight
         tw = self.tileWidth
