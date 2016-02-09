@@ -49,10 +49,11 @@ class AnimationInfo(object):
             self.Delay = 200
         #Load the files from folder
         self.ImageSurface = AnimationInfo.loadAnimationResourceFile(spriteName, self.Filename)
+        # Set transparence
+        self.ImageSurface.set_colorkey(self.ImageSurface.get_at((0,0)))
+
         if self.MaskFileName:
             self.MaskSurface = AnimationInfo.loadAnimationResourceFile(spriteName, self.MaskFileName)
-
-        
 
         # Read ImageRect
         self.ImageRect = self.ImageSurface.get_rect()
@@ -73,6 +74,14 @@ class AnimationInfo(object):
         rect = (left, 0, self.PictureSize[0], self.PictureSize[1])
         result = self.ImageSurface.subsurface(rect)
         return result
+
+    def calculateTimeIndex(self, time):
+        #Todo implement calculation
+        return 0
+
+    def calculatePositionIndex(self, position):
+        #Todo implement calculation
+        return 0
 
 
     @staticmethod

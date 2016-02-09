@@ -118,15 +118,33 @@ class PlayerBaseClass(pygame.sprite.Sprite):
             result = pygame.image.load(resourceFile).convert()
         return result
 
-
-    def _getImage(self, moveState, time):
-        #Todo: Calculate rect by time or x position
-        rect = (0,0, 32,32)
+    def _getAnimationByMoveState(self, moveState):
+        # todo get animation by state
+        result = None
         if moveState == PlayerMoveState.MoveLeft:
-            ani = self._aniLeft
-        else:
-            ani = self._aniRight
-        result = ani.subsurface(rect)
+            result = self._animations[AnimationNames.Left]
+        elif moveState == PlayerMoveState.MoveRight:
+            result = self._animations[AnimationNames.Right]
+        elif moveState == PlayerMoveState.JumpLeft:
+            result = self._animations[AnimationNames.JumpLeft]
+        elif moveState == PlayerMoveState.Falling:
+            result = self._animations[AnimationNames.Falling]
+        elif moveState == PlayerMoveState.Standing:
+            result = self._animations[AnimationNames.Standing]
+        return result
+
+
+    def _getImage(self, moveState, time, position):
+        """Get the subsurface of the animation based on moveState and time."""
+        result = None
+        ani = self._getAnimationByMoveState(moveState)
+        if ani:
+            if ani.AnimationType == AnimationTypes.TimeBased:
+                index = ani.calculateTimeIndex(time)
+                result = ani.getAnimationPictureByIndex(index)
+            else:
+                index = ani.calculatePositionIndex(position)
+                result = ani.getAnimationPictureByIndex(index)
         return result
 
     def getCurrentPositionHandler(self):
@@ -168,8 +186,8 @@ class PlayerBaseClass(pygame.sprite.Sprite):
     def update(self):
         ticks = pygame.time.get_ticks()
         self._moveStateMachine.updateState(ticks)
-        self.image = self._getImage(self.moveState, ticks)
         self._updatePosition(ticks, self._moveStateMachine)
+        self.image = self._getImage(self.moveState, ticks, self._position)
         pass
 
 
