@@ -38,6 +38,11 @@ class ViewNames(object):
 class AnimationNames(object):
     Left = "Left"
     Right = "Right"
+    Standing = "Standing"
+    Falling = "Falling"
+    JumpLeft = "JumpLeft"
+    JumpRight = "JumpRight"
+    JumpUp = "JumpUp"
 
 class DIRS(object):
     ASSETS = "Assets"
