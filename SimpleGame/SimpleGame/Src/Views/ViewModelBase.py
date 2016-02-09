@@ -186,6 +186,18 @@ class ViewModelBase:
 
         pass
 
+    def _configurePlayer(self, configuration):
+        """Configure the player object."""
+        if ConfigKey.PlayerType in configuration:
+            playername = configuration[ConfigKey.PlayerType]
+            # Creates the sprite instance.
+            self._playerSprite = createSpriteInstance(playername, self._screen, self._position, self._mapManager)
+            # Perform the specific configuration at the player object.
+            self._playerSprite.configure(configuration)
+            # Adds the player to the sprite group.
+            self._allSprites.add(self._playerSprite)
+        pass
+
     def _configure(self, configuration):
         """Configures the view."""
         logging.debug("execute _configure")
@@ -197,13 +209,9 @@ class ViewModelBase:
                 # Loads the list of non solid tiles.
                 self._mapManager.nonSolidTiles = configuration[ConfigKey.NonSolidTiles]
             # Loads the sprite class for the player from config file.
-            if ConfigKey.PlayerType in configuration:
-                playername = configuration[ConfigKey.PlayerType]
-                if len(playername) > 1:
-                    # Creates the sprite instance.
-                    self._playerSprite = createSpriteInstance(playername, self._screen, self._position, self._mapManager)
-                    # Adds the player to the sprite group.
-                    self._allSprites.add(self._playerSprite)
+            if ConfigKey.PlayerSpriteDefinition in configuration:
+                self._configurePlayer(configuration[ConfigKey.PlayerSpriteDefinition])
+            
             # Gets the Song list from config and creates a music player
             if ConfigKey.Songs in configuration:
                 self._musicPlayer = MusicPlayer(configuration[ConfigKey.Songs])

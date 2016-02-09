@@ -1,6 +1,8 @@
 class ConfigKey(object):
     """Configuration keys for config.json"""
+    PlayerSpriteDefinition = "PlayerSpriteDefinition"
     PlayerType = "PlayerType"
+    Animations = "Animations"
     StartPlayerAt = "StartPlayerAt"
     Songs = "Songs"
     Sprites = "Sprites"

@@ -65,6 +65,7 @@ class TileMapManager:
         pass
 
     def drawTiles(self, screen, offset):
+        """Draws the tiles on the screen, depending on the offset position."""
         if self._backgroundImage:
             self._drawBackground(screen, self._backgroundImage, offset)
 

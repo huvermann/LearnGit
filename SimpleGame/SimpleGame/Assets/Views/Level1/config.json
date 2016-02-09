@@ -1,5 +1,7 @@
 {
-  "PlayerType": "JimboSprite",
+  "PlayerSpriteDefinition": {
+    "PlayerType": "JimboSprite"
+  },
   "Songs": [
     { "Filename": "m4rt3z_m4rt3z---Primal-Snap-320.mp3" },
     { "Filename": "m4rt3z_m4rt3z---Elemental-Energy-Oxy-320.mp3" }
