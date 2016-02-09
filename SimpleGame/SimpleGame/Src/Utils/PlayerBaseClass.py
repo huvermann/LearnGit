@@ -1,11 +1,12 @@
 import pygame
 import os
 import logging
-from Utils.DirHelper import getSpriteAnimationImage
+from Utils.DirHelper import getSpriteAnimationImage, getSpriteResourceFilename
 from Utils.Constants import AnimationNames, ConfigKey
 from Utils.JoystickStates import JoystickEvents, JoystickState
 from Utils.PlayerMoveStateMachine import PlayerMoveState, PlayerMoveStateMachine
 from Utils.TileMapManager import TileMapManager
+from Utils.AnimationInfo import AnimationInfo, AniConfigKeys, AnimationTypes
 
 class PlayerBaseClass(pygame.sprite.Sprite):
     """The player sprite base class."""
@@ -20,6 +21,7 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         self._mapManager = None
         self._aniLeft = None
         self._aniRight = None
+        self._animations = {}
         self._transparenceKey = None
         self.loadAnimations(spriteName)
         self._speed = 120 # Default speed pixel per second
@@ -41,18 +43,31 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         defaultAnimations = [AnimationNames.Standing, AnimationNames.Falling, AnimationNames.Left, AnimationNames.Right, AnimationNames.JumpLeft, AnimationNames.JumpRight, AnimationNames.JumpUp]
         for aniName in defaultAnimations:
             if aniName in configuration:
-                self.loadAnimationFromConfiguration(aniName, configuration[aniName])
+                self._animations[aniName] = self.loadAnimationFromConfiguration(aniName, configuration[aniName])
             else:
                 logging.warn("Animation: {0} in player configuration.".format(aniName))
-
-        if AnimationNames.Left in configuration:
-            self.loadAnimationFromConfiguration(AnimationNames.Left, configuration[AnimationNames.Left])
-        if AnimationNames.Right in configuration:
-            self.loadAnimationFromConfiguration(AnimationNames.Right, configuration[AnimationNames.Right])
         pass
 
     def loadAnimationFromConfiguration(self, animationname, configuration):
-        pass
+        result = AnimationInfo()
+        result.Filename = configuration[AniConfigKeys.Filename]
+        if AniConfigKeys.MaskFilename in configuration:
+            result.MaskFileName = configuration[AniConfigKeys.MaskFilename]
+        if AniConfigKeys.AnimationType in configuration:
+            result.AnimationType = configuration[AniConfigKeys.AnimationType]
+            if result.AnimationType == AnimationTypes.TimeBased:
+                result.Delay = configuration[AniConfigKeys.Delay]
+            elif result.AnimationType == AnimationTypes.PositionBased:
+                result.StepWith = configuration[AniConfigKeys.StepWith]
+        else:
+            logging.warn("No animationtype configured for animation: {0}".format(animationname))
+            result.AnimationType = AnimationTypes.TimeBased
+            result.Delay = 200
+        #Load the files from folder
+        result.ImageSurface = PlayerBaseClass.loadAnimationResourceFile(self._spriteName, result.Filename)
+        if result.MaskFileName:
+            result.MaskSurface = PlayerBaseClass.loadAnimationResourceFile(self._spriteName, result.MaskFileName)
+        return result
 
     def _getTileInfoHandler(self):
         result = None
@@ -110,6 +125,15 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         if os.path.isfile(animationFile):
             result = pygame.image.load(animationFile).convert()
         return result
+
+    @staticmethod
+    def loadAnimationResourceFile(spritename, filename):
+        result = None
+        resourceFile = getSpriteResourceFilename(spritename, filename)
+        if os.path.isfile(resourceFile):
+            result = pygame.image.load(resourceFile).convert()
+        return result
+
 
     def _getImage(self, moveState, time):
         #Todo: Calculate rect by time or x position

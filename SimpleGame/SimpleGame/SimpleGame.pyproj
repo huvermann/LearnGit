@@ -68,6 +68,9 @@
     <Compile Include="Src\Tests\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Utils\AnimationInfo.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Utils\CollosionInfo.py">
       <SubType>Code</SubType>
     </Compile>

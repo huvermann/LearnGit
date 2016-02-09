@@ -53,6 +53,10 @@ def getSpriteAnimationImage(resourceName, animationName):
     '''Returns a sprite animation image file.'''
     return os.path.join(getBasePath(), DIRS.ASSETS, DIRS.SPRITES, resourceName, resourceName + "_" + animationName + ".png")
 
+def getSpriteResourceFilename(resourceName, filename):
+    return os.path.join(getBasePath(), DIRS.ASSETS, DIRS.SPRITES, resourceName, filename)
+
+
 
 
 
