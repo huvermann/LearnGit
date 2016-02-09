@@ -133,6 +133,10 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         """Handler to get the current position, used by the move state machine."""
         return self._position.copy()
 
+    def _calculateJumpPosition(self, position):
+        # Todo_ Implement
+        pass
+
     def _updatePosition(self, timeStamp, moveStateMachine):
         if moveStateMachine.moveState in [PlayerMoveState.Standing, PlayerMoveState.MoveLeft, PlayerMoveState.MoveRight]:
             if moveStateMachine.lastChange:
@@ -146,6 +150,18 @@ class PlayerBaseClass(pygame.sprite.Sprite):
                 duration = timeStamp - moveStateMachine.lastChange
                 move = duration * self.fallSpeed / 1000
                 self._position.posY = int(moveStateMachine.lastPosition.posY + move)
+        elif moveStateMachine.moveState == PlayerMoveState.JumpLeft:
+            #JumpLeft
+            self._calculateJumpPosition(self._position)
+
+        elif moveStateMachine.moveState == PlayerMoveState.JumpRight:
+            # JumpRight
+            self._calculateJumpPosition(self._position)
+
+        elif moveStateMachine.moveState == PlayerMoveState.JumpUp:
+            # JumpUp
+            self._calculateJumpPosition(self._position)
+
 
         pass
 

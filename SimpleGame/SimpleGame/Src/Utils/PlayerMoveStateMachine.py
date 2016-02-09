@@ -107,10 +107,10 @@ class PlayerMoveStateMachine(object):
                 result = True
         return result
 
-    def _isBarrierTopLeft():
+    def _isBarrierTopLeft(self):
         #todo: implement
         return False
-    def _isBarrierTopRight():
+    def _isBarrierTopRight(self):
         #todo: implement
         return False
 
