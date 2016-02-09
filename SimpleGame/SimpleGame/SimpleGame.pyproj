@@ -182,6 +182,7 @@
     <Content Include="Assets\Sound\readme.txt" />
     <Content Include="Assets\Sprites\Bloob\bloob.pyxel" />
     <Content Include="Assets\Sprites\Bloob\bloob_gehen_links.png" />
+    <Content Include="Assets\Sprites\Bloob\bloob_gehen_rechts.png" />
     <Content Include="Assets\Sprites\Bloob\bloob_links_und_mitte.png" />
     <Content Include="Assets\Sprites\Bloob\bloob_maske.png" />
     <Content Include="Assets\Sprites\Bloob\bloob_rechts_und_mitte.png" />
@@ -191,7 +192,9 @@
     <Content Include="Assets\Sprites\Coin\Coin_Ani.png" />
     <Content Include="Assets\Sprites\Coin\Coin_mask.png" />
     <Content Include="Assets\Sprites\Gameover\game_over.png" />
+    <Content Include="Assets\Sprites\Gameover\Game_over.pyxel" />
     <Content Include="Assets\Sprites\Gameover\game_over2.png" />
+    <Content Include="Assets\Sprites\Gameover\Game_over_animation.png" />
     <Content Include="Assets\Sprites\Jimbo\Jimbo.pyxel" />
     <Content Include="Assets\Sprites\Jimbo\Jimbo_jump_left.png" />
     <Content Include="Assets\Sprites\Jimbo\Jimbo_jump_right.png" />
