@@ -50,23 +50,7 @@ class PlayerBaseClass(pygame.sprite.Sprite):
 
     def loadAnimationFromConfiguration(self, animationname, configuration):
         result = AnimationInfo()
-        result.Filename = configuration[AniConfigKeys.Filename]
-        if AniConfigKeys.MaskFilename in configuration:
-            result.MaskFileName = configuration[AniConfigKeys.MaskFilename]
-        if AniConfigKeys.AnimationType in configuration:
-            result.AnimationType = configuration[AniConfigKeys.AnimationType]
-            if result.AnimationType == AnimationTypes.TimeBased:
-                result.Delay = configuration[AniConfigKeys.Delay]
-            elif result.AnimationType == AnimationTypes.PositionBased:
-                result.StepWith = configuration[AniConfigKeys.StepWith]
-        else:
-            logging.warn("No animationtype configured for animation: {0}".format(animationname))
-            result.AnimationType = AnimationTypes.TimeBased
-            result.Delay = 200
-        #Load the files from folder
-        result.ImageSurface = PlayerBaseClass.loadAnimationResourceFile(self._spriteName, result.Filename)
-        if result.MaskFileName:
-            result.MaskSurface = PlayerBaseClass.loadAnimationResourceFile(self._spriteName, result.MaskFileName)
+        result.configure(self._spriteName, animationname, configuration)
         return result
 
     def _getTileInfoHandler(self):

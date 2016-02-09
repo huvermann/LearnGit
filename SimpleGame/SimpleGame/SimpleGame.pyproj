@@ -190,6 +190,8 @@
     <Content Include="Assets\Sprites\Coin\Coin.pyxel" />
     <Content Include="Assets\Sprites\Coin\Coin_Ani.png" />
     <Content Include="Assets\Sprites\Coin\Coin_mask.png" />
+    <Content Include="Assets\Sprites\Gameover\game_over.png" />
+    <Content Include="Assets\Sprites\Gameover\game_over2.png" />
     <Content Include="Assets\Sprites\Jimbo\Jimbo.pyxel" />
     <Content Include="Assets\Sprites\Jimbo\Jimbo_jump_left.png" />
     <Content Include="Assets\Sprites\Jimbo\Jimbo_jump_right.png" />
@@ -230,6 +232,7 @@
     <Folder Include="Assets\Sprites\Jimbo\" />
     <Folder Include="Assets\Sprites\Coin\" />
     <Folder Include="Assets\Sprites\Bloob\" />
+    <Folder Include="Assets\Sprites\Gameover\" />
     <Folder Include="Assets\Views\" />
     <Folder Include="Assets\Sound\" />
     <Folder Include="Assets\Views\Level1\" />
