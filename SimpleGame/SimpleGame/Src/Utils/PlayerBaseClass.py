@@ -143,7 +143,7 @@ class PlayerBaseClass(pygame.sprite.Sprite):
                 index = ani.calculateTimeIndex(time)
                 result = ani.getAnimationPictureByIndex(index)
             else:
-                index = ani.calculatePositionIndex(position)
+                index = ani.calculatePositionIndex(position.posX)
                 result = ani.getAnimationPictureByIndex(index)
         return result
 

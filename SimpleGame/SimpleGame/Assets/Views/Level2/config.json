@@ -5,7 +5,7 @@
     "PlayerType": "JimboSprite",
     "Animations": {
       "Standing": {
-        "Filename": "Jimbo_Left.png",
+        "Filename": "Jimbo_standing.png",
         "MaskFilename": "Jimbo_Left_mask.png",
         "AnimationType": "TimeBased",
         "Delay": 250,
@@ -15,18 +15,21 @@
         "Filename": "Jimbo_Left.png",
         "MaskFilename": "Jimbo_Left_mask.png",
         "AnimationType": "TimeBased",
-        "Delay": 250
+        "ImageCount": 2,
+        "Delay": 25
       },
       "Left": {
         "Filename": "Jimbo_Left.png",
         "AnimationType": "PositionBased",
-        "StepWith": 4
+        "ImageCount": 2,
+        "StepWith": 8
       },
       "Right": {
         "Filename": "Jimbo_Right.png",
         "MaskFilename": "Jimbo_Right_mask.png",
         "AnimationType": "PositionBased",
-        "StepWith": 250
+        "ImageCount": 2,
+        "StepWith": 8
       },
       "JumpLeft": {
         "Filename": "Jimbo_jump_left.png",

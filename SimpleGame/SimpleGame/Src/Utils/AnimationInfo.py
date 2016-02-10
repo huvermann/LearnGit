@@ -10,6 +10,7 @@ class AniConfigKeys(object):
     Delay = "Delay"
     StepWith = "StepWith"
     PictureSize = "PictureSize"
+    ImageCount = "ImageCount"
 
 
 class AnimationTypes(object):
@@ -63,7 +64,10 @@ class AnimationInfo(object):
             # Assume we have a Squere if no PictureSize is defined.
             self.PictureSize = (self.ImageRect.height, self.ImageRect.height)
 
-        self.ImageCount = self.ImageRect.width // self.PictureSize[0]
+        if not AniConfigKeys.ImageCount in configuration:
+            self.ImageCount = self.ImageRect.width // self.PictureSize[0]
+        else:
+            self.ImageCount = configuration[AniConfigKeys.ImageCount]
         pass
 
     def getAnimationPictureByIndex(self, index):
@@ -76,12 +80,10 @@ class AnimationInfo(object):
         return result
 
     def calculateTimeIndex(self, time):
-        #Todo implement calculation
-        return 0
+        return (time // (self.Delay * self.ImageCount)) % self.ImageCount
 
     def calculatePositionIndex(self, position):
-        #Todo implement calculation
-        return 0
+        return (position // (self.StepWith * self.ImageCount)) % self.ImageCount
 
 
     @staticmethod
