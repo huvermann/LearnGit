@@ -34,7 +34,7 @@ class JoystickInputManager(InputManagerBase):
 
             elif event.type == pygame.JOYBUTTONUP:
                 if event.button == 3:
-                    self.onButtonUp(event)
+                    self.onJumpButtonRelease(event)
 
             elif event.type == pygame.JOYHATMOTION:
                 x,y = event.value

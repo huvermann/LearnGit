@@ -34,20 +34,23 @@
       "JumpLeft": {
         "Filename": "Jimbo_jump_left.png",
         "MaskFilename": "Jimbo_mask_jump_left.png",
-        "AnimationType": "PositionBased",
-        "StepWith": 250
+        "AnimationType": "TimeBased",
+        "ImageCount" :  2,
+        "Delay": 25
       },
       "JumpRight": {
         "Filename": "Jimbo_mask_jump_right.png",
         "MaskFilename": "Jimbo_mask_jump_right.png",
-        "AnimationType": "PositionBased",
-        "StepWith": 250
+        "AnimationType": "TimeBased",
+        "ImageCount" :  2,
+        "Delay": 25
       },
       "JumpUp": {
         "Filename": "Jimbo_Left.png",
         "MaskFilename": "Jimbo_Left_mask.png",
         "AnimationType": "TimeBased",
-        "Delay": 250
+        "ImageCount": 2,
+        "Delay": 25
       }
     }
   },

@@ -29,11 +29,13 @@ class PlayerMoveStateMachine(object):
         self._lastPosition = None
         self._getTileInfoCallback = None
         self._getCurrentPositionCallback = None
+        self._jumpTimeout = 100
         self._backgroundTiles = [0, 28, 29, 30, 31]
         return super().__init__(**kwargs)
 
     def getVectors(self, moveState):
         """Returns moving vectors depending on move state."""
+        # Obsolete remove it!
         result = MoveVector()
         if moveState == PlayerMoveState.MoveLeft:
             result.X = -1
@@ -45,7 +47,12 @@ class PlayerMoveStateMachine(object):
         #Todo: Implement vector for jumping
         return result
 
-
+    @property
+    def jumpTimeout(self):
+        return self._jumpTimeout
+    @jumpTimeout.setter
+    def jumpTimeout(self, value):
+        self._jumpTimeout = value
     @property
     def lastChange(self):
         return self._lastChange
@@ -107,12 +114,23 @@ class PlayerMoveStateMachine(object):
                 result = True
         return result
 
+    def _isBarrierTop(self):
+        result = False
+        #Todo implement
+        return result
     def _isBarrierTopLeft(self):
         #todo: implement
+
         return False
     def _isBarrierTopRight(self):
         #todo: implement
         return False
+
+    def _isJumpEnded(self, timeStamp):
+        result = False
+        if timeStamp - self._lastChange > self._jumpTimeout:
+            result = True
+        return result
 
     def updateState(self, timeStamp):
         """Updates and returns the move state."""
@@ -128,13 +146,15 @@ class PlayerMoveStateMachine(object):
             self._checkJumpLeft(timeStamp)
         elif self._moveState == PlayerMoveState.JumpRight:
             self._checkJumpRight(timeStamp)
+        elif self._moveState == PlayerMoveState.JumpUp:
+            self._checkJumpUp(timeStamp)
         return self._moveState
 
     def _checkStanding(self, timeStamp):
         """Checks if the move state must be changed."""
         if not self._isPlayerGrounded():
             self._changeToFalling(timeStamp)
-        elif self._joystickState.keyState == JoystickEvents.MoveLeft:
+        if self._joystickState.keyState == JoystickEvents.MoveLeft:
             self._changeToDirection(JoystickEvents.MoveLeft, timeStamp)
         elif self._joystickState.keyState == JoystickEvents.MoveRight:
             self._changeToDirection(JoystickEvents.MoveRight, timeStamp)
@@ -161,6 +181,8 @@ class PlayerMoveStateMachine(object):
             self._changeToFalling(timeStamp)
         elif self._joystickState.keyState == JoystickEvents.MoveRight:
             self._changeToDirection(JoystickEvents.MoveRight, timeStamp)
+        elif self._joystickState.buttonState == JoystickEvents.JumpButton:
+            self._changeToJumping(timeStamp)
         elif self._joystickState.keyState == JoystickEvents.KeyReleased:
             self._changeToStanding(timeStamp)
 
@@ -173,6 +195,8 @@ class PlayerMoveStateMachine(object):
             self._changeToFalling(timeStamp)
         elif self._joystickState.keyState == JoystickEvents.MoveLeft:
             self._changeToDirection(JoystickEvents.MoveLeft, timeStamp)
+        elif self._joystickState.buttonState == JoystickEvents.JumpButton:
+            self._changeToJumping(timeStamp)
         elif self._joystickState.keyState == JoystickEvents.KeyReleased:
             self._changeToStanding(timeStamp)
         pass
@@ -181,14 +205,23 @@ class PlayerMoveStateMachine(object):
         """Checks if the move state must be changed."""
         if self._isBarrierTopLeft():
             self._changeToStanding(timeStamp)
-        #todo: check jump finished
+        elif self._isJumpEnded(timeStamp):
+            self._changeToFalling(timeStamp)
         pass
     def _checkJumpRight(self, timeStamp):
         """Checks if the move state must be changed."""
         if self._isBarrierTopRight():
             self._changeToStanding(timeStamp)
-        #todo: check jump finished
+        elif self._isJumpEnded(timeStamp):
+            self._changeToFalling(timeStamp)
         pass
+
+    def _checkJumpUp(self, timeStamp):
+        if self._isJumpEnded(timeStamp):
+            self._changeToFalling(timeStamp)
+        elif self._isBarrierTop():
+            self._changeToFalling(timeStamp)
+
 
     def _saveTimePosition(self, timeStamp):
         self._lastChange = timeStamp
@@ -214,7 +247,12 @@ class PlayerMoveStateMachine(object):
     def _changeToJumping(self, timeStamp):
         """Changes into jumping mode."""
         self._saveTimePosition(timeStamp)
-        self._moveState = PlayerMoveState.JumpLeft
+        if self._joystickState.keyState == JoystickEvents.MoveLeft:
+            self._moveState = PlayerMoveState.JumpLeft
+        elif self._joystickState.keyState == JoystickEvents.MoveRight:
+            self._moveState = PlayerMoveState.JumpRight
+        else :
+            self._moveState = PlayerMoveState.JumpUp
 
     def _changeToStanding(self, timeStamp):
         """Changes to standing mode."""
