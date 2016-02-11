@@ -10791,13 +10791,3 @@ ImportError: DLL load failed: Das angegebene Modul wurde nicht gefunden.
 2016-02-06T11:23:10: [WARNING] Library was set explicitly - skipping path detection
 2016-02-06T11:23:10: IncludeModulesFromModulePath = win32com
 2016-02-06T11:23:11: Deleting 0 files
-
-2016-02-10T10:47:51: Start analysis
-2016-02-10T10:47:51: [WARNING] Library was set explicitly - skipping path detection
-2016-02-10T10:47:51: IncludeModulesFromModulePath = win32com
-2016-02-10T10:47:53: Deleting 0 files
-
-2016-02-11T09:21:12: Start analysis
-2016-02-11T09:21:12: [WARNING] Library was set explicitly - skipping path detection
-2016-02-11T09:21:12: IncludeModulesFromModulePath = win32com
-2016-02-11T09:21:13: Deleting 0 files

@@ -3,6 +3,7 @@ from Sprites.CoinSprite import CoinSprite
 from Sprites.BlobSprite import BlobSprite
 from Sprites.MockSprite import MockSprite
 from Sprites.DrawbridgeSprite import DrawbridgeSprite
+from Sprites.HeartSprite import HeartSprite
 
 def createSpriteInstance(spriteName, *args):
     spriteType = globals()[spriteName]
