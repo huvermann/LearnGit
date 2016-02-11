@@ -98,6 +98,12 @@
       "Type": "BlobSprite",
       "x": 1050,
       "y": 448
+    },
+    {
+      "Type": "DrawbridgeSprite",
+      "x": 900,
+      "y": 387
+
     }
 
   ],
