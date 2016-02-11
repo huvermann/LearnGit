@@ -64,12 +64,12 @@
     {
       "Name": "CoinTouched",
       "FileName": "172205__fins__jumping.wav",
-      "Comment": "Spieler berührt eine Münze."
+      "Comment": "Spieler beruehrt eine Muenze."
     },
     {
       "Name": "BloobTouched",
       "FileName": "146725__fins__laser.wav",
-      "Comment": "Spieler berührt einen Bloob."
+      "Comment": "Spieler beruehrt einen Bloob."
     },
     {
       "Name": "GameOver",
