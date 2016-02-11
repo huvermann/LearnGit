@@ -97,6 +97,7 @@ class ViewModelBase:
 
     def onKeyRelease(self, event):
         logging.debug("Key release")
+        print("Key released")
         self._moveVectorX = 0
         self._moveVectorY = 0
         self.saveStartingPosition()
@@ -104,6 +105,7 @@ class ViewModelBase:
         pass
     def onMoveRight(self, event):
         logging.debug("onMoveRight")
+        print("MoveRight")
         self._moveVectorX = 1
         self.saveStartingPosition()
         self._playerSprite.joystickChanged(JoystickEvents.MoveRight)
@@ -113,7 +115,7 @@ class ViewModelBase:
         self._moveVectorX = -1
         self.saveStartingPosition()
         self._playerSprite.joystickChanged(JoystickEvents.MoveLeft)
-        # print("MoveLeft")
+        print("MoveLeft")
         pass
     def onMoveUp(self, event):
         logging.debug("onMoveUp")

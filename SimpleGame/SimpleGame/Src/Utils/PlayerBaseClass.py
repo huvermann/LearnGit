@@ -26,9 +26,14 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         self.loadAnimations(spriteName)
         self._speed = 120 # Default speed pixel per second
         self._fallSpeed = 200
+        self._jumpSpeedX = 300
+        self._jumpSpeedY = 400
+        self._jumpTime = 250
+
         self._moveStateMachine = PlayerMoveStateMachine()
         self._moveStateMachine.currentPositionCallback = self.getCurrentPositionHandler
         self._moveStateMachine._getTileInfoCallback = self._getTileInfoHandler
+        self._moveStateMachine.jumpTimeout = self._jumpTime
 
     def configure(self, configuration):
         """Configure the player"""
@@ -101,6 +106,28 @@ class PlayerBaseClass(pygame.sprite.Sprite):
     @property
     def fallSpeed(self):
         return self._fallSpeed
+
+    @property
+    def jumpSpeedX(self):
+        return self._jumpSpeedX
+    @jumpSpeedX.setter
+    def jumpSpeedX(self, value):
+        self._jumpSpeedX = value
+
+    @property
+    def jumpSpeedY(self):
+        return self._jumpSpeedY
+    @jumpSpeedY.setter
+    def jumpSpeedY(self, value):
+        self._jumpSpeedY = value
+
+    @property
+    def jumpTime(self):
+        return self._jumpTime
+    @jumpTime.setter
+    def jumpTime(self, value):
+        self._jumpTime = value
+
     
     @staticmethod
     def loadAnimationFile(spriteName, animationName):
@@ -118,22 +145,63 @@ class PlayerBaseClass(pygame.sprite.Sprite):
             result = pygame.image.load(resourceFile).convert()
         return result
 
-
-    def _getImage(self, moveState, time):
-        #Todo: Calculate rect by time or x position
-        rect = (0,0, 32,32)
+    def _getAnimationByMoveState(self, moveState):
+        # todo get animation by state
+        result = None
         if moveState == PlayerMoveState.MoveLeft:
-            ani = self._aniLeft
+            result = self._animations[AnimationNames.Left]
+        elif moveState == PlayerMoveState.MoveRight:
+            result = self._animations[AnimationNames.Right]
+        elif moveState == PlayerMoveState.JumpLeft:
+            result = self._animations[AnimationNames.JumpLeft]
+        elif moveState == PlayerMoveState.Falling:
+            result = self._animations[AnimationNames.Falling]
+        elif moveState == PlayerMoveState.Standing:
+            result = self._animations[AnimationNames.Standing]
+        elif moveState == PlayerMoveState.JumpUp:
+            result = self._animations[AnimationNames.JumpUp]
         else:
-            ani = self._aniRight
-        result = ani.subsurface(rect)
+            result = self._animations[AnimationNames.Standing]
+            logging.warn("No animation defined for movestate: {0}".format(moveState))
+        return result
+
+
+    def _getImage(self, moveState, time, position):
+        """Get the subsurface of the animation based on moveState and time."""
+        result = None
+        ani = self._getAnimationByMoveState(moveState)
+        if ani:
+            if ani.AnimationType == AnimationTypes.TimeBased:
+                index = ani.calculateTimeIndex(time)
+                result = ani.getAnimationPictureByIndex(index)
+            else:
+                index = ani.calculatePositionIndex(position.posX)
+                result = ani.getAnimationPictureByIndex(index)
         return result
 
     def getCurrentPositionHandler(self):
         """Handler to get the current position, used by the move state machine."""
         return self._position.copy()
 
+    def onMoveStateJump(self, timeStamp, moveStateMachine):
+        movex = 0
+        movey = 0
+        duration = timeStamp - moveStateMachine.lastChange
+        if moveStateMachine.moveState == PlayerMoveState.JumpRight:
+            movey = duration * self.jumpSpeedY / 1000 * -1
+            movex = duration * self.jumpSpeedX / 1000
+        elif moveStateMachine.moveState == PlayerMoveState.JumpLeft:
+            movey = duration * self.jumpSpeedY / 1000 * -1
+            movex = duration * self.jumpSpeedX / 1000 * -1
+        elif moveStateMachine.moveState == PlayerMoveState.JumpUp:
+            movey = duration * self.jumpSpeedY / 1000 * -1
+        self._position.posY = int(moveStateMachine.lastPosition.posY + movey)
+        self._position.posX = int(moveStateMachine.lastPosition.posX + movex)
+
+        pass
+
     def _updatePosition(self, timeStamp, moveStateMachine):
+        #Todo: Implement handler for eache move state
         if moveStateMachine.moveState in [PlayerMoveState.Standing, PlayerMoveState.MoveLeft, PlayerMoveState.MoveRight]:
             if moveStateMachine.lastChange:
                 vectors = moveStateMachine.getVectors(moveStateMachine.moveState)
@@ -147,13 +215,15 @@ class PlayerBaseClass(pygame.sprite.Sprite):
                 move = duration * self.fallSpeed / 1000
                 self._position.posY = int(moveStateMachine.lastPosition.posY + move)
 
+        elif moveStateMachine.moveState in [PlayerMoveState.JumpLeft, PlayerMoveState.JumpRight, PlayerMoveState.JumpUp]:
+            self.onMoveStateJump(timeStamp, moveStateMachine)
         pass
 
     def update(self):
         ticks = pygame.time.get_ticks()
         self._moveStateMachine.updateState(ticks)
-        self.image = self._getImage(self.moveState, ticks)
         self._updatePosition(ticks, self._moveStateMachine)
+        self.image = self._getImage(self.moveState, ticks, self._position)
         pass
 
 
