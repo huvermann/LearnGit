@@ -6,14 +6,12 @@
     "Animations": {
       "Standing": {
         "Filename": "Jimbo_standing.png",
-        "MaskFilename": "Jimbo_Left_mask.png",
         "AnimationType": "TimeBased",
         "Delay": 250,
         "PictureSize": [ 32, 32 ]
       },
       "Falling": {
         "Filename": "Jimbo_Left.png",
-        "MaskFilename": "Jimbo_Left_mask.png",
         "AnimationType": "TimeBased",
         "ImageCount": 2,
         "Delay": 25
@@ -26,28 +24,24 @@
       },
       "Right": {
         "Filename": "Jimbo_Right.png",
-        "MaskFilename": "Jimbo_Right_mask.png",
         "AnimationType": "PositionBased",
         "ImageCount": 2,
         "StepWith": 8
       },
       "JumpLeft": {
         "Filename": "Jimbo_jump_left.png",
-        "MaskFilename": "Jimbo_mask_jump_left.png",
         "AnimationType": "TimeBased",
         "ImageCount" :  2,
         "Delay": 25
       },
       "JumpRight": {
         "Filename": "Jimbo_jump_right.png",
-        "MaskFilename": "Jimbo_mask_jump_right.png",
         "AnimationType": "TimeBased",
         "ImageCount": 2,
         "Delay": 25
       },
       "JumpUp": {
         "Filename": "Jimbo_Left.png",
-        "MaskFilename": "Jimbo_Left_mask.png",
         "AnimationType": "TimeBased",
         "ImageCount": 2,
         "Delay": 25

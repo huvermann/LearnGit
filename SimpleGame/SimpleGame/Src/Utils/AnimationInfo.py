@@ -5,7 +5,6 @@ from Utils.DirHelper import getSpriteResourceFilename
 class AniConfigKeys(object):
     """Contains the animation configuration key strings."""
     Filename = "Filename"
-    MaskFilename = "MaskFilename"
     AnimationType = "AnimationType"
     Delay = "Delay"
     StepWith = "StepWith"
@@ -20,9 +19,7 @@ class AnimationTypes(object):
 class AnimationInfo(object):
     """Animation information container"""
     Filename = ""
-    MaskFileName = None
     ImageSurface = None
-    MaskSurface = None
     ImageCount = None
     ImageRect = None
     AnimationType = None
@@ -36,8 +33,7 @@ class AnimationInfo(object):
     def configure(self, spriteName, animationname, configuration):
         #Todo: Implement AnimationInfo.configure(configuration)
         self.Filename = configuration[AniConfigKeys.Filename]
-        if AniConfigKeys.MaskFilename in configuration:
-            self.MaskFileName = configuration[AniConfigKeys.MaskFilename]
+        
         if AniConfigKeys.AnimationType in configuration:
             self.AnimationType = configuration[AniConfigKeys.AnimationType]
             if self.AnimationType == AnimationTypes.TimeBased:
