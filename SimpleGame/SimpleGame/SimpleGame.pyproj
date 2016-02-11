@@ -208,7 +208,7 @@
     <Content Include="Assets\Sprites\Gameover\game_over2.png" />
     <Content Include="Assets\Sprites\Gameover\Game_over_animation.png" />
     <Content Include="Assets\Sprites\Heart\heart.pyxel" />
-    <Content Include="Assets\Sprites\Heart\Heart_ani.png" />
+    <Content Include="Assets\Sprites\Heart\Heart_Ani.png" />
     <Content Include="Assets\Sprites\Jimbo\Jimbo.pyxel" />
     <Content Include="Assets\Sprites\Jimbo\Jimbo_jump_left.png" />
     <Content Include="Assets\Sprites\Jimbo\Jimbo_jump_right.png" />
