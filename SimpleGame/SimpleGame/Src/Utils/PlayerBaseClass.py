@@ -7,6 +7,7 @@ from Utils.JoystickStates import JoystickEvents, JoystickState
 from Utils.PlayerMoveStateMachine import PlayerMoveState, PlayerMoveStateMachine
 from Utils.TileMapManager import TileMapManager
 from Utils.AnimationInfo import AnimationInfo, AniConfigKeys, AnimationTypes
+from Utils.JumpCalculator import JumpCalculator
 
 class PlayerBaseClass(pygame.sprite.Sprite):
     """The player sprite base class."""
@@ -18,7 +19,7 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         self.image.fill((0,0,0))
         self.rect = self._calculateViewPosition(screen, self.image)
         self._spriteName = spriteName
-        self._mapManager = None
+        #self._mapManager = None
         self._aniLeft = None
         self._aniRight = None
         self._animations = {}
@@ -34,6 +35,11 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         self._moveStateMachine.currentPositionCallback = self.getCurrentPositionHandler
         self._moveStateMachine._getTileInfoCallback = self._getTileInfoHandler
         self._moveStateMachine.jumpTimeout = self._jumpTime
+        g=1
+        v0= 500
+        vx = 100
+
+        self._JumpCalculator = JumpCalculator(g, v0, vx)
 
     def configure(self, configuration):
         """Configure the player"""
@@ -154,6 +160,8 @@ class PlayerBaseClass(pygame.sprite.Sprite):
             result = self._animations[AnimationNames.Right]
         elif moveState == PlayerMoveState.JumpLeft:
             result = self._animations[AnimationNames.JumpLeft]
+        elif moveState == PlayerMoveState.JumpRight:
+            result = self._animations[AnimationNames.JumpRight]
         elif moveState == PlayerMoveState.Falling:
             result = self._animations[AnimationNames.Falling]
         elif moveState == PlayerMoveState.Standing:
@@ -188,11 +196,12 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         movey = 0
         duration = timeStamp - moveStateMachine.lastChange
         if moveStateMachine.moveState == PlayerMoveState.JumpRight:
-            movey = duration * self.jumpSpeedY / 1000 * -1
-            movex = duration * self.jumpSpeedX / 1000
+            #movey = duration * self.jumpSpeedY / 1000 * -1
+            movey = self._JumpCalculator.calcY(duration) * -1
+            movex = self._JumpCalculator.calcX(duration)
         elif moveStateMachine.moveState == PlayerMoveState.JumpLeft:
-            movey = duration * self.jumpSpeedY / 1000 * -1
-            movex = duration * self.jumpSpeedX / 1000 * -1
+            movey = self._JumpCalculator.calcY(duration) * -1
+            movex = self._JumpCalculator.calcX(duration) * -1
         elif moveStateMachine.moveState == PlayerMoveState.JumpUp:
             movey = duration * self.jumpSpeedY / 1000 * -1
         self._position.posY = int(moveStateMachine.lastPosition.posY + movey)
@@ -217,6 +226,24 @@ class PlayerBaseClass(pygame.sprite.Sprite):
 
         elif moveStateMachine.moveState in [PlayerMoveState.JumpLeft, PlayerMoveState.JumpRight, PlayerMoveState.JumpUp]:
             self.onMoveStateJump(timeStamp, moveStateMachine)
+        
+        self._checkMapLimitsReached()
+
+        pass
+
+    def _checkMapLimitsReached(self):
+        """If the player reaches the limits of the map, don´t let him go over the limits."""
+        # Checks if the left limit of the map is reached.
+        if self._position.posX < 0:
+            self._position.posX = 0
+        # Checks if it upper limit of the map is reached.
+        #if self._position.posY < 0:
+        #    self._position.posY = 0
+        #Todo: Check right limit,
+        #if self._position.posY > self._tileMapManager.mapHeight:
+        #    self._position.posY = self._tileMapManager.mapHeight
+        if self._position.posX > self._tileMapManager.mapWidth:
+            self._position.posX = self._tileMapManager.mapWidth
         pass
 
     def update(self):

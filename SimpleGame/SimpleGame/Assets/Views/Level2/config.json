@@ -39,10 +39,10 @@
         "Delay": 25
       },
       "JumpRight": {
-        "Filename": "Jimbo_mask_jump_right.png",
+        "Filename": "Jimbo_jump_right.png",
         "MaskFilename": "Jimbo_mask_jump_right.png",
         "AnimationType": "TimeBased",
-        "ImageCount" :  2,
+        "ImageCount": 2,
         "Delay": 25
       },
       "JumpUp": {

@@ -22,7 +22,9 @@ class KeyboardInputManager(InputManagerBase):
         print("Keyboard-Handler")
         handled = True
         if event.type == pygame.KEYUP:
-            if self.onButtonUp:
+            if event.key == self._keyJump:
+                self.onJumpButtonRelease(event)
+            elif self.onButtonUp:
                 self.onButtonUp(event)
         elif event.key == self._keyRight:
             if self.onMoveRight:

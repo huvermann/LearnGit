@@ -24,10 +24,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Src\Game.py" />
-    <Compile Include="Src\GameColors.py">
+    <Compile Include="Src\CurveGame.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Game.py" />
     <Compile Include="Src\GameState.py">
       <SubType>Code</SubType>
     </Compile>
@@ -92,6 +92,9 @@
     <Compile Include="Src\Utils\JoystickStates.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Utils\JumpCalculator.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Utils\KeyboardInputManager.py">
       <SubType>Code</SubType>
     </Compile>
@@ -120,7 +123,7 @@
     <Compile Include="Src\Utils\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Src\ViewController.py">
+    <Compile Include="Src\Utils\ViewController.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\DirHelper.py">

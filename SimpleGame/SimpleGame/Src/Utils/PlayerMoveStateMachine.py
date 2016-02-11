@@ -205,15 +205,21 @@ class PlayerMoveStateMachine(object):
         """Checks if the move state must be changed."""
         if self._isBarrierTopLeft():
             self._changeToStanding(timeStamp)
-        elif self._isJumpEnded(timeStamp):
-            self._changeToFalling(timeStamp)
+        #elif self._isJumpEnded(timeStamp):
+        #    self._changeToFalling(timeStamp)
+        if timeStamp-self._lastChange > 50 and self._isPlayerGrounded():
+            self._changeToStanding(timeStamp)
         pass
     def _checkJumpRight(self, timeStamp):
         """Checks if the move state must be changed."""
         if self._isBarrierTopRight():
             self._changeToStanding(timeStamp)
-        elif self._isJumpEnded(timeStamp):
-            self._changeToFalling(timeStamp)
+        #elif self._isJumpEnded(timeStamp):
+        #    self._changeToFalling(timeStamp)
+        if timeStamp-self._lastChange > 50 and self._isPlayerGrounded():
+            self._changeToStanding(timeStamp)
+        elif self._isBarrierRight():
+            self._changeToStanding(timeStamp)
         pass
 
     def _checkJumpUp(self, timeStamp):

@@ -4,9 +4,8 @@ import os, sys
 import logging
 import Utils
 from pygame.locals import *
-from GameColors import GameColors
 from GameState import GameState
-from ViewController import ViewController
+from Utils.ViewController import ViewController
 
 if not pygame.font: print ('Warning, fonts disabled')
 if not pygame.mixer: print ('Warning, sound disabled')
@@ -19,13 +18,9 @@ class MainGame:
         logging.info("Started")
         pygame.init()
         logging.debug('Game started!')
-        #self.joystick = self.initJoystick()
-        self.colors = GameColors()
         self.gameState = GameState()
         self.screen = pygame.display.set_mode(self.gameState.size)
         self.viewController = ViewController(self.screen, self.gameState)
-
-
 
     def cleanup(self):
         pygame.quit()
