@@ -160,6 +160,8 @@ class PlayerBaseClass(pygame.sprite.Sprite):
             result = self._animations[AnimationNames.Right]
         elif moveState == PlayerMoveState.JumpLeft:
             result = self._animations[AnimationNames.JumpLeft]
+        elif moveState == PlayerMoveState.JumpRight:
+            result = self._animations[AnimationNames.JumpRight]
         elif moveState == PlayerMoveState.Falling:
             result = self._animations[AnimationNames.Falling]
         elif moveState == PlayerMoveState.Standing:
