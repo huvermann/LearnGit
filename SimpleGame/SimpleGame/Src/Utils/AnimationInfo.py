@@ -53,8 +53,9 @@ class AnimationInfo(object):
         # Set transparence
         self.ImageSurface.set_colorkey(self.ImageSurface.get_at((0,0)))
 
-        if self.MaskFileName:
-            self.MaskSurface = AnimationInfo.loadAnimationResourceFile(spriteName, self.MaskFileName)
+        #if self.MaskFileName:
+        #    self.MaskSurface = AnimationInfo.loadAnimationResourceFile(spriteName, self.MaskFileName)
+        #self.MaskSurface = pygame.mask.from_surface(self.ImageSurface)
 
         # Read ImageRect
         self.ImageRect = self.ImageSurface.get_rect()

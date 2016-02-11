@@ -365,17 +365,17 @@ class ViewModelBase:
         pass
 
     def checkClashes(self):
-        clashes = pygame.sprite.spritecollide(self._playerSprite, self._movingSprites, False)
-        for clash in clashes:
-            info = clash._collideCallback()
-            self._state.points += info.points
-            if info.sound:
-                self._musicPlayer.playSoundByName(info.sound)
-            if info.spriteDies and info.parent != None:
-                info.parent.kill()
-            if info.playerDies:
-                logging.debug("The player touched with deadly sprite.")
-                #Todo Kill the player
+        """Checks if sprites collides with player."""
+        for sprite in self._movingSprites.sprites():
+            if pygame.sprite.collide_mask(self._playerSprite, sprite):
+                info = sprite._collideCallback()
+                if info.sound:
+                    self._musicPlayer.playSoundByName(info.sound)
+                    if info.spriteDies and info.parent != None:
+                        info.parent.kill()
+                    if info.playerDies:
+                        logging.debug("The player touched with deadly sprite.")
+                        #Todo: Player looses life.
         pass
 
 
