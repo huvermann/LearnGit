@@ -43,6 +43,9 @@
     <Compile Include="Src\Sprites\CoinSprite.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Sprites\DrawbridgeSprite.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Sprites\JimboSprite.py">
       <SubType>Code</SubType>
     </Compile>
@@ -194,7 +197,7 @@
     <Content Include="Assets\Sprites\Coin\Coin.pyxel" />
     <Content Include="Assets\Sprites\Coin\Coin_Ani.png" />
     <Content Include="Assets\Sprites\Coin\Coin_mask.png" />
-    <Content Include="Assets\Sprites\Drawbridge\Falltor_auf.png" />
+    <Content Include="Assets\Sprites\Drawbridge\Drawbridge_Ani.png" />
     <Content Include="Assets\Sprites\Drawbridge\Falltor_zu.png" />
     <Content Include="Assets\Sprites\Drawbridge\Stahlwand_auf.png" />
     <Content Include="Assets\Sprites\Drawbridge\Stahlwand_zu.png" />

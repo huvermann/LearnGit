@@ -4,6 +4,7 @@ class MagicSpriteStrings(object):
 class SpriteNames(object):
     Coin = "Coin"
     Bloob = "Bloob"
+    Drawbridge = "Drawbridge"
 
 
 
