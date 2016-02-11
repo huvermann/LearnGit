@@ -25,7 +25,7 @@ class ViewModelBase:
         self._callback = changeViewCallback
         self._state = state
         self._screen = screen
-        self.colors = GameColors()
+        #self.colors = GameColors()
         #self._mapData = None
         self._tileSet = None
         self._mapManager = None
