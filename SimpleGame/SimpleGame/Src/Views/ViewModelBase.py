@@ -4,7 +4,6 @@ import logging
 from decimal import Decimal
 import json
 from GameState import GameState
-from GameColors import GameColors
 from Utils import UserEvents, TileMapManager
 from Utils.DirHelper import getFontResourceFile, getConfigurationFile
 from pygame.color import THECOLORS
