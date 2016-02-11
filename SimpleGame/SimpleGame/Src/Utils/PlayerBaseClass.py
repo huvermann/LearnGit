@@ -7,6 +7,7 @@ from Utils.JoystickStates import JoystickEvents, JoystickState
 from Utils.PlayerMoveStateMachine import PlayerMoveState, PlayerMoveStateMachine
 from Utils.TileMapManager import TileMapManager
 from Utils.AnimationInfo import AnimationInfo, AniConfigKeys, AnimationTypes
+from Utils.JumpCalculator import JumpCalculator
 
 class PlayerBaseClass(pygame.sprite.Sprite):
     """The player sprite base class."""
@@ -34,6 +35,11 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         self._moveStateMachine.currentPositionCallback = self.getCurrentPositionHandler
         self._moveStateMachine._getTileInfoCallback = self._getTileInfoHandler
         self._moveStateMachine.jumpTimeout = self._jumpTime
+        g=1
+        v0= 500
+        vx = 100
+
+        self._JumpCalculator = JumpCalculator(g, v0, vx)
 
     def configure(self, configuration):
         """Configure the player"""
@@ -188,11 +194,12 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         movey = 0
         duration = timeStamp - moveStateMachine.lastChange
         if moveStateMachine.moveState == PlayerMoveState.JumpRight:
-            movey = duration * self.jumpSpeedY / 1000 * -1
-            movex = duration * self.jumpSpeedX / 1000
+            #movey = duration * self.jumpSpeedY / 1000 * -1
+            movey = self._JumpCalculator.calcY(duration) * -1
+            movex = self._JumpCalculator.calcX(duration)
         elif moveStateMachine.moveState == PlayerMoveState.JumpLeft:
-            movey = duration * self.jumpSpeedY / 1000 * -1
-            movex = duration * self.jumpSpeedX / 1000 * -1
+            movey = self._JumpCalculator.calcY(duration) * -1
+            movex = self._JumpCalculator.calcX(duration) * -1
         elif moveStateMachine.moveState == PlayerMoveState.JumpUp:
             movey = duration * self.jumpSpeedY / 1000 * -1
         self._position.posY = int(moveStateMachine.lastPosition.posY + movey)

@@ -24,6 +24,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Src\CurveGame.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Game.py" />
     <Compile Include="Src\GameState.py">
       <SubType>Code</SubType>
