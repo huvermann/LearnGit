@@ -19,7 +19,7 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         self.image.fill((0,0,0))
         self.rect = self._calculateViewPosition(screen, self.image)
         self._spriteName = spriteName
-        self._mapManager = None
+        #self._mapManager = None
         self._aniLeft = None
         self._aniRight = None
         self._animations = {}
@@ -224,6 +224,24 @@ class PlayerBaseClass(pygame.sprite.Sprite):
 
         elif moveStateMachine.moveState in [PlayerMoveState.JumpLeft, PlayerMoveState.JumpRight, PlayerMoveState.JumpUp]:
             self.onMoveStateJump(timeStamp, moveStateMachine)
+        
+        self._checkMapLimitsReached()
+
+        pass
+
+    def _checkMapLimitsReached(self):
+        """If the player reaches the limits of the map, don´t let him go over the limits."""
+        # Checks if the left limit of the map is reached.
+        if self._position.posX < 0:
+            self._position.posX = 0
+        # Checks if it upper limit of the map is reached.
+        #if self._position.posY < 0:
+        #    self._position.posY = 0
+        #Todo: Check right limit,
+        #if self._position.posY > self._tileMapManager.mapHeight:
+        #    self._position.posY = self._tileMapManager.mapHeight
+        if self._position.posX > self._tileMapManager.mapWidth:
+            self._position.posX = self._tileMapManager.mapWidth
         pass
 
     def update(self):

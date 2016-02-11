@@ -42,6 +42,15 @@ class TileMapManager:
     viewColCount = property(_viewColumnsCount)
     viewRowCount = property(_viewRowCount)
 
+    @property
+    def mapHeight(self):
+        return self.viewRowCount * self.tileHeight
+
+    @property
+    def mapWidth(self):
+        return self.viewColCount * self.tileWidth
+
+
     def _drawBackground(self, screen, image, offset):
         """Draws the background image depending on the offset position."""
         screenRect = screen.get_rect()
