@@ -222,9 +222,11 @@
     <Content Include="Assets\Views\Level1\Level1.pyxel" />
     <Content Include="Assets\Views\Level2\background6.png" />
     <Content Include="Assets\Views\Level2\config.json" />
+    <Content Include="Assets\Views\Level2\Level2.map" />
     <Content Include="Assets\Views\Level2\Level2.json" />
     <Content Include="Assets\Views\Level2\Level2.png" />
     <Content Include="Assets\Views\Level2\Level2.pyxel" />
+    <Content Include="Assets\Views\Level2\Level2.tmx" />
     <Content Include="Assets\Views\View1\view1.json" />
     <Content Include="Assets\Views\View1\view1.png" />
     <Content Include="Assets\Views\View1\view1.pyxel" />
