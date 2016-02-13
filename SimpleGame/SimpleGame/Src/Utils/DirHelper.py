@@ -19,6 +19,10 @@ def getMapResourceFile(viewName):
     '''Returns the tile map file of the view.'''
     return os.path.join(getBasePath(), DIRS.ASSETS, DIRS.VIEWS, viewName, viewName + ".json")
 
+def getTMXMapResourceFile(viewName, filename):
+    '''Returns the tile map file of the view.'''
+    return os.path.join(getBasePath(), DIRS.ASSETS, DIRS.VIEWS, viewName, filename)
+
 def getConfigurationFile(viewName):
     '''Returns the configuration file of the view.'''
     return os.path.join(getBasePath(), DIRS.ASSETS, DIRS.VIEWS, viewName, FILENAMES.CONFIG)

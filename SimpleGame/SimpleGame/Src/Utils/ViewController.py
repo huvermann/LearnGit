@@ -1,8 +1,9 @@
-﻿from Views.ViewStart import ViewStart
-from Views.View2 import *
-from Views.Level2 import *
+﻿#from Views.ViewStart import ViewStart
+#from Views.View2 import *
+#from Views.Level2 import *
 from Views.ViewModelMapLoader import ViewModelMapLoader
 import sys
+import logging
 
 
 class ViewController(object):
@@ -33,8 +34,8 @@ class ViewController(object):
                 newView = self.viewFactory(viewName)
             except Exception as e:
                 newView = None
-                print("exception:")
-                print(e)
+                logging.error(e)
+                raise
 
             if newView:
                 self.currentView = newView
@@ -50,7 +51,7 @@ class ViewController(object):
         # Todo implement all views
         else:
             # Loads any model 
-            return ViewModelMapLoader(viewName, self.gameState, self.screen, self.ChangeViewCallback)
+            return ViewModelMapLoader(viewName, self.screen)
 
 
     def run(self):

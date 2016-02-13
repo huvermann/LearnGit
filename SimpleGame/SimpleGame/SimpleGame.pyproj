@@ -74,7 +74,17 @@
     <Compile Include="Src\Tests\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Tiled\TiledMap.py" />
+    <Compile Include="Src\Tiled\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Utils\AnimationInfo.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\ServiceLocator.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\TmxTileMapViewModel.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\CollosionInfo.py">
@@ -120,6 +130,9 @@
     <Compile Include="Src\Utils\Utils.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Utils\ViewModelBase2.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Utils\__init__.py">
       <SubType>Code</SubType>
     </Compile>
@@ -129,19 +142,10 @@
     <Compile Include="Src\Utils\DirHelper.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Src\Views\Level2.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Src\Views\View2.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Src\Views\ViewModelBase.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Views\ViewModelMapLoader.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Src\Views\ViewStart.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Views\__init__.py">
@@ -222,7 +226,7 @@
     <Content Include="Assets\Views\Level1\Level1.pyxel" />
     <Content Include="Assets\Views\Level2\background6.png" />
     <Content Include="Assets\Views\Level2\config.json" />
-    <Content Include="Assets\Views\Level2\Level2.map" />
+    <Content Include="Assets\Views\Level2\view.map" />
     <Content Include="Assets\Views\Level2\Level2.json" />
     <Content Include="Assets\Views\Level2\Level2.png" />
     <Content Include="Assets\Views\Level2\Level2.pyxel" />
@@ -255,6 +259,7 @@
     <Folder Include="Assets\Views\View1\" />
     <Folder Include="Documentation\" />
     <Folder Include="Deployment\" />
+    <Folder Include="Src\Tiled\" />
     <Folder Include="Src\Sprites\" />
     <Folder Include="Src\Tests\" />
     <Folder Include="Src\Utils\" />

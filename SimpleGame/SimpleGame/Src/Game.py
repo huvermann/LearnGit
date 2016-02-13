@@ -6,6 +6,7 @@ import Utils
 from pygame.locals import *
 from GameState import GameState
 from Utils.ViewController import ViewController
+from Utils.ServiceLocator import ServiceLocator
 
 if not pygame.font: print ('Warning, fonts disabled')
 if not pygame.mixer: print ('Warning, sound disabled')
@@ -21,7 +22,14 @@ class MainGame:
         self.gameState = GameState()
         self.screen = pygame.display.set_mode(self.gameState.size)
         self.viewController = ViewController(self.screen, self.gameState)
+        self.configure()
+        
 
+    def configure(self):
+        ServiceLocator.registerGlobalService("screen", self.screen)
+        ServiceLocator.registerGlobalService("pygame", pygame)
+        ServiceLocator.registerGlobalService("ViewController", self.viewController)
+        pass
     def cleanup(self):
         pygame.quit()
 
