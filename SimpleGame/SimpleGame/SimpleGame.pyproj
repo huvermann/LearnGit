@@ -157,9 +157,7 @@
     <Compile Include="Tests\MockHelper\MethodMock.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Tests\MockHelper\ScreenMock.py">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Tests\MockHelper\ScreenMock.py" />
     <Compile Include="Tests\MockHelper\__init__.py">
       <SubType>Code</SubType>
     </Compile>
