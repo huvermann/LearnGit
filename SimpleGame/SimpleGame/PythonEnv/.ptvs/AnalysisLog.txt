@@ -10801,3 +10801,438 @@ ImportError: DLL load failed: Das angegebene Modul wurde nicht gefunden.
 2016-02-11T09:21:12: [WARNING] Library was set explicitly - skipping path detection
 2016-02-11T09:21:12: IncludeModulesFromModulePath = win32com
 2016-02-11T09:21:13: Deleting 0 files
+
+2016-02-13T08:54:25: Start analysis
+2016-02-13T08:54:25: [WARNING] Library was set explicitly - skipping path detection
+2016-02-13T08:54:25: IncludeModulesFromModulePath = win32com
+2016-02-13T08:54:26: Deleting 207 files
+2016-02-13T08:54:26: Scraping pygame.base
+2016-02-13T08:54:26: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.base D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.base
+2016-02-13T08:54:27: Scraping pygame.bufferproxy
+2016-02-13T08:54:27: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.bufferproxy D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.bufferproxy
+2016-02-13T08:54:27: Scraping pygame.cdrom
+2016-02-13T08:54:27: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.cdrom D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.cdrom
+2016-02-13T08:54:27: Scraping pygame.color
+2016-02-13T08:54:27: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.color D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.color
+2016-02-13T08:54:27: Scraping pygame.constants
+2016-02-13T08:54:27: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.constants D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.constants
+2016-02-13T08:54:27: Scraping pygame.display
+2016-02-13T08:54:27: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.display D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.display
+2016-02-13T08:54:27: Scraping pygame.draw
+2016-02-13T08:54:27: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.draw D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.draw
+2016-02-13T08:54:27: Scraping pygame.event
+2016-02-13T08:54:27: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.event D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.event
+2016-02-13T08:54:28: Scraping pygame.fastevent
+2016-02-13T08:54:28: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.fastevent D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.fastevent
+2016-02-13T08:54:28: Scraping pygame.font
+2016-02-13T08:54:28: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.font D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.font
+2016-02-13T08:54:28: Scraping pygame.gfxdraw
+2016-02-13T08:54:28: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.gfxdraw D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.gfxdraw
+2016-02-13T08:54:28: Scraping pygame.image
+2016-02-13T08:54:28: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.image D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.image
+2016-02-13T08:54:29: Scraping pygame.imageext
+2016-02-13T08:54:29: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.imageext D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.imageext
+2016-02-13T08:54:29: Scraping pygame.joystick
+2016-02-13T08:54:29: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.joystick D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.joystick
+2016-02-13T08:54:29: Scraping pygame.key
+2016-02-13T08:54:29: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.key D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.key
+2016-02-13T08:54:29: Scraping pygame.mask
+2016-02-13T08:54:29: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.mask D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.mask
+2016-02-13T08:54:29: Scraping pygame.math
+2016-02-13T08:54:29: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.math D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.math
+2016-02-13T08:54:29: Scraping pygame.mixer
+2016-02-13T08:54:29: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.mixer D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.mixer
+2016-02-13T08:54:29: Scraping pygame.mixer_music
+2016-02-13T08:54:29: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.mixer_music D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.mixer_music
+2016-02-13T08:54:29: Scraping pygame.mouse
+2016-02-13T08:54:29: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.mouse D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.mouse
+2016-02-13T08:54:29: Scraping pygame.movie
+2016-02-13T08:54:29: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.movie D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.movie
+2016-02-13T08:54:30: Scraping pygame.newbuffer
+2016-02-13T08:54:30: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.newbuffer D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.newbuffer
+2016-02-13T08:54:30: Scraping pygame.overlay
+2016-02-13T08:54:30: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.overlay D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.overlay
+2016-02-13T08:54:30: Scraping pygame.pixelarray
+2016-02-13T08:54:30: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.pixelarray D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.pixelarray
+2016-02-13T08:54:30: Scraping pygame.pixelcopy
+2016-02-13T08:54:30: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.pixelcopy D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.pixelcopy
+2016-02-13T08:54:30: Scraping pygame.pypm
+2016-02-13T08:54:30: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.pypm D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.pypm
+2016-02-13T08:54:30: Scraping pygame.rect
+2016-02-13T08:54:30: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.rect D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.rect
+2016-02-13T08:54:30: Scraping pygame.rwobject
+2016-02-13T08:54:30: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.rwobject D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.rwobject
+2016-02-13T08:54:30: Scraping pygame.scrap
+2016-02-13T08:54:30: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.scrap D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.scrap
+2016-02-13T08:54:30: Scraping pygame.surface
+2016-02-13T08:54:30: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.surface D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.surface
+2016-02-13T08:54:31: Scraping pygame.surflock
+2016-02-13T08:54:31: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.surflock D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.surflock
+2016-02-13T08:54:31: Scraping pygame.time
+2016-02-13T08:54:31: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.time D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.time
+2016-02-13T08:54:31: Scraping pygame.transform
+2016-02-13T08:54:31: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame.transform D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame.transform
+2016-02-13T08:54:31: Scraping pygame._camera
+2016-02-13T08:54:31: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame._camera D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame._camera
+2016-02-13T08:54:31: Scraping pygame._freetype
+2016-02-13T08:54:31: Command: D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Python Tools for Visual Studio\2.2\ExtensionScraper.py" scrape pygame._freetype D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\.ptvs\pygame\pygame._freetype
+2016-02-13T08:54:31: Scraped 35 files
+2016-02-13T08:54:31: astropy.CallDepth = 0
+2016-02-13T08:54:31: matplotlib.CallDepth = 3
+2016-02-13T08:54:31: pandas.CallDepth = 0
+2016-02-13T08:54:31: sympy.CallDepth = 0
+2016-02-13T08:54:31: Start group "D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame" with 174 files
+2016-02-13T08:54:32: Parsing "pygame.camera" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\camera.py")
+2016-02-13T08:54:32: Parsing "pygame.colordict" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\colordict.py")
+2016-02-13T08:54:32: Parsing "pygame.compat" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\compat.py")
+2016-02-13T08:54:32: Parsing "pygame.cursors" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\cursors.py")
+2016-02-13T08:54:32: Parsing "pygame.freetype" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\freetype.py")
+2016-02-13T08:54:32: Parsing "pygame.ftfont" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\ftfont.py")
+2016-02-13T08:54:32: Parsing "pygame.locals" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\locals.py")
+2016-02-13T08:54:32: Parsing "pygame.macosx" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\macosx.py")
+2016-02-13T08:54:32: Parsing "pygame.midi" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\midi.py")
+2016-02-13T08:54:32: Parsing "pygame.pkgdata" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\pkgdata.py")
+2016-02-13T08:54:32: Parsing "pygame.sndarray" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\sndarray.py")
+2016-02-13T08:54:32: Parsing "pygame.sprite" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\sprite.py")
+2016-02-13T08:54:32: Parsing "pygame.surfarray" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\surfarray.py")
+2016-02-13T08:54:32: Parsing "pygame.sysfont" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\sysfont.py")
+2016-02-13T08:54:32: Parsing "pygame.version" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\version.py")
+2016-02-13T08:54:32: Parsing "pygame._camera_opencv_highgui" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\_camera_opencv_highgui.py")
+2016-02-13T08:54:32: Parsing "pygame._camera_vidcapture" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\_camera_vidcapture.py")
+2016-02-13T08:54:32: Parsing "pygame._dummybackend" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\_dummybackend.py")
+2016-02-13T08:54:32: Parsing "pygame._numpysndarray" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\_numpysndarray.py")
+2016-02-13T08:54:32: Parsing "pygame._numpysurfarray" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\_numpysurfarray.py")
+2016-02-13T08:54:32: Parsing "pygame" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\__init__.py")
+2016-02-13T08:54:32: Parsing "pygame.docs" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\docs\__init__.py")
+2016-02-13T08:54:32: Parsing "pygame.docs.__main__" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\docs\__main__.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.aacircle" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\aacircle.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.aliens" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\aliens.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.arraydemo" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\arraydemo.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.blend_fill" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\blend_fill.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.blit_blends" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\blit_blends.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.camera" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\camera.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.chimp" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\chimp.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.cursors" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\cursors.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.eventlist" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\eventlist.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.fastevents" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\fastevents.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.fonty" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\fonty.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.freetype_misc" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\freetype_misc.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.glcube" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\glcube.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.headless_no_windows_needed" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\headless_no_windows_needed.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.liquid" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\liquid.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.mask" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\mask.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.midi" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\midi.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.moveit" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\moveit.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.oldalien" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\oldalien.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.overlay" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\overlay.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.pixelarray" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\pixelarray.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.prevent_display_stretching" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\prevent_display_stretching.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.scaletest" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\scaletest.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.scrap_clipboard" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\scrap_clipboard.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.scroll" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\scroll.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.sound" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\sound.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.sound_array_demos" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\sound_array_demos.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.stars" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\stars.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.testsprite" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\testsprite.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.vgrade" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\vgrade.py")
+2016-02-13T08:54:32: Parsing "pygame.examples" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\__init__.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.__movie_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\__movie_test.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.data.mix" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\data\mix.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.macosx.macfont" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\macosx\macfont.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.macosx.aliens_app_example.aliens" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\macosx\aliens_app_example\aliens.py")
+2016-02-13T08:54:32: Parsing "pygame.examples.macosx.aliens_app_example.setup" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\examples\macosx\aliens_app_example\setup.py")
+2016-02-13T08:54:32: Parsing "pygame.gp2x.constants" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\gp2x\constants.py")
+2016-02-13T08:54:32: Parsing "pygame.gp2x.locals" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\gp2x\locals.py")
+2016-02-13T08:54:32: Parsing "pygame.gp2x" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\gp2x\__init__.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.base_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\base_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.blit_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\blit_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.bufferproxy_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\bufferproxy_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.camera_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\camera_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.cdrom_tags" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\cdrom_tags.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.cdrom_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\cdrom_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.color_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\color_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.compat_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\compat_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.cursors_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\cursors_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.display_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\display_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.draw_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\draw_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.event_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\event_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.fastevent_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\fastevent_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.font_tags" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\font_tags.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.font_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\font_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.freetype_tags" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\freetype_tags.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.freetype_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\freetype_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.ftfont_tags" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\ftfont_tags.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.ftfont_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\ftfont_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.gfxdraw_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\gfxdraw_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.imageext_tags" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\imageext_tags.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.imageext_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\imageext_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.image_tags" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\image_tags.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.image_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\image_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.image__save_gl_surface_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\image__save_gl_surface_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.joystick_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\joystick_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.key_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\key_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.mask_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\mask_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.math_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\math_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.midi_tags" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\midi_tags.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.midi_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\midi_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.mixer_music_tags" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\mixer_music_tags.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.mixer_music_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\mixer_music_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.mixer_tags" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\mixer_tags.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.mixer_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\mixer_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.mouse_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\mouse_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.overlay_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\overlay_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.pixelarray_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\pixelarray_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.pixelcopy_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\pixelcopy_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.rect_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\rect_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.rwobject_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\rwobject_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.scrap_tags" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\scrap_tags.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.scrap_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\scrap_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.sndarray_tags" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\sndarray_tags.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.sndarray_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\sndarray_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.sprite_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\sprite_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.surface_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\surface_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.surfarray_tags" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\surfarray_tags.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.surfarray_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\surfarray_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.surflock_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\surflock_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.sysfont_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\sysfont_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.test_test_" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\test_test_.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.threads_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\threads_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.time_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\time_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.transform_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\transform_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\__init__.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.__main__" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\__main__.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.run_tests__test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\run_tests__test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\__init__.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.all_ok.fake_2_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\all_ok\fake_2_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.all_ok.fake_3_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\all_ok\fake_3_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.all_ok.fake_4_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\all_ok\fake_4_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.all_ok.fake_5_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\all_ok\fake_5_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.all_ok.fake_6_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\all_ok\fake_6_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.all_ok.no_assertions__ret_code_of_1__test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\all_ok\no_assertions__ret_code_of_1__test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.all_ok.zero_tests_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\all_ok\zero_tests_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.all_ok" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\all_ok\__init__.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.everything.fake_2_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\everything\fake_2_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.everything.incomplete_todo_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\everything\incomplete_todo_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.everything.magic_tag_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\everything\magic_tag_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.everything.sleep_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\everything\sleep_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.everything" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\everything\__init__.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.exclude.fake_2_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\exclude\fake_2_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.exclude.invisible_tag_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\exclude\invisible_tag_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.exclude.magic_tag_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\exclude\magic_tag_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.exclude" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\exclude\__init__.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.failures1.fake_2_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\failures1\fake_2_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.failures1.fake_3_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\failures1\fake_3_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.failures1.fake_4_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\failures1\fake_4_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.failures1" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\failures1\__init__.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.incomplete.fake_2_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\incomplete\fake_2_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.incomplete.fake_3_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\incomplete\fake_3_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.incomplete" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\incomplete\__init__.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.incomplete_todo.fake_2_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\incomplete_todo\fake_2_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.incomplete_todo.fake_3_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\incomplete_todo\fake_3_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.incomplete_todo" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\incomplete_todo\__init__.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.infinite_loop.fake_1_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\infinite_loop\fake_1_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.infinite_loop.fake_2_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\infinite_loop\fake_2_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.infinite_loop" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\infinite_loop\__init__.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.print_stderr.fake_2_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\print_stderr\fake_2_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.print_stderr.fake_3_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\print_stderr\fake_3_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.print_stderr.fake_4_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\print_stderr\fake_4_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.print_stderr" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\print_stderr\__init__.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.print_stdout.fake_2_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\print_stdout\fake_2_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.print_stdout.fake_3_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\print_stdout\fake_3_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.print_stdout.fake_4_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\print_stdout\fake_4_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.print_stdout" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\print_stdout\__init__.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.timeout.fake_2_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\timeout\fake_2_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.timeout.sleep_test" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\timeout\sleep_test.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.run_tests__tests.timeout" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\run_tests__tests\timeout\__init__.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.test_utils.arrinter" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\test_utils\arrinter.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.test_utils.async_sub" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\test_utils\async_sub.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.test_utils.buftools" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\test_utils\buftools.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.test_utils.endian" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\test_utils\endian.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.test_utils.png" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\test_utils\png.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.test_utils.run_tests" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\test_utils\run_tests.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.test_utils.test_runner" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\test_utils\test_runner.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.test_utils.unittest" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\test_utils\unittest.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.test_utils.unittest_patch" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\test_utils\unittest_patch.py")
+2016-02-13T08:54:32: Parsing "pygame.tests.test_utils" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\tests\test_utils\__init__.py")
+2016-02-13T08:54:32: Parsing "pygame.threads.Py25Queue" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\threads\Py25Queue.py")
+2016-02-13T08:54:33: Parsing "pygame.threads" ("D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame\threads\__init__.py")
+2016-02-13T08:54:33: Parsing complete
+2016-02-13T08:54:33: Analyzing "pygame.camera"
+2016-02-13T08:54:33: Analyzing "pygame.colordict"
+2016-02-13T08:54:33: Analyzing "pygame.compat"
+2016-02-13T08:54:33: Analyzing "pygame.cursors"
+2016-02-13T08:54:33: Analyzing "pygame.freetype"
+2016-02-13T08:54:33: Analyzing "pygame.ftfont"
+2016-02-13T08:54:33: Analyzing "pygame.locals"
+2016-02-13T08:54:33: Analyzing "pygame.macosx"
+2016-02-13T08:54:33: Analyzing "pygame.midi"
+2016-02-13T08:54:33: Analyzing "pygame.pkgdata"
+2016-02-13T08:54:33: Analyzing "pygame.sndarray"
+2016-02-13T08:54:33: Analyzing "pygame.sprite"
+2016-02-13T08:54:33: Analyzing "pygame.surfarray"
+2016-02-13T08:54:33: Analyzing "pygame.sysfont"
+2016-02-13T08:54:33: Analyzing "pygame.version"
+2016-02-13T08:54:33: Analyzing "pygame._camera_opencv_highgui"
+2016-02-13T08:54:33: Analyzing "pygame._camera_vidcapture"
+2016-02-13T08:54:33: Analyzing "pygame._dummybackend"
+2016-02-13T08:54:33: Analyzing "pygame._numpysndarray"
+2016-02-13T08:54:33: Analyzing "pygame._numpysurfarray"
+2016-02-13T08:54:33: Analyzing "pygame"
+2016-02-13T08:54:33: Analyzing "pygame.docs"
+2016-02-13T08:54:33: Analyzing "pygame.docs.__main__"
+2016-02-13T08:54:33: Analyzing "pygame.examples.aacircle"
+2016-02-13T08:54:33: Analyzing "pygame.examples.aliens"
+2016-02-13T08:54:33: Analyzing "pygame.examples.arraydemo"
+2016-02-13T08:54:33: Analyzing "pygame.examples.blend_fill"
+2016-02-13T08:54:33: Analyzing "pygame.examples.blit_blends"
+2016-02-13T08:54:33: Analyzing "pygame.examples.camera"
+2016-02-13T08:54:33: Analyzing "pygame.examples.chimp"
+2016-02-13T08:54:33: Analyzing "pygame.examples.cursors"
+2016-02-13T08:54:33: Analyzing "pygame.examples.eventlist"
+2016-02-13T08:54:33: Analyzing "pygame.examples.fastevents"
+2016-02-13T08:54:33: Analyzing "pygame.examples.fonty"
+2016-02-13T08:54:33: Analyzing "pygame.examples.freetype_misc"
+2016-02-13T08:54:33: Analyzing "pygame.examples.glcube"
+2016-02-13T08:54:33: Analyzing "pygame.examples.headless_no_windows_needed"
+2016-02-13T08:54:33: Analyzing "pygame.examples.liquid"
+2016-02-13T08:54:33: Analyzing "pygame.examples.mask"
+2016-02-13T08:54:33: Analyzing "pygame.examples.midi"
+2016-02-13T08:54:33: Analyzing "pygame.examples.moveit"
+2016-02-13T08:54:33: Analyzing "pygame.examples.oldalien"
+2016-02-13T08:54:33: Analyzing "pygame.examples.overlay"
+2016-02-13T08:54:33: Analyzing "pygame.examples.pixelarray"
+2016-02-13T08:54:33: Analyzing "pygame.examples.prevent_display_stretching"
+2016-02-13T08:54:33: Analyzing "pygame.examples.scaletest"
+2016-02-13T08:54:33: Analyzing "pygame.examples.scrap_clipboard"
+2016-02-13T08:54:33: Analyzing "pygame.examples.scroll"
+2016-02-13T08:54:33: Analyzing "pygame.examples.sound"
+2016-02-13T08:54:33: Analyzing "pygame.examples.sound_array_demos"
+2016-02-13T08:54:33: Analyzing "pygame.examples.stars"
+2016-02-13T08:54:33: Analyzing "pygame.examples.testsprite"
+2016-02-13T08:54:33: Analyzing "pygame.examples.vgrade"
+2016-02-13T08:54:33: Analyzing "pygame.examples"
+2016-02-13T08:54:33: Analyzing "pygame.examples.__movie_test"
+2016-02-13T08:54:33: Analyzing "pygame.examples.data.mix"
+2016-02-13T08:54:33: Analyzing "pygame.examples.macosx.macfont"
+2016-02-13T08:54:33: Analyzing "pygame.examples.macosx.aliens_app_example.aliens"
+2016-02-13T08:54:33: Analyzing "pygame.examples.macosx.aliens_app_example.setup"
+2016-02-13T08:54:33: Analyzing "pygame.gp2x.constants"
+2016-02-13T08:54:33: Analyzing "pygame.gp2x.locals"
+2016-02-13T08:54:33: Analyzing "pygame.gp2x"
+2016-02-13T08:54:33: Analyzing "pygame.tests.base_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.blit_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.bufferproxy_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.camera_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.cdrom_tags"
+2016-02-13T08:54:33: Analyzing "pygame.tests.cdrom_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.color_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.compat_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.cursors_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.display_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.draw_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.event_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.fastevent_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.font_tags"
+2016-02-13T08:54:33: Analyzing "pygame.tests.font_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.freetype_tags"
+2016-02-13T08:54:33: Analyzing "pygame.tests.freetype_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.ftfont_tags"
+2016-02-13T08:54:33: Analyzing "pygame.tests.ftfont_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.gfxdraw_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.imageext_tags"
+2016-02-13T08:54:33: Analyzing "pygame.tests.imageext_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.image_tags"
+2016-02-13T08:54:33: Analyzing "pygame.tests.image_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.image__save_gl_surface_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.joystick_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.key_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.mask_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.math_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.midi_tags"
+2016-02-13T08:54:33: Analyzing "pygame.tests.midi_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.mixer_music_tags"
+2016-02-13T08:54:33: Analyzing "pygame.tests.mixer_music_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.mixer_tags"
+2016-02-13T08:54:33: Analyzing "pygame.tests.mixer_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.mouse_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.overlay_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.pixelarray_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.pixelcopy_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.rect_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.rwobject_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.scrap_tags"
+2016-02-13T08:54:33: Analyzing "pygame.tests.scrap_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.sndarray_tags"
+2016-02-13T08:54:33: Analyzing "pygame.tests.sndarray_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.sprite_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.surface_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.surfarray_tags"
+2016-02-13T08:54:33: Analyzing "pygame.tests.surfarray_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.surflock_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.sysfont_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.test_test_"
+2016-02-13T08:54:33: Analyzing "pygame.tests.threads_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.time_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.transform_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests"
+2016-02-13T08:54:33: Analyzing "pygame.tests.__main__"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.run_tests__test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.all_ok.fake_2_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.all_ok.fake_3_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.all_ok.fake_4_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.all_ok.fake_5_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.all_ok.fake_6_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.all_ok.no_assertions__ret_code_of_1__test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.all_ok.zero_tests_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.all_ok"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.everything.fake_2_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.everything.incomplete_todo_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.everything.magic_tag_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.everything.sleep_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.everything"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.exclude.fake_2_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.exclude.invisible_tag_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.exclude.magic_tag_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.exclude"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.failures1.fake_2_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.failures1.fake_3_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.failures1.fake_4_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.failures1"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.incomplete.fake_2_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.incomplete.fake_3_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.incomplete"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.incomplete_todo.fake_2_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.incomplete_todo.fake_3_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.incomplete_todo"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.infinite_loop.fake_1_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.infinite_loop.fake_2_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.infinite_loop"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.print_stderr.fake_2_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.print_stderr.fake_3_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.print_stderr.fake_4_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.print_stderr"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.print_stdout.fake_2_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.print_stdout.fake_3_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.print_stdout.fake_4_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.print_stdout"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.timeout.fake_2_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.timeout.sleep_test"
+2016-02-13T08:54:33: Analyzing "pygame.tests.run_tests__tests.timeout"
+2016-02-13T08:54:33: Analyzing "pygame.tests.test_utils.arrinter"
+2016-02-13T08:54:33: Analyzing "pygame.tests.test_utils.async_sub"
+2016-02-13T08:54:33: Analyzing "pygame.tests.test_utils.buftools"
+2016-02-13T08:54:33: Analyzing "pygame.tests.test_utils.endian"
+2016-02-13T08:54:33: Analyzing "pygame.tests.test_utils.png"
+2016-02-13T08:54:33: Analyzing "pygame.tests.test_utils.run_tests"
+2016-02-13T08:54:33: Analyzing "pygame.tests.test_utils.test_runner"
+2016-02-13T08:54:33: Analyzing "pygame.tests.test_utils.unittest"
+2016-02-13T08:54:33: Analyzing "pygame.tests.test_utils.unittest_patch"
+2016-02-13T08:54:33: Analyzing "pygame.tests.test_utils"
+2016-02-13T08:54:33: Analyzing "pygame.threads.Py25Queue"
+2016-02-13T08:54:33: Analyzing "pygame.threads"
+2016-02-13T08:54:33: Starting analysis of 174 modules
+2016-02-13T08:54:36: Analysis complete
+2016-02-13T08:54:36: Saving group "D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame"
+2016-02-13T08:54:37: End of group "D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\pygame"
+2016-02-13T08:54:37: Deleting 0 files
