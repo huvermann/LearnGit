@@ -141,6 +141,7 @@ class TileSet():
         self.imageheight = config['imageheight']
         self.name = config['name']
         self.properties = config['properties']
+        self.transparentcolor = config['transparentcolor']
         if "tileproperties" in config:
             self.tileproperties = config['tileproperties']
 
