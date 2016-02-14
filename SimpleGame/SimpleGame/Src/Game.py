@@ -21,14 +21,16 @@ class MainGame:
         logging.debug('Game started!')
         self.gameState = GameState()
         self.screen = pygame.display.set_mode(self.gameState.size)
-        self.viewController = ViewController(self.screen, self.gameState)
+        self.viewController = None
         self.configure()
+        self.viewController = ViewController(self.screen, self.gameState)
         
 
     def configure(self):
         ServiceLocator.registerGlobalService("screen", self.screen)
         ServiceLocator.registerGlobalService("pygame", pygame)
         ServiceLocator.registerGlobalService("ViewController", self.viewController)
+        ServiceLocator.registerGlobalService("gamestate", self.gameState)
         pass
     def cleanup(self):
         pygame.quit()

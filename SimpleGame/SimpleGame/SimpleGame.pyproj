@@ -75,6 +75,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Tiled\TiledMap.py" />
+    <Compile Include="Src\Tiled\TilesPainter.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Tiled\__init__.py">
       <SubType>Code</SubType>
     </Compile>
@@ -131,6 +134,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\ViewModelBase2.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\ViewPointer.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\__init__.py">
@@ -224,6 +230,7 @@
     <Content Include="Assets\Views\Level1\Level1.pyxel" />
     <Content Include="Assets\Views\Level2\background6.png" />
     <Content Include="Assets\Views\Level2\config.json" />
+    <Content Include="Assets\Views\Level2\map.json" />
     <Content Include="Assets\Views\Level2\view.map" />
     <Content Include="Assets\Views\Level2\Level2.json" />
     <Content Include="Assets\Views\Level2\Level2.png" />

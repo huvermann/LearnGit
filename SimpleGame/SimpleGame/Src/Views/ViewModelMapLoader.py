@@ -6,10 +6,27 @@ class ViewModelMapLoader(TmxTileMapViewModel):
     def __init__(self, viewName, screen):
         return super().__init__(viewName, screen)
 
-    #def __init__(self,viewModelName, state, screen, changeViewCallback):
-    #    super().__init__(state, screen, changeViewCallback)
-    #    self.loadMap(viewModelName)
-    #    self.viewModelName = viewModelName
+    def updateSprites(self):
+        #Remove this
+        pass
+
+    def drawSprites(self):
+        #remove this
+        pass
+
+    def drawScore(self):
+        #remove this!
+        pass
+
+    def drawInfoText(self):
+        #remove this!
+        pass
+    def checkClashes(self):
+        #remove this
+        pass
+
+        
+
 
 
 

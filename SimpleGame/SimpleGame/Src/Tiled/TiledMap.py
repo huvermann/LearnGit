@@ -1,3 +1,8 @@
+import os.path
+import pygame
+from Utils.DirHelper import getTMXMapResourceFile
+from webcolors import hex_to_rgb
+
 class TiledLayer():
     """Layer DTO."""
     def __init__(self, config):
@@ -22,9 +27,93 @@ class TiledLayer():
 
         pass
 
+class TiledObjectItem():
+    def __init__(self, config):
+        self.name = None
+        self.type = None
+        self.x = None
+        self.y = None
+        self.id = None
+        self.gid = None
+        self.width = None
+        self.height = None
+        self.visible = None
+        self.properties = None
+        self.rotation = None
+        self._configure(config)
+        pass
+
+    def _configure(self, configure):
+        self.name = configure['name']
+        self.type = configure['type']
+        self.x = configure['x']
+        self.y = configure['y']
+        self.id = configure['id']
+        self.gid = configure['gid']
+        self.width = configure['width']
+        self.height = configure['height']
+        self.visible = configure['visible']
+        self.rotation = configure['rotation']
+        self.properties = configure['properties']
+
+        pass
+
+
+class TiledObjectLayer():
+    def __init__(self, config):
+        self.objects = None
+        self.name = None
+        self._configure(config)
+
+    def _configure(self, config):
+        self.name = config['name']
+        self._configureObjectItems(config['objects'])
+
+        pass
+
+    def _configureObjectItems(self, config):
+        self.objects = []
+        for objConfig in config:
+            self.objects.append(TiledObjectItem(objConfig))
+        pass
+
+class TiledImageLayer():
+    def __init__(self, config, viewName):
+        self.__viewName = viewName
+        self.name = None
+        self.imagePath = None
+        self.width = None
+        self.height = None
+        self.type = None
+        self.x = None
+        self.y = None
+        self._configure(config)
+        pass
+    
+    def _configure(self, config):
+        self.name = config['name']
+        self.imagePath = config['image']
+        self.width = config['width']
+        self.height = config['height']
+        self.type = config['type']
+        self.x = config['x']
+        self.y = config['y']
+        pass
+
+    def getImageSurface(self):
+        result = None
+        filename = getTMXMapResourceFile(self.__viewName, self.imagePath)
+        if os.path.isfile(filename):
+            result = pygame.image.load(filename).convert()
+        else:
+            raise FileNotFoundError(filename)
+        return result
+
+
+
 class TileSet():
     '''Tileset DTO'''
-    def __init__(self, config):
+    def __init__(self, config, viewName):
         self.columns = None
         self.tilewith = None
         self.tileheight = None
@@ -37,7 +126,9 @@ class TileSet():
         self.properties = None
         self.tileproperties = None
         self.transparentcolor = None
+        self.surfaceArray = []
         self._configure(config)
+        self._loadTileSetImageFile(viewName)
         pass
     def _configure(self, config):
         self.columns = config['columns']
@@ -54,53 +145,164 @@ class TileSet():
             self.tileproperties = config['tileproperties']
 
         pass
+    def _loadTileSetImageFile(self, viewName):
+        filename = getTMXMapResourceFile(viewName, self.imagepath)
+        
+        if os.path.isfile(filename):
+            image = pygame.image.load(filename).convert()
+            self.__extractTilesetImages(image)
+        else:
+            raise FileNotFoundError(filename)
+
+        pass
+
+    def __extractTilesetImages(self, image):
+        assert isinstance(image, pygame.Surface), "Image must be of type pygame.Surface"
+        countY = self.imageheight // self.tileheight
+        countX = self.imagewidth // self.tilewith
+        for y in range(0, countY):
+            for x in range(0, countX):
+                 rect = (x*self.tilewith, y*self.tileheight, self.tilewith, self.tileheight)
+                 surface = image.subsurface(rect)
+                 if self.transparentcolor:
+                     surface.set_colorkey(hex_to_rgb(self.transparentcolor))
+                 self.surfaceArray.append(surface)
+        pass
 
 class TiledMap(object):
     """Tile map data manager"""
-    def __init__(self, jsonConfig):
-        self._layers = None
-        self._tileSets = None
-        self.configure(jsonConfig)
+    def __init__(self, jsonConfig, viewName):
+        self.__layers = None
+        self.__tileSets = None
+        self.__imageLayers = None
+        self.__map = None
+        self.__mapTileset = None
+        self.__backgroundImage = None
+        self.__sprites = None
+        self.__player = None
+        self.__viewName = viewName
+        self.configure(jsonConfig, viewName)
         pass
 
-    def configure(self, config):
-        self._height = config['height']
-        self._width = config['width']
-        self._tileWidth = config['tilewidth']
-        self._tileheight = config['tileheight']
-        self._configureProperties(config['properties'])
-        self._configureLayers(config['layers'])
-        self.configureTileSets(config['tilesets'])
-        self._prepareMainLayerMap()
+    def configure(self, config, viewName):
+        self.__height = config['height']
+        self.__width = config['width']
+        self.__tileWidth = config['tilewidth']
+        self.__tileheight = config['tileheight']
+        self.__configureProperties(config['properties'])
+        self.__configureLayers(config['layers'], viewName)
+        self.configureTileSets(config['tilesets'], viewName)
+        self.__prepareMainLayerMap()
+        self.__prepareMainMapTileSet()
+        self.__prepareBackgroundImage()
+        self.__prepareSpriteObjectLayer()
+        self.__preparePlayerObject()
+
         pass
 
-    def _prepareMainLayerMap(self):
-        liste = list(filter(lambda x: x.name == 'Map', self._layers))
+    def __prepareMainLayerMap(self):
+        liste = list(filter(lambda x: x.name == 'Map', self.__layers))
         if liste:
-            self._map = liste[0]
+            self.__map = liste[0]
         else:
             raise SyntaxError('Missing Map layer in map file.')
         pass
 
-
-    def _configureProperties(self, config):
+    def __prepareMainMapTileSet(self):
+        #get the tile main tile set by name
+        liste = list(filter(lambda x: x.name == "Map", self.__tileSets))
+        if liste:
+            self.__mapTileset = liste[0]
+        else:
+            raise SyntaxError('Missing tileset named "Map".')
         pass
-    def _configureLayers(self, config):
-        self._layers = []
+
+    def __prepareBackgroundImage(self):
+        # find the image layer named background
+        liste = list(filter(lambda x: x.name == "Image", self.__imageLayers))
+        if liste:
+            self.__backgroundImage = liste[0].getImageSurface()
+        else:
+            raise SyntaxError("Missing image layer with name 'Image'")
+        pass
+
+    def __prepareSpriteObjectLayer(self):
+        liste = list(filter(lambda x: x.name == "Sprites", self.__objectGroups))
+        if liste:
+            self.__sprites = liste[0]
+        else:
+            raise SyntaxError("Missing object layer with name 'Sprites'.")
+        pass
+
+    def __preparePlayerObject(self):
+        liste = list(filter(lambda x: x.name == "Player", self.__objectGroups))
+        if liste:
+            playerLayer = liste[0]
+            self.__player = playerLayer.objects[0]
+
+        else:
+            raise SyntaxError("Missing object layer with name 'Player.")
+
+
+    def __configureProperties(self, config):
+        pass
+    def __configureLayers(self, config, viewName):
+        self.__layers = []
+        self.__objectGroups = []
+        self.__imageLayers = []
         for layerConfig in config:
-            self._layers.append(TiledLayer(layerConfig))
+            if layerConfig['type']=='tilelayer':
+                self.__layers.append(TiledLayer(layerConfig))
+            elif layerConfig['type']=='objectgroup':
+                self.__objectGroups.append(TiledObjectLayer(layerConfig))
+            elif layerConfig['type']=='imagelayer':
+                
+                self.__imageLayers.append(TiledImageLayer(layerConfig, viewName))
+            else:
+                t=layerConfig['type']
+                raise SyntaxError("Unknown layer type: {0}".format(t))
         pass
 
-    def configureTileSets(self, config):
-        self._tileSets = []
+    def configureTileSets(self, config, viewName):
+        self.__tileSets = []
         for tileSetConfig in config:
-            self._tileSets.append(TileSet(tileSetConfig))
+            self.__tileSets.append(TileSet(tileSetConfig, viewName))
         pass
 
     def getTideIndex(self, x, y):
         '''Get tide index from map.'''
-        idx = y * self._width + x
-        return self._map[idx]
+        index = y * self.__width + x
+        return self.__map.data[index]
+
+    def calcTileMapIndex(self, offset, grid):
+        maxCols =self.width
+        maxRows = self.height
+
+        absRow=(offset.top//self.tileHeight+grid[1]) % maxRows
+        absCol=(grid[0]+offset.left//self.tileWidth) % maxCols
+        return self.getTideIndex(absCol, absRow)
+
+    def getTileImage(self, index):        
+        return self.__mapTileset.surfaceArray[index-self.__mapTileset.firstgid]
+
+
+    @property
+    def height(self):
+        return self.__height
+    @property
+    def width(self):
+        return self.__width
+
+    @property
+    def tileWidth(self):
+        return self.__tileWidth
+    @property
+    def tileHeight(self):
+        return self.__tileheight
+
+    @property
+    def backgroundImageSurface(self):
+        return self.__backgroundImage
 
 
 

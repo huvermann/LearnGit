@@ -3,6 +3,7 @@ from Utils.DirHelper import getTMXMapResourceFile
 import os.path
 import json
 from Tiled.TiledMap import TiledMap
+from Tiled.TilesPainter import TilesPainter
 
 
 class TmxTileMapViewModel(ViewModelBase2):
@@ -11,11 +12,13 @@ class TmxTileMapViewModel(ViewModelBase2):
         
         super().__init__(viewName, screen)
         self.configure(viewName)
+        self._drawTilesCall = TilesPainter.drawTiles
+        self._drawBackground = TilesPainter.drawBackground
         pass
 
     def configure(self, viewName):
         """Configure the map data from tmx json file."""
-        path = getTMXMapResourceFile(viewName, "view.map")
+        path = getTMXMapResourceFile(viewName, "map.json")
         configuration = self.loadTMXJson(path)
         self.configureTMXJson(configuration)
         pass
@@ -30,7 +33,7 @@ class TmxTileMapViewModel(ViewModelBase2):
         return result
 
     def configureTMXJson(self, config):
-        self._map = TiledMap(config)
+        self.map = TiledMap(config, self.viewName)
         pass
 
 
