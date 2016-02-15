@@ -123,8 +123,8 @@
   <object id="11" name="h1" type="HeartSprite" gid="86" x="1310" y="209" width="32" height="32"/>
   <object id="12" name="b1" type="BlobSprite" gid="76" x="1353" y="202" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Player">
-  <object id="6" name="Player" type="JimboSprite" gid="92" x="23" y="188" width="32" height="32"/>
+ <objectgroup name="Player" offsetx="0" offsety="32">
+  <object id="6" name="Player" type="JimboSprite" gid="92" x="109" y="218" width="32" height="32"/>
  </objectgroup>
  <imagelayer name="Image" visible="0">
   <image source="background6.png"/>

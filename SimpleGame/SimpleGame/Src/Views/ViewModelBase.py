@@ -323,6 +323,9 @@ class ViewModelBase:
         # Todo: Implement change the view.
         pass
 
+    def onMusicEvent(self, event):
+        pass
+
     def handleEvents(self):
         """Handle all events in event list"""
         for event in pygame.event.get():
@@ -334,8 +337,7 @@ class ViewModelBase:
                 self.onEvent(event)
         pass
 
-    def onMusicEvent(self, event):
-        pass
+    
 
     def drawTiles(self):
         """Draw the tiles to the screen."""

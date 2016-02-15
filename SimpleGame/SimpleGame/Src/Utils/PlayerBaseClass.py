@@ -37,7 +37,7 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         self._jumpTime = 250
 
         self._moveStateMachine = PlayerMoveStateMachine()
-        self._moveStateMachine.currentPositionCallback = self.getCurrentPositionHandler
+        #self._moveStateMachine.currentPositionCallback = self.getCurrentPositionHandler
         self._moveStateMachine._getTileInfoCallback = self._getTileInfoHandler
         self._moveStateMachine.jumpTimeout = self._jumpTime
         g=1
@@ -88,14 +88,6 @@ class PlayerBaseClass(pygame.sprite.Sprite):
 
     def loadAnimations(self, spriteName):
         """Loads all animation imanges from spritename folder."""
-        #self._aniLeft = PlayerBaseClass.loadAnimationFile(spriteName, AnimationNames.Left)
-        #self._aniRight = PlayerBaseClass.loadAnimationFile(spriteName, AnimationNames.Right)
-        ## Get the transparency color
-        #if self._aniLeft:
-        #    self._transparenceKey = self._aniLeft.get_at((0,0))
-        #    self._aniLeft.set_colorkey(self._transparenceKey)
-        #if self._aniRight:
-        #    self._aniRight.set_colorkey(self._aniRight.get_at((0,0)))
         pass
 
 
@@ -184,18 +176,20 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         """Get the subsurface of the animation based on moveState and time."""
         result = None
         ani = self._getAnimationByMoveState(moveState)
+        self.rect.left = position.left
+        self.rect.top = position.top
         if ani:
             if ani.AnimationType == AnimationTypes.TimeBased:
                 index = ani.calculateTimeIndex(time)
                 result = ani.getAnimationPictureByIndex(index)
             else:
-                index = ani.calculatePositionIndex(position.posX)
+                index = ani.calculatePositionIndex(position.left)
                 result = ani.getAnimationPictureByIndex(index)
         return result
 
-    def getCurrentPositionHandler(self):
-        """Handler to get the current position, used by the move state machine."""
-        return self._position.copy()
+    #def getCurrentPositionHandler(self):
+    #    """Handler to get the current position, used by the move state machine."""
+    #    return self._position.copy()
 
     def onMoveStateJump(self, timeStamp, moveStateMachine):
         movex = 0
@@ -210,8 +204,10 @@ class PlayerBaseClass(pygame.sprite.Sprite):
             movex = self._JumpCalculator.calcX(duration) * -1
         elif moveStateMachine.moveState == PlayerMoveState.JumpUp:
             movey = duration * self.jumpSpeedY / 1000 * -1
-        self._position.posY = int(moveStateMachine.lastPosition.posY + movey)
-        self._position.posX = int(moveStateMachine.lastPosition.posX + movex)
+        #self._position.posY = int(moveStateMachine.lastPosition.posY + movey)
+        #self._position.posX = int(moveStateMachine.lastPosition.posX + movex)
+        self._viewPointer.top = int(moveStateMachine.lastPosition.top + movey)
+        self._viewPointer.left = int(moveStateMachine.lastPosition.left+ movex)
 
         pass
 
@@ -222,13 +218,15 @@ class PlayerBaseClass(pygame.sprite.Sprite):
                 vectors = moveStateMachine.getVectors(moveStateMachine.moveState)
                 duration = timeStamp - moveStateMachine.lastChange
                 move = duration * self.speed / 1000 * vectors.X
-                self._position.posX = int(moveStateMachine.lastPosition.posX + move)
+                #self._position.posX = int(moveStateMachine.lastPosition.posX + move)
+                self._viewPointer.playerPosition.left = int(moveStateMachine.lastPosition.left + move)
         elif moveStateMachine.moveState in [PlayerMoveState.Falling]:
             #Falling
             if moveStateMachine.lastChange:
                 duration = timeStamp - moveStateMachine.lastChange
                 move = duration * self.fallSpeed / 1000
-                self._position.posY = int(moveStateMachine.lastPosition.posY + move)
+                #self._position.posY = int(moveStateMachine.lastPosition.posY + move)
+                self._viewPointer.playerPosition.top = int(moveStateMachine.lastPosition.top + move)
 
         elif moveStateMachine.moveState in [PlayerMoveState.JumpLeft, PlayerMoveState.JumpRight, PlayerMoveState.JumpUp]:
             self.onMoveStateJump(timeStamp, moveStateMachine)

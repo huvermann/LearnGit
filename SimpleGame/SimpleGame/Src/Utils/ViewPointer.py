@@ -8,6 +8,10 @@ class ViewPoint:
         self.left = left
         self.top = top
 
+    def copy(self):
+        return ViewPoint(self.left, self.top)
+
+
 class ViewPointer(object):
     """The view pointer keeps the player in the screen"""
     def __init__(self, screenRect, playerRect, innerBorder, posLeft, posTop):

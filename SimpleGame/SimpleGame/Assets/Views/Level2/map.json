@@ -119,9 +119,11 @@
                  "type":"JimboSprite",
                  "visible":true,
                  "width":32,
-                 "x":23,
-                 "y":188
+                 "x":109,
+                 "y":218
                 }],
+         "offsetx":0,
+         "offsety":32,
          "opacity":1,
          "type":"objectgroup",
          "visible":true,

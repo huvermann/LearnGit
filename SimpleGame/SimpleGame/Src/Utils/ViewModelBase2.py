@@ -3,6 +3,7 @@ import logging
 from Utils.DirHelper import getFontResourceFile
 from Utils.KeyboardInputManager import KeyboardInputManager
 from Utils.JoystickInputManager import JoystickInputManager
+from Utils.JoystickStates import JoystickEvents
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Utils import UserEvents
 from Utils.ViewPointer import ViewPointer
@@ -125,7 +126,8 @@ class ViewModelBase2():
     def saveStartingPosition(self):
         """Saves time and position when a move starts."""
         self._moveStartTime = pygame.time.get_ticks()
-        self._moveStartPosition = (self._position.posX, self._position.posY)
+        #self._moveStartPosition = (self._position.left, self._position.top)
+        self._moveStartPosition = (self._viewPointer.playerPosition.left, self._viewPointer.playerPosition.top)
 
     def handleEvents(self):
         """Handle all events in event list"""
@@ -173,6 +175,34 @@ class ViewModelBase2():
             if event.type != 27:
                 print (event) 
         pass
+
+    def onKeyboardEvent(self, event):
+        """Handle the keyboard events."""
+        print("A key was pressed: ", event.key)
+        if event.key == pygame.K_q:
+            # Q Pressed, quit game
+            self._state.done = True
+        elif event.key == pygame.K_1:
+            self._callback(ViewNames.Level1)
+        elif event.key == pygame.K_2:
+            self._callback(ViewNames.Level1)
+        elif event.key == pygame.K_3:
+            self._callback(ViewNames.Level2)
+        elif event.key == pygame.K_m:
+            self._musicPlayer.stop()
+
+        pass
+
+    def onViewChange(self, event):
+        """View is going to be changed."""
+        # Todo: Implement change the view.
+        pass
+
+    def onNoiseEvent(self, event):
+        """Start a sound."""
+        # Todo: implement play sound.
+        pass
+
 
     def updateSprites(self):
         """Calculates the next view x,y position."""
