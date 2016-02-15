@@ -17,6 +17,7 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         super().__init__()
         self._position = None #position
         self._tileMapManager = None #tileMapManager
+        #self._tileMapManager2 = ServiceLocator.getGlobalServiceInstance(ServiceNames.
         self._viewPointer = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewPointer)
         self.image = pygame.Surface([32,32])
         self.image.fill((0,0,0))
@@ -87,14 +88,14 @@ class PlayerBaseClass(pygame.sprite.Sprite):
 
     def loadAnimations(self, spriteName):
         """Loads all animation imanges from spritename folder."""
-        self._aniLeft = PlayerBaseClass.loadAnimationFile(spriteName, AnimationNames.Left)
-        self._aniRight = PlayerBaseClass.loadAnimationFile(spriteName, AnimationNames.Right)
-        # Get the transparency color
-        if self._aniLeft:
-            self._transparenceKey = self._aniLeft.get_at((0,0))
-            self._aniLeft.set_colorkey(self._transparenceKey)
-        if self._aniRight:
-            self._aniRight.set_colorkey(self._aniRight.get_at((0,0)))
+        #self._aniLeft = PlayerBaseClass.loadAnimationFile(spriteName, AnimationNames.Left)
+        #self._aniRight = PlayerBaseClass.loadAnimationFile(spriteName, AnimationNames.Right)
+        ## Get the transparency color
+        #if self._aniLeft:
+        #    self._transparenceKey = self._aniLeft.get_at((0,0))
+        #    self._aniLeft.set_colorkey(self._transparenceKey)
+        #if self._aniRight:
+        #    self._aniRight.set_colorkey(self._aniRight.get_at((0,0)))
         pass
 
 
@@ -231,31 +232,15 @@ class PlayerBaseClass(pygame.sprite.Sprite):
 
         elif moveStateMachine.moveState in [PlayerMoveState.JumpLeft, PlayerMoveState.JumpRight, PlayerMoveState.JumpUp]:
             self.onMoveStateJump(timeStamp, moveStateMachine)
-        
-        self._checkMapLimitsReached()
 
-        pass
-
-    def _checkMapLimitsReached(self):
-        """If the player reaches the limits of the map, don´t let him go over the limits."""
-        # Checks if the left limit of the map is reached.
-        if self._position.posX < 0:
-            self._position.posX = 0
-        # Checks if it upper limit of the map is reached.
-        #if self._position.posY < 0:
-        #    self._position.posY = 0
-        #Todo: Check right limit,
-        #if self._position.posY > self._tileMapManager.mapHeight:
-        #    self._position.posY = self._tileMapManager.mapHeight
-        if self._position.posX > self._tileMapManager.mapWidth:
-            self._position.posX = self._tileMapManager.mapWidth
         pass
 
     def update(self):
         ticks = pygame.time.get_ticks()
         self._moveStateMachine.updateState(ticks)
         self._updatePosition(ticks, self._moveStateMachine)
-        self.image = self._getImage(self.moveState, ticks, self._position)
+        
+        self.image = self._getImage(self.moveState, ticks, self._viewPointer.playerPosition)
         pass
 
     def configureProperties(self, properties):

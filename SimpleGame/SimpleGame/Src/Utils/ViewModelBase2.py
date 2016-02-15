@@ -176,7 +176,7 @@ class ViewModelBase2():
 
     def updateSprites(self):
         """Calculates the next view x,y position."""
-        #self.__playerSprite.update()    
+        self.__playerSprite.update()    
         self.objectSprites.update()
 
     def drawTiles(self):

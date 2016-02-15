@@ -88,29 +88,29 @@ class PlayerMoveStateMachine(object):
 
     def _isPlayerGrounded(self):
         result = True
-        if self._getTileInfoCallback:
-            info = self._getTileInfoCallback()
-            #todo: info auswerten, ob Spieler Bodenkontakt hat.
-            if info[Corners.GroundContact]["index"] == 0:
-                result = False
+        #if self._getTileInfoCallback:
+        #    info = self._getTileInfoCallback()
+        #    #todo: info auswerten, ob Spieler Bodenkontakt hat.
+        #    if info[Corners.GroundContact]["index"] == 0:
+        #        result = False
         return result
 
     def _isBarrierLeft(self):
         """Checks if barrier on the left."""
         result = False
-        if self._getTileInfoCallback:
-            info = self._getTileInfoCallback()
-            if  not info[Corners.Left]["index"] in info["NonSolidTiles"]:
-                result = True
+        #if self._getTileInfoCallback:
+        #    info = self._getTileInfoCallback()
+        #    if  not info[Corners.Left]["index"] in info["NonSolidTiles"]:
+        #        result = True
         return result
 
     def _isBarrierRight(self):
         """Checks if barrier on the left."""
         result = False
-        if self._getTileInfoCallback:
-            info = self._getTileInfoCallback()
-            if  not info[Corners.Right]["index"] in info["NonSolidTiles"]:
-                result = True
+        #if self._getTileInfoCallback:
+        #    info = self._getTileInfoCallback()
+        #    if  not info[Corners.Right]["index"] in info["NonSolidTiles"]:
+        #        result = True
         return result
 
     def _isBarrierTop(self):

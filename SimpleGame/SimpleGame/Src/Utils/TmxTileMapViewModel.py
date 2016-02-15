@@ -1,4 +1,5 @@
 from Utils.ViewModelBase2 import ViewModelBase2
+from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Sprites.SpriteFactory import createSpriteInstance
 from Utils.DirHelper import getTMXMapResourceFile
 import os.path
@@ -15,6 +16,7 @@ class TmxTileMapViewModel(ViewModelBase2):
         self.configureTMX(viewName)
         self._drawTilesCall = TilesPainter.drawTiles
         self._drawBackground = TilesPainter.drawBackground
+        ServiceLocator.registerGlobalService(ServiceNames.Map, self.map)
         pass
 
     def configureTMX(self, viewName):
