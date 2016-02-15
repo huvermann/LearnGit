@@ -56,6 +56,11 @@ class ViewPointer(object):
     def screenPosition(self):
         return ViewPoint(self.__playerPosition.left - self.__screenOffset.left, self.__playerPosition.top - self.__screenOffset.top)
     #Todo implement setter
+    @screenPosition.setter
+    def screenPosition(self, value):
+        assert isinstance(value, ViewPoint), "screenPosition must be of type ViewPoint."
+        self.__screenOffset.left = self.__playerPosition.left - value.left
+        self.__screenOffset.top = self.__playerPosition.top - value.top
 
     @property
     def playerRect(self):

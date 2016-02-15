@@ -31,6 +31,10 @@ class SpriteItemBase(pygame.sprite.Sprite):
         self.rect.top = offset.top
         pass
 
+    def configureProperties(self, properties):
+        assert isinstance(properties, dict), "Expected properties to be a dictionary."
+        pass
+
     def doCollide(self):
         """Is called when the player collides with this sprite."""
         return self._collosionInfo

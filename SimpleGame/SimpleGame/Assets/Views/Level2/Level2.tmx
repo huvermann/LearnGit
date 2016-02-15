@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="110" height="24" tilewidth="32" tileheight="32" nextobjectid="9">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="110" height="24" tilewidth="32" tileheight="32" nextobjectid="13">
  <tileset firstgid="1" name="Map" tilewidth="32" tileheight="32" tilecount="72" columns="8">
   <image source="Level2.png" trans="4a61f3" width="256" height="288"/>
   <terraintypes>
@@ -87,12 +87,8 @@
  <tileset firstgid="92" name="Player" tilewidth="32" tileheight="32" tilecount="2" columns="2">
   <image source="../../Sprites/Jimbo/Jimbo_standing.png" trans="b2dcef" width="64" height="32"/>
  </tileset>
- <objectgroup name="Sprites">
-  <object id="7" name="coin1" type="CoinSprite" gid="78" x="299" y="370" width="32" height="32"/>
-  <object id="8" name="Heart1" type="HeartSprite" gid="86" x="280" y="245" width="32" height="32"/>
- </objectgroup>
- <objectgroup name="Player">
-  <object id="6" name="Player" type="JimboSprite" gid="92" x="220" y="239" width="32" height="32"/>
+ <objectgroup color="#ff0000" name="Screen">
+  <object id="9" name="Screen" type="Screen" x="0" y="0" width="800" height="600"/>
  </objectgroup>
  <layer name="Map" width="110" height="24">
   <data encoding="csv">
@@ -122,6 +118,14 @@
 5,5,5,10,10,10,10,10,10,10,5,5,5,58,59,58,59,58,59,58,59,58,59,58,59,58,59,58,59,60,61,60,61,60,61,60,61,60,61,60,61,60,61,60,61,60,61,60,61,60,61,60,61,60,61,5,10,10,10,10,10,5,5,5,10,10,10,10,10,10,10,10,10,5,5,5,5,5,5,10,10,10,5,5,10,10,10,5,5,10,10,10,5,5,10,10,10,5,5,10,10,10,5,5,10,10,10,5,5,5
 </data>
  </layer>
+ <objectgroup name="Sprites" offsetx="0" offsety="32">
+  <object id="7" name="coin1" type="CoinSprite" gid="78" x="157" y="96" width="32" height="32"/>
+  <object id="11" name="h1" type="HeartSprite" gid="86" x="1310" y="209" width="32" height="32"/>
+  <object id="12" name="b1" type="BlobSprite" gid="76" x="1353" y="202" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="Player">
+  <object id="6" name="Player" type="JimboSprite" gid="92" x="23" y="188" width="32" height="32"/>
+ </objectgroup>
  <imagelayer name="Image" visible="0">
   <image source="background6.png"/>
  </imagelayer>

@@ -2,6 +2,7 @@ import os.path
 import pygame
 from Utils.DirHelper import getTMXMapResourceFile
 from webcolors import hex_to_rgb
+from Utils.ViewPointer import ViewPoint
 
 class TiledLayer():
     """Layer DTO."""
@@ -49,7 +50,8 @@ class TiledObjectItem():
         self.x = configure['x']
         self.y = configure['y']
         self.id = configure['id']
-        self.gid = configure['gid']
+        if 'gid' in configure:
+            self.gid = configure['gid']
         self.width = configure['width']
         self.height = configure['height']
         self.visible = configure['visible']
@@ -304,6 +306,27 @@ class TiledMap(object):
     @property
     def backgroundImageSurface(self):
         return self.__backgroundImage
+
+    @property
+    def playerConfiguration(self):
+        return self.__player
+
+    @property
+    def spriteConfiguration(self):
+        return self.__sprites
+
+    @property
+    def screenOffset(self):
+        result = None
+        liste = list(filter(lambda x: x.name == "Screen", self.__objectGroups))
+        if liste:
+            screenLayer = liste[0]
+            screenData = screenLayer.objects[0]
+            result = ViewPoint(screenData.x, screenData.y)
+
+        else:
+            raise SyntaxError("Missing object layer with name 'Player.")
+        return result
 
 
 

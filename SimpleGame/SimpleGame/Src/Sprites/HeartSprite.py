@@ -5,9 +5,9 @@ from Utils.Constants import SoundNames
 
 class HeartSprite(SpriteItemBase):
     """description of class"""
-    def __init__(self, position, calcScreenPositionCallback):
+    def __init__(self):
         resourceName = SpriteNames.Heart
-        super().__init__(resourceName, position, calcScreenPositionCallback)
+        super().__init__(resourceName)
         self._animation = None
         self.loadAnimations(resourceName)
         self._collosionInfo.sound = SoundNames.CoinTouched
@@ -17,7 +17,11 @@ class HeartSprite(SpriteItemBase):
         # calculate position
         rect = SpriteItemBase.getRectTimeBased(self._animation["Count"], self._animation["ImageSize"], 100)
         self.image = self._animation["Image"].subsurface(rect)
-        self.rect.left, self.rect.top = self._calcScreenPositionCallback(self._position)
+        return super().update()
+
+    def configureProperties(self, properties):
+        super().configureProperties(properties)
+        # Check to configured properties here.
         pass
 
     def loadAnimations(self, spriteName):

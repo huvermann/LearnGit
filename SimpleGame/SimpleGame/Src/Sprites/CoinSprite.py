@@ -14,6 +14,11 @@ class CoinSprite(SpriteItemBase):
         self._collosionInfo.sound = SoundNames.CoinTouched
         pass
 
+    def configureProperties(self, properties):
+        super().configureProperties(properties)
+        # Check to configured properties here.
+        pass
+
     def update(self):
         # calculate position
         rect = SpriteItemBase.getRectTimeBased(self._animation["Count"], self._animation["ImageSize"], 100)

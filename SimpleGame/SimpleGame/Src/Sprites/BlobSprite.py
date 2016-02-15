@@ -11,9 +11,9 @@ class BlobNames(object):
 
 class BlobSprite(SpriteItemBase):
     """Implementation of the Blob sprite."""
-    def __init__(self, position, calcScreenPositionCallback):
+    def __init__(self):
         spritename = SpriteNames.Bloob
-        super().__init__(spritename, position, calcScreenPositionCallback)
+        super().__init__(spritename)
         self._animation = None
         self.rect.left = 100
         self.loadAnimations()
@@ -41,7 +41,7 @@ class BlobSprite(SpriteItemBase):
         """Update the blob sprite."""
         rect = SpriteItemBase.getRectTimeBased(self._currentAnimation["Count"], self._currentAnimation["ImageSize"], 100)
         self.image = self._currentAnimation["Image"].subsurface(rect)
-        self.rect.left, self.rect.top = self._calcScreenPositionCallback(self._position)
+        return super().update()
         pass
 
 

@@ -12,8 +12,8 @@ class ViewModelBase2():
 
     def __init__(self, viewName, screen):
         """Constructor of the ViewModel base class."""
-        self.__viewName = viewName
-        self.__screen = screen
+        self._viewName = viewName
+        self._screen = screen
         self.__map = None
         self.__drawBackground = None
         self.__drawTilesCall = None
@@ -24,9 +24,9 @@ class ViewModelBase2():
         self.__initFont()
         self.__keyboardEventHandler = self.__initKeyboardManager()
         self.__joystickEventHandler = self.__initJoystickManager()
-        self.__state = ServiceLocator.getGlobalServiceInstance("gamestate")
-        self.__viewPointer = ViewPointer(self.screen.get_rect(), None, None, 228+400, 87+250)
-        ServiceLocator.registerGlobalService(ServiceNames.ViewPointer, self.__viewPointer)
+        self._state = ServiceLocator.getGlobalServiceInstance("gamestate")
+        self._viewPointer = ViewPointer(self.screen.get_rect(), None, None, 228+400, 87+250)
+        ServiceLocator.registerGlobalService(ServiceNames.ViewPointer, self._viewPointer)
       
 
     def __initFont(self):
@@ -119,7 +119,7 @@ class ViewModelBase2():
     def onKeyExit(self, event):
         logging.debug("onKeyExit")
         print("Exit")
-        self.__state.done = True
+        self._state.done = True
         pass
 
     def saveStartingPosition(self):
@@ -131,7 +131,7 @@ class ViewModelBase2():
         """Handle all events in event list"""
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                self.__state.done = True
+                self._state.done = True
             elif event.type == 4 or event.type == 1:
                 pass
             else:
@@ -141,7 +141,7 @@ class ViewModelBase2():
     def onEvent(self, event):
         """Handle events."""
         if event.type == pygame.QUIT:
-            self.__state.done = True
+            self._state.done = True
         elif event.type == pygame.KEYUP:
             self.__keyboardEventHandler.handleEvent(event)
         elif event.type == pygame.KEYDOWN:
@@ -176,21 +176,21 @@ class ViewModelBase2():
 
     def updateSprites(self):
         """Calculates the next view x,y position."""
-        self.__playerSprite.update()    
-        self._movingSprites.update()
+        #self.__playerSprite.update()    
+        self.objectSprites.update()
 
     def drawTiles(self):
         """Draw the tiles to the screen."""
         if self._drawBackground:
-            self._drawBackground(self.screen, self.map, self.__viewPointer)
+            self._drawBackground(self.screen, self.map, self._viewPointer)
         if self._drawTilesCall:
-            self._drawTilesCall(self.screen, self.map, self.__viewPointer)
+            self._drawTilesCall(self.screen, self.map, self._viewPointer)
         else:
             raise NotImplementedError("Please implement drawTiles in your view model.")
 
     def drawSprites(self):
         "Draws a info text on the screen."
-        raise NotImplementedError("Please implement drawSprites in your view model.")
+        self.allSprites.draw(self._screen)
 
     def drawScore(self):
         raise NotImplementedError("Please implement drawScore in your view model.")
@@ -208,7 +208,7 @@ class ViewModelBase2():
     def flipScreen(self):
         """Flip the screen."""
         pygame.display.flip()
-        self.__state.clock.tick(80)
+        self._state.clock.tick(80)
 
     def checkClashes(self):
         """Checks if sprites collides with player."""
@@ -227,14 +227,14 @@ class ViewModelBase2():
 
     @property
     def screen(self):
-        return self.__screen
+        return self._screen
     @screen.setter
     def screen(self, value):
-        self.__screen = value
+        self._screen = value
 
     @property
     def viewName(self):
-        return self.__viewName
+        return self._viewName
     @viewName.setter
     def viewName(self, value):
         self.__viewName = value
@@ -248,10 +248,10 @@ class ViewModelBase2():
 
     @property
     def player(self):
-        return self._player
+        return self.__playerSprite
     @player.setter
     def player(self, value):
-        self._player = value
+        self.__playerSprite = value
 
     @property
     def objectSprites(self):
