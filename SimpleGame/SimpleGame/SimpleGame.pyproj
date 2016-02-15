@@ -215,6 +215,7 @@
     <Content Include="Assets\Sprites\Jimbo\Jimbo_Left.png" />
     <Content Include="Assets\Sprites\Jimbo\Jimbo_Right.png" />
     <Content Include="Assets\Sprites\Jimbo\Jimbo_standing.png" />
+    <Content Include="Assets\Sprites\John_Doe\New_Man_in_Town.pyxel" />
     <Content Include="Assets\Views\Level1\background3.png" />
     <Content Include="Assets\Views\Level1\config.json" />
     <Content Include="Assets\Views\Level1\Level1.json" />
@@ -248,6 +249,7 @@
     <Folder Include="Assets\Sprites\Gameover\" />
     <Folder Include="Assets\Sprites\Drawbridge\" />
     <Folder Include="Assets\Sprites\Heart\" />
+    <Folder Include="Assets\Sprites\John_Doe\" />
     <Folder Include="Assets\Views\" />
     <Folder Include="Assets\Sound\" />
     <Folder Include="Assets\Views\Level1\" />
