@@ -1,3 +1,4 @@
+#Todo: Obsolete remove this class
 class MapPosition(object):
     """Map position data transfer object."""
     

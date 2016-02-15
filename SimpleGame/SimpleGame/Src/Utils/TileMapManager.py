@@ -4,7 +4,7 @@ import os.path
 import json
 from Utils.Constants import MapFields, Corners
 import logging
-
+#Todo: Remove obsolete class.
 class TileMapManager:
     """The Tile Map Manager Class."""
     def __init__(self, viewName, backgroundfilename):

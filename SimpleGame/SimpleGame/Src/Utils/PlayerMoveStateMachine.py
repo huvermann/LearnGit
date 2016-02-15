@@ -1,5 +1,4 @@
 from Utils.JoystickStates import JoystickEvents, JoystickState
-from Utils.MapPosition import MapPosition
 from Utils.Constants import Corners
 
 

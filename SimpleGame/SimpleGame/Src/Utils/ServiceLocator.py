@@ -1,3 +1,11 @@
+
+class ServiceNames:
+    Gamestate = 'gamestate'
+    ViewPointer = 'viewPointer'
+    Screen = 'screen'
+    ViewController = 'ViewController'
+
+
 class ServiceLocator(object):
     """The service locator class."""
     services = None

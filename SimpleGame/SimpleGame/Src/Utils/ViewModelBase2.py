@@ -3,7 +3,7 @@ import logging
 from Utils.DirHelper import getFontResourceFile
 from Utils.KeyboardInputManager import KeyboardInputManager
 from Utils.JoystickInputManager import JoystickInputManager
-from Utils.ServiceLocator import ServiceLocator
+from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Utils import UserEvents
 from Utils.ViewPointer import ViewPointer
 
@@ -26,6 +26,7 @@ class ViewModelBase2():
         self.__joystickEventHandler = self.__initJoystickManager()
         self.__state = ServiceLocator.getGlobalServiceInstance("gamestate")
         self.__viewPointer = ViewPointer(self.screen.get_rect(), None, None, 228+400, 87+250)
+        ServiceLocator.registerGlobalService(ServiceNames.ViewPointer, self.__viewPointer)
       
 
     def __initFont(self):

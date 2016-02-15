@@ -3,15 +3,17 @@ import os
 from Utils.DirHelper import getSpriteAnimationImage
 from Utils.Constants import AnimationNames
 from Utils.CollosionInfo import CollosionInfo
+from Utils.ViewPointer import ViewPoint
+from Utils.ServiceLocator import ServiceLocator, ServiceNames
 import logging
 
 class SpriteItemBase(pygame.sprite.Sprite):
     """The sprite base class"""
-    def __init__(self, spritename, position, calcScreenPositionCallback):
+    def __init__(self, spritename):
         super().__init__()
         self._spriteName = spritename
-        self._position = position
-        self._calcScreenPositionCallback = calcScreenPositionCallback
+        self._viewPointer = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewPointer)
+        self._position = ViewPoint(0,0)
         self.image = pygame.Surface([32,32])
         self.image.fill((0,0,0))
         self.rect = self.image.get_rect()
@@ -21,6 +23,12 @@ class SpriteItemBase(pygame.sprite.Sprite):
 
         self._collosionInfo = CollosionInfo(parent = self)
         self._collideCallback = self.doCollide
+        pass
+
+    def updateScreenOffset(self):
+        offset = self._viewPointer.mapPositionToScreenOffset(self._position)
+        self.rect.left = offset.left
+        self.rect.top = offset.top
         pass
 
     def doCollide(self):
@@ -57,8 +65,17 @@ class SpriteItemBase(pygame.sprite.Sprite):
         return result
 
     def update(self):
-        #Todo: select the image time based.
+        self.updateScreenOffset()
         pass
+
+    @property
+    def position(self):
+        return self._position
+    @position.setter
+    def position(self, value):
+        assert isinstance(value, ViewPoint), "Position type must be ViewPoint."
+        self._position = value
+
 
 
 
