@@ -104,20 +104,6 @@ class ViewPointer(object):
 
         pass
 
-
-
-
-
-    #@property
-    #def playerPosition(self):
-    #    return ViewPoint(self.__screenPosition.left + self.__playerOffset.left,
-    #                     self.__screenPosition.top + self.__playerOffset.top)
-    #@playerPosition.setter
-    #def playerPosition(self, value):
-    #    assert isinstance(value, ViewPoint), "playerPosition type must be ViewPoint."
-    #    self.__playerOffset.left = self.__screenPosition.left - value.left
-    #    self.__playerOffset.top = self.__screenPosition.top - value.top
-
     @property
     def playerPositionX(self):
         return self.__screenPosition.left + self.__playerOffset.left
@@ -155,10 +141,6 @@ class ViewPointer(object):
     @property
     def playerOffset(self):
         return self.__playerOffset
-
-    @property
-    def screenOffset(self):
-        return self.__screenPosition
 
 
 

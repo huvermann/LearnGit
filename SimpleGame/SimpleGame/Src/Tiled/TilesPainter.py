@@ -14,7 +14,7 @@ class TilesPainter(object):
         th = tileMap.tileHeight
         tw = tileMap.tileWidth
 
-        offset = viewPointer.screenOffset
+        offset = viewPointer.screenPosition
         shiftx = offset.left % tw
         shifty = offset.top % th
 

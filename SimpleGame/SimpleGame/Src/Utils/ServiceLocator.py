@@ -5,6 +5,7 @@ class ServiceNames:
     Screen = 'screen'
     ViewController = 'ViewController'
     Map = 'Map'
+    Player = 'Player'
 
 
 class ServiceLocator(object):

@@ -15,7 +15,6 @@ class PlayerBaseClass(pygame.sprite.Sprite):
     #def __init__(self, screen, spriteName, position, tileMapManager):
     def __init__(self, spriteName):
         super().__init__()
-        self._position = None #position
         self._tileMapManager = None #tileMapManager
         #self._tileMapManager2 = ServiceLocator.getGlobalServiceInstance(ServiceNames.
         self._viewPointer = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewPointer)

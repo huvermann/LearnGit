@@ -2,6 +2,7 @@ from Utils.JoystickStates import JoystickEvents, JoystickState
 from Utils.Constants import Corners
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Utils.ViewPointer import ViewPointer, ViewPoint
+from Tiled.TiledWatcher import TiledWatcher, CheckDirection
 
 
 class PlayerMoveState(object):
@@ -32,8 +33,10 @@ class PlayerMoveStateMachine(object):
         self._getCurrentPositionCallback = None
         self._jumpTimeout = 100
         self._backgroundTiles = [0, 28, 29, 30, 31]
-        self._viewPoint = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewPointer)
+        self.__viewPoint = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewPointer)
+        self.__tileWatcher = TiledWatcher()
         #Todo add Tile toucher.
+
         return super().__init__(**kwargs)
 
     def getVectors(self, moveState):
@@ -83,7 +86,7 @@ class PlayerMoveStateMachine(object):
         pass
 
     def _isPlayerGrounded(self):
-        result = True
+        result = self.__tileWatcher.isBarrierOn(CheckDirection.Ground)
         #if self._getTileInfoCallback:
         #    info = self._getTileInfoCallback()
         #    #todo: info auswerten, ob Spieler Bodenkontakt hat.
@@ -93,7 +96,7 @@ class PlayerMoveStateMachine(object):
 
     def _isBarrierLeft(self):
         """Checks if barrier on the left."""
-        result = False
+        result = self.__tileWatcher.isBarrierOn(CheckDirection.Left)
         #if self._getTileInfoCallback:
         #    info = self._getTileInfoCallback()
         #    if  not info[Corners.Left]["index"] in info["NonSolidTiles"]:
@@ -102,7 +105,7 @@ class PlayerMoveStateMachine(object):
 
     def _isBarrierRight(self):
         """Checks if barrier on the left."""
-        result = False
+        result = self.__tileWatcher.isBarrierOn(CheckDirection.Left)
         #if self._getTileInfoCallback:
         #    info = self._getTileInfoCallback()
         #    if  not info[Corners.Right]["index"] in info["NonSolidTiles"]:
@@ -110,16 +113,12 @@ class PlayerMoveStateMachine(object):
         return result
 
     def _isBarrierTop(self):
-        result = False
-        #Todo implement
+        result = self.__tileWatcher.isBarrierOn(CheckDirection.Top)
         return result
     def _isBarrierTopLeft(self):
-        #todo: implement
-
-        return False
+        return self.__tileWatcher.isBarrierOn(CheckDirection.TopLeft)
     def _isBarrierTopRight(self):
-        #todo: implement
-        return False
+        return self.__tileWatcher.isBarrierOn(CheckDirection.TopRight)
 
     def _isJumpEnded(self, timeStamp):
         result = False
@@ -226,7 +225,7 @@ class PlayerMoveStateMachine(object):
 
     def _saveTimePosition(self, timeStamp):
         self._lastChange = timeStamp
-        self._lastPosition = self._viewPoint.getPlayerMapPosition()
+        self._lastPosition = self.__viewPoint.getPlayerMapPosition()
         pass
 
     def _changeToFalling(self, timeStamp):

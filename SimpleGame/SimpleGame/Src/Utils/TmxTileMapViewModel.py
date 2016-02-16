@@ -17,6 +17,7 @@ class TmxTileMapViewModel(ViewModelBase2):
         self._drawTilesCall = TilesPainter.drawTiles
         self._drawBackground = TilesPainter.drawBackground
         ServiceLocator.registerGlobalService(ServiceNames.Map, self.map)
+        ServiceLocator.registerGlobalService(ServiceNames.Player, self.player)
         pass
 
     def configureTMX(self, viewName):
@@ -50,8 +51,6 @@ class TmxTileMapViewModel(ViewModelBase2):
         result.configureProperties(config.properties)
         self._viewPointer.playerPositionX = config.x
         self._viewPointer.playerPositionY = config.y
-
-        
         return result
 
     def configureSprites(self, config):
