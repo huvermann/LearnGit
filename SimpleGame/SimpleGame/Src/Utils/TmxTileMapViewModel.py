@@ -10,9 +10,9 @@ from Tiled.TilesPainter import TilesPainter
 
 class TmxTileMapViewModel(ViewModelBase2):
     """ViewModel for TMX tile maps."""
-    def __init__(self, viewName, screen):
+    def __init__(self, viewName):
         
-        super().__init__(viewName, screen)
+        super().__init__(viewName)
         self.configureTMX(viewName)
         self._drawTilesCall = TilesPainter.drawTiles
         self._drawBackground = TilesPainter.drawBackground

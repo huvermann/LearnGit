@@ -3,8 +3,8 @@ from Utils.TmxTileMapViewModel import TmxTileMapViewModel
 
 class ViewModelMapLoader(TmxTileMapViewModel):
     """View Model to load any views by name."""
-    def __init__(self, viewName, screen):
-        return super().__init__(viewName, screen)
+    def __init__(self, viewName):
+        return super().__init__(viewName)
 
     #def updateSprites(self):
     #    #Remove this

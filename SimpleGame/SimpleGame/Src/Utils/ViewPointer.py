@@ -39,6 +39,16 @@ class ViewPointer(object):
         else:
             self.__screenOffset = ViewPoint(self.__screenrect.centerx, self.__screenrect.centery)
 
+    def changePlayerPosition(self, left, top):
+        diffLeft = left - self.__playerPosition.left
+        diffTop = top - self.__playerPosition.top
+        self.screenOffset.left += diffLeft
+        self.screenOffset.top += diffTop
+        self.__playerPosition.left = left
+        self.__playerPosition.top = top
+
+
+
     def mapPositionToScreenOffset(self, position):
         assert isinstance(position, ViewPoint), "Position must be of type ViewPoint."
         result = None

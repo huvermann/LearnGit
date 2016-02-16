@@ -51,7 +51,7 @@ class ViewController(object):
         # Todo implement all views
         else:
             # Loads any model 
-            return ViewModelMapLoader(viewName, self.screen)
+            return ViewModelMapLoader(viewName)
 
 
     def run(self):

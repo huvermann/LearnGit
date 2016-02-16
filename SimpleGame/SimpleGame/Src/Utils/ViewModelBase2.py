@@ -11,10 +11,10 @@ from Utils.ViewPointer import ViewPointer
 class ViewModelBase2():
     """Viewmodel base class."""
 
-    def __init__(self, viewName, screen):
+    def __init__(self, viewName):
         """Constructor of the ViewModel base class."""
         self._viewName = viewName
-        self._screen = screen
+        self._screen = ServiceLocator.getGlobalServiceInstance(ServiceNames.Screen)
         self.__map = None
         self.__drawBackground = None
         self.__drawTilesCall = None
@@ -191,6 +191,14 @@ class ViewModelBase2():
         elif event.key == pygame.K_m:
             self._musicPlayer.stop()
 
+        pass
+
+    def _mouseButtonUp(self, event):
+        #self._infoText = ""
+        pass
+    def _mouseButtonDown(self, event):
+        #self._infoText = "MapPos: {0}, {1}".format(self._viewPointer.playerPosition.left + event.pos[0], self._position.posY + event.pos[1])
+        #print(self._infoText)
         pass
 
     def onViewChange(self, event):
