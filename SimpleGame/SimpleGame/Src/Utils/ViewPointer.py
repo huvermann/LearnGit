@@ -16,6 +16,8 @@ class ViewPointerFollowState:
     FixedPosition = 0
     FollowRight = 1
     FollowLeft = 2
+    FollowUp = 3
+    FollowDown = 4
     
 
 
@@ -26,6 +28,7 @@ class ViewPointer(object):
         self.__screenPosition = ViewPoint(0,0)
         self.__playerRect = None
         self.__followStateX = ViewPointerFollowState.FixedPosition
+        self.__followStateY = ViewPointerFollowState.FixedPosition
 
         screen = ServiceLocator.getGlobalServiceInstance(ServiceNames.Screen)
         self.__screenrect = screen.get_rect()
@@ -78,6 +81,27 @@ class ViewPointer(object):
                 self.__screenPosition.left -= shift
                 if self.__playerOffset.left>= self.__screenrect.centerx:
                     self.__followStateX = ViewPointerFollowState.FixedPosition
+
+        if self.__followStateY==ViewPointerFollowState.FixedPosition:
+            if self.__playerOffset.top >= self.__innerBorder.bottom:
+                self.__followStateY = ViewPointerFollowState.FollowUp
+            elif self.__playerOffset.top <= self.__innerBorder.top:
+                self.__followStateY = ViewPointerFollowState.FollowDown
+
+        if self.__followStateY != ViewPointerFollowState.FixedPosition:
+            if self.__followStateY == ViewPointerFollowState.FollowUp:
+                shif = 4
+                self.__playerOffset.top -= shift
+                self.__screenPosition.top += shift
+                if self.__playerOffset.top <= self.__screenrect.centery:
+                    self.__followStateY = ViewPointerFollowState.FixedPosition
+            elif self.__followStateY == ViewPointerFollowState.FollowDown:
+                shift = 4
+                self.__playerOffset.top += shift
+                self.__screenPosition.top -= shift
+                if self.__playerOffset.top >= self.__screenrect.centery:
+                    self.__followStateY = ViewPointerFollowState.FixedPosition
+
         pass
 
 

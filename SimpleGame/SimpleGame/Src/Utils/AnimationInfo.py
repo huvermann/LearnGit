@@ -69,7 +69,6 @@ class AnimationInfo(object):
 
     def getAnimationPictureByIndex(self, index):
         """Returns the surface of the picture by index."""
-        # Todo: Implement
         result = None
         left = index * self.PictureSize[0]
         rect = (left, 0, self.PictureSize[0], self.PictureSize[1])
