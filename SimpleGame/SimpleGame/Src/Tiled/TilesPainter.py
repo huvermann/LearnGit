@@ -41,7 +41,8 @@ class TilesPainter(object):
         imageRect = image.get_rect()
         mapWidth = tileMap.width * tileMap.tileWidth
         mapHeight = tileMap.height * tileMap.tileHeight
-        offset = viewPointer.screenOffset
+        #offset = viewPointer.screenOffset
+        offset = viewPointer.screenPosition
 
         # Don´t scroll the background in y direction
         yoffset = offset.top

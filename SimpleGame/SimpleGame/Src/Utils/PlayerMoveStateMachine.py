@@ -1,6 +1,7 @@
 from Utils.JoystickStates import JoystickEvents, JoystickState
 from Utils.Constants import Corners
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
+from Utils.ViewPointer import ViewPointer, ViewPoint
 
 
 class PlayerMoveState(object):
@@ -232,9 +233,7 @@ class PlayerMoveStateMachine(object):
 
     def _saveTimePosition(self, timeStamp):
         self._lastChange = timeStamp
-        self._lastPosition = self._viewPoint.playerPosition.copy()
-        #if self.currentPositionCallback:
-        #    self._lastPosition = self.currentPositionCallback()
+        self._lastPosition = self._viewPoint.getPlayerMapPosition()
         pass
 
     def _changeToFalling(self, timeStamp):

@@ -48,8 +48,8 @@ class TmxTileMapViewModel(ViewModelBase2):
         playerClassname = config.type
         result = createSpriteInstance(playerClassname)
         result.configureProperties(config.properties)
-        self._viewPointer.playerPosition.left = config.x
-        self._viewPointer.playerPosition.top = config.y
+        self._viewPointer.playerPositionX = config.x
+        self._viewPointer.playerPositionY = config.y
 
         
         return result

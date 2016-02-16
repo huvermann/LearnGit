@@ -204,11 +204,9 @@ class PlayerBaseClass(pygame.sprite.Sprite):
             movex = self._JumpCalculator.calcX(duration) * -1
         elif moveStateMachine.moveState == PlayerMoveState.JumpUp:
             movey = duration * self.jumpSpeedY / 1000 * -1
-        #self._position.posY = int(moveStateMachine.lastPosition.posY + movey)
-        #self._position.posX = int(moveStateMachine.lastPosition.posX + movex)
-        self._viewPointer.changePlayerPosition(
-            int(moveStateMachine.lastPosition.left+ movex), 
-            int(moveStateMachine.lastPosition.top + movey))
+
+        self._viewPointer.playerPositionX = int(moveStateMachine.lastPosition.left+ movex)
+        self._viewPointer.playerPositionY = int(moveStateMachine.lastPosition.top + movey)
 
         pass
 
@@ -219,22 +217,14 @@ class PlayerBaseClass(pygame.sprite.Sprite):
                 vectors = moveStateMachine.getVectors(moveStateMachine.moveState)
                 duration = timeStamp - moveStateMachine.lastChange
                 move = duration * self.speed / 1000 * vectors.X
-                #self._position.posX = int(moveStateMachine.lastPosition.posX + move)
-                #self._viewPointer.playerPosition.left = int(moveStateMachine.lastPosition.left + move)
-                self._viewPointer.changePlayerPosition(
-                    int(moveStateMachine.lastPosition.left + move), 
-                    self._viewPointer.playerPosition.top)
+                self._viewPointer.playerPositionX = int(moveStateMachine.lastPosition.left + move)
 
         elif moveStateMachine.moveState in [PlayerMoveState.Falling]:
             #Falling
             if moveStateMachine.lastChange:
                 duration = timeStamp - moveStateMachine.lastChange
                 move = duration * self.fallSpeed / 1000
-                #self._position.posY = int(moveStateMachine.lastPosition.posY + move)
-                #self._viewPointer.playerPosition.top = int(moveStateMachine.lastPosition.top + move)
-                self._viewPointer.changePlayerPosition(
-                    self._viewPointer.playerPosition.left, 
-                    int(moveStateMachine.lastPosition.top + move))
+                self._viewPointer.playerPositionY =  int(moveStateMachine.lastPosition.top + move)
 
         elif moveStateMachine.moveState in [PlayerMoveState.JumpLeft, PlayerMoveState.JumpRight, PlayerMoveState.JumpUp]:
             self.onMoveStateJump(timeStamp, moveStateMachine)
@@ -246,7 +236,7 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         self._moveStateMachine.updateState(ticks)
         self._updatePosition(ticks, self._moveStateMachine)
         
-        self.image = self._getImage(self.moveState, ticks, self._viewPointer.playerPosition)
+        self.image = self._getImage(self.moveState, ticks, self._viewPointer.playerOffset)
         pass
 
     def configureProperties(self, properties):

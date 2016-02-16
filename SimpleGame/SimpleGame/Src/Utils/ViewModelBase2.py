@@ -127,7 +127,8 @@ class ViewModelBase2():
         """Saves time and position when a move starts."""
         self._moveStartTime = pygame.time.get_ticks()
         #self._moveStartPosition = (self._position.left, self._position.top)
-        self._moveStartPosition = (self._viewPointer.playerPosition.left, self._viewPointer.playerPosition.top)
+        #self._moveStartPosition = (self._viewPointer.playerPosition.left, self._viewPointer.playerPosition.top)
+        self._moveStartPosition = (self._viewPointer.playerPositionX, self._viewPointer.playerPositionY)
 
     def handleEvents(self):
         """Handle all events in event list"""
@@ -252,11 +253,13 @@ class ViewModelBase2():
         """Checks if sprites collides with player."""
         raise NotImplementedError("Please implement checkClashes in your view model.")
 
-
+    def updateCameraPosition(self):
+        self._viewPointer.updateCamera()
 
     def runView(self):
         """Runs the view."""
         self.handleEvents()
+        self.updateCameraPosition()
         self.updateSprites()
         self.drawView()
         self.checkClashes()
