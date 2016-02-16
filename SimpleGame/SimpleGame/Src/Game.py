@@ -23,7 +23,8 @@ class MainGame:
         self.screen = pygame.display.set_mode(self.gameState.size)
         self.viewController = None
         self.configure()
-        self.viewController = ViewController(self.screen, self.gameState)
+        self.viewController = ViewController()
+        self.viewController.changeView("Level2")
         
 
     def configure(self):

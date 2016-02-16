@@ -8,13 +8,10 @@ import logging
 
 class ViewController(object):
     """description of class"""
-    def __init__(self, screen, gameState):
+    def __init__(self):
         """Initializes the view controler"""
-        self.screen = screen
-        self.gameState = gameState
         self.viewList = {}
         self.currentView = None
-        self.changeView("Level2")
         pass
     
     def ChangeViewCallback(self, viewName):
@@ -44,11 +41,12 @@ class ViewController(object):
         return newView
     def viewFactory(self, viewName):
         """Creates a view by name."""
+        #Todo: Remove obsolete views
         if viewName == "View1x":
             return ViewStart(self.gameState, self.screen, self.ChangeViewCallback)
         elif viewName == "Level1x":
             return View2(self.gameState, self.screen, self.ChangeViewCallback)
-        # Todo implement all views
+        # Todo: Implement new View Factory
         else:
             # Loads any model 
             return ViewModelMapLoader(viewName)
