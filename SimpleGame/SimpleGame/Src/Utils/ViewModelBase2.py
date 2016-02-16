@@ -25,8 +25,8 @@ class ViewModelBase2():
         self.__initFont()
         self.__keyboardEventHandler = self.__initKeyboardManager()
         self.__joystickEventHandler = self.__initJoystickManager()
-        self._state = ServiceLocator.getGlobalServiceInstance("gamestate")
-        self._viewPointer = ViewPointer(self.screen.get_rect(), None, None, 228+400, 87+250)
+        self._state = ServiceLocator.getGlobalServiceInstance(ServiceNames.Gamestate)
+        self._viewPointer = ViewPointer()
         ServiceLocator.registerGlobalService(ServiceNames.ViewPointer, self._viewPointer)
       
 

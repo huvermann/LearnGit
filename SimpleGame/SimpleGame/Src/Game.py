@@ -24,7 +24,7 @@ class MainGame:
         self.viewController = None
         self.configure()
         self.viewController = ViewController()
-        self.viewController.changeView("Level2")
+        
         
 
     def configure(self):
@@ -40,6 +40,8 @@ class MainGame:
         """Run the game loop"""
         # pygame.display.set_icon(pygame.image.load(Utils.DirHelper.getResourceFilePath("icon")))
         pygame.display.set_caption("SimpleGame")
+        # Start-Screen
+        self.viewController.changeView("Level2")
         try:
             while not self.gameState.done:
                 self.viewController.currentView.runView()

@@ -1,5 +1,6 @@
 import pygame
 from types import *
+from Utils.ServiceLocator import ServiceLocator, ServiceNames
 
 class ViewPoint:
     left = 0
@@ -14,30 +15,25 @@ class ViewPoint:
 
 class ViewPointer(object):
     """The view pointer keeps the player in the screen"""
-    def __init__(self, screenRect, playerRect, innerBorder, posLeft, posTop):
-        assert isinstance(screenRect, pygame.Rect), "Expected screenRect to be pygame.Rect."
-        assert isinstance(playerRect, pygame.Rect) or playerRect == None, "expected playerRect to be pygame.Rect or None."
-        assert isinstance(innerBorder, pygame.Rect) or innerBorder == None, "Expected innerBorder to be pygame.Rect or None."
-        assert isinstance(posLeft, int), "Expected leftPos to be integer."
-        assert isinstance(posTop, int), "Expected posTop to be integer."
-        #assert isinstance(border, pygame.Rect)
-        self.__playerPosition = ViewPoint(posLeft, posTop)
-        self.__playerRect = playerRect
-        self.__screenrect = screenRect
-        if not innerBorder:
-            self.__innerBorder = self.__screenrect.copy()
-            self.__innerBorder.bottom -= 40
-            self.__innerBorder.left -= 40
-            self.__innerBorder.top += 40
-            self.__innerBorder.right -= 40
-        else:
-            self.__innerBorder = innerBorder
+    def __init__(self):
+        #assert isinstance(playerRect, pygame.Rect) or playerRect == None, "expected playerRect to be pygame.Rect or None."
+        #assert isinstance(innerBorder, pygame.Rect) or innerBorder == None, "Expected innerBorder to be pygame.Rect or None."
+        #assert isinstance(posLeft, int), "Expected leftPos to be integer."
+        #assert isinstance(posTop, int), "Expected posTop to be integer."
+        #self.__playerPosition = ViewPoint(posLeft, posTop)
+        #self.__playerRect = playerRect
+        self.__playerPosition = ViewPoint(0,0)
+        self.__playerRect = None
+        screen = ServiceLocator.getGlobalServiceInstance(ServiceNames.Screen)
+        self.__screenrect = screen.get_rect()
+        self.__innerBorder = self.__screenrect.copy()
+        self.__innerBorder.bottom -= 40
+        self.__innerBorder.left -= 40
+        self.__innerBorder.top += 40
+        self.__innerBorder.right -= 40
 
         #Center player
-        if self.__playerRect:
-            self.__screenOffset = ViewPoint(self.__screenrect.centerx - self.__playerRect.width // 2, self.__screenrect.centery - self.__playerRect.height)
-        else:
-            self.__screenOffset = ViewPoint(self.__screenrect.centerx, self.__screenrect.centery)
+        self.__screenOffset = ViewPoint(self.__screenrect.centerx, self.__screenrect.centery)
 
     def changePlayerPosition(self, left, top):
         diffLeft = left - self.__playerPosition.left
