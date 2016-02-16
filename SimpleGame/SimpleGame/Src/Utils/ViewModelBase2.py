@@ -254,6 +254,7 @@ class ViewModelBase2():
         raise NotImplementedError("Please implement checkClashes in your view model.")
 
     def updateCameraPosition(self):
+        """Updates the viewPointer camera position."""
         self._viewPointer.updateCamera()
 
     def runView(self):

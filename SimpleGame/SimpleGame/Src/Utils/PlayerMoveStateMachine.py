@@ -33,6 +33,7 @@ class PlayerMoveStateMachine(object):
         self._jumpTimeout = 100
         self._backgroundTiles = [0, 28, 29, 30, 31]
         self._viewPoint = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewPointer)
+        #Todo add Tile toucher.
         return super().__init__(**kwargs)
 
     def getVectors(self, moveState):
@@ -76,14 +77,6 @@ class PlayerMoveStateMachine(object):
     @tileInfoCallback.setter
     def tileInfoCallback(self, value):
         self._getTileInfoCallback = value
-
-    #@property
-    #def currentPositionCallback(self):
-    #    return self._getCurrentPositionCallback
-    #@currentPositionCallback.setter
-    #def currentPositionCallback(self, value):
-    #    self._getCurrentPositionCallback = value
-
 
     def joystickChanged(self, state):
         self._joystickState.joystickChanged(state)
