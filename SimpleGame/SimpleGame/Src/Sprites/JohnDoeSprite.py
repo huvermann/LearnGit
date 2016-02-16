@@ -24,37 +24,31 @@ class JohnDoeSprite(PlayerBaseClass):
       "Falling": {
         "Filename": "standing_front.png",
         "AnimationType": "TimeBased",
-        "ImageCount": 1,
         "Delay": 25
       },
       "Left": {
         "Filename": "walk_left.png",
         "AnimationType": "PositionBased",
-        "ImageCount": 9,
-        "StepWith": 8
+        "StepWith": 1
       },
       "Right": {
         "Filename": "walk_right.png",
         "AnimationType": "PositionBased",
-        "ImageCount": 9,
-        "StepWith": 8
+        "StepWith": 1
       },
       "JumpLeft": {
         "Filename": "jump_left.png",
         "AnimationType": "TimeBased",
-        "ImageCount" :  9,
         "Delay": 25
       },
       "JumpRight": {
         "Filename": "jump_right.png",
         "AnimationType": "TimeBased",
-        "ImageCount": 9,
         "Delay": 25
       },
       "JumpUp": {
         "Filename": "jump_up.png",
         "AnimationType": "TimeBased",
-        "ImageCount": 10,
         "Delay": 25
       } }'''
         return json.loads(data)
