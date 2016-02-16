@@ -89,6 +89,8 @@ class AnimationInfo(object):
         resourceFile = getSpriteResourceFilename(spritename, filename)
         if os.path.isfile(resourceFile):
             result = pygame.image.load(resourceFile).convert()
+        else:
+            raise FileNotFoundError(resourceFile)
         return result
 
 
