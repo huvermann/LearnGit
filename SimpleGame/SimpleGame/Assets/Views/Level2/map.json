@@ -140,7 +140,7 @@
 
                     },
                  "rotation":0,
-                 "type":"JimboSprite",
+                 "type":"JohnDoeSprite",
                  "visible":true,
                  "width":32,
                  "x":109,

@@ -52,6 +52,9 @@
     <Compile Include="Src\Sprites\JimboSprite.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Sprites\JohnDoeSprite.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Sprites\MagicSpriteStrings.py">
       <SubType>Code</SubType>
     </Compile>
