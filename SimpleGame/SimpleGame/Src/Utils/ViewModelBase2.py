@@ -28,6 +28,7 @@ class ViewModelBase2():
         self._state = ServiceLocator.getGlobalServiceInstance(ServiceNames.Gamestate)
         self._viewPointer = ViewPointer()
         ServiceLocator.registerGlobalService(ServiceNames.ViewPointer, self._viewPointer)
+        
       
 
     def __initFont(self):
@@ -287,6 +288,7 @@ class ViewModelBase2():
     @map.setter
     def map(self, value):
         self.__map = value
+        ServiceLocator.registerGlobalService(ServiceNames.Map, self.__map)
 
     @property
     def player(self):
@@ -294,6 +296,7 @@ class ViewModelBase2():
     @player.setter
     def player(self, value):
         self.__playerSprite = value
+        ServiceLocator.registerGlobalService(ServiceNames.Player, self.__playerSprite)
 
     @property
     def objectSprites(self):

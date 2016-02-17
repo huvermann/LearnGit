@@ -277,6 +277,11 @@ class TiledMap(object):
         index = y * self.__width + x
         return self.__map.data[index]
 
+    def getTideIndexOnMapCoords(self, mapx, mapy):
+        ix = mapx // self.tileWidth
+        iy = mapy // self.tileHeight
+        return self.getTideIndex(ix, iy)
+
     def calcTileMapIndex(self, offset, grid):
         maxCols =self.width
         maxRows = self.height

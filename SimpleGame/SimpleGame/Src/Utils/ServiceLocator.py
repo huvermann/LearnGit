@@ -6,6 +6,7 @@ class ServiceNames:
     ViewController = 'ViewController'
     Map = 'Map'
     Player = 'Player'
+    TiledWatcher = 'TiledWatcher'
 
 
 class ServiceLocator(object):
@@ -18,10 +19,12 @@ class ServiceLocator(object):
         if not ServiceLocator.services:
             ServiceLocator.services={}
         ServiceLocator.services[serviceName] = serviceInstance
+        print("Register global Service: {0}".format(serviceName))
 
     @staticmethod
     def getGlobalServiceInstance(serviceName):
         """Returns the service instance by name."""
+        print("Get Global Service Instance: {0}".format(serviceName))
         if serviceName in ServiceLocator.services:
             result = ServiceLocator.services[serviceName]
         else:

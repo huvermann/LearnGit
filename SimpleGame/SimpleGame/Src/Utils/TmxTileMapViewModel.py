@@ -6,6 +6,7 @@ import os.path
 import json
 from Tiled.TiledMap import TiledMap, TiledObjectLayer
 from Tiled.TilesPainter import TilesPainter
+from Tiled.TiledWatcher import TiledWatcher
 
 
 class TmxTileMapViewModel(ViewModelBase2):
@@ -16,8 +17,8 @@ class TmxTileMapViewModel(ViewModelBase2):
         self.configureTMX(viewName)
         self._drawTilesCall = TilesPainter.drawTiles
         self._drawBackground = TilesPainter.drawBackground
-        ServiceLocator.registerGlobalService(ServiceNames.Map, self.map)
-        ServiceLocator.registerGlobalService(ServiceNames.Player, self.player)
+        #ServiceLocator.registerGlobalService(ServiceNames.Map, self.map)
+        #ServiceLocator.registerGlobalService(ServiceNames.Player, self.player)
         pass
 
     def configureTMX(self, viewName):

@@ -1,4 +1,5 @@
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
+from Utils.ViewPointer import ViewPoint
 
 class CheckDirection():
     Ground = 0
@@ -11,25 +12,32 @@ class CheckDirection():
 
 class TiledWatcher(object):
     """Checks the touched tiles."""
-    def __init__(self):
+    def __init__(self, parentPlayer):
         """Constructor if the TiledWatcher."""
+        print("Constructor: TiledWatcher")
         self.__map = ServiceLocator.getGlobalServiceInstance(ServiceNames.Map)
-        self.__player = ServiceLocator.getGlobalServiceInstance(ServiceNames.Player)
+        self.__player = parentPlayer
         self.__viewPointer = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewPointer)
-        self.createCheckpoints()
+        self.__spaceTiles = [0,1] # Todo: read this from map
         """Create checkpoint coordinates depending on the player rect."""
         #Todo Implement
         pass
+
        
-    def getTileIndexInMap(x, y):
+    def getTileIndexInMap(self, x, y):
         """Returns the tile map index at map position x,y."""
-        return 0
+        return self.__map.getTideIndexOnMapCoords(x, y)
 
     def isBarrierOn(self, direction):
         """Checks if there is a barrier in the asked direction."""
+        position = ViewPoint(self.__viewPointer.playerPositionX, self.__viewPointer.playerPositionY)
+
         if direction == CheckDirection.Ground:
             #Todo: Implement check
-            return True
+            checkx = position.left + 16
+            checky = position.top + 32
+            tideIndex = self.getTileIndexInMap(checkx, checky)
+            return not tideIndex in self.__spaceTiles
         elif direction == CheckDirection.Left:
             #Todo: Implement check
             return False

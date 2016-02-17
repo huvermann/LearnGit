@@ -24,7 +24,7 @@ class MoveVector(object):
 
 class PlayerMoveStateMachine(object):
     """description of class"""
-    def __init__(self, **kwargs):
+    def __init__(self, parentPlayer):
         self._moveState = PlayerMoveState.Standing
         self._joystickState = JoystickState()
         self._lastChange = None
@@ -34,10 +34,8 @@ class PlayerMoveStateMachine(object):
         self._jumpTimeout = 100
         self._backgroundTiles = [0, 28, 29, 30, 31]
         self.__viewPoint = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewPointer)
-        self.__tileWatcher = TiledWatcher()
-        #Todo add Tile toucher.
-
-        return super().__init__(**kwargs)
+        self.__tileWatcher = TiledWatcher(parentPlayer)
+        
 
     def getVectors(self, moveState):
         """Returns moving vectors depending on move state."""

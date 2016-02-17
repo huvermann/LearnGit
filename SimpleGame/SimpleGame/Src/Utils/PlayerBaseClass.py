@@ -15,6 +15,7 @@ class PlayerBaseClass(pygame.sprite.Sprite):
     #def __init__(self, screen, spriteName, position, tileMapManager):
     def __init__(self, spriteName):
         super().__init__()
+        print("Constructor: PlayerBaseClass")
         self._tileMapManager = None #tileMapManager
         #self._tileMapManager2 = ServiceLocator.getGlobalServiceInstance(ServiceNames.
         self._viewPointer = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewPointer)
@@ -35,7 +36,7 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         self._jumpSpeedY = 400
         self._jumpTime = 250
 
-        self._moveStateMachine = PlayerMoveStateMachine()
+        self._moveStateMachine = PlayerMoveStateMachine(self)
         #self._moveStateMachine.currentPositionCallback = self.getCurrentPositionHandler
         self._moveStateMachine._getTileInfoCallback = self._getTileInfoHandler
         self._moveStateMachine.jumpTimeout = self._jumpTime

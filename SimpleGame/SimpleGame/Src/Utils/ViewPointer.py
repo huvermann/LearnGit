@@ -90,7 +90,7 @@ class ViewPointer(object):
 
         if self.__followStateY != ViewPointerFollowState.FixedPosition:
             if self.__followStateY == ViewPointerFollowState.FollowUp:
-                shif = 4
+                shift = 4
                 self.__playerOffset.top -= shift
                 self.__screenPosition.top += shift
                 if self.__playerOffset.top <= self.__screenrect.centery:
