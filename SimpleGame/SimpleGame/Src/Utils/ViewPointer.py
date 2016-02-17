@@ -32,12 +32,13 @@ class ViewPointer(object):
 
         screen = ServiceLocator.getGlobalServiceInstance(ServiceNames.Screen)
         self.__screenrect = screen.get_rect()
-        self.__innerBorder = self.__screenrect.copy()
-        self.__innerBorder.bottom -= 40
-        self.__innerBorder.left = 40
-        self.__innerBorder.width -= 40
-        self.__innerBorder.top += 40
-        self.__innerBorder.right -= 40
+        self._innerBorder = self.__screenrect.copy()
+        
+        self._innerBorder.left = 40
+        self._innerBorder.width -= 80+32
+        self._innerBorder.height -= 80+32
+        self._innerBorder.top += 40
+        #self._innerBorder.right -= 40
 
         #Center player
         #self.__screenOffset = ViewPoint(self.__screenrect.centerx, self.__screenrect.centery)
@@ -58,12 +59,12 @@ class ViewPointer(object):
         """Updates the screen position."""
         if self.__followStateX == ViewPointerFollowState.FixedPosition:
             # Check if right border is reached
-            if self.__playerOffset.left >= self.__innerBorder.right:
+            if self.__playerOffset.left >= self._innerBorder.right:
                 # Safe screen target position
                 # Safe time stamp
                 # Go into move state
                 self.__followStateX = ViewPointerFollowState.FollowLeft
-            elif self.__playerOffset.left <= self.__innerBorder.left:
+            elif self.__playerOffset.left <= self._innerBorder.left:
                 # Safe screen target position
                 # Safe time stamp
                 # Go into move state
@@ -83,9 +84,9 @@ class ViewPointer(object):
                     self.__followStateX = ViewPointerFollowState.FixedPosition
 
         if self.__followStateY==ViewPointerFollowState.FixedPosition:
-            if self.__playerOffset.top >= self.__innerBorder.bottom:
+            if self.__playerOffset.top >= self._innerBorder.bottom:
                 self.__followStateY = ViewPointerFollowState.FollowUp
-            elif self.__playerOffset.top <= self.__innerBorder.top:
+            elif self.__playerOffset.top <= self._innerBorder.top:
                 self.__followStateY = ViewPointerFollowState.FollowDown
 
         if self.__followStateY != ViewPointerFollowState.FixedPosition:
