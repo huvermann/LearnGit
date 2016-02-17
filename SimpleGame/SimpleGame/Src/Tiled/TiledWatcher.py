@@ -33,26 +33,34 @@ class TiledWatcher(object):
         position = ViewPoint(self.__viewPointer.playerPositionX, self.__viewPointer.playerPositionY)
 
         if direction == CheckDirection.Ground:
-            #Todo: Implement check
             checkx = position.left + 16
             checky = position.top + 32
             tideIndex = self.getTileIndexInMap(checkx, checky)
             return not tideIndex in self.__spaceTiles
         elif direction == CheckDirection.Left:
             #Todo: Implement check
-            return False
+            checkx = position.left + 2
+            checky = position.top + 16
+            tideIndex = self.getTileIndexInMap(checkx, checky)
+            return not tideIndex in self.__spaceTiles
         elif direction == CheckDirection.Right:
             #Todo: Implement check
-            return False
+            checkx = position.left + 30
+            checky = position.top + 16
+            tideIndex = self.getTileIndexInMap(checkx, checky)
+            return not tideIndex in self.__spaceTiles
         elif direction == CheckDirection.Top:
-            #Todo: Implement check
-            return False
+            checkx = position.left + 16
+            checky = position.top -2
+            tideIndex = self.getTileIndexInMap(checkx, checky)
+            return not tideIndex in self.__spaceTiles
         elif direction == CheckDirection.TopLeft:
             #Todo: Implement check
             return False
         elif direction == CheckDirection.TopRight:
             #Todo: Implement check
             return False
+        #Todo: Implement CanClimbUP /CanClimbDown
 
 
 

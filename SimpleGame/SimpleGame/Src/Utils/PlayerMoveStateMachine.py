@@ -103,7 +103,7 @@ class PlayerMoveStateMachine(object):
 
     def _isBarrierRight(self):
         """Checks if barrier on the left."""
-        result = self.__tileWatcher.isBarrierOn(CheckDirection.Left)
+        result = self.__tileWatcher.isBarrierOn(CheckDirection.Right)
         #if self._getTileInfoCallback:
         #    info = self._getTileInfoCallback()
         #    if  not info[Corners.Right]["index"] in info["NonSolidTiles"]:
