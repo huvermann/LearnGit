@@ -81,8 +81,8 @@
                  "type":"CoinSprite",
                  "visible":true,
                  "width":32,
-                 "x":157,
-                 "y":96
+                 "x":98,
+                 "y":513
                 }, 
                 {
                  "gid":118,
@@ -97,8 +97,8 @@
                  "type":"HeartSprite",
                  "visible":true,
                  "width":32,
-                 "x":1310,
-                 "y":209
+                 "x":231,
+                 "y":592
                 }, 
                 {
                  "gid":108,
@@ -113,8 +113,8 @@
                  "type":"BlobSprite",
                  "visible":true,
                  "width":32,
-                 "x":1353,
-                 "y":202
+                 "x":276,
+                 "y":601
                 }],
          "offsetx":0,
          "offsety":32,

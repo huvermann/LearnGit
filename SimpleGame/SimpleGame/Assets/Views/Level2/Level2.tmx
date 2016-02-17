@@ -150,9 +150,9 @@
 </data>
  </layer>
  <objectgroup name="Sprites" offsetx="0" offsety="32">
-  <object id="7" name="coin1" type="CoinSprite" gid="110" x="157" y="96" width="32" height="32"/>
-  <object id="11" name="h1" type="HeartSprite" gid="118" x="1310" y="209" width="32" height="32"/>
-  <object id="12" name="b1" type="BlobSprite" gid="108" x="1353" y="202" width="32" height="32"/>
+  <object id="7" name="coin1" type="CoinSprite" gid="110" x="98" y="513" width="32" height="32"/>
+  <object id="11" name="h1" type="HeartSprite" gid="118" x="231" y="592" width="32" height="32"/>
+  <object id="12" name="b1" type="BlobSprite" gid="108" x="276" y="601" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Player" offsetx="0" offsety="32">
   <object id="6" name="Player" type="JohnDoeSprite" gid="124" x="109" y="218" width="32" height="32"/>

@@ -22,7 +22,6 @@ class SpriteItemBase(pygame.sprite.Sprite):
         self._rotationSpeed = 200
 
         self._collosionInfo = CollosionInfo(parent = self)
-        self._collideCallback = self.doCollide
         pass
 
     def updateScreenOffset(self):

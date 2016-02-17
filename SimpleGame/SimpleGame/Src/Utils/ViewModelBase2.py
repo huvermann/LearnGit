@@ -252,7 +252,15 @@ class ViewModelBase2():
 
     def checkClashes(self):
         """Checks if sprites collides with player."""
-        raise NotImplementedError("Please implement checkClashes in your view model.")
+        #raise NotImplementedError("Please implement checkClashes in your view model.")
+        for sprite in self.__objectSprites:
+            if pygame.sprite.collide_mask(self.__playerSprite, sprite):
+                #info = sprite.collideCallback()
+                info = sprite.doCollide()
+                if info.spriteDies and info.parent != None:
+                    info.parent.kill()
+                if info.playerDies:
+                    logging.debug("The player touched with deadly sprite.")
 
     def updateCameraPosition(self):
         """Updates the viewPointer camera position."""
