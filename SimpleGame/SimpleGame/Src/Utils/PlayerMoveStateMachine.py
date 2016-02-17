@@ -83,41 +83,6 @@ class PlayerMoveStateMachine(object):
         self._joystickState.joystickChanged(state)
         pass
 
-    def _isPlayerGrounded(self):
-        result = self.__tileWatcher.isBarrierOn(CheckDirection.Ground)
-        #if self._getTileInfoCallback:
-        #    info = self._getTileInfoCallback()
-        #    #todo: info auswerten, ob Spieler Bodenkontakt hat.
-        #    if info[Corners.GroundContact]["index"] == 0:
-        #        result = False
-        return result
-
-    def _isBarrierLeft(self):
-        """Checks if barrier on the left."""
-        result = self.__tileWatcher.isBarrierOn(CheckDirection.Left)
-        #if self._getTileInfoCallback:
-        #    info = self._getTileInfoCallback()
-        #    if  not info[Corners.Left]["index"] in info["NonSolidTiles"]:
-        #        result = True
-        return result
-
-    def _isBarrierRight(self):
-        """Checks if barrier on the left."""
-        result = self.__tileWatcher.isBarrierOn(CheckDirection.Right)
-        #if self._getTileInfoCallback:
-        #    info = self._getTileInfoCallback()
-        #    if  not info[Corners.Right]["index"] in info["NonSolidTiles"]:
-        #        result = True
-        return result
-
-    def _isBarrierTop(self):
-        result = self.__tileWatcher.isBarrierOn(CheckDirection.Top)
-        return result
-    def _isBarrierTopLeft(self):
-        return self.__tileWatcher.isBarrierOn(CheckDirection.TopLeft)
-    def _isBarrierTopRight(self):
-        return self.__tileWatcher.isBarrierOn(CheckDirection.TopRight)
-
     def _isJumpEnded(self, timeStamp):
         result = False
         if timeStamp - self._lastChange > self._jumpTimeout:
@@ -144,7 +109,7 @@ class PlayerMoveStateMachine(object):
 
     def _checkStanding(self, timeStamp):
         """Checks if the move state must be changed."""
-        if not self._isPlayerGrounded():
+        if not self.__tileWatcher.isBarrierOn(CheckDirection.Ground):
             self._changeToFalling(timeStamp)
         if self._joystickState.keyState == JoystickEvents.MoveLeft:
             self._changeToDirection(JoystickEvents.MoveLeft, timeStamp)
@@ -161,15 +126,15 @@ class PlayerMoveStateMachine(object):
 
     def _checkFalling(self, timeStamp):
         """Checks if the move state must be changed."""
-        if self._isPlayerGrounded():
+        if self.__tileWatcher.isBarrierOn(CheckDirection.Ground):
             self._changeToStanding(timeStamp)
         pass
 
     def _checkMoveLeft(self, timeStamp):
         """Checks if the move state must be changed."""
-        if self._isBarrierLeft():
+        if self.__tileWatcher.isBarrierOn(CheckDirection.Left):
             self._changeToStanding(timeStamp)
-        elif not self._isPlayerGrounded():
+        elif not self.__tileWatcher.isBarrierOn(CheckDirection.Ground):
             self._changeToFalling(timeStamp)
         elif self._joystickState.keyState == JoystickEvents.MoveRight:
             self._changeToDirection(JoystickEvents.MoveRight, timeStamp)
@@ -181,9 +146,9 @@ class PlayerMoveStateMachine(object):
         pass
     def _checkMoveRight(self, timeStamp):
         """Checks if the move state must be changed."""
-        if self._isBarrierRight():
+        if self.__tileWatcher.isBarrierOn(CheckDirection.Right):
             self._changeToStanding(timeStamp)
-        elif not self._isPlayerGrounded():
+        elif not self.__tileWatcher.isBarrierOn(CheckDirection.Ground):
             self._changeToFalling(timeStamp)
         elif self._joystickState.keyState == JoystickEvents.MoveLeft:
             self._changeToDirection(JoystickEvents.MoveLeft, timeStamp)
@@ -195,29 +160,31 @@ class PlayerMoveStateMachine(object):
 
     def _checkJumpLeft(self, timeStamp):
         """Checks if the move state must be changed."""
-        if self._isBarrierTopLeft():
+        if self.__tileWatcher.isBarrierOn(CheckDirection.TopLeft):
             self._changeToStanding(timeStamp)
         #elif self._isJumpEnded(timeStamp):
         #    self._changeToFalling(timeStamp)
-        if timeStamp-self._lastChange > 50 and self._isPlayerGrounded():
+        if timeStamp-self._lastChange > 50 and self.__tileWatcher.isBarrierOn(CheckDirection.Ground):
+            self._changeToStanding(timeStamp)
+        elif self.__tileWatcher.isBarrierOn(CheckDirection.Left):
             self._changeToStanding(timeStamp)
         pass
     def _checkJumpRight(self, timeStamp):
         """Checks if the move state must be changed."""
-        if self._isBarrierTopRight():
+        if self.__tileWatcher.isBarrierOn(CheckDirection.TopRight):
             self._changeToStanding(timeStamp)
         #elif self._isJumpEnded(timeStamp):
         #    self._changeToFalling(timeStamp)
-        if timeStamp-self._lastChange > 50 and self._isPlayerGrounded():
+        if timeStamp-self._lastChange > 50 and self.__tileWatcher.isBarrierOn(CheckDirection.Ground):
             self._changeToStanding(timeStamp)
-        elif self._isBarrierRight():
+        elif self.__tileWatcher.isBarrierOn(CheckDirection.Right):
             self._changeToStanding(timeStamp)
         pass
 
     def _checkJumpUp(self, timeStamp):
         if self._isJumpEnded(timeStamp):
             self._changeToFalling(timeStamp)
-        elif self._isBarrierTop():
+        elif self.__tileWatcher.isBarrierOn(CheckDirection.Top):
             self._changeToFalling(timeStamp)
 
 
