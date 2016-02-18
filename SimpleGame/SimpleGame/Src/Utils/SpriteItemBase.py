@@ -19,7 +19,6 @@ class SpriteItemBase(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.left = 20
         self.rect.top = 20
-        self._rotationSpeed = 200
 
         self._collosionInfo = CollosionInfo(parent = self)
         pass

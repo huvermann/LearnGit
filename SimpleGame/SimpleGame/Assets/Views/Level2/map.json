@@ -115,6 +115,22 @@
                  "width":32,
                  "x":276,
                  "y":601
+                }, 
+                {
+                 "gid":108,
+                 "height":32,
+                 "id":13,
+                 "name":"b2",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"Blob2Sprite",
+                 "visible":true,
+                 "width":32,
+                 "x":210,
+                 "y":275
                 }],
          "offsetx":0,
          "offsety":32,
@@ -155,7 +171,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":13,
+ "nextobjectid":15,
  "orientation":"orthogonal",
  "properties":
     {

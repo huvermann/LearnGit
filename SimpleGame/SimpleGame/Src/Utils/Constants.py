@@ -39,7 +39,11 @@ class AnimationNames(object):
     Left = "Left"
     Right = "Right"
     Standing = "Standing"
+    StandingLeft = "StandingLeft"
+    StandingRight = "StandingRight"
     Falling = "Falling"
+    FallingLeft = "FallingLeft"
+    FallingRight = "FallingRight"
     JumpLeft = "JumpLeft"
     JumpRight = "JumpRight"
     JumpUp = "JumpUp"
@@ -59,6 +63,11 @@ class SoundNames(object):
     CoinTouched = "CoinTouched"
     BloobTouched = "BloobTouched"
     GameOver = "GameOver"
+
+class Direction(object):
+    Left = 0
+    Right = 2
+
 
 
 

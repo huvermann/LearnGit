@@ -7,15 +7,19 @@ from Tiled.TiledWatcher import TiledWatcher, CheckDirection
 
 class PlayerMoveState(object):
     Standing = 1
-    Falling = 2
-    MoveLeft = 3
-    MoveRight = 4
-    JumpLeft = 5
-    JumpRight = 6
-    JumpUp = 7
-    Dying = 8
-    Killed = 9
-    invisible = 10
+    StandingLeft = 2
+    StandingRight = 3
+    Falling = 4
+    FallingLeft = 5
+    FallingRight = 6
+    MoveLeft = 7
+    MoveRight = 8
+    JumpLeft = 9
+    JumpRight = 10
+    JumpUp = 11
+    Dying = 12
+    Killed = 13
+    invisible = 14
 
 class MoveVector(object):
     X = 0
@@ -93,7 +97,15 @@ class PlayerMoveStateMachine(object):
         """Updates and returns the move state."""
         if self._moveState == PlayerMoveState.Standing:
             self._checkStanding(timeStamp)
+        elif self._moveState == PlayerMoveState.StandingLeft:
+            self._checkStanding(timeStamp)
+        elif self._moveState == PlayerMoveState.StandingRight:
+            self._checkStanding(timeStamp)
         elif self._moveState == PlayerMoveState.Falling:
+            self._checkFalling(timeStamp)
+        elif self._moveState == PlayerMoveState.FallingLeft:
+            self._checkFalling(timeStamp)
+        elif self._moveState == PlayerMoveState.FallingRight:
             self._checkFalling(timeStamp)
         elif self._moveState == PlayerMoveState.MoveLeft:
             self._checkMoveLeft(timeStamp)
@@ -196,7 +208,22 @@ class PlayerMoveStateMachine(object):
     def _changeToFalling(self, timeStamp):
         """Changes into falling mode."""
         self._saveTimePosition(timeStamp)
-        self._moveState = PlayerMoveState.Falling
+        if self._moveState == PlayerMoveState.StandingLeft:
+            self._moveState = PlayerMoveState.FallingLeft
+        elif self._moveState == PlayerMoveState.StandingRight:
+            self.moveState = PlayerMoveState.FallingRight
+        elif self._moveState == PlayerMoveState.JumpLeft:
+            self.moveState = PlayerMoveState.FallingLeft
+        elif self._moveState == PlayerMoveState.JumpRight:
+            self._moveState = PlayerMoveState.FallingRight
+        elif self._moveState == PlayerMoveState.MoveLeft:
+            self._moveState = PlayerMoveState.FallingLeft
+        elif self._moveState == PlayerMoveState.MoveRight:
+            self._moveState = PlayerMoveState.FallingRight
+        else:
+            self._moveState = PlayerMoveState.Falling
+
+        print("Change to falling: {0}".format(self._moveState))
         pass
 
     def _changeToDirection(self, direction, timeStamp):
@@ -215,6 +242,10 @@ class PlayerMoveStateMachine(object):
             self._moveState = PlayerMoveState.JumpLeft
         elif self._joystickState.keyState == JoystickEvents.MoveRight:
             self._moveState = PlayerMoveState.JumpRight
+        elif self.moveState == PlayerMoveState.StandingLeft:
+            self._moveState = PlayerMoveState.JumpLeft
+        elif self._moveState == PlayerMoveState.StandingRight:
+            self._moveState = PlayerMoveState.JumpRight
         else :
             self._moveState = PlayerMoveState.JumpUp
 
@@ -222,7 +253,12 @@ class PlayerMoveStateMachine(object):
         """Changes to standing mode."""
         self._saveTimePosition(timeStamp)
         self._lastChange = None
-        self._moveState = PlayerMoveState.Standing
+        if self._moveState in [PlayerMoveState.MoveLeft, PlayerMoveState.JumpLeft, PlayerMoveState.FallingLeft]:
+            self._moveState = PlayerMoveState.StandingLeft
+        elif self._moveState in [PlayerMoveState.MoveRight, PlayerMoveState.JumpRight, PlayerMoveState.FallingRight]:
+            self._moveState = PlayerMoveState.StandingRight
+        else:
+            self._moveState = PlayerMoveState.Standing
 
 
     @property
