@@ -24,6 +24,10 @@ class TilesPainter(object):
         for y in range(0, rangey+2):
             py=y*th-shifty
             for x in range(0, rangex+2):
+                bgTileIndex = tileMap.calcTileMapIndex(offset, (x,y), "BackgroundMap")
+                if bgTileIndex > 0:
+                    image = tileMap.getTileImage(bgTileIndex)
+                    screen.blit(image, (x*tw-shiftx, py))
                 tileIndex=tileMap.calcTileMapIndex(offset, (x,y))
                 if tileIndex > 0:
                     image = tileMap.getTileImage(tileIndex)

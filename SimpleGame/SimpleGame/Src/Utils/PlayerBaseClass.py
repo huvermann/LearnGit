@@ -180,7 +180,7 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         #for time in range(10, 800, 10):
         #    print(time)
 
-        return 500
+        return 1000
 
     def onMoveStateJump(self, timeStamp, moveStateMachine):
         movex = 0

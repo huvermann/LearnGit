@@ -195,56 +195,58 @@ class TiledMap(object):
         self.__configureProperties(config['properties'])
         self.__configureLayers(config['layers'], viewName)
         self.configureTileSets(config['tilesets'], viewName)
-        self.__prepareMainLayerMap()
-        self.__prepareMainMapTileSet()
-        self.__prepareBackgroundImage()
-        self.__prepareSpriteObjectLayer()
-        self.__preparePlayerObject()
+        self.__map = self.__getMapLayerByName('Map')
+        self.__backgroundMap = self.__getMapLayerByName('BackgroundMap')
+        self.__mapTileset = self.__getTileSetByName('Map')
+        self.__backgroundImage = self.__getImageLayerByName('Image')
+        self.__sprites = self.__getObjectLayerByName('Sprites')
+        self.__player = self.__getPlayerObject()
 
         pass
 
-    def __prepareMainLayerMap(self):
-        liste = list(filter(lambda x: x.name == 'Map', self.__layers))
+
+    def __getMapLayerByName(self, mapName):
+        result = None
+        liste = list(filter(lambda x: x.name == mapName, self.__layers))
         if liste:
-            self.__map = liste[0]
+            result = liste[0]
         else:
-            raise SyntaxError('Missing Map layer in map file.')
-        pass
+            raise SyntaxError('Missing Map layer in map file.{0}'.format(mapName))
+        return result
 
-    def __prepareMainMapTileSet(self):
-        #get the tile main tile set by name
-        liste = list(filter(lambda x: x.name == "Map", self.__tileSets))
+    def __getTileSetByName(self, tileSetName):
+        result = None
+        liste = list(filter(lambda x: x.name == tileSetName, self.__tileSets))
         if liste:
-            self.__mapTileset = liste[0]
+            result = liste[0]
         else:
-            raise SyntaxError('Missing tileset named "Map".')
-        pass
+            raise SyntaxError('Missing tileset: {0}.'.format(tileSetName))
+        return result
 
-    def __prepareBackgroundImage(self):
-        # find the image layer named background
-        liste = list(filter(lambda x: x.name == "Image", self.__imageLayers))
+    def __getImageLayerByName(self, layerName):
+        result = None
+        liste = list(filter(lambda x: x.name == layerName, self.__imageLayers))
         if liste:
-            self.__backgroundImage = liste[0].getImageSurface()
+            result = liste[0].getImageSurface()
         else:
             raise SyntaxError("Missing image layer with name 'Image'")
-        pass
+        return result
 
-    def __prepareSpriteObjectLayer(self):
-        liste = list(filter(lambda x: x.name == "Sprites", self.__objectGroups))
+    
+    def __getObjectLayerByName(self, layerName):
+        result = None
+        liste = list(filter(lambda x: x.name == layerName, self.__objectGroups))
         if liste:
-            self.__sprites = liste[0]
+            result = liste[0]
         else:
-            raise SyntaxError("Missing object layer with name 'Sprites'.")
-        pass
+            raise SyntaxError("Missing object layer with name '{0}'.".format(layerName))
+        return result
 
-    def __preparePlayerObject(self):
-        liste = list(filter(lambda x: x.name == "Player", self.__objectGroups))
-        if liste:
-            playerLayer = liste[0]
-            self.__player = playerLayer.objects[0]
-
-        else:
-            raise SyntaxError("Missing object layer with name 'Player.")
+    def __getPlayerObject(self):
+        result = None
+        layer = self.__getObjectLayerByName('Player')
+        result = layer.objects[0]
+        return result
 
 
     def __configureProperties(self, config):
@@ -272,23 +274,29 @@ class TiledMap(object):
             self.__tileSets.append(TileSet(tileSetConfig, viewName))
         pass
 
-    def getTideIndex(self, x, y):
+    def getTideIndex(self, x, y, layer=None):
         '''Get tide index from map.'''
-        index = y * self.__width + x
-        return self.__map.data[index]
+        xx = x % self.__width
+        yy = y % self.__height
+        index = yy * self.__width + xx
+        if layer == 'BackgroundMap':
+            return self.__backgroundMap.data[index]
+        else:
+            return self.__map.data[index]
 
     def getTideIndexOnMapCoords(self, mapx, mapy):
         ix = mapx // self.tileWidth
         iy = mapy // self.tileHeight
         return self.getTideIndex(ix, iy)
 
-    def calcTileMapIndex(self, offset, grid):
+    def calcTileMapIndex(self, offset, grid, layer=None):
         maxCols =self.width
         maxRows = self.height
 
         absRow=(offset.top//self.tileHeight+grid[1]) % maxRows
         absCol=(grid[0]+offset.left//self.tileWidth) % maxCols
-        return self.getTideIndex(absCol, absRow)
+        return self.getTideIndex(absCol, absRow, layer)
+
 
     def getTileImage(self, index):        
         return self.__mapTileset.surfaceArray[index-self.__mapTileset.firstgid]
