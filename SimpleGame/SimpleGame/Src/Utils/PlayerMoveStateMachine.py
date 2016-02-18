@@ -211,9 +211,9 @@ class PlayerMoveStateMachine(object):
         if self._moveState == PlayerMoveState.StandingLeft:
             self._moveState = PlayerMoveState.FallingLeft
         elif self._moveState == PlayerMoveState.StandingRight:
-            self.moveState = PlayerMoveState.FallingRight
+            self._moveState == PlayerMoveState.FallingRight
         elif self._moveState == PlayerMoveState.JumpLeft:
-            self.moveState = PlayerMoveState.FallingLeft
+            self._moveState == PlayerMoveState.FallingLeft
         elif self._moveState == PlayerMoveState.JumpRight:
             self._moveState = PlayerMoveState.FallingRight
         elif self._moveState == PlayerMoveState.MoveLeft:
