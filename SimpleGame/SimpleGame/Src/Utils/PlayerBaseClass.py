@@ -24,9 +24,6 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         #self.rect = self._calculateViewPosition(screen, self.image)
         self.rect = pygame.Rect((0,0, 32,32))
         self._spriteName = spriteName
-        #self._mapManager = None
-        self._aniLeft = None
-        self._aniRight = None
         self._animations = {}
         self._transparenceKey = None
         self.loadAnimations(spriteName)
@@ -179,16 +176,23 @@ class PlayerBaseClass(pygame.sprite.Sprite):
                 result = ani.getAnimationPictureByIndex(index)
         return result
 
-    #def getCurrentPositionHandler(self):
-    #    """Handler to get the current position, used by the move state machine."""
-    #    return self._position.copy()
+    def calcMaxJumpTime(self, moveStateMachine):
+        #for time in range(10, 800, 10):
+        #    print(time)
+
+        return 500
 
     def onMoveStateJump(self, timeStamp, moveStateMachine):
         movex = 0
         movey = 0
         duration = timeStamp - moveStateMachine.lastChange
+        if duration < 1:
+            # calculate maximum
+            moveStateMachine._moveTimeLimit = self.calcMaxJumpTime(moveStateMachine)
+        if duration > moveStateMachine._moveTimeLimit:
+            duration = moveStateMachine._moveTimeLimit
+
         if moveStateMachine.moveState == PlayerMoveState.JumpRight:
-            #movey = duration * self.jumpSpeedY / 1000 * -1
             movey = self._JumpCalculator.calcY(duration) * -1
             movex = self._JumpCalculator.calcX(duration)
         elif moveStateMachine.moveState == PlayerMoveState.JumpLeft:
@@ -202,9 +206,14 @@ class PlayerBaseClass(pygame.sprite.Sprite):
 
         pass
 
+    def _fixGroundingPosition(self, moveStateMachine):
+        if not moveStateMachine.tilesWatcher.standExactOnSurface():
+            self._viewPointer.playerPositionY -= 1
+
+
     def _updatePosition(self, timeStamp, moveStateMachine):
         #Todo: Implement handler for eache move state
-        if moveStateMachine.moveState in [PlayerMoveState.Standing, PlayerMoveState.MoveLeft, PlayerMoveState.MoveRight]:
+        if moveStateMachine.moveState in [PlayerMoveState.MoveLeft, PlayerMoveState.MoveRight]:
             if moveStateMachine.lastChange:
                 vectors = moveStateMachine.getVectors(moveStateMachine.moveState)
                 duration = timeStamp - moveStateMachine.lastChange
@@ -217,6 +226,8 @@ class PlayerBaseClass(pygame.sprite.Sprite):
                 duration = timeStamp - moveStateMachine.lastChange
                 move = duration * self.fallSpeed / 1000
                 self._viewPointer.playerPositionY =  int(moveStateMachine.lastPosition.top + move)
+        elif moveStateMachine.moveState in [PlayerMoveState.Standing, PlayerMoveState.StandingLeft, PlayerMoveState.StandingRight]:
+            self._fixGroundingPosition(moveStateMachine)
 
         elif moveStateMachine.moveState in [PlayerMoveState.JumpLeft, PlayerMoveState.JumpRight, PlayerMoveState.JumpUp]:
             self.onMoveStateJump(timeStamp, moveStateMachine)

@@ -62,6 +62,22 @@ class TiledWatcher(object):
             return False
         #Todo: Implement CanClimbUP /CanClimbDown
 
+    def standExactOnSurface(self):
+        checkx = self.__viewPointer.playerPositionX + 16
+        checky = self.__viewPointer.playerPositionY + 31
+        tideIndex = self.getTileIndexInMap(checkx, checky)
+        res1 = tideIndex in self.__spaceTiles
+
+        checkx = self.__viewPointer.playerPositionX + 16
+        checky = self.__viewPointer.playerPositionY + 32
+        tideIndex2 = self.getTileIndexInMap(checkx, checky)
+        res2 = not tideIndex2 in self.__spaceTiles
+        return res1 and res2
+        
+
+
+
+
 
 
 

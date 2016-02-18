@@ -33,6 +33,7 @@ class PlayerMoveStateMachine(object):
         self._joystickState = JoystickState()
         self._lastChange = None
         self._lastPosition = None
+        self._moveTimeLimit = None
         self._getTileInfoCallback = None
         self._getCurrentPositionCallback = None
         self._jumpTimeout = 100
@@ -180,7 +181,10 @@ class PlayerMoveStateMachine(object):
             self._changeToStanding(timeStamp)
         elif self.__tileWatcher.isBarrierOn(CheckDirection.Left):
             self._changeToStanding(timeStamp)
+        elif timeStamp - self.lastChange > self.moveTimeLimit:
+            self._changeToFalling(timeStamp)
         pass
+
     def _checkJumpRight(self, timeStamp):
         """Checks if the move state must be changed."""
         if self.__tileWatcher.isBarrierOn(CheckDirection.TopRight):
@@ -191,6 +195,8 @@ class PlayerMoveStateMachine(object):
             self._changeToStanding(timeStamp)
         elif self.__tileWatcher.isBarrierOn(CheckDirection.Right):
             self._changeToStanding(timeStamp)
+        elif timeStamp - self.lastChange > self.moveTimeLimit:
+            self._changeToFalling(timeStamp)
         pass
 
     def _checkJumpUp(self, timeStamp):
@@ -203,6 +209,7 @@ class PlayerMoveStateMachine(object):
     def _saveTimePosition(self, timeStamp):
         self._lastChange = timeStamp
         self._lastPosition = self.__viewPoint.getPlayerMapPosition()
+        self._moveTimeLimit = None
         pass
 
     def _changeToFalling(self, timeStamp):
@@ -264,6 +271,17 @@ class PlayerMoveStateMachine(object):
     @property
     def moveState(self):
         return self._moveState
+
+    @property
+    def moveTimeLimit(self):
+        return self._moveTimeLimit
+    @moveTimeLimit.setter
+    def moveTimeLimit(self, value):
+        self._moveTimeLimit = value
+
+    @property
+    def tilesWatcher(self):
+        return self.__tileWatcher
 
 
 
