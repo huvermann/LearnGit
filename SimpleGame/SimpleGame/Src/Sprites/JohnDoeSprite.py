@@ -21,11 +21,39 @@ class JohnDoeSprite(PlayerBaseClass):
         "Delay": 250,
         "PictureSize": [ 32, 32 ]
       },
+
+      "StandingLeft": {
+        "Filename": "standing_left.png",
+        "AnimationType": "TimeBased",
+        "Delay": 250,
+        "PictureSize": [ 32, 32 ]
+      },
+
+      "StandingRight": {
+        "Filename": "standing_right.png",
+        "AnimationType": "TimeBased",
+        "Delay": 250,
+        "PictureSize": [ 32, 32 ]
+      },
+
       "Falling": {
         "Filename": "standing_front.png",
         "AnimationType": "TimeBased",
         "Delay": 25
       },
+
+      "FallingLeft": {
+        "Filename": "standing_left.png",
+        "AnimationType": "TimeBased",
+        "Delay": 25
+      },
+
+      "FallingRight": {
+        "Filename": "standing_right.png",
+        "AnimationType": "TimeBased",
+        "Delay": 25
+      },
+
       "Left": {
         "Filename": "walk_left.png",
         "AnimationType": "PositionBased",

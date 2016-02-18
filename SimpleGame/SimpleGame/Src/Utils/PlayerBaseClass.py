@@ -37,8 +37,6 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         self._jumpTime = 250
 
         self._moveStateMachine = PlayerMoveStateMachine(self)
-        #self._moveStateMachine.currentPositionCallback = self.getCurrentPositionHandler
-        #self._moveStateMachine._getTileInfoCallback = self._getTileInfoHandler
         self._moveStateMachine.jumpTimeout = self._jumpTime
         g=1
         v0= 500
@@ -56,7 +54,9 @@ class PlayerBaseClass(pygame.sprite.Sprite):
 
     def configureAnimations(self, configuration):
         """Configure the animation from config file."""
-        defaultAnimations = [AnimationNames.Standing, AnimationNames.Falling, AnimationNames.Left, AnimationNames.Right, AnimationNames.JumpLeft, AnimationNames.JumpRight, AnimationNames.JumpUp]
+        defaultAnimations = [AnimationNames.Standing, AnimationNames.StandingLeft, AnimationNames.StandingRight, AnimationNames.Falling, 
+                             AnimationNames.Left, AnimationNames.Right, AnimationNames.JumpLeft, 
+                             AnimationNames.JumpRight, AnimationNames.JumpUp, AnimationNames.FallingLeft, AnimationNames.FallingRight]
         for aniName in defaultAnimations:
             if aniName in configuration:
                 self._animations[aniName] = self.loadAnimationFromConfiguration(aniName, configuration[aniName])
@@ -68,23 +68,6 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         result = AnimationInfo()
         result.configure(self._spriteName, animationname, configuration)
         return result
-
-    def _getTileInfoHandler(self):
-        result = None
-        #Todo implement tile info handler
-        #playerPosition = (self._position.posX + self.rect.left, self._position.posY+ self.rect.top)
-        #result = self._tileMapManager.getTouchedTiles(playerPosition, self.rect.size)
-
-        return result
-
-    #def _calculateViewPosition(self, screen, image):
-    #    #Todo: 
-    #    screeenRect = screen.get_rect()
-    #    result = image.get_rect()
-    #    result.left = screeenRect.centerx - result.width // 2
-    #    result.top = screeenRect.centery - result.height // 2
-    #    return result
-        
 
     def loadAnimations(self, spriteName):
         """Loads all animation imanges from spritename folder."""
@@ -162,8 +145,17 @@ class PlayerBaseClass(pygame.sprite.Sprite):
             result = self._animations[AnimationNames.JumpRight]
         elif moveState == PlayerMoveState.Falling:
             result = self._animations[AnimationNames.Falling]
+        elif moveState == PlayerMoveState.FallingLeft:
+            result = self._animations[AnimationNames.FallingLeft]
+        elif moveState == PlayerMoveState.FallingRight:
+            result = self._animations[AnimationNames.FallingRight]
+
         elif moveState == PlayerMoveState.Standing:
             result = self._animations[AnimationNames.Standing]
+        elif moveState == PlayerMoveState.StandingLeft:
+            result = self._animations[AnimationNames.StandingLeft]
+        elif moveState == PlayerMoveState.StandingRight:
+            result = self._animations[AnimationNames.StandingRight]
         elif moveState == PlayerMoveState.JumpUp:
             result = self._animations[AnimationNames.JumpUp]
         else:
@@ -219,7 +211,7 @@ class PlayerBaseClass(pygame.sprite.Sprite):
                 move = duration * self.speed / 1000 * vectors.X
                 self._viewPointer.playerPositionX = int(moveStateMachine.lastPosition.left + move)
 
-        elif moveStateMachine.moveState in [PlayerMoveState.Falling]:
+        elif moveStateMachine.moveState in [PlayerMoveState.Falling, PlayerMoveState.FallingLeft, PlayerMoveState.FallingRight]:
             #Falling
             if moveStateMachine.lastChange:
                 duration = timeStamp - moveStateMachine.lastChange
