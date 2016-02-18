@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="110" height="24" tilewidth="32" tileheight="32" nextobjectid="13">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="110" height="24" tilewidth="32" tileheight="32" nextobjectid="15">
  <tileset firstgid="1" name="Map" tilewidth="32" tileheight="32" tilecount="104" columns="8">
   <image source="Level2.png" trans="4a61f3" width="256" height="416"/>
   <terraintypes>
@@ -153,6 +153,7 @@
   <object id="7" name="coin1" type="CoinSprite" gid="110" x="98" y="513" width="32" height="32"/>
   <object id="11" name="h1" type="HeartSprite" gid="118" x="231" y="592" width="32" height="32"/>
   <object id="12" name="b1" type="BlobSprite" gid="108" x="276" y="601" width="32" height="32"/>
+  <object id="13" name="b2" type="Blob2Sprite" gid="108" x="210" y="275" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Player" offsetx="0" offsety="32">
   <object id="6" name="Player" type="JohnDoeSprite" gid="124" x="109" y="218" width="32" height="32"/>

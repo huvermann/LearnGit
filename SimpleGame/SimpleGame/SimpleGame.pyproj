@@ -37,6 +37,9 @@
     <Compile Include="Src\JoystickExample.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Sprites\Blob2Sprite.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Sprites\BlobSprite.py">
       <SubType>Code</SubType>
     </Compile>
@@ -91,6 +94,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\ServiceLocator.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\SpriteItemWalkingBase.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\TmxTileMapViewModel.py">

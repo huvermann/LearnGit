@@ -60,6 +60,11 @@ class SoundNames(object):
     BloobTouched = "BloobTouched"
     GameOver = "GameOver"
 
+class Direction(object):
+    Left = 0
+    Right = 2
+
+
 
 
 

@@ -38,7 +38,7 @@ class PlayerBaseClass(pygame.sprite.Sprite):
 
         self._moveStateMachine = PlayerMoveStateMachine(self)
         #self._moveStateMachine.currentPositionCallback = self.getCurrentPositionHandler
-        self._moveStateMachine._getTileInfoCallback = self._getTileInfoHandler
+        #self._moveStateMachine._getTileInfoCallback = self._getTileInfoHandler
         self._moveStateMachine.jumpTimeout = self._jumpTime
         g=1
         v0= 500
