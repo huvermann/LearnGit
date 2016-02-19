@@ -51,16 +51,21 @@ class TiledWatcher(object):
             return not tideIndex in self.__spaceTiles
         elif direction == CheckDirection.Top:
             checkx = position.left + 16
-            checky = position.top -2
+            checky = position.top -6
             tideIndex = self.getTileIndexInMap(checkx, checky)
             return not tideIndex in self.__spaceTiles
         elif direction == CheckDirection.TopLeft:
-            #Todo: Implement check
-            return False
+            checkx = position.left + 2
+            checky = position.top -6
+            tideIndex = self.getTileIndexInMap(checkx, checky)
+            return not tideIndex in self.__spaceTiles
         elif direction == CheckDirection.TopRight:
-            #Todo: Implement check
-            return False
+            checkx = position.left + 30
+            checky = position.top -6
+            tideIndex = self.getTileIndexInMap(checkx, checky)
+            return not tideIndex in self.__spaceTiles
         #Todo: Implement CanClimbUP /CanClimbDown
+
 
     def standExactOnSurface(self):
         checkx = self.__viewPointer.playerPositionX + 16

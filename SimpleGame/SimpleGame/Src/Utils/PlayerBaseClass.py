@@ -9,6 +9,7 @@ from Utils.TileMapManager import TileMapManager
 from Utils.AnimationInfo import AnimationInfo, AniConfigKeys, AnimationTypes
 from Utils.JumpCalculator import JumpCalculator
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
+from Tiled.TiledWatcher import CheckDirection
 
 class PlayerBaseClass(pygame.sprite.Sprite):
     """The player sprite base class."""
@@ -30,13 +31,13 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         self._speed = 120 # Default speed pixel per second
         self._fallSpeed = 200
         self._jumpSpeedX = 300
-        self._jumpSpeedY = 400
+        self._jumpSpeedY = 200
         self._jumpTime = 250
 
         self._moveStateMachine = PlayerMoveStateMachine(self)
         self._moveStateMachine.jumpTimeout = self._jumpTime
-        g=1
-        v0= 500
+        g=0.5
+        v0= 400
         vx = 100
 
         self._JumpCalculator = JumpCalculator(g, v0, vx)
@@ -208,7 +209,7 @@ class PlayerBaseClass(pygame.sprite.Sprite):
 
     def _fixGroundingPosition(self, moveStateMachine):
         if not moveStateMachine.tilesWatcher.standExactOnSurface():
-            self._viewPointer.playerPositionY -= 1
+                self._viewPointer.playerPositionY -= 1
 
 
     def _updatePosition(self, timeStamp, moveStateMachine):
