@@ -57,12 +57,12 @@ class JohnDoeSprite(PlayerBaseClass):
       "Left": {
         "Filename": "walk_left.png",
         "AnimationType": "PositionBased",
-        "StepWith": 1
+        "StepWith": 8
       },
       "Right": {
         "Filename": "walk_right.png",
         "AnimationType": "PositionBased",
-        "StepWith": 1
+        "StepWith": 8
       },
       "JumpLeft": {
         "Filename": "jump_left.png",
