@@ -34,8 +34,8 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         self._moveStateMachine = PlayerMoveStateMachine(self)
         self._moveStateMachine.jumpTimeout = 100000
         g=0.5
-        v0= 400
-        vx = 100
+        v0= 305
+        vx = 90
 
         self._JumpCalculator = JumpCalculator(g, v0, vx)
 
