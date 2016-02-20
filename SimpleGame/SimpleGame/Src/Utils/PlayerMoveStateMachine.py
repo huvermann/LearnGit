@@ -62,12 +62,6 @@ class PlayerMoveStateMachine(object):
         self._joystickState.joystickChanged(state)
         pass
 
-    #def _isJumpEnded(self, timeStamp):
-    #    result = False
-    #    if timeStamp - self._lastChange > self._jumpTimeout:
-    #        result = True
-    #    return result
-
     def updateState(self, timeStamp):
         """Updates and returns the move state."""
         if self._moveState in [PlayerMoveState.Standing, PlayerMoveState.StandingLeft, PlayerMoveState.StandingRight]:
@@ -245,15 +239,6 @@ class PlayerMoveStateMachine(object):
     @lastPosition.setter
     def lastPosition(self, value):
         self._lastPosition = value
-    
-
-    #@property
-    #def tileInfoCallback(self):
-    #    return self._getTileInfoCallback
-    #@tileInfoCallback.setter
-    #def tileInfoCallback(self, value):
-    #    self._getTileInfoCallback = value
-
 
     @property
     def moveState(self):
