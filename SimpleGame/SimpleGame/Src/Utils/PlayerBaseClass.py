@@ -30,12 +30,9 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         self.loadAnimations(spriteName)
         self._speed = 120 # Default speed pixel per second
         self._fallSpeed = 200
-        self._jumpSpeedX = 300
-        self._jumpSpeedY = 200
-        self._jumpTime = 250
 
         self._moveStateMachine = PlayerMoveStateMachine(self)
-        self._moveStateMachine.jumpTimeout = self._jumpTime
+        self._moveStateMachine.jumpTimeout = 100000
         g=0.5
         v0= 400
         vx = 100
@@ -85,33 +82,7 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         self._moveStateMachine.joystickChanged(externalInput)
         pass
 
-    @property
-    def speed(self):
-        return self._speed
-    @property
-    def fallSpeed(self):
-        return self._fallSpeed
-
-    @property
-    def jumpSpeedX(self):
-        return self._jumpSpeedX
-    @jumpSpeedX.setter
-    def jumpSpeedX(self, value):
-        self._jumpSpeedX = value
-
-    @property
-    def jumpSpeedY(self):
-        return self._jumpSpeedY
-    @jumpSpeedY.setter
-    def jumpSpeedY(self, value):
-        self._jumpSpeedY = value
-
-    @property
-    def jumpTime(self):
-        return self._jumpTime
-    @jumpTime.setter
-    def jumpTime(self, value):
-        self._jumpTime = value
+   
 
     
     @staticmethod
@@ -181,7 +152,8 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         #for time in range(10, 800, 10):
         #    print(time)
 
-        return 1000
+        #return moveStateMachine._moveTimeLimit
+        return 10000
 
     def onMoveStateJump(self, timeStamp, moveStateMachine):
         movex = 0
@@ -246,6 +218,42 @@ class PlayerBaseClass(pygame.sprite.Sprite):
     def configureProperties(self, properties):
         """Configure special properties."""
         pass
+
+    @property
+    def speed(self):
+        return self._speed
+    @property
+    def fallSpeed(self):
+        return self._fallSpeed
+
+    @property
+    def jumpTime(self):
+        return self._moveStateMachine.jumpTimeout
+    @jumpTime.setter
+    def jumpTime(self, value):
+        self._moveStateMachine.jumpTimeoute = value
+
+    @property
+    def jumpG(self):
+        return self._JumpCalculator.g
+    @jumpG.setter
+    def jumpG(self, value):
+        self._JumpCalculator.g = value
+
+    @property
+    def jumpV0(self):
+        return self._JumpCalculator.v0
+    @jumpV0.setter
+    def jumpV0(self, value):
+        self._JumpCalculator.v0 = value
+
+    @property
+    def jumpVx(self):
+        return self._JumpCalculator.vx
+    @jumpVx.setter
+    def jumpVx(self, value):
+        self._JumpCalculator.vx = value
+
 
 
 

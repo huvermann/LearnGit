@@ -184,6 +184,7 @@ class TiledMap(object):
         self.__sprites = None
         self.__player = None
         self.__viewName = viewName
+        self.__properties = None
         self.configure(jsonConfig, viewName)
         pass
 
@@ -250,6 +251,7 @@ class TiledMap(object):
 
 
     def __configureProperties(self, config):
+        self.__properties = config
         pass
     def __configureLayers(self, config, viewName):
         self.__layers = []
@@ -340,6 +342,11 @@ class TiledMap(object):
         else:
             raise SyntaxError("Missing object layer with name 'Player.")
         return result
+
+    @property
+    def properties(self):
+        return self.__properties
+
 
 
 

@@ -25,7 +25,7 @@ class ViewPointer(object):
     """The view pointer keeps the player in the screen"""
     def __init__(self):
         #Screen Position in map
-        self.__screenPosition = ViewPoint(0,0)
+        self._screenPosition = ViewPoint(0,0)
         self.__playerRect = None
         self.__followStateX = ViewPointerFollowState.FixedPosition
         self.__followStateY = ViewPointerFollowState.FixedPosition
@@ -42,13 +42,13 @@ class ViewPointer(object):
 
         #Center player
         #self.__screenOffset = ViewPoint(self.__screenrect.centerx, self.__screenrect.centery)
-        self.__playerOffset = ViewPoint(self.__screenrect.centerx, self.__screenrect.centery)
+        self._playerOffset = ViewPoint(self.__screenrect.centerx, self.__screenrect.centery)
     def mapPositionToScreenOffset(self, position):
         """Converts the abs. map position to screen offset."""
         assert isinstance(position, ViewPoint), "Position must be of type ViewPoint."
         result = None
-        left = position.left - self.__screenPosition.left
-        top = position.top - self.__screenPosition.top
+        left = position.left - self._screenPosition.left
+        top = position.top - self._screenPosition.top
         result = ViewPoint(left, top)
         return result
 
@@ -59,12 +59,12 @@ class ViewPointer(object):
         """Updates the screen position."""
         if self.__followStateX == ViewPointerFollowState.FixedPosition:
             # Check if right border is reached
-            if self.__playerOffset.left >= self._innerBorder.right:
+            if self._playerOffset.left >= self._innerBorder.right:
                 # Safe screen target position
                 # Safe time stamp
                 # Go into move state
                 self.__followStateX = ViewPointerFollowState.FollowLeft
-            elif self.__playerOffset.left <= self._innerBorder.left:
+            elif self._playerOffset.left <= self._innerBorder.left:
                 # Safe screen target position
                 # Safe time stamp
                 # Go into move state
@@ -72,63 +72,63 @@ class ViewPointer(object):
         if self.__followStateX != ViewPointerFollowState.FixedPosition:
             if self.__followStateX == ViewPointerFollowState.FollowLeft:
                 shift = 4
-                self.__playerOffset.left -= shift
-                self.__screenPosition.left += shift
-                if self.__playerOffset.left <= self.__screenrect.centerx:
+                self._playerOffset.left -= shift
+                self._screenPosition.left += shift
+                if self._playerOffset.left <= self.__screenrect.centerx:
                     self.__followStateX = ViewPointerFollowState.FixedPosition
             if self.__followStateX == ViewPointerFollowState.FollowRight:
                 shift = 4
-                self.__playerOffset.left += shift
-                self.__screenPosition.left -= shift
-                if self.__playerOffset.left>= self.__screenrect.centerx:
+                self._playerOffset.left += shift
+                self._screenPosition.left -= shift
+                if self._playerOffset.left>= self.__screenrect.centerx:
                     self.__followStateX = ViewPointerFollowState.FixedPosition
 
         if self.__followStateY==ViewPointerFollowState.FixedPosition:
-            if self.__playerOffset.top >= self._innerBorder.bottom:
+            if self._playerOffset.top >= self._innerBorder.bottom:
                 self.__followStateY = ViewPointerFollowState.FollowUp
-            elif self.__playerOffset.top <= self._innerBorder.top:
+            elif self._playerOffset.top <= self._innerBorder.top:
                 self.__followStateY = ViewPointerFollowState.FollowDown
 
         if self.__followStateY != ViewPointerFollowState.FixedPosition:
             if self.__followStateY == ViewPointerFollowState.FollowUp:
                 shift = 4
-                self.__playerOffset.top -= shift
-                self.__screenPosition.top += shift
-                if self.__playerOffset.top <= self.__screenrect.centery:
+                self._playerOffset.top -= shift
+                self._screenPosition.top += shift
+                if self._playerOffset.top <= self.__screenrect.centery:
                     self.__followStateY = ViewPointerFollowState.FixedPosition
             elif self.__followStateY == ViewPointerFollowState.FollowDown:
                 shift = 4
-                self.__playerOffset.top += shift
-                self.__screenPosition.top -= shift
-                if self.__playerOffset.top >= self.__screenrect.centery:
+                self._playerOffset.top += shift
+                self._screenPosition.top -= shift
+                if self._playerOffset.top >= self.__screenrect.centery:
                     self.__followStateY = ViewPointerFollowState.FixedPosition
 
         pass
 
     @property
     def playerPositionX(self):
-        return self.__screenPosition.left + self.__playerOffset.left
+        return self._screenPosition.left + self._playerOffset.left
     @playerPositionX.setter
     def playerPositionX(self, value):
-        self.__playerOffset.left = value - self.__screenPosition.left
+        self._playerOffset.left = value - self._screenPosition.left
         pass
     @property
     def playerPositionY(self):
-        return self.__screenPosition.top + self.__playerOffset.top
+        return self._screenPosition.top + self._playerOffset.top
     @playerPositionY.setter
     def playerPositionY(self, value):
-        self.__playerOffset.top = value - self.__screenPosition.top
+        self._playerOffset.top = value - self._screenPosition.top
         pass
 
     @property
     def screenPosition(self):
-        return self.__screenPosition
+        return self._screenPosition
     #Todo implement setter
     @screenPosition.setter
     def screenPosition(self, value):
         assert isinstance(value, ViewPoint), "screenPosition must be of type ViewPoint."
-        self.__screenPosition.left = value.left
-        self.__screenPosition.top = value.top
+        self._screenPosition.left = value.left
+        self._screenPosition.top = value.top
 
     #@property
     #def playerRect(self):
@@ -141,7 +141,7 @@ class ViewPointer(object):
 
     @property
     def playerOffset(self):
-        return self.__playerOffset
+        return self._playerOffset
 
 
 

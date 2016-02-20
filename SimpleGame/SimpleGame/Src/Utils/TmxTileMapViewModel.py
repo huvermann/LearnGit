@@ -7,6 +7,8 @@ import json
 from Tiled.TiledMap import TiledMap, TiledObjectLayer
 from Tiled.TilesPainter import TilesPainter
 from Tiled.TiledWatcher import TiledWatcher
+from Plugins.PluginFactory import createPluginInstance
+
 
 
 class TmxTileMapViewModel(ViewModelBase2):
@@ -26,8 +28,10 @@ class TmxTileMapViewModel(ViewModelBase2):
         path = getTMXMapResourceFile(viewName, "map.json")
         configuration = self.loadTMXJson(path)
         self.configureTMXJson(configuration)
-        self.player = self.configurePlayer(self.map.playerConfiguration)
         self._viewPointer.screenPosition = self.map.screenOffset
+        self.player = self.configurePlayer(self.map.playerConfiguration)
+        self.configurePluginsFromMapProperties(self.map.properties)
+        
         self.allSprites.add(self.player)
         self.configureSprites(self.map.spriteConfiguration)
         pass
@@ -67,5 +71,28 @@ class TmxTileMapViewModel(ViewModelBase2):
             self.allSprites.add(newSprite)
             self.objectSprites.add(newSprite)
         pass
+    def parseProperty(self, property):
+        result = None
+        if len(property) == 2:
+            propValue = property[1]
+            keyValuePair = propValue.split("=")
+            if len(keyValuePair) == 2 and keyValuePair[0]=="Plugin":
+                result = keyValuePair[1]
+        return result
 
+
+
+    def configurePluginsFromMapProperties(self, properties):
+        """Configures the view plugins from map properties
+        this routine searches for a property with a value like:
+        Plugin=pluginName
+        the Plugin name must be the name of an existing plugin class.
+        """
+        for prop in properties.items():
+            pluginName = self.parseProperty(prop)
+            if pluginName:
+                instance = createPluginInstance(pluginName)
+                if instance:
+                    self.plugins.append(instance)
+        pass
 

@@ -37,6 +37,13 @@
     <Compile Include="Src\JoystickExample.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Plugins\PluginFactory.py" />
+    <Compile Include="Src\Plugins\ShowJump.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Plugins\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Sprites\Blob2Sprite.py">
       <SubType>Code</SubType>
     </Compile>
@@ -146,6 +153,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\ViewModelBase2.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\ViewPluginBase.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\ViewPointer.py">
@@ -262,6 +272,10 @@
     <Content Include="Assets\Views\Level2\Level2.png" />
     <Content Include="Assets\Views\Level2\Level2.pyxel" />
     <Content Include="Assets\Views\Level2\Level2.tmx" />
+    <Content Include="Assets\Views\Training\background3.png" />
+    <Content Include="Assets\Views\Training\map.json" />
+    <Content Include="Assets\Views\Training\training.png" />
+    <Content Include="Assets\Views\Training\training.tmx" />
     <Content Include="Assets\Views\View1\view1.json" />
     <Content Include="Assets\Views\View1\view1.png" />
     <Content Include="Assets\Views\View1\view1.pyxel" />
@@ -290,9 +304,11 @@
     <Folder Include="Assets\Sound\" />
     <Folder Include="Assets\Views\Level1\" />
     <Folder Include="Assets\Views\Level2\" />
+    <Folder Include="Assets\Views\Training\" />
     <Folder Include="Assets\Views\View1\" />
     <Folder Include="Documentation\" />
     <Folder Include="Deployment\" />
+    <Folder Include="Src\Plugins\" />
     <Folder Include="Src\Tiled\" />
     <Folder Include="Src\Sprites\" />
     <Folder Include="Src\Tests\" />

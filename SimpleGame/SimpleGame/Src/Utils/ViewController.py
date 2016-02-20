@@ -4,6 +4,7 @@
 from Views.ViewModelMapLoader import ViewModelMapLoader
 import sys
 import logging
+from Utils.ServiceLocator import ServiceLocator, ServiceNames
 
 
 class ViewController(object):
@@ -11,7 +12,7 @@ class ViewController(object):
     def __init__(self):
         """Initializes the view controler"""
         self.viewList = {}
-        self.currentView = None
+        self._currentView = None
         pass
     
     def ChangeViewCallback(self, viewName):
@@ -24,8 +25,10 @@ class ViewController(object):
     def changeView(self, viewName):
         """Changes the view by name."""
         if viewName in self.viewList:
-            self.currentView = self.viewList[viewName]
-            return self.currentView
+            self._currentView = self.viewList[viewName]
+            ServiceLocator.registerGlobalService(ServiceNames.CurrentView, self._currentView)
+            
+            return self._currentView
         else:
             try:
                 newView = self.viewFactory(viewName)
@@ -35,7 +38,8 @@ class ViewController(object):
                 raise
 
             if newView:
-                self.currentView = newView
+                self._currentView = newView
+                ServiceLocator.registerGlobalService(ServiceNames.CurrentView, self._currentView)
                 self.viewList[viewName] = newView
 
         return newView
@@ -54,7 +58,12 @@ class ViewController(object):
 
     def run(self):
         """Run the view."""
-        self.currentView.runView()
+        self._currentView.runView()
+
+    @property
+    def currentView(self):
+        return self._currentView
+
 
 
 

@@ -3,10 +3,11 @@ class ServiceNames:
     Gamestate = 'gamestate'
     ViewPointer = 'viewPointer'
     Screen = 'screen'
-    ViewController = 'ViewController'
+    ViewController = 'viewcontroller'
     Map = 'Map'
     Player = 'Player'
     TiledWatcher = 'TiledWatcher'
+    CurrentView = 'CurrentView'
 
 
 class ServiceLocator(object):

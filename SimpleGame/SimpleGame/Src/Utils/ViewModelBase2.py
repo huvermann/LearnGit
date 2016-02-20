@@ -8,6 +8,7 @@ from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Utils import UserEvents
 from Utils.ViewPointer import ViewPointer
 
+
 class ViewModelBase2():
     """Viewmodel base class."""
 
@@ -20,12 +21,14 @@ class ViewModelBase2():
         self.__drawTilesCall = None
         self.__tileCollider = None
         self.__playerSprite = None
+        self.__plugins = []
         self.__objectSprites = pygame.sprite.Group()
         self.__allSprites = pygame.sprite.Group()
         self.__initFont()
         self.__keyboardEventHandler = self.__initKeyboardManager()
         self.__joystickEventHandler = self.__initJoystickManager()
         self._state = ServiceLocator.getGlobalServiceInstance(ServiceNames.Gamestate)
+        self.__eventHandlers = [] # Event handlers for plugins
         self._viewPointer = ViewPointer()
         ServiceLocator.registerGlobalService(ServiceNames.ViewPointer, self._viewPointer)
         
@@ -133,13 +136,16 @@ class ViewModelBase2():
 
     def handleEvents(self):
         """Handle all events in event list"""
-        for event in pygame.event.get():
+        events = pygame.event.get()
+        for event in events:
             if event.type == pygame.QUIT:
                 self._state.done = True
             elif event.type == 4 or event.type == 1:
                 pass
             else:
                 self.onEvent(event)
+        for handler in self.__eventHandlers:
+            handler(events)
         pass
 
     def onEvent(self, event):
@@ -177,6 +183,10 @@ class ViewModelBase2():
             if event.type != 27:
                 print (event) 
         pass
+
+    def registerEventHandler(self, handler):
+        """To register external event handlers for plugin modules."""
+        self.__eventHandlers.append(handler)
 
     def onKeyboardEvent(self, event):
         """Handle the keyboard events."""
@@ -236,12 +246,17 @@ class ViewModelBase2():
         raise NotImplementedError("Please implement drawScore in your view model.")
 
     def drawInfoText(self):
-        raise NotImplementedError("Please implement drawInfoText in your view model.") 
+        raise NotImplementedError("Please implement drawInfoText in your view model.")
+    
+    def drawPlugins(self):
+        for plugin in self.__plugins:
+            plugin.drawPlugin()
 
     def drawView(self):
         """Paint the complete view (screen)."""
         self.drawTiles()
         self.drawSprites()
+        self.drawPlugins()
         self.drawScore()
         self.drawInfoText()
 
@@ -274,6 +289,7 @@ class ViewModelBase2():
         self.drawView()
         self.checkClashes()
         self.flipScreen()
+        
         pass
 
     @property
@@ -313,6 +329,10 @@ class ViewModelBase2():
     @property
     def allSprites(self):
         return self.__allSprites
+
+    @property
+    def plugins(self):
+        return self.__plugins
 
 
 
