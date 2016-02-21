@@ -26,8 +26,6 @@ class ButtonSprite(pygame.sprite.Sprite):
         font = pygame.font.Font(None, 24)
         text = font.render(self._caption, 1, (255, 10, 10))
         textpos = text.get_rect()
-        #textpos.left = self._x
-        #textpos.top = self._y
         self.image = pygame.Surface([textpos.width, textpos.height])
         self.image.set_colorkey((0,0,0))
         self.image.blit(text, textpos)
