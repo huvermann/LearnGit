@@ -131,6 +131,10 @@ class ShowJump(ViewPluginBase):
             self.registerEventHandler()
         if not self._player:
             self._player = ServiceLocator.getGlobalServiceInstance(ServiceNames.Player)
+            self._jumpCalculator.g = self._player.jumpG
+            self._jumpCalculator.v0 = self._player.jumpV0
+            self._jumpCalculator.vx = self._player.jumpVx
+
 
         vector = None
         if self._player.moveState in [PlayerMoveState.StandingLeft, PlayerMoveState.MoveLeft]:
