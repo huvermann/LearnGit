@@ -40,7 +40,8 @@ class MainGame:
         # pygame.display.set_icon(pygame.image.load(Utils.DirHelper.getResourceFilePath("icon")))
         pygame.display.set_caption("SimpleGame")
         # Start-Screen
-        self.viewController.changeView("Training")
+        #self.viewController.changeView("Training")
+        self.viewController.changeView("Level2")
         try:
             while not self.gameState.done:
                 self.viewController.currentView.runView()

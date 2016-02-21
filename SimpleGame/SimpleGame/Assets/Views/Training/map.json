@@ -126,7 +126,7 @@
  "properties":
     {
      "Plugin":"Plugin=ShowJump",
-     "Plugin2":"Plugin=ShowTileNumbers"
+     "Plugin2":""
     },
  "renderorder":"right-down",
  "tileheight":32,

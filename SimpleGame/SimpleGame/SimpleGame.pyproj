@@ -179,9 +179,6 @@
     <Compile Include="Src\Utils\DirHelper.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Src\vartest.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Src\Views\ViewModelBase.py">
       <SubType>Code</SubType>
     </Compile>
