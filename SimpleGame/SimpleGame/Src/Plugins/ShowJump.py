@@ -16,48 +16,35 @@ class ShowJump(ViewPluginBase):
         self._jumpCalculator=JumpCalculator(0.5, 500, 100)
         self._buttons = pygame.sprite.Group()
         
-        self._vxMinus = TextLabel(200,70)
+        self._vxMinus = TextLabel(620,70)
         self._vxMinus._onClickHandler = self.onVxMinusClick
         self._vxMinus.caption = "-VX"
         self._buttons.add(self._vxMinus)
 
-        self._vxPlus = TextLabel(200,30)
+        self._vxPlus = TextLabel(620,30)
         self._vxPlus._onClickHandler = self.onVxPlusClick
         self._vxPlus.caption = "+VX"
         self._buttons.add(self._vxPlus)
 
-        self._v0Plus = TextLabel(240,30)
+        self._v0Plus = TextLabel(660,30)
         self._v0Plus._onClickHandler = self.onV0PlusClick
         self._v0Plus.caption = "+V0"
         self._buttons.add(self._v0Plus)
 
-        self._v0Minus = TextLabel(240,70)
+        self._v0Minus = TextLabel(660,70)
         self._v0Minus._onClickHandler = self.onV0MinusClick
         self._v0Minus.caption = "+V0"
         self._buttons.add(self._v0Minus)
 
-        self._gravPlus = TextLabel(280,30)
+        self._gravPlus = TextLabel(700,30)
         self._gravPlus._onClickHandler = self.on_gravPlusClick
         self._gravPlus.caption = "+Grav."
         self._buttons.add(self._gravPlus)
 
-        self._gravMinus = TextLabel(280,70)
+        self._gravMinus = TextLabel(700,70)
         self._gravMinus._onClickHandler = self.on_gravMinusClick
         self._gravMinus.caption = "-Grav."
         self._buttons.add(self._gravMinus)
-
-        self._timeMinus = TextLabel(340,70)
-        self._timeMinus._onClickHandler = self.on_TimeMinusClick
-        self._timeMinus.caption = "-Time."
-        self._buttons.add(self._timeMinus)
-
-        self._timePlus = TextLabel(340,30)
-        self._timePlus._onClickHandler = self.on_TimePlusClick
-        self._timePlus.caption = "+Time."
-        self._buttons.add(self._timePlus)
-
-        test = TextLabel(426, 482, "test")
-        self._buttons.add(test)
 
         self.TIMEREVENT = pygame.USEREVENT + 6
         pygame.time.set_timer(self.TIMEREVENT, 200)
@@ -82,12 +69,21 @@ class ShowJump(ViewPluginBase):
 
     def drawCurveParametersText(self):
         font = pygame.font.Font(None, 24)
-        data = "g: {0} V0: {1} Vx: {2}, Time: {3}".format(self._jumpCalculator.g, self._jumpCalculator.v0, self._jumpCalculator.vx, self._player.jumpTime)
+        data = "g: {0} V0: {1} Vx: {2}".format(self._jumpCalculator.g, self._jumpCalculator.v0, self._jumpCalculator.vx)
         text = font.render(data, 1, (1, 1, 1))
         textpos = text.get_rect()
         textpos.left = 570
         textpos.top = 470
         self._screen.blit(text, textpos)
+
+    def getMoveStateVector(self):
+        vector = None
+        if self._player.moveState in [PlayerMoveState.StandingLeft, PlayerMoveState.MoveLeft]:
+            vector = 1
+        elif self._player.moveState in [PlayerMoveState.StandingRight, PlayerMoveState.MoveRight]:
+            vector = -1
+        return vector
+
 
     def calculateJumpTime(self, vector):
         """Find barriers on the curve."""
@@ -97,22 +93,36 @@ class ShowJump(ViewPluginBase):
         time = 0
         while not abort:
             time += 10
-            position = ViewPoint(offset.left - self._jumpCalculator.calcX(time) * vector, offset.top - self._jumpCalculator.calcY(time))
+            x = self._jumpCalculator.calcX(time)
+            y = self._jumpCalculator.calcY(time)
+            position = ViewPoint(offset.left - x * vector, offset.top - y)
             # Check barriers
             if self._player.tilesWatcher.isBarrierOnPosition(position, CheckDirection.Ground):
-                result = (time, position)
+                screenOffset = self._viewPointer.playerOffset.copy()
+                vector = self.getMoveStateVector()
+                relativ = (screenOffset.left - x * vector, screenOffset.top - y)
+
+
+                result = (time, position, relativ)
                 abort = True
             if time > 3000:
-                result = (3000, None)
+                result = (3000, None, None)
                 abort = True
         return result
 
 
     def drawMaxCalculationTimePoint(self):
         if self._maxCalculationTime:
-            if self._maxCalculationTime[1]:
-                rect = pygame.Rect(self._maxCalculationTime[1].left, self._maxCalculationTime[1].top, 32, 32)
+
+            if self._player.moveState in [PlayerMoveState.StandingLeft, PlayerMoveState.MoveLeft]:
+                vector = 1
+            elif self._player.moveState in [PlayerMoveState.StandingRight, PlayerMoveState.MoveRight]:
+                vector = -1
+
+            if self._maxCalculationTime[2]:
+                rect = pygame.Rect(self._maxCalculationTime[2][0], self._maxCalculationTime[2][1], 32, 32)
                 pygame.draw.rect(self._screen, (0, 255, 0), rect, 2)
+
 
 
     def drawPlugin(self):
@@ -124,11 +134,11 @@ class ShowJump(ViewPluginBase):
             self._jumpCalculator.v0 = self._player.jumpV0
             self._jumpCalculator.vx = self._player.jumpVx
 
-        vector = None
-        if self._player.moveState in [PlayerMoveState.StandingLeft, PlayerMoveState.MoveLeft]:
-            vector = 1
-        elif self._player.moveState in [PlayerMoveState.StandingRight, PlayerMoveState.MoveRight]:
-            vector = -1
+        vector = self.getMoveStateVector()
+        #if self._player.moveState in [PlayerMoveState.StandingLeft, PlayerMoveState.MoveLeft]:
+        #    vector = 1
+        #elif self._player.moveState in [PlayerMoveState.StandingRight, PlayerMoveState.MoveRight]:
+        #    vector = -1
 
         if vector:
             if self._calculationDirty:
@@ -151,10 +161,6 @@ class ShowJump(ViewPluginBase):
                 pygame.draw.line(self._screen, color, start, end)
                 start = end
 
-        
-            #make point at jump timeout
-            pos = (offset.left - self._jumpCalculator.calcX(self._player.jumpTime) * vector, offset.top - self._jumpCalculator.calcY(self._player.jumpTime))
-            pygame.draw.circle(self._screen, (255,0,0), pos, 5, 1)
             self._buttons.draw(self._screen)
             self.drawCurveParametersText()
             self.drawMaxCalculationTimePoint()
@@ -196,13 +202,6 @@ class ShowJump(ViewPluginBase):
         self._player.jumpG -= 10
         self._calculationDirty = True
 
-    def on_TimeMinusClick(self, sender):
-        self._player.jumpTime -= 10
-        self._calculationDirty = True
-
-    def on_TimePlusClick(self, sender):
-        self._player.jumpTime += 10
-        self._calculationDirty = True
 
 
 

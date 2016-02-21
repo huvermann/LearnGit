@@ -10,15 +10,15 @@ class ShowTileNumbers(ViewPluginBase):
         self._map = ServiceLocator.getGlobalServiceInstance(ServiceNames.Map)
         self.cache = {}
         self._buttons = pygame.sprite.Group()
-        self.button = TextLabel(400,400, "Tile Index: ON")
+        self.button = TextLabel(620,110, "Module is OFF")
         self.button.onClick=self.onClickHandler
         self._buttons.add(self.button)
-        self.viewMode = 1
+        self.viewMode = 0
 
     def onClickHandler(self):
         if self.viewMode == 0:
             self.viewMode = 1
-            self.button.caption = 'Tile Index ON'
+            self.button.caption = 'Module is ON'
 
         elif self.viewMode == 1:
             self.viewMode = 2
