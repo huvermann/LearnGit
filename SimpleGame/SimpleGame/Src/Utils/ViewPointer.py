@@ -30,6 +30,8 @@ class ViewPointer(object):
         self.__followStateX = ViewPointerFollowState.FixedPosition
         self.__followStateY = ViewPointerFollowState.FixedPosition
 
+        self._cameraSpeed = 10
+
         screen = ServiceLocator.getGlobalServiceInstance(ServiceNames.Screen)
         self.__screenrect = screen.get_rect()
         self._innerBorder = self.__screenrect.copy()
@@ -71,15 +73,13 @@ class ViewPointer(object):
                 self.__followStateX = ViewPointerFollowState.FollowRight
         if self.__followStateX != ViewPointerFollowState.FixedPosition:
             if self.__followStateX == ViewPointerFollowState.FollowLeft:
-                shift = 4
-                self._playerOffset.left -= shift
-                self._screenPosition.left += shift
+                self._playerOffset.left -= self._cameraSpeed
+                self._screenPosition.left += self._cameraSpeed
                 if self._playerOffset.left <= self.__screenrect.centerx:
                     self.__followStateX = ViewPointerFollowState.FixedPosition
             if self.__followStateX == ViewPointerFollowState.FollowRight:
-                shift = 4
-                self._playerOffset.left += shift
-                self._screenPosition.left -= shift
+                self._playerOffset.left += self._cameraSpeed
+                self._screenPosition.left -= self._cameraSpeed
                 if self._playerOffset.left>= self.__screenrect.centerx:
                     self.__followStateX = ViewPointerFollowState.FixedPosition
 
@@ -91,15 +91,13 @@ class ViewPointer(object):
 
         if self.__followStateY != ViewPointerFollowState.FixedPosition:
             if self.__followStateY == ViewPointerFollowState.FollowUp:
-                shift = 4
-                self._playerOffset.top -= shift
-                self._screenPosition.top += shift
+                self._playerOffset.top -= self._cameraSpeed
+                self._screenPosition.top += self._cameraSpeed
                 if self._playerOffset.top <= self.__screenrect.centery:
                     self.__followStateY = ViewPointerFollowState.FixedPosition
             elif self.__followStateY == ViewPointerFollowState.FollowDown:
-                shift = 4
-                self._playerOffset.top += shift
-                self._screenPosition.top -= shift
+                self._playerOffset.top += self._cameraSpeed
+                self._screenPosition.top -= self._cameraSpeed
                 if self._playerOffset.top >= self.__screenrect.centery:
                     self.__followStateY = ViewPointerFollowState.FixedPosition
 
