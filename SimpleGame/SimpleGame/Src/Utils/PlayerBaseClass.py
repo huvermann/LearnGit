@@ -254,6 +254,10 @@ class PlayerBaseClass(pygame.sprite.Sprite):
     def jumpVx(self, value):
         self._JumpCalculator.vx = value
 
+    @property
+    def tilesWatcher(self):
+        return self._moveStateMachine.tilesWatcher
+
 
 
 

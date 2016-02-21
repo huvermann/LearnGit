@@ -41,6 +41,9 @@
     <Compile Include="Src\Plugins\ShowJump.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Plugins\ShowTileNumbers.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Plugins\__init__.py">
       <SubType>Code</SubType>
     </Compile>
@@ -98,6 +101,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\AnimationInfo.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\gui\TextLabel.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\gui\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\ServiceLocator.py">
@@ -168,6 +177,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\DirHelper.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\vartest.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Views\ViewModelBase.py">
@@ -313,6 +325,7 @@
     <Folder Include="Src\Sprites\" />
     <Folder Include="Src\Tests\" />
     <Folder Include="Src\Utils\" />
+    <Folder Include="Src\Utils\gui\" />
     <Folder Include="Src\Views\" />
     <Folder Include="Tests\" />
     <Folder Include="Src\" />

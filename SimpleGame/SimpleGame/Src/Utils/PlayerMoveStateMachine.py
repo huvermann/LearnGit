@@ -142,19 +142,23 @@ class PlayerMoveStateMachine(object):
         elif self._moveState == PlayerMoveState.JumpLeft:
 
             if self.__tileWatcher.isBarrierOn(CheckDirection.Left) or self.__tileWatcher.isBarrierOn(CheckDirection.Top) or self.__tileWatcher.isBarrierOn(CheckDirection.TopLeft):
-                self._changeToFalling(timeStamp)
+                self._changeToStanding(timeStamp)
             elif self._moveTimeLimit < timeStamp - self._lastChange:
+                #Todo: calculate the position at movetimelimit
                 self._changeToFalling(timeStamp)
 
         elif self._moveState == PlayerMoveState.JumpRight:
             if self.__tileWatcher.isBarrierOn(CheckDirection.Right) or self.__tileWatcher.isBarrierOn(CheckDirection.Top) or self.__tileWatcher.isBarrierOn(CheckDirection.TopRight):
-                self._changeToFalling(timeStamp)
+                self._changeToStanding(timeStamp)
             elif self._moveTimeLimit < timeStamp - self._lastChange:
+                #Todo: calculate the position at movetimelimit
                 self._changeToFalling(timeStamp)
 
         elif self._moveState == PlayerMoveState.JumpUp:
             if self.__tileWatcher.isBarrierOn(CheckDirection.Top):
                 self._changeToFalling(timeStamp)
+            #todo: check maximum jump height
+
 
         pass
 
@@ -192,6 +196,7 @@ class PlayerMoveStateMachine(object):
     def _changeToJumping(self, timeStamp):
         """Changes into jumping mode."""
         print("change to jumping")
+        #Todo: calculate maximum jump time.
         self._saveTimePosition(timeStamp)
         if self._moveState in [PlayerMoveState.FallingLeft, PlayerMoveState.MoveLeft, PlayerMoveState.StandingLeft]:
             self._moveState = PlayerMoveState.JumpLeft

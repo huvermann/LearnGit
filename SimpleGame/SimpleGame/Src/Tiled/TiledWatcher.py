@@ -28,6 +28,44 @@ class TiledWatcher(object):
         """Returns the tile map index at map position x,y."""
         return self.__map.getTideIndexOnMapCoords(x, y)
 
+    def isBarrierOnPosition(self, position, direction):
+        #Todo: Use real player rect to create the check position.
+        result = False
+        if direction == CheckDirection.Ground:
+            checkx = position.left + 16
+            checky = position.top + 32
+            tideIndex = self.getTileIndexInMap(checkx, checky)
+            return not tideIndex in self.__spaceTiles
+        elif direction == CheckDirection.Left:
+            #Todo: Implement check
+            checkx = position.left + 2
+            checky = position.top + 16
+            tideIndex = self.getTileIndexInMap(checkx, checky)
+            return not tideIndex in self.__spaceTiles
+        elif direction == CheckDirection.Right:
+            #Todo: Implement check
+            checkx = position.left + 30
+            checky = position.top + 16
+            tideIndex = self.getTileIndexInMap(checkx, checky)
+            return not tideIndex in self.__spaceTiles
+        elif direction == CheckDirection.Top:
+            checkx = position.left + 16
+            checky = position.top -6
+            tideIndex = self.getTileIndexInMap(checkx, checky)
+            return not tideIndex in self.__spaceTiles
+        elif direction == CheckDirection.TopLeft:
+            checkx = position.left + 2
+            checky = position.top -6
+            tideIndex = self.getTileIndexInMap(checkx, checky)
+            return not tideIndex in self.__spaceTiles
+        elif direction == CheckDirection.TopRight:
+            checkx = position.left + 30
+            checky = position.top -6
+            tideIndex = self.getTileIndexInMap(checkx, checky)
+            return not tideIndex in self.__spaceTiles
+
+        return result
+
     def isBarrierOn(self, direction):
         """Checks if there is a barrier in the asked direction."""
         position = ViewPoint(self.__viewPointer.playerPositionX, self.__viewPointer.playerPositionY)

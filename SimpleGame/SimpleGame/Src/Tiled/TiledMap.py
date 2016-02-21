@@ -299,6 +299,16 @@ class TiledMap(object):
         absCol=(grid[0]+offset.left//self.tileWidth) % maxCols
         return self.getTideIndex(absCol, absRow, layer)
 
+    def calcTileMapXY(self, offset, grid):
+        #Todo Only used in plugin ShowTileNumbers
+        maxCols =self.width
+        maxRows = self.height
+
+        absRow=(offset.top//self.tileHeight+grid[1]) % maxRows
+        absCol=(grid[0]+offset.left//self.tileWidth) % maxCols
+        return (absCol, absRow)
+
+
 
     def getTileImage(self, index):        
         return self.__mapTileset.surfaceArray[index-self.__mapTileset.firstgid]
