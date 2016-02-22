@@ -157,7 +157,7 @@ class PlayerBaseClass(pygame.sprite.Sprite):
     def onMoveStateJump(self, timeStamp, moveStateMachine):
         if self._moveStateMachine._MoveEndFlag:
             # Move has ended
-            print(self._moveStateMachine._MoveEndFlag)
+            pass
         else:
             movex = 0
             movey = 0
@@ -201,7 +201,6 @@ class PlayerBaseClass(pygame.sprite.Sprite):
                 self._viewPointer.playerPositionY =  int(moveStateMachine.lastPosition.top + move)
         elif moveStateMachine.moveState in [PlayerMoveState.Standing, PlayerMoveState.StandingLeft, PlayerMoveState.StandingRight]:
             if self._moveStateMachine._MoveEndFlag:
-                print(self._moveStateMachine._MoveEndFlag)
                 self._viewPointer.playerPositionX = self._moveStateMachine._MoveEndFlag[1].left
                 self._viewPointer.playerPositionY = self._moveStateMachine._MoveEndFlag[1].top
                 self._moveStateMachine._MoveEndFlag = None

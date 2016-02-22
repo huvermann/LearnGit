@@ -11,9 +11,12 @@ class MoveTimeCalculator(object):
         self._tilesWatcher = tilesWatcher
         self._jumpCalculator = jumpCalculator
 
+    def _getOffset(self):
+        return ViewPoint(self._viewPointer.playerPositionX, self._viewPointer.playerPositionY)
+
     def calculateJumpTime(self, vector):
         result = None
-        offset = ViewPoint(self._viewPointer.playerPositionX, self._viewPointer.playerPositionY)
+        offset = self._getOffset()
         abort = False
         time = 0
         while not abort:
@@ -32,7 +35,7 @@ class MoveTimeCalculator(object):
 
     def calculateMaxJumpUpTime(self):
         result = None
-        offset = ViewPoint(self._viewPointer.playerPositionX, self._viewPointer.playerPositionY)
+        offset = self._getOffset()
         time = 200
         y = self._jumpCalculator.calcJumpUp(time)
         position = ViewPoint(offset.left, offset.top + y)
@@ -40,9 +43,21 @@ class MoveTimeCalculator(object):
         return result
 
 
-    def calculateMaximumFallDownTime():
+    def calculateMaximumFallDownTime(self):
         result = None
-        raise NotImplementedError("Not implemented!")
+        offset = self._getOffset()
+        abort = False
+        time = 0
+        while not abort:
+            time += 10
+            y = self._jumpCalculator.calcFalling(time)
+            position = ViewPoint(offset.left, offset.top + y)
+            if self._tilesWatcher.isBarrierOnPosition(position, CheckDirection.Ground):
+                result = (time, position)
+                abort = True
+            elif time >= 10000:
+                result = (10000, position)
+            
         return result
         
 

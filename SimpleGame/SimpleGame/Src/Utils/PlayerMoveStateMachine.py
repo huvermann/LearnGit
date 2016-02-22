@@ -102,6 +102,11 @@ class PlayerMoveStateMachine(object):
             self._changeToStanding(timeStamp)
         elif self._joystickState.keyState in [JoystickEvents.MoveLeft, JoystickEvents.MoveRight]:
             self._manipulateWhileFalling(timeStamp)
+        elif timeStamp >= self.lastChange + self.moveTimeLimit[0]: # Check if move has ended.
+            self.lastChange = None
+            self._MoveEndFlag = self.moveTimeLimit # the update mechanism must handle the flag.
+            self._changeToStanding(timeStamp)
+
         pass
 
     def _checkMove(self, timeStamp):
@@ -143,27 +148,6 @@ class PlayerMoveStateMachine(object):
 
     def _checkJump(self, timeStamp):
         """Checks if the move state must be changed."""
-        #if self.__tileWatcher.isBarrierOn(CheckDirection.Top):
-        #    self._changeToFalling(timeStamp)
-        #elif self._moveState == PlayerMoveState.JumpLeft:
-
-        #    if self.__tileWatcher.isBarrierOn(CheckDirection.Left) or self.__tileWatcher.isBarrierOn(CheckDirection.Top) or self.__tileWatcher.isBarrierOn(CheckDirection.TopLeft):
-        #        self._changeToStanding(timeStamp)
-        #    elif self._moveTimeLimit < timeStamp - self._lastChange:
-        #        #Todo: calculate the position at movetimelimit
-        #        self._changeToFalling(timeStamp)
-
-        #elif self._moveState == PlayerMoveState.JumpRight:
-        #    if self.__tileWatcher.isBarrierOn(CheckDirection.Right) or self.__tileWatcher.isBarrierOn(CheckDirection.Top) or self.__tileWatcher.isBarrierOn(CheckDirection.TopRight):
-        #        self._changeToStanding(timeStamp)
-        #    elif self._moveTimeLimit < timeStamp - self._lastChange:
-        #        #Todo: calculate the position at movetimelimit
-        #        self._changeToFalling(timeStamp)
-
-        #elif self._moveState == PlayerMoveState.JumpUp:
-        #    if self.__tileWatcher.isBarrierOn(CheckDirection.Top):
-        #        self._changeToFalling(timeStamp)
-            #todo: check maximum jump height
         if timeStamp >= self.lastChange + self.moveTimeLimit[0]: # Check if move has ended.
             self.lastChange = None
             self._MoveEndFlag = self.moveTimeLimit # the update mechanism must handle the flag.
@@ -187,6 +171,8 @@ class PlayerMoveStateMachine(object):
             self._moveState = PlayerMoveState.FallingRight
         else:
             self._moveState = PlayerMoveState.Falling
+
+        self._moveTimeLimit = self.calculateMaxFallTime(timeStamp)
 
         pass
 
@@ -227,6 +213,9 @@ class PlayerMoveStateMachine(object):
         #Todo: Implement the calculation.
         return self._moveTimeCalculator.calculateMaxJumpUpTime()
 
+    def calculateMaxFallTime(self, timestamp):
+        return self._moveTimeCalculator.calculateMaximumFallDownTime()
+
 
     def _changeToStanding(self, timeStamp):
         """Changes to standing mode."""
@@ -236,9 +225,13 @@ class PlayerMoveStateMachine(object):
 
         if self._moveState in [PlayerMoveState.FallingLeft, PlayerMoveState.JumpLeft, PlayerMoveState.MoveLeft]:
             self._moveState = PlayerMoveState.StandingLeft
+
+
         elif self._moveState in [PlayerMoveState.FallingRight, PlayerMoveState.JumpRight, PlayerMoveState.MoveRight]:
             self._moveState = PlayerMoveState.StandingRight
+
         else:
+
             self._moveState = PlayerMoveState.Standing
         pass
 
