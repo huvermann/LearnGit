@@ -33,7 +33,7 @@ class ShowJump(ViewPluginBase):
 
         self._v0Minus = TextLabel(660,70)
         self._v0Minus._onClickHandler = self.onV0MinusClick
-        self._v0Minus.caption = "+V0"
+        self._v0Minus.caption = "-V0"
         self._buttons.add(self._v0Minus)
 
         self._gravPlus = TextLabel(700,30)
