@@ -21,6 +21,7 @@ class ViewModelBase2():
         self.__drawTilesCall = None
         self.__tileCollider = None
         self.__playerSprite = None
+        self.__serviceContainer = None
         self.__plugins = []
         self.__objectSprites = pygame.sprite.Group()
         self.__allSprites = pygame.sprite.Group()
@@ -38,7 +39,36 @@ class ViewModelBase2():
         """Inits the default font."""
         fontFile = getFontResourceFile("InknutAntiqua-Light")
         self._font = pygame.font.Font(fontFile, 12)
-    pass
+        pass
+
+    def suspendView(self):
+        """View goes into suspend mode."""
+        containerServices = [ServiceNames.CurrentView, ServiceNames.Map, ServiceNames.Player, ServiceNames.TiledWatcher, ServiceNames.ViewPointer]
+        container = {}
+
+        for service in containerServices:
+            if service in ServiceLocator.services:
+                container[service] = ServiceLocator.getGlobalServiceInstance(service)
+                ServiceLocator.UnregisterService(service)
+        
+        self.__serviceContainer = container
+        
+        pass
+
+    def unSuspendView(self):
+        if self.__serviceContainer:
+            for serviceName in self.__serviceContainer:
+                ServiceLocator.registerGlobalService(serviceName, self.__serviceContainer[serviceName])
+
+        pass
+
+    def initializeView(self):
+        """View is initialized the first time."""
+        # Initialize Plugins
+        for plugin in self.plugins:
+            plugin.initializePlugin(self)
+        pass
+
 
     def __initKeyboardManager(self):
         """Assigns the event handler for keys."""

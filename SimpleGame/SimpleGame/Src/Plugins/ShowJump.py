@@ -49,6 +49,10 @@ class ShowJump(ViewPluginBase):
         self.TIMEREVENT = pygame.USEREVENT + 6
         pygame.time.set_timer(self.TIMEREVENT, 200)
 
+    def initializePlugin(self, parentView):
+        super().initializePlugin(parentView)
+        self.registerEventHandler()
+
 
     def handleEvents(self, events):
         for event in events:
@@ -126,8 +130,7 @@ class ShowJump(ViewPluginBase):
 
 
     def drawPlugin(self):
-        if not self._curentView:
-            self.registerEventHandler()
+
         if not self._player:
             self._player = ServiceLocator.getGlobalServiceInstance(ServiceNames.Player)
             self._jumpCalculator.g = self._player.jumpG
@@ -135,10 +138,6 @@ class ShowJump(ViewPluginBase):
             self._jumpCalculator.vx = self._player.jumpVx
 
         vector = self.getMoveStateVector()
-        #if self._player.moveState in [PlayerMoveState.StandingLeft, PlayerMoveState.MoveLeft]:
-        #    vector = 1
-        #elif self._player.moveState in [PlayerMoveState.StandingRight, PlayerMoveState.MoveRight]:
-        #    vector = -1
 
         if vector:
             if self._calculationDirty:

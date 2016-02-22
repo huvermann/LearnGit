@@ -37,5 +37,10 @@ class ServiceLocator(object):
         """Removes all services from container."""
         ServiceLocator.services.clear()
 
+    @staticmethod
+    def UnregisterService(serviceName):
+        """Unregister service from service list."""
+        del(ServiceLocator.services[serviceName])
+
 
 

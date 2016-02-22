@@ -9,6 +9,10 @@ class ViewPluginBase(object):
         self._viewPointer = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewPointer)
         self._curentView = None
 
+    def initializePlugin(self, parentView):
+        """Plugin is initialized by the view."""
+        self._curentView = parentView
+
     def drawPlugin(self):
         """Draws the plugin."""
         pass
@@ -21,8 +25,6 @@ class ViewPluginBase(object):
 
 
     def registerEventHandler(self):
-        # Todo: Implement plugin register mechanism.
-        self._curentView = ServiceLocator.getGlobalServiceInstance(ServiceNames.CurrentView)
         if self._curentView:
             self._curentView.registerEventHandler(self.handleEvents)
 

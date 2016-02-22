@@ -25,6 +25,10 @@ class ViewController(object):
     def changeView(self, viewName):
         """Changes the view by name."""
         if viewName in self.viewList:
+            if self._currentView:
+                self._currentView.suspendView()
+
+            self.viewList[viewName].unSuspendView()
             self._currentView = self.viewList[viewName]
             ServiceLocator.registerGlobalService(ServiceNames.CurrentView, self._currentView)
             
@@ -41,6 +45,7 @@ class ViewController(object):
                 self._currentView = newView
                 ServiceLocator.registerGlobalService(ServiceNames.CurrentView, self._currentView)
                 self.viewList[viewName] = newView
+                newView.initializeView()
 
         return newView
     def viewFactory(self, viewName):

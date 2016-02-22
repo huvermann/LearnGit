@@ -15,6 +15,10 @@ class ShowTileNumbers(ViewPluginBase):
         self._buttons.add(self.button)
         self.viewMode = 0
 
+    def initializePlugin(self, parentView):
+        super().initializePlugin(parentView)
+        self.registerEventHandler()
+
     def onClickHandler(self):
         if self.viewMode == 0:
             self.viewMode = 1
@@ -32,8 +36,6 @@ class ShowTileNumbers(ViewPluginBase):
             if event.type == pygame.MOUSEBUTTONUP:
                 pos = pygame.mouse.get_pos()
                 self.handleOnMouseClick(pos)
-            #if event.type == self.TIMEREVENT:
-            #    self._calculationDirty = True
         pass
 
     def handleOnMouseClick(self, position):
@@ -96,9 +98,6 @@ class ShowTileNumbers(ViewPluginBase):
                  
 
     def drawPlugin(self):
-        if not self._curentView:
-            self.registerEventHandler()
-
         if self.viewMode == 1:
             self.drawTileNumbers()
         elif self.viewMode == 2:
