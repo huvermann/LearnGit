@@ -81,6 +81,22 @@
                  "width":32,
                  "x":374,
                  "y":22
+                }, 
+                {
+                 "gid":37,
+                 "height":32,
+                 "id":4,
+                 "name":"xx",
+                 "properties":
+                    {
+                     "ViewName":"Level2"
+                    },
+                 "rotation":0,
+                 "type":"DrawbridgeSprite",
+                 "visible":true,
+                 "width":32,
+                 "x":448,
+                 "y":212
                 }],
          "offsetx":0,
          "offsety":32,
@@ -121,12 +137,12 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":4,
+ "nextobjectid":5,
  "orientation":"orthogonal",
  "properties":
     {
      "Plugin":"Plugin=ShowJump",
-     "Plugin2":""
+     "Plugin2":"Plugin=ShowTileNumbers"
     },
  "renderorder":"right-down",
  "tileheight":32,

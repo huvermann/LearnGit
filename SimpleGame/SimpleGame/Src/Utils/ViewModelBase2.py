@@ -246,6 +246,9 @@ class ViewModelBase2():
     def onViewChange(self, event):
         """View is going to be changed."""
         # Todo: Implement change the view.
+        viewController = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewController)
+        if viewController:
+            viewController.changeView(event.ViewName)
         pass
 
     def onNoiseEvent(self, event):
