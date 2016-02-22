@@ -69,40 +69,7 @@ class TiledWatcher(object):
     def isBarrierOn(self, direction):
         """Checks if there is a barrier in the asked direction."""
         position = ViewPoint(self.__viewPointer.playerPositionX, self.__viewPointer.playerPositionY)
-
-        if direction == CheckDirection.Ground:
-            checkx = position.left + 16
-            checky = position.top + 32
-            tideIndex = self.getTileIndexInMap(checkx, checky)
-            return not tideIndex in self.__spaceTiles
-        elif direction == CheckDirection.Left:
-            #Todo: Implement check
-            checkx = position.left + 2
-            checky = position.top + 16
-            tideIndex = self.getTileIndexInMap(checkx, checky)
-            return not tideIndex in self.__spaceTiles
-        elif direction == CheckDirection.Right:
-            #Todo: Implement check
-            checkx = position.left + 30
-            checky = position.top + 16
-            tideIndex = self.getTileIndexInMap(checkx, checky)
-            return not tideIndex in self.__spaceTiles
-        elif direction == CheckDirection.Top:
-            checkx = position.left + 16
-            checky = position.top -6
-            tideIndex = self.getTileIndexInMap(checkx, checky)
-            return not tideIndex in self.__spaceTiles
-        elif direction == CheckDirection.TopLeft:
-            checkx = position.left + 2
-            checky = position.top -6
-            tideIndex = self.getTileIndexInMap(checkx, checky)
-            return not tideIndex in self.__spaceTiles
-        elif direction == CheckDirection.TopRight:
-            checkx = position.left + 30
-            checky = position.top -6
-            tideIndex = self.getTileIndexInMap(checkx, checky)
-            return not tideIndex in self.__spaceTiles
-        #Todo: Implement CanClimbUP /CanClimbDown
+        return self.isBarrierOnPosition(position, direction)
 
 
     def standExactOnSurface(self):

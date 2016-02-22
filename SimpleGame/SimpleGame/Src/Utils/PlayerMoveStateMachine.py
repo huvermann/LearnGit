@@ -3,6 +3,7 @@ from Utils.Constants import Corners
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Utils.ViewPointer import ViewPointer, ViewPoint
 from Tiled.TiledWatcher import TiledWatcher, CheckDirection
+from Utils.MoveTimeCalculator import MoveTimeCalculator
 
 
 class PlayerMoveState(object):
@@ -34,21 +35,26 @@ class PlayerMoveStateMachine(object):
         self._lastChange = None
         self._lastPosition = None
         self._moveTimeLimit = None
+        self._MoveEndFlag = None
         self._getTileInfoCallback = None
         self._getCurrentPositionCallback = None
         self._jumpTimeout = 100
+        
         self._backgroundTiles = [0, 28, 29, 30, 31]
         self.__viewPoint = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewPointer)
         self.__tileWatcher = TiledWatcher(parentPlayer)
-        
-
+        self._moveTimeCalculator = MoveTimeCalculator(self.__viewPoint, self.__tileWatcher, parentPlayer._JumpCalculator)
     def getVectors(self, moveState):
         """Returns moving vectors depending on move state."""
         # Obsolete remove it!
         result = MoveVector()
         if moveState == PlayerMoveState.MoveLeft:
             result.X = -1
+        elif moveState == PlayerMoveState.JumpLeft:
+            result.X = -1
         elif moveState == PlayerMoveState.MoveRight:
+            result.X = 1
+        elif moveState == PlayerMoveState.JumpRight:
             result.X = 1
         elif moveState == PlayerMoveState.Falling:
             result.X = 0
@@ -137,29 +143,31 @@ class PlayerMoveStateMachine(object):
 
     def _checkJump(self, timeStamp):
         """Checks if the move state must be changed."""
-        if self.__tileWatcher.isBarrierOn(CheckDirection.Top):
-            self._changeToFalling(timeStamp)
-        elif self._moveState == PlayerMoveState.JumpLeft:
+        #if self.__tileWatcher.isBarrierOn(CheckDirection.Top):
+        #    self._changeToFalling(timeStamp)
+        #elif self._moveState == PlayerMoveState.JumpLeft:
 
-            if self.__tileWatcher.isBarrierOn(CheckDirection.Left) or self.__tileWatcher.isBarrierOn(CheckDirection.Top) or self.__tileWatcher.isBarrierOn(CheckDirection.TopLeft):
-                self._changeToStanding(timeStamp)
-            elif self._moveTimeLimit < timeStamp - self._lastChange:
-                #Todo: calculate the position at movetimelimit
-                self._changeToFalling(timeStamp)
+        #    if self.__tileWatcher.isBarrierOn(CheckDirection.Left) or self.__tileWatcher.isBarrierOn(CheckDirection.Top) or self.__tileWatcher.isBarrierOn(CheckDirection.TopLeft):
+        #        self._changeToStanding(timeStamp)
+        #    elif self._moveTimeLimit < timeStamp - self._lastChange:
+        #        #Todo: calculate the position at movetimelimit
+        #        self._changeToFalling(timeStamp)
 
-        elif self._moveState == PlayerMoveState.JumpRight:
-            if self.__tileWatcher.isBarrierOn(CheckDirection.Right) or self.__tileWatcher.isBarrierOn(CheckDirection.Top) or self.__tileWatcher.isBarrierOn(CheckDirection.TopRight):
-                self._changeToStanding(timeStamp)
-            elif self._moveTimeLimit < timeStamp - self._lastChange:
-                #Todo: calculate the position at movetimelimit
-                self._changeToFalling(timeStamp)
+        #elif self._moveState == PlayerMoveState.JumpRight:
+        #    if self.__tileWatcher.isBarrierOn(CheckDirection.Right) or self.__tileWatcher.isBarrierOn(CheckDirection.Top) or self.__tileWatcher.isBarrierOn(CheckDirection.TopRight):
+        #        self._changeToStanding(timeStamp)
+        #    elif self._moveTimeLimit < timeStamp - self._lastChange:
+        #        #Todo: calculate the position at movetimelimit
+        #        self._changeToFalling(timeStamp)
 
-        elif self._moveState == PlayerMoveState.JumpUp:
-            if self.__tileWatcher.isBarrierOn(CheckDirection.Top):
-                self._changeToFalling(timeStamp)
+        #elif self._moveState == PlayerMoveState.JumpUp:
+        #    if self.__tileWatcher.isBarrierOn(CheckDirection.Top):
+        #        self._changeToFalling(timeStamp)
             #todo: check maximum jump height
-
-
+        if timeStamp >= self.lastChange + self.moveTimeLimit[0]: # Check if move has ended.
+            self.lastChange = None
+            self._MoveEndFlag = self.moveTimeLimit # the update mechanism must handle the flag.
+            self._changeToStanding(timeStamp)
         pass
 
     def _saveTimePosition(self, timeStamp):
@@ -170,7 +178,6 @@ class PlayerMoveStateMachine(object):
 
     def _changeToFalling(self, timeStamp):
         """Changes into falling mode."""
-        print("Change to falling")
         self._saveTimePosition(timeStamp)
         if self._moveState in [PlayerMoveState.Standing, PlayerMoveState.JumpUp]:
             self._moveState = PlayerMoveState.Falling
@@ -198,13 +205,28 @@ class PlayerMoveStateMachine(object):
         print("change to jumping")
         #Todo: calculate maximum jump time.
         self._saveTimePosition(timeStamp)
+        
         if self._moveState in [PlayerMoveState.FallingLeft, PlayerMoveState.MoveLeft, PlayerMoveState.StandingLeft]:
             self._moveState = PlayerMoveState.JumpLeft
+            self._moveTimeLimit = self._calculateMaxJumpTime(timeStamp, self.moveState)
         elif self._moveState in [PlayerMoveState.FallingRight, PlayerMoveState.MoveRight, PlayerMoveState.StandingRight]:
             self._moveState = PlayerMoveState.JumpRight
+            self._moveTimeLimit = self._calculateMaxJumpTime(timeStamp, self.moveState)
         else:
+            self._calculateMaxJumpUpTime(timeStamp)
+            self._moveTimeLimit = self._calculateMaxJumpUpTime(timeStamp)
             self._moveState = PlayerMoveState.JumpUp
         pass
+
+    def _calculateMaxJumpTime(self, timeStamp, moveState):
+        """Calculates the maximum jump time."""
+        return self._moveTimeCalculator.calculateJumpTime(self.getVectors(moveState))
+
+    def _calculateMaxJumpUpTime(self, timeStamp):
+        """Calculates the maximum jump time for jump up."""
+        #Todo: Implement the calculation.
+        return self._moveTimeCalculator.calculateMaxJumpUpTime()
+
 
     def _changeToStanding(self, timeStamp):
         """Changes to standing mode."""
@@ -225,12 +247,6 @@ class PlayerMoveStateMachine(object):
         #Todo: Implement.
         pass
 
-    @property
-    def jumpTimeout(self):
-        return self._jumpTimeout
-    @jumpTimeout.setter
-    def jumpTimeout(self, value):
-        self._jumpTimeout = value
     @property
     def lastChange(self):
         return self._lastChange

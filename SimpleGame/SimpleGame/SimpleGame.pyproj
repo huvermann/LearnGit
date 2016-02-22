@@ -109,6 +109,9 @@
     <Compile Include="Src\Utils\gui\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Utils\MoveTimeCalculator.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Utils\ServiceLocator.py">
       <SubType>Code</SubType>
     </Compile>
