@@ -30,6 +30,7 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         self.loadAnimations(spriteName)
         self._speed = 120 # Default speed pixel per second
         self._fallSpeed = 200
+        self._jumpSpeedY = 200
 
         self._moveStateMachine = PlayerMoveStateMachine(self)
         self._moveStateMachine.jumpTimeout = 100000
@@ -225,6 +226,14 @@ class PlayerBaseClass(pygame.sprite.Sprite):
     @property
     def fallSpeed(self):
         return self._fallSpeed
+
+    @property
+    def jumpSpeedY(self):
+        return self._jumpSpeedY
+
+    @jumpSpeedY.setter
+    def jumpSpeedY(self, value):
+        self._jumpSpeedY = value
 
     @property
     def jumpTime(self):
