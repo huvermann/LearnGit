@@ -4,73 +4,93 @@ Was noch zu tun ist:
 
 Kai
 =====
-- Farbige Blobs animieren
-- Megabobs zeichnen
-- Gensequenzer zeichnen (Oder entsprechendes Gerät)
-- Spieler hält Waffe oder Gerät
+- 1.0: Farbige Blobs animieren
+- 2.0: Megabobs zeichnen
+- 3.0: Gensequenzer zeichnen (Oder entsprechendes Gerät)
+- 4.0: Spieler hält Waffe oder Gerät
    Links, Rechts, GeheLinks, GeheRechs mit Waffe
    Waffe freistellen
-- Dynamitladung zeichnen
-- Tileset für Raumschiff innen
-- 
+- 5.0: Dynamitladung zeichnen
+- 6.0: Tileset für Raumschiff innen
+- 7.0: Groben-Plan für Spielfeld machen
+       Fallen und Gegner kommen später hinein.
 
 Heiko
 =======
-- ShowJumpPlugin:
-  + Kurven an Kopf
-  + JumpUp anzeigen und Parameter
+- 1.0: ShowJumpPlugin:
+  + 1.1: Kurven an Kopf
+  + 1.2 JumpUp anzeigen und Parameter
 
-- TileMap Kollosion (Pixel-Kollosion mit Kachel) implementieren
+- 2.0: KeyRelease-Problem beheben:
+  + 2.1 bei schnellen Tastaturklicks wird die aktion ignoriert.
+        ein kurzer Tastendruck soll auch berücksichtigt werden und die Spielfigur bewegen können.
 
-- Richtungsänderung im Sprung implementieren
+- 3.0: TileMap Kollosion (Pixel-Kollosion mit Kachel) implementieren
 
-- Beampoint
-  + Tor mit xy-Koordinaten auf Map, damit man komfortabel von Map zu Map reisen kann.
-    mit BeamPoint(x,y) soll man die Spielerposition innerhalb der Map konfigurieren.
+- 4.0 Bewegung und Kollosion:
+  + 4.1: Richtungsänderung im Sprung implementieren
+  + 4.2: Klettern auf Leiter-Kachel
+  + 4.3: Spieler soll von der Decke abprallen (Kollosionsprüfung)
+  + 4.4: Spieler soll 1 Kachel hochklettern können, aber nicht eine Wand die höher als 2 Kacheln ist.
+  + 4.5: Es soll 2 verschiedene Sprungweiten (klein, gross) geben. Aus dem Stand macht man kleine Sprüng
+         Aus dem Gehen macht man große Sprünge.
 
-- Impl.: Sprite Basisklassen
-  + Sprite läuft hin- und her
-  + Sprite läuft immer in Richtung Spieler, bei Hinderniss läuft es kurz zurück und dann wieder
-    zum Spieler
-  + Sprite springt hoch und runter
+- 5.0: ViewPointer: (Kameraführung)
+  + 5.1 Der Spieler soll nicht mehr aus der Screen herausfallen, weil die Nachführung zu langsam ist.
+  + 5.2 Die Ränder für die Nachführung noch breiter machen
+  + 5.3 Bei den Map-Enden soll nicht mehr weitergescrollt werden.
 
-- Das Gageway-Sprite als Basisklasse implementieren.
-  + Beim Gateway soll man einfach nur die Grafik austausen damit Gateways mit unterschiedlichem Aussehen erstellt werden können.
+- 6.0: Beampoint
+  + 6.1: Tor mit xy-Koordinaten auf Map, damit man komfortabel von Map zu Map reisen kann.
+         mit BeamPoint(x,y) soll man die Spielerposition innerhalb der Map konfigurieren.
 
-- Impl: Projektil-Sprite:
-  + Wenn der Spieler mit der Waffe feuert, fliegt das Projektil, bis es etwas trifft, oder aus dem Bildschirm verschwindet.
+- 7.0: Impl.: Sprite Basisklassen
+  7.1: + Sprite läuft hin- und her
+  7.2: + Sprite läuft immer in Richtung Spieler, bei Hinderniss läuft es kurz zurück und dann wieder
+         zum Spieler
+  7.3: + Sprite springt hoch und runter
 
-- Impl. Callouts (Sprechblasen) für Text (Eine Figur sagt was.)
+- 8.0: Das Gageway-Sprite als Basisklasse implementieren.
+     + 8.1 Beim Gateway soll man einfach nur die Grafik austausen damit Gateways mit unterschiedlichem Aussehen erstellt werden können.
+
+- 9.0: Impl: Projektil-Sprite:
+  + 9.1 Wenn der Spieler mit der Waffe feuert, fliegt das Projektil, bis es etwas trifft, oder aus dem Bildschirm verschwindet.
+
+- 10.0: Impl. Callouts (Sprechblasen) für Text (Eine Figur sagt was.)
 
 
-- Musik abspielen wieder aktivieren
+- 11.0: Musik abspielen wieder aktivieren
 
-- Sounds abspielen wieder aktivieren (Bum, Peng)
+- 12.0: Sounds abspielen wieder aktivieren (Bum, Peng)
 
-- ScorePanel implementieren
-  + Das Scorepanel soll Anzahl Leben und Punkte anzeigen.
+- 13.0: ScorePanel implementieren
+  + 13.1 Das Scorepanel soll Anzahl Leben und Punkte anzeigen.
 
-- Spielende implementieren
-  + Wenn alle Leben verbraucht sind, soll "Game Over" angezeigt werden, danach landet man im Start-Screen
+- 14.0: Button-Basisklasse
+  + 14.1: Button mit austauschbarer Grafik zum anklicken implementieren.
+          Dieser Button soll im Startscreen und überall benutzt werden, wo der Benutzer einen Button anklicken muß
 
-- Spieler hat Gewonnen implementieren
-  + Es wird die Top-10 Highscore-Liste angezeigt.
-  + Der Spieler kann seinen Namen eingeben, falls er einen Highscore erreicht hat.
-  + Sein Highscore wird gespeichert.
+- 15.0: Spielende implementieren
+  + 15.1: Wenn alle Leben verbraucht sind, soll "Game Over" angezeigt werden, danach landet man im Start-Screen
 
-- Start-Screen implementieren (Main View)
-  + Es wird ein Bild angezeigt. 
-  + Man kann auf der Tastatur oder Joystick den Startknopf drücken um in den 1 Level zu kommen.
-  + Man kann mit der Maus auf einen Button auf dem Bildschirm klicken um in den 1. Level zu kommen.
-  + Es wird ein Song abgespielt.
-  + Man kann in die Spiel-Optionen wechseln
-  + Man kann in die Highscore-Liste wechseln
-  + Man kann in die About-Screen wechseln
+- 16.0: Spieler hat Gewonnen implementieren
+  + 16.1: Es wird die Top-10 Highscore-Liste angezeigt.
+  + 16.2: Der Spieler kann seinen Namen eingeben, falls er einen Highscore erreicht hat.
+  + 16.3: Sein Highscore wird gespeichert.
 
-- Optionen
-  + Man kann die Song-Lautstärke einstellen
-  + Man kann die Joystick-Belegung ändern
-  + Man kann die Tastatur-Belegung ändern
+- 17.0: Start-Screen implementieren (Main View)
+  + 17.1: Es wird ein Bild angezeigt. 
+  + 17.2: Man kann auf der Tastatur oder Joystick den Startknopf drücken um in den 1 Level zu kommen.
+  + 17.3: Man kann mit der Maus auf einen Button auf dem Bildschirm klicken um in den 1. Level zu kommen.
+  + 17.4: Es wird ein Song abgespielt.
+  + 17.5: Man kann in die Spiel-Optionen wechseln
+  + 17.6: Man kann in die Highscore-Liste wechseln
+  + 17.7: Man kann in die About-Screen wechseln
 
-- Highscore-Liste
-  + Es werden die Highscores angezeigt.
+- 18.0: Optionen
+  + 18.1: Man kann die Song-Lautstärke einstellen
+  + 18.2: Man kann die Joystick-Belegung ändern
+  + 18.3: Man kann die Tastatur-Belegung ändern
+
+- 19.0: Highscore-Liste
+  + 19.1: Es werden die Highscores angezeigt.
