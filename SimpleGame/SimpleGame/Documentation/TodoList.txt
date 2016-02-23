@@ -13,3 +13,64 @@ Kai
 - Dynamitladung zeichnen
 - Tileset für Raumschiff innen
 - 
+
+Heiko
+=======
+- ShowJumpPlugin:
+  + Kurven an Kopf
+  + JumpUp anzeigen und Parameter
+
+- TileMap Kollosion (Pixel-Kollosion mit Kachel) implementieren
+
+- Richtungsänderung im Sprung implementieren
+
+- Beampoint
+  + Tor mit xy-Koordinaten auf Map, damit man komfortabel von Map zu Map reisen kann.
+    mit BeamPoint(x,y) soll man die Spielerposition innerhalb der Map konfigurieren.
+
+- Impl.: Sprite Basisklassen
+  + Sprite läuft hin- und her
+  + Sprite läuft immer in Richtung Spieler, bei Hinderniss läuft es kurz zurück und dann wieder
+    zum Spieler
+  + Sprite springt hoch und runter
+
+- Das Gageway-Sprite als Basisklasse implementieren.
+  + Beim Gateway soll man einfach nur die Grafik austausen damit Gateways mit unterschiedlichem Aussehen erstellt werden können.
+
+- Impl: Projektil-Sprite:
+  + Wenn der Spieler mit der Waffe feuert, fliegt das Projektil, bis es etwas trifft, oder aus dem Bildschirm verschwindet.
+
+- Impl. Callouts (Sprechblasen) für Text (Eine Figur sagt was.)
+
+
+- Musik abspielen wieder aktivieren
+
+- Sounds abspielen wieder aktivieren (Bum, Peng)
+
+- ScorePanel implementieren
+  + Das Scorepanel soll Anzahl Leben und Punkte anzeigen.
+
+- Spielende implementieren
+  + Wenn alle Leben verbraucht sind, soll "Game Over" angezeigt werden, danach landet man im Start-Screen
+
+- Spieler hat Gewonnen implementieren
+  + Es wird die Top-10 Highscore-Liste angezeigt.
+  + Der Spieler kann seinen Namen eingeben, falls er einen Highscore erreicht hat.
+  + Sein Highscore wird gespeichert.
+
+- Start-Screen implementieren (Main View)
+  + Es wird ein Bild angezeigt. 
+  + Man kann auf der Tastatur oder Joystick den Startknopf drücken um in den 1 Level zu kommen.
+  + Man kann mit der Maus auf einen Button auf dem Bildschirm klicken um in den 1. Level zu kommen.
+  + Es wird ein Song abgespielt.
+  + Man kann in die Spiel-Optionen wechseln
+  + Man kann in die Highscore-Liste wechseln
+  + Man kann in die About-Screen wechseln
+
+- Optionen
+  + Man kann die Song-Lautstärke einstellen
+  + Man kann die Joystick-Belegung ändern
+  + Man kann die Tastatur-Belegung ändern
+
+- Highscore-Liste
+  + Es werden die Highscores angezeigt.
