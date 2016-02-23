@@ -219,6 +219,7 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Controls\ScorePanel\Highscore_Panel.png" />
     <Content Include="Assets\Fonts\InknutAntiqua-Light.ttf" />
     <Content Include="Assets\Fonts\readme.txt" />
     <Content Include="Assets\Images\dog.ico" />
@@ -247,10 +248,10 @@
     <Content Include="Assets\Sprites\Drawbridge\Stahlwand_auf.png" />
     <Content Include="Assets\Sprites\Drawbridge\Stahlwand_zu.png" />
     <Content Include="Assets\Sprites\Drawbridge\Türen.pyxel" />
-    <Content Include="Assets\Sprites\Gameover\game_over.png" />
-    <Content Include="Assets\Sprites\Gameover\Game_over.pyxel" />
-    <Content Include="Assets\Sprites\Gameover\game_over2.png" />
-    <Content Include="Assets\Sprites\Gameover\Game_over_animation.png" />
+    <Content Include="Assets\Controls\Gameover\game_over.png" />
+    <Content Include="Assets\Controls\Gameover\Game_over.pyxel" />
+    <Content Include="Assets\Controls\Gameover\game_over2.png" />
+    <Content Include="Assets\Controls\Gameover\Game_over_animation.png" />
     <Content Include="Assets\Sprites\Heart\heart.pyxel" />
     <Content Include="Assets\Sprites\Heart\Heart_Ani.png" />
     <Content Include="Assets\Sprites\Jimbo\Jimbo.pyxel" />
@@ -302,13 +303,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />
+    <Folder Include="Assets\Controls\ScorePanel\" />
     <Folder Include="Assets\Images\" />
     <Folder Include="Assets\Fonts\" />
+    <Folder Include="Assets\Controls\" />
     <Folder Include="Assets\Sprites\" />
     <Folder Include="Assets\Sprites\Jimbo\" />
     <Folder Include="Assets\Sprites\Coin\" />
     <Folder Include="Assets\Sprites\Bloob\" />
-    <Folder Include="Assets\Sprites\Gameover\" />
+    <Folder Include="Assets\Controls\Gameover\" />
     <Folder Include="Assets\Sprites\Drawbridge\" />
     <Folder Include="Assets\Sprites\Heart\" />
     <Folder Include="Assets\Sprites\John_Doe\" />

@@ -231,7 +231,7 @@
   <object id="3" name="Coin1" type="CoinSprite" gid="146" x="374" y="22" width="32" height="32"/>
   <object id="4" name="xx" type="DrawbridgeSprite" gid="37" x="448" y="212" width="32" height="32">
    <properties>
-    <property name="ViewName" value="Level2"/>
+    <property name="ViewName" value="Level1"/>
    </properties>
   </object>
  </objectgroup>

@@ -89,7 +89,7 @@
                  "name":"xx",
                  "properties":
                     {
-                     "ViewName":"Level2"
+                     "ViewName":"Level1"
                     },
                  "rotation":0,
                  "type":"DrawbridgeSprite",
