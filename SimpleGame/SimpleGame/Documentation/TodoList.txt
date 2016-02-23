@@ -1,0 +1,15 @@
+
+Was noch zu tun ist:
+===================================
+
+Kai
+=====
+- Farbige Blobs animieren
+- Megabobs zeichnen
+- Gensequenzer zeichnen (Oder entsprechendes Gerät)
+- Spieler hält Waffe oder Gerät
+   Links, Rechts, GeheLinks, GeheRechs mit Waffe
+   Waffe freistellen
+- Dynamitladung zeichnen
+- Tileset für Raumschiff innen
+- 
