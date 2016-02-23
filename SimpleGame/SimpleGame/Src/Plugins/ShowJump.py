@@ -5,16 +5,37 @@ from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Utils.PlayerMoveStateMachine import PlayerMoveState, CheckDirection
 from Utils.ViewPointer import ViewPoint
 from Utils.gui.TextLabel import TextLabel
+import json
+import os.path
+
+class JumpMode(object):
+    Short = 0
+    Long = 1
+
 
 class ShowJump(ViewPluginBase):
     """Displays the jump curve."""
     def __init__(self):
         super().__init__()
+        self._pluginVisible = True
         self._player = None
         self._calculationDirty = True
         self._maxCalculationTime = None
-        self._jumpCalculator=JumpCalculator(0.5, 500, 100)
+        self._parameters = {}
+        self._parameters[JumpMode.Short] = (500, 275, 70)
+        self._parameters[JumpMode.Long] = (500, 500, 200)
+        self._jumpMode = JumpMode.Short
+
+
+        self._jumpCalculator = JumpCalculator(0.5, 500, 100)
         self._buttons = pygame.sprite.Group()
+
+        self._xGroup = pygame.sprite.Group()
+        self._xButton = TextLabel(770, 20)
+        self._xButton.caption = "x"
+        self._xButton._onClickHandler = self.onXButtonClick
+        self._xGroup.add(self._xButton)
+
         
         self._vxMinus = TextLabel(620,70)
         self._vxMinus._onClickHandler = self.onVxMinusClick
@@ -46,11 +67,34 @@ class ShowJump(ViewPluginBase):
         self._gravMinus.caption = "-Grav."
         self._buttons.add(self._gravMinus)
 
+        self._buttonJumpMonde = TextLabel(620,110)
+        self._buttonJumpMonde.caption = "Short"
+        self._buttonJumpMonde._onClickHandler = self.on_jumpModeButtonClick
+        self._buttons.add(self._buttonJumpMonde)
+
+        self._buttonSave = TextLabel(680, 110)
+        self._buttonSave.caption = "Save"
+        self._buttonSave._onClickHandler = self.onSaveButtonClick
+        self._buttons.add(self._buttonSave)
+
+        self._buttonLoad = TextLabel(740, 110)
+        self._buttonLoad.caption = "Load" 
+        self._buttonLoad._onClickHandler = self.onLoadButtonClick
+        self._buttons.add(self._buttonLoad)
+
+
+
         self.TIMEREVENT = pygame.USEREVENT + 6
         pygame.time.set_timer(self.TIMEREVENT, 200)
 
     def initializePlugin(self, parentView):
         super().initializePlugin(parentView)
+
+        if not self._player:
+            self._player = ServiceLocator.getGlobalServiceInstance(ServiceNames.Player)
+            self._jumpCalculator.g = self._player.jumpG
+            self._jumpCalculator.v0 = self._player.jumpV0
+            self._jumpCalculator.vx = self._player.jumpVx
         self.registerEventHandler()
 
 
@@ -65,6 +109,9 @@ class ShowJump(ViewPluginBase):
 
     def handleOnMouseClick(self, position):
         for button in self._buttons:
+            if button.rect.collidepoint(position):
+                button.onClick()
+        for button in self._xGroup:
             if button.rect.collidepoint(position):
                 button.onClick()
         pass
@@ -129,14 +176,7 @@ class ShowJump(ViewPluginBase):
 
 
 
-    def drawPlugin(self):
-
-        if not self._player:
-            self._player = ServiceLocator.getGlobalServiceInstance(ServiceNames.Player)
-            self._jumpCalculator.g = self._player.jumpG
-            self._jumpCalculator.v0 = self._player.jumpV0
-            self._jumpCalculator.vx = self._player.jumpVx
-
+    def drawCurve(self):
         vector = self.getMoveStateVector()
 
         if vector:
@@ -146,23 +186,33 @@ class ShowJump(ViewPluginBase):
                 self._calculationDirty = False
 
             offset = self._viewPointer.playerOffset.copy()
-            offset.left += 16
-            offset.top += 16
-            start = (offset.left, offset.top)
+            #offset.left += 16
+            #offset.top += 16
+            start = (offset.left + 16, offset.top + 32)
             for i in range(0, 2500, 100):
                 x = self._jumpCalculator.calcX(i)
                 y = self._jumpCalculator.calcY(i)
-                end = (offset.left-x * vector, offset.top - y)
-                if self._player.tilesWatcher.isBarrierOnPosition(ViewPoint(end[0], end[1]), CheckDirection.Ground):
-                    color = (255, 1, 1)
-                else:
-                    color = (0, 0, 255) 
+                end = (offset.left - x * vector + 16, offset.top - y + 32)
+                color = (255, 1, 1) 
                 pygame.draw.line(self._screen, color, start, end)
                 start = end
+                    
 
             self._buttons.draw(self._screen)
             self.drawCurveParametersText()
             self.drawMaxCalculationTimePoint()
+        pass
+
+    def drawJumpUp(self):
+        pass
+
+    def drawPlugin(self):
+
+        if self._pluginVisible:
+            if self._player.moveState == PlayerMoveState.Standing:
+                self.drawJumpUp()
+            self.drawCurve()
+        self._xGroup.draw(self._screen)
         
 
         
@@ -200,6 +250,56 @@ class ShowJump(ViewPluginBase):
         self._jumpCalculator.g -= 10
         self._player.jumpG -= 10
         self._calculationDirty = True
+
+    def on_jumpModeButtonClick(self, sender):
+        if self._jumpMode == JumpMode.Short:
+            self.jumpMode = JumpMode.Long
+        else:
+            self.jumpMode = JumpMode.Short
+    def onSaveButtonClick(self, sender):
+        #Save current jump parameters into parameters store
+        self._parameters[self._jumpMode] = (self._jumpCalculator.g, self._jumpCalculator.v0, self._jumpCalculator.vx)
+        #Save into file
+        with open('jumpdata.json', 'w') as outfile:
+            json.dump(self._parameters, outfile)
+
+        pass
+    def onLoadButtonClick(self, sender):
+        data = None
+        if os.path.isfile('jumpdata.json'):
+            with open('jumpdata.json') as data_file:
+                data = json.load(data_file)
+            self._parameters[JumpMode.Short] = data["{0}".format(JumpMode.Short)]
+            self._parameters[JumpMode.Long] = data["{0}".format(JumpMode.Long)]
+            #Reload
+            self.jumpMode = self.jumpMode
+        pass
+
+    def onXButtonClick(self, sender):
+        """User clicks on x button."""
+        if self._pluginVisible:
+            self._pluginVisible = False
+        else:
+            self._pluginVisible = True
+        pass
+
+    def changeJumpMode(self, mode):
+        parameters = self._parameters[mode]
+        self._jumpCalculator.g = parameters[0]
+        self._jumpCalculator.v0 = parameters[1]
+        self._jumpCalculator.vx = parameters[2]
+        if mode == JumpMode.Long:
+            self._buttonJumpMonde.caption = "Long"
+        else:
+            self._buttonJumpMonde.caption = "Short"
+
+    @property
+    def jumpMode(self):
+        return self._jumpMode
+    @jumpMode.setter
+    def jumpMode(self, value):
+        self._jumpMode = value
+        self.changeJumpMode(value)
 
 
 

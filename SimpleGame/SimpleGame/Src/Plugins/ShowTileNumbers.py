@@ -10,7 +10,7 @@ class ShowTileNumbers(ViewPluginBase):
         self._map = ServiceLocator.getGlobalServiceInstance(ServiceNames.Map)
         self.cache = {}
         self._buttons = pygame.sprite.Group()
-        self.button = TextLabel(620,110, "Module is OFF")
+        self.button = TextLabel(620,150, "Module is OFF")
         self.button.onClick=self.onClickHandler
         self._buttons.add(self.button)
         self.viewMode = 0
