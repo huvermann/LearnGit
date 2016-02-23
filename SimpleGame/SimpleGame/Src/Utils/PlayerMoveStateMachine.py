@@ -118,7 +118,7 @@ class PlayerMoveStateMachine(object):
             if self._joystickState.keyState == JoystickEvents.MoveRight:
                 # Move right
                 self._changeToDirection(JoystickEvents.MoveRight, timeStamp)
-            elif self._joystickState.keyState == JoystickEvents.JumpButton:
+            elif self._joystickState.buttonState == JoystickEvents.JumpButton:
                 # Jump left
                 self._changeToJumping(timeStamp)
             elif self._joystickState.keyState == JoystickEvents.MoveUp:
