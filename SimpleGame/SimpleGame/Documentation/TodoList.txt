@@ -49,6 +49,7 @@ Heiko
   7.2: + Sprite läuft immer in Richtung Spieler, bei Hinderniss läuft es kurz zurück und dann wieder
          zum Spieler
   7.3: + Sprite springt hoch und runter
+  7.4: + Sprites mit den neuen Grafiken erstellen und testen.
 
 - 8.0: Das Gageway-Sprite als Basisklasse implementieren.
      + 8.1 Beim Gateway soll man einfach nur die Grafik austausen damit Gateways mit unterschiedlichem Aussehen erstellt werden können.
