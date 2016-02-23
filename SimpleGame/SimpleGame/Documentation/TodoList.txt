@@ -17,9 +17,7 @@ Kai
 
 Heiko
 =======
-- 1.0: ShowJumpPlugin:
-  + 1.1: Kurven an Kopf
-  + 1.2 JumpUp anzeigen und Parameter
+
 
 - 2.0: KeyRelease-Problem beheben:
   + 2.1 bei schnellen Tastaturklicks wird die aktion ignoriert.
@@ -95,3 +93,12 @@ Heiko
 
 - 19.0: Highscore-Liste
   + 19.1: Es werden die Highscores angezeigt.
+
+
+
+ -------------------------------------
+ Erledigt Heiko
+ - 1.0: ShowJumpPlugin:
+  + 1.1: Kurven an Kopf
+  + 1.2 JumpUp anzeigen und Parameter
+ -------------------------------------

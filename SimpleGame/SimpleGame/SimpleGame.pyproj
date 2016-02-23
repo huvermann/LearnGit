@@ -298,6 +298,7 @@
     <Content Include="Deployment\Game.spec" />
     <Content Include="Deployment\MakeExe.bat" />
     <Content Include="Deployment\readme.txt" />
+    <Content Include="Documentation\InProgressHeiko.txt" />
     <Content Include="Documentation\readme.txt" />
     <Content Include="Documentation\TodoList.txt" />
     <Content Include="requirements.txt" />
