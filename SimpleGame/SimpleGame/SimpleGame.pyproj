@@ -260,6 +260,7 @@
     <Content Include="Assets\Sprites\Jimbo\Jimbo_Left.png" />
     <Content Include="Assets\Sprites\Jimbo\Jimbo_Right.png" />
     <Content Include="Assets\Sprites\Jimbo\Jimbo_standing.png" />
+    <Content Include="Assets\Sprites\John_Doe\John_Doe_springen.pyxel" />
     <Content Include="Assets\Sprites\John_Doe\jump_left.png" />
     <Content Include="Assets\Sprites\John_Doe\jump_right.png" />
     <Content Include="Assets\Sprites\John_Doe\jump_up.png" />
