@@ -1,3 +1,6 @@
 In Progress Heiko
 -----------------------
 
+- 2.0: KeyRelease-Problem beheben:
+  + 2.1 bei schnellen Tastaturklicks wird die aktion ignoriert.
+        ein kurzer Tastendruck soll auch berücksichtigt werden und die Spielfigur bewegen können.
