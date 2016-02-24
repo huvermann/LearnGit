@@ -224,12 +224,6 @@ class ViewModelBase2():
         if event.key == pygame.K_q:
             # Q Pressed, quit game
             self._state.done = True
-        elif event.key == pygame.K_1:
-            self._callback(ViewNames.Level1)
-        elif event.key == pygame.K_2:
-            self._callback(ViewNames.Level1)
-        elif event.key == pygame.K_3:
-            self._callback(ViewNames.Level2)
         elif event.key == pygame.K_m:
             self._musicPlayer.stop()
 
