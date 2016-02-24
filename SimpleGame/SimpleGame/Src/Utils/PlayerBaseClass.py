@@ -186,6 +186,14 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         #Todo: Implement handler for eache move state
         if moveStateMachine.moveState in [PlayerMoveState.MoveLeft, PlayerMoveState.MoveRight]:
             if moveStateMachine.lastChange:
+                if moveStateMachine._MoveEndFlag:
+                    # Move has ended. 
+                    self._viewPointer.playerPositionX = moveStateMachine._MoveEndFlag[1].left
+                    self._viewPointer.playerPositionY = moveStateMachine._MoveEndFlag[1].top
+                    moveStateMachine._MoveEndFlag = None
+                    print("Handled MoveEndFlag")
+                    pass
+
                 vectors = moveStateMachine.getVectors(moveStateMachine.moveState)
                 duration = timeStamp - moveStateMachine.lastChange
                 #move = duration * self.speed / 1000 * vectors.X
@@ -201,8 +209,8 @@ class PlayerBaseClass(pygame.sprite.Sprite):
                 self._viewPointer.playerPositionY =  int(moveStateMachine.lastPosition.top + move)
         elif moveStateMachine.moveState in [PlayerMoveState.Standing, PlayerMoveState.StandingLeft, PlayerMoveState.StandingRight]:
             if self._moveStateMachine._MoveEndFlag:
-                self._viewPointer.playerPositionX = self._moveStateMachine._MoveEndFlag[1].left
-                self._viewPointer.playerPositionY = self._moveStateMachine._MoveEndFlag[1].top
+                self._viewPointer.playerPositionX = moveStateMachine._MoveEndFlag[1].left
+                self._viewPointer.playerPositionY = moveStateMachine._MoveEndFlag[1].top
                 self._moveStateMachine._MoveEndFlag = None
 
             self._fixGroundingPosition(moveStateMachine)

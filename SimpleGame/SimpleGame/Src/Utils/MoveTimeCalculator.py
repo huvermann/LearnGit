@@ -59,6 +59,9 @@ class MoveTimeCalculator(object):
                 result = (10000, position)
             
         return result
+
+    def calculateHorizontalMove(self, time):
+        return self._jumpCalculator.calcWalking(time, 1)
         
 
 

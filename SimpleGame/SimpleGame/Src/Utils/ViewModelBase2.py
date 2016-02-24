@@ -208,10 +208,10 @@ class ViewModelBase2():
             self._mouseButtonUp(event)
         elif event.type == pygame.MOUSEBUTTONDOWN:
             self._mouseButtonDown(event)
-        else:
-            print ("Unhandled: ", event.type)
-            if event.type != 27:
-                print (event) 
+        #else:
+        #    print ("Unhandled: ", event.type)
+        #    if event.type != 27:
+        #        print (event) 
         pass
 
     def registerEventHandler(self, handler):

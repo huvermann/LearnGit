@@ -4,6 +4,7 @@ from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Utils.ViewPointer import ViewPointer, ViewPoint
 from Tiled.TiledWatcher import TiledWatcher, CheckDirection
 from Utils.MoveTimeCalculator import MoveTimeCalculator
+import pygame
 
 
 class PlayerMoveState(object):
@@ -111,6 +112,8 @@ class PlayerMoveStateMachine(object):
 
     def _checkMove(self, timeStamp):
         """Checks if the move state must be changed."""
+        if self.moveTimeLimit and timeStamp >= self.lastChange + self.moveTimeLimit[0]:
+            self._changeToStanding(timeStamp)
         if not self.__tileWatcher.isBarrierOn(CheckDirection.Ground):
             self._changeToFalling(timeStamp)
         elif self._moveState == PlayerMoveState.MoveLeft:
@@ -124,7 +127,8 @@ class PlayerMoveStateMachine(object):
             elif self._joystickState.keyState == JoystickEvents.MoveUp:
                 self._changeToStanding(timeStamp)
             elif self._joystickState.keyState == JoystickEvents.KeyReleased:
-                self._changeToStanding(timeStamp)
+                #self._changeToStanding(timeStamp)
+                self._moveWhileKeyRelease(timeStamp)
             elif self.__tileWatcher.isBarrierOn(CheckDirection.Left):
                 self._changeToStanding(timeStamp)
 
@@ -140,10 +144,23 @@ class PlayerMoveStateMachine(object):
             elif self._joystickState.keyState == JoystickEvents.MoveUp:
                 self._changeToStanding(timeStamp)
             elif self._joystickState.keyState == JoystickEvents.KeyReleased:
-                self._changeToStanding(timeStamp)
+                #self._changeToStanding(timeStamp)
+                self._moveWhileKeyRelease(timeStamp)
             elif self.__tileWatcher.isBarrierOn(CheckDirection.Right):
                 self._changeToStanding(timeStamp) 
 
+        pass
+
+    def _moveWhileKeyRelease(self, timeStamp):
+        """User releases the key while moving left or right."""
+        movetime = self._joystickState.lastChange - self.lastChange
+        way = self._moveTimeCalculator.calculateHorizontalMove(movetime)
+        vector = self.getVectors(self._moveState)
+        position = self._lastPosition.copy()
+        position.left += way * vector.X
+        self._moveTimeLimit = (movetime, position)
+        self._MoveEndFlag = self._moveTimeLimit
+        print("MoveWhileKeyRelease: {0} pixel, time: {1}".format(way * vector.X, movetime))
         pass
 
     def _checkJump(self, timeStamp):
