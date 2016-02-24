@@ -26,9 +26,12 @@ class JumpCalculator(object):
 
     def calcWalking(self, time, vector):
         #Todo Beschleunigung einrechnen
-        if time < 200:
-            return int(time * 0.02 * vector)
-        return int(time * self._walkSpeed * vector)
+        if time < 300: # Acceleration time.
+            speedfactor = time / 300
+            result = int(time * self._walkSpeed * speedfactor * vector)
+        else:
+            result = int(time * self._walkSpeed * vector)
+        return result
 
 
     @property
