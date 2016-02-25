@@ -11,7 +11,7 @@ class CheckDirection():
     TopRight = 5
 
 class CollosionSprite(pygame.sprite.Sprite):
-    def __init__(self, image, rect):
+    def __init__(self, image = None, rect = None):
         super().__init__()
         self.image = image
         self.rect = rect
@@ -27,6 +27,7 @@ class TiledWatcher(object):
         self.__player = parentPlayer
         self.__viewPointer = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewPointer)
         self.__spaceTiles = [0,1] # Todo: read this from map
+        self.__probeSprite = CollosionSprite()
         """Create checkpoint coordinates depending on the player rect."""
         #Todo Implement
         pass
@@ -43,7 +44,8 @@ class TiledWatcher(object):
             checkx = position.left + 16
             checky = position.top + 32
             tideIndex = self.getTileIndexInMap(checkx, checky)
-            return not tideIndex in self.__spaceTiles
+            result = not tideIndex in self.__spaceTiles
+            return result
         elif direction == CheckDirection.Left:
             #Todo: Implement check
             checkx = position.left + 2
@@ -107,7 +109,7 @@ class TiledWatcher(object):
             py=y*th-shifty
             for x in range(0, rangex+1):
                 bgTileIndex = tileMap.calcTileMapIndex(offset, (x,y))
-                if bgTileIndex > 0:
+                if not bgTileIndex in self.__spaceTiles:
                     if not result:
                         result = self.__pyGame.Surface([sizeRect.width, sizeRect.height])
                         result.set_colorkey(transparentColor)
@@ -123,9 +125,11 @@ class TiledWatcher(object):
         rect = bgImage.get_rect()
         rect.left = position.left
         rect.top = position.top
+        self.__probeSprite.image= bgImage
+        self.__probeSprite.rect = rect
         sp = CollosionSprite(bgImage, rect)
 
-        if self.__pyGame.sprite.collide_mask(sprite, sp):
+        if self.__pyGame.sprite.collide_mask(sprite, self.__probeSprite):
             return True
         return result
 
