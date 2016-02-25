@@ -331,11 +331,7 @@ class ShowJump(ViewPluginBase):
         #Save current jump parameters into parameters store
         self._parameters[self._jumpMode] = (self._jumpCalculator.g, self._jumpCalculator.v0, self._jumpCalculator.vx)
         #Save into file
-        teleports = {}
-        #for memoryNo in self._savedGameCoordinates:
-        #    offsets = self._savedGameCoordinates[memoryNo]
-        #    for offset in offsets:
-        #        pos ( offset.left, offset.top)
+
 
         data = {"JumpParameters" : self._parameters,
                 "Teleports" : self.serializeObject(self._savedGameCoordinates)
