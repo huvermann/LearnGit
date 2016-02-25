@@ -45,6 +45,8 @@ class PlayerMoveStateMachine(object):
         self.__viewPoint = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewPointer)
         self.__tileWatcher = TiledWatcher(parentPlayer)
         self._moveTimeCalculator = MoveTimeCalculator(self.__viewPoint, self.__tileWatcher, parentPlayer._JumpCalculator)
+        ServiceLocator.registerGlobalService(ServiceNames.TiledWatcher, self.__tileWatcher)
+    
     def getVectors(self, moveState):
         """Returns moving vectors depending on move state."""
         # Obsolete remove it!

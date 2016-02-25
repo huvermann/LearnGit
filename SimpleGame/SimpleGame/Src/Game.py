@@ -28,7 +28,7 @@ class MainGame:
 
     def configure(self):
         ServiceLocator.registerGlobalService(ServiceNames.Screen, self.screen)
-        #ServiceLocator.registerGlobalService("pygame", pygame)
+        ServiceLocator.registerGlobalService(ServiceNames.PyGame, pygame)
         ServiceLocator.registerGlobalService(ServiceNames.ViewController, self.viewController)
         ServiceLocator.registerGlobalService(ServiceNames.Gamestate, self.gameState)
         pass

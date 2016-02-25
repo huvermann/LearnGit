@@ -143,7 +143,7 @@ class TileSet():
         self.imageheight = config['imageheight']
         self.name = config['name']
         self.properties = config['properties']
-        self.transparentcolor = config['transparentcolor']
+        self.transparentcolor = hex_to_rgb(config['transparentcolor'])
         if "tileproperties" in config:
             self.tileproperties = config['tileproperties']
 
@@ -168,7 +168,7 @@ class TileSet():
                  rect = (x*self.tilewith, y*self.tileheight, self.tilewith, self.tileheight)
                  surface = image.subsurface(rect)
                  if self.transparentcolor:
-                     surface.set_colorkey(hex_to_rgb(self.transparentcolor))
+                     surface.set_colorkey(self.transparentcolor)
                  self.surfaceArray.append(surface)
         pass
 
@@ -185,6 +185,7 @@ class TiledMap(object):
         self.__player = None
         self.__viewName = viewName
         self.__properties = None
+        self.__tileTransparentColor = None
         self.configure(jsonConfig, viewName)
         pass
 
@@ -202,6 +203,7 @@ class TiledMap(object):
         self.__backgroundImage = self.__getImageLayerByName('Image')
         self.__sprites = self.__getObjectLayerByName('Sprites')
         self.__player = self.__getPlayerObject()
+        self.__tileTransparentColor = self._getTilesetTransparenceColor('Map')
 
         pass
 
@@ -222,6 +224,13 @@ class TiledMap(object):
             result = liste[0]
         else:
             raise SyntaxError('Missing tileset: {0}.'.format(tileSetName))
+        return result
+
+    def _getTilesetTransparenceColor(self, tileSetName):
+        result = None
+        tileset = self.__getTileSetByName(tileSetName)
+        if tileset:
+            result = tileset.transparentcolor
         return result
 
     def __getImageLayerByName(self, layerName):
@@ -327,6 +336,11 @@ class TiledMap(object):
     @property
     def tileHeight(self):
         return self.__tileheight
+
+    @property
+    def tileTransparentColor(self):
+        return self.__tileTransparentColor
+
 
     @property
     def backgroundImageSurface(self):

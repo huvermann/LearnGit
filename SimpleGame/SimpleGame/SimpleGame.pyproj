@@ -37,6 +37,9 @@
     <Compile Include="Src\JoystickExample.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Plugins\CollosionLab.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Plugins\PluginFactory.py" />
     <Compile Include="Src\Plugins\ShowJump.py">
       <SubType>Code</SubType>

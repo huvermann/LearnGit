@@ -1,5 +1,6 @@
 
 class ServiceNames:
+    PyGame = 'pygame'
     Gamestate = 'gamestate'
     ViewPointer = 'viewPointer'
     Screen = 'screen'

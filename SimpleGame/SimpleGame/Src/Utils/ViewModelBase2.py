@@ -19,7 +19,6 @@ class ViewModelBase2():
         self.__map = None
         self.__drawBackground = None
         self.__drawTilesCall = None
-        self.__tileCollider = None
         self.__playerSprite = None
         self.__serviceContainer = None
         self.__plugins = []
