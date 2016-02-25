@@ -21,7 +21,7 @@ Heiko
 
 
 
-- 3.0: TileMap Kollosion (Pixel-Kollosion mit Kachel) implementieren
+
 
 - 4.0 Bewegung und Kollosion:
   + 4.1: Richtungsänderung im Sprung implementieren
@@ -96,7 +96,15 @@ Heiko
 
  -------------------------------------
  Erledigt Heiko
+ ------------------------------------
  - 1.0: ShowJumpPlugin:
   + 1.1: Kurven an Kopf
   + 1.2 JumpUp anzeigen und Parameter
+
+- 2.0: KeyRelease-Problem beheben:
+  + 2.1 bei schnellen Tastaturklicks wird die aktion ignoriert.
+        ein kurzer Tastendruck soll auch berücksichtigt werden und die Spielfigur bewegen können.
+
+Bei horizontalen Bewegungen wird 300ms lang auf die Maximalgeschwindigkeit beschleunigt.
+So kann man bei kurzem Tastendruck exakter steuern.
  -------------------------------------

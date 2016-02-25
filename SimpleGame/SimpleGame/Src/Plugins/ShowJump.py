@@ -20,6 +20,7 @@ class ShowJump(ViewPluginBase):
         self._pluginVisible = True
         self._player = None
         self._calculationDirty = True
+        self._savedGameCoordinates = {}
         self._maxCalculationTime = None
         self._parameters = {}
         self._parameters[JumpMode.Short] = (500, 275, 70)
@@ -103,8 +104,35 @@ class ShowJump(ViewPluginBase):
             if event.type == pygame.MOUSEBUTTONUP:
                 pos = pygame.mouse.get_pos()
                 self.handleOnMouseClick(pos)
+
+            if event.type == pygame.KEYDOWN:
+                self.handleKeyDownEvent(event)
+
+
+
             if event.type == self.TIMEREVENT:
                 self._calculationDirty = True
+        pass
+
+    def handleKeyDownEvent(self, event):
+        mods = pygame.key.get_mods()
+        if event.key == pygame.K_1:
+            if mods & pygame.KMOD_SHIFT:
+                self.SaveTeleport(1)
+            else:
+                self.Teleport(1)
+        elif event.key == pygame.K_2:
+            if mods & pygame.KMOD_SHIFT:
+                self.SaveTeleport(2)
+            else:
+                self.Teleport(2)
+        elif event.key == pygame.K_3:
+            if mods & pygame.KMOD_SHIFT:
+                self.SaveTeleport(3)
+            else:
+                self.Teleport(3)
+
+        
         pass
 
     def handleOnMouseClick(self, position):
@@ -116,7 +144,24 @@ class ShowJump(ViewPluginBase):
                 button.onClick()
         pass
         
-    
+    def Teleport(self, memoryNo):
+        print("Teleport: {0}".format(memoryNo))
+        if memoryNo in self._savedGameCoordinates:
+            data = self._savedGameCoordinates[memoryNo]
+            self._viewPointer.playerPositionX = data["PlayerPosition"].left
+            self._viewPointer.playerPositionY = data["PlayerPosition"].top
+        else:
+            print("No saved game coordinate found.")
+        pass
+
+    def SaveTeleport(self, memoryNo):
+       
+        self._savedGameCoordinates[memoryNo] = {
+            "PlayerPosition": ViewPoint( self._viewPointer.playerPositionX,  self._viewPointer.playerPositionY),
+            "Screen": (self._viewPointer.screenPosition.copy())
+            }
+        print("Position saved!")
+        pass
 
     def drawCurveParametersText(self):
         font = pygame.font.Font(None, 24)
@@ -256,12 +301,48 @@ class ShowJump(ViewPluginBase):
             self.jumpMode = JumpMode.Long
         else:
             self.jumpMode = JumpMode.Short
+
+
+    def serializeObject(self, data):
+        result = {}
+        for savePoint in data:
+            savePoints = data[savePoint]
+            result[savePoint] = {}
+            for offsetName in savePoints:
+                offset = savePoints[offsetName]
+                result[savePoint][offsetName] = {}
+                result[savePoint][offsetName] = (offset.left, offset.top)
+
+        return result
+        
+    def deserializeObject(self, data):
+        result = {}
+        for savePoint in data:
+            i = int(savePoint)
+            result[i] = {}
+            offsets = data[savePoint]
+            for offsetName in offsets:
+                offset = ViewPoint(int(offsets[offsetName][0]), int(offsets[offsetName][1]))
+                result[i][offsetName] = offset
+        return result
+
+
     def onSaveButtonClick(self, sender):
         #Save current jump parameters into parameters store
         self._parameters[self._jumpMode] = (self._jumpCalculator.g, self._jumpCalculator.v0, self._jumpCalculator.vx)
         #Save into file
+        teleports = {}
+        #for memoryNo in self._savedGameCoordinates:
+        #    offsets = self._savedGameCoordinates[memoryNo]
+        #    for offset in offsets:
+        #        pos ( offset.left, offset.top)
+
+        data = {"JumpParameters" : self._parameters,
+                "Teleports" : self.serializeObject(self._savedGameCoordinates)
+                }
+
         with open('jumpdata.json', 'w') as outfile:
-            json.dump(self._parameters, outfile)
+            json.dump(data, outfile)
 
         pass
     def onLoadButtonClick(self, sender):
@@ -269,8 +350,14 @@ class ShowJump(ViewPluginBase):
         if os.path.isfile('jumpdata.json'):
             with open('jumpdata.json') as data_file:
                 data = json.load(data_file)
-            self._parameters[JumpMode.Short] = data["{0}".format(JumpMode.Short)]
-            self._parameters[JumpMode.Long] = data["{0}".format(JumpMode.Long)]
+            params = data["JumpParameters"]
+            self._savedGameCoordinates = self.deserializeObject(data["Teleports"])
+
+            self._parameters[JumpMode.Short] = params["{0}".format(JumpMode.Short)]
+            self._parameters[JumpMode.Long] = params["{0}".format(JumpMode.Long)]
+
+            #if "1" in teleports:
+            #    self._savedGameCoordinates[1] = 
             #Reload
             self.jumpMode = self.jumpMode
         pass
