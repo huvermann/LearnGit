@@ -1,10 +1,9 @@
-from Plugins.ShowJump import ShowJump
-from Plugins.ShowTileNumbers import ShowTileNumbers
-from Plugins.CollosionLab import CollosionLab
-from Plugins.CheatKeyPlugin import CheatKeyPlugin
+import importlib
 
 def createPluginInstance(pluginName):
-    pluginType = globals()[pluginName]
-    return pluginType()
+    module_name = "Plugins.{0}".format(pluginName)
+    myClass = getattr(importlib.import_module(module_name), pluginName)
+    return myClass()
+
 
 
