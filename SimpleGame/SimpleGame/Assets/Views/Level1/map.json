@@ -159,6 +159,7 @@
  "orientation":"orthogonal",
  "properties":
     {
+     "Plugin2":"Plugin=CheatKeyPlugin",
      "property":"Plugin=ShowJump"
     },
  "renderorder":"right-down",

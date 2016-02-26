@@ -83,16 +83,23 @@ class TiledWatcher(object):
 
 
     def standExactOnSurface(self):
-        checkx = self.__viewPointer.playerPositionX + 16
-        checky = self.__viewPointer.playerPositionY + 31
-        tideIndex = self.getTileIndexInMap(checkx, checky)
-        res1 = tideIndex in self.__spaceTiles
+        #checkx = self.__viewPointer.playerPositionX + 16
+        #checky = self.__viewPointer.playerPositionY + 31
+        #tideIndex = self.getTileIndexInMap(checkx, checky)
+        #res1 = tideIndex in self.__spaceTiles
 
-        checkx = self.__viewPointer.playerPositionX + 16
-        checky = self.__viewPointer.playerPositionY + 32
-        tideIndex2 = self.getTileIndexInMap(checkx, checky)
-        res2 = not tideIndex2 in self.__spaceTiles
-        return res1 and res2
+        #checkx = self.__viewPointer.playerPositionX + 16
+        #checky = self.__viewPointer.playerPositionY + 32
+        #tideIndex2 = self.getTileIndexInMap(checkx, checky)
+        #res2 = not tideIndex2 in self.__spaceTiles
+        #return res1 and res2
+        position1 = ViewPoint(self.__viewPointer.playerPositionX, self.__viewPointer.playerPositionY-3)
+        position2 = ViewPoint(self.__viewPointer.playerPositionX, self.__viewPointer.playerPositionY)
+       
+        p1 = not self.checkCollosionWithBackground(self.__map, position1, self.__player)
+        p2 = self.checkCollosionWithBackground(self.__map, position2, self.__player)
+        result = p1 and p2
+        return result
 
     def getBackgroundImage(self, tileMap, offset, sizeRect):
         """Returns an Image of the background at offset with size of sizeRect."""

@@ -144,7 +144,8 @@
  "properties":
     {
      "Plugin":"Plugin=ShowJump",
-     "Plugin2":"Plugin=CollosionLab"
+     "Plugin2":"Plugin=CollosionLab",
+     "Plugin3":"Plugin=CheatKeyPlugin"
     },
  "renderorder":"right-down",
  "tileheight":32,

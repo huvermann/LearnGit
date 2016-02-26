@@ -3,6 +3,7 @@
  <properties>
   <property name="Plugin" value="Plugin=ShowJump"/>
   <property name="Plugin2" value="Plugin=CollosionLab"/>
+  <property name="Plugin3" value="Plugin=CheatKeyPlugin"/>
  </properties>
  <tileset firstgid="1" name="Map" tilewidth="32" tileheight="32" tilecount="144" columns="8">
   <image source="training.png" trans="4a61f3" width="256" height="576"/>

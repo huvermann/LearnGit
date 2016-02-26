@@ -242,7 +242,15 @@ class ViewModelBase2():
         viewController = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewController)
         if viewController:
             viewController.changeView(event.ViewName)
+            if 'Position' in event.dict:
+                # Change the position
+                #newPosEvent = pygame.event.Event(EVENT_CHANGEPOSITION, x=event.Position.left, y=event.Position.top)
+                #pygame.event.post(newPosEvent)
+                viewController.currentView._viewPointer.playerPositionX = event.Position.left
+                viewController.currentView._viewPointer.playerPositionY = event.Position.top
+
         pass
+
 
     def onNoiseEvent(self, event):
         """Start a sound."""

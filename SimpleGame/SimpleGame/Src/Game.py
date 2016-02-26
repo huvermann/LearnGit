@@ -41,7 +41,7 @@ class MainGame:
         pygame.display.set_caption("SimpleGame")
         # Start-Screen
         #self.viewController.changeView("Training")
-        self.viewController.changeView("Training")
+        self.viewController.changeView("Level1")
         try:
             while not self.gameState.done:
                 self.viewController.currentView.runView()
