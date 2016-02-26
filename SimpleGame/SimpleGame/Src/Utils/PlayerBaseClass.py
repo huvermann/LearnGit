@@ -213,7 +213,7 @@ class PlayerBaseClass(pygame.sprite.Sprite):
                 self._viewPointer.playerPositionY = moveStateMachine._MoveEndFlag[1].top
                 self._moveStateMachine._MoveEndFlag = None
 
-            self._fixGroundingPosition(moveStateMachine)
+            #self._fixGroundingPosition(moveStateMachine)
 
         elif moveStateMachine.moveState in [PlayerMoveState.JumpLeft, PlayerMoveState.JumpRight, PlayerMoveState.JumpUp]:
             self.onMoveStateJump(timeStamp, moveStateMachine)
