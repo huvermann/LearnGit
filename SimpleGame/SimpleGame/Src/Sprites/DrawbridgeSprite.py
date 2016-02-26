@@ -13,7 +13,9 @@ class DrawbridgeSprite(SpriteItemBase):
         self._animation = None
         self.loadAnimations(resourceName)
         self._collosionInfo.sound = SoundNames.CoinTouched
+        self._collosionInfo.spriteDies = False
         self._viewTargetName = None
+        
         pass
 
     def doCollide(self):
