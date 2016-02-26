@@ -1,15 +1,9 @@
-from Sprites.JimboSprite import JimboSprite
-from Sprites.CoinSprite import CoinSprite
-from Sprites.BlobSprite import BlobSprite
-from Sprites.MockSprite import MockSprite
-from Sprites.DrawbridgeSprite import DrawbridgeSprite
-from Sprites.HeartSprite import HeartSprite
-from Sprites.JohnDoeSprite import JohnDoeSprite
-from Sprites.Blob2Sprite import Blob2Sprite
-
+import importlib
 
 def createSpriteInstance(spriteName, *args):
-    spriteType = globals()[spriteName]
-    return spriteType(*args)
+    module_name = "Sprites.{0}".format(spriteName)
+    spriteClass = getattr(importlib.import_module(module_name), spriteName)
+    return spriteClass(*args)
+
 
 
