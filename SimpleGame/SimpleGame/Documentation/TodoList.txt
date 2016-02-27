@@ -47,6 +47,9 @@ Heiko
   7.3: + Sprite springt hoch und runter
   7.4: + Sprites mit den neuen Grafiken erstellen und testen.
 
+- 7.B: Definiere Space-Tiles über Tiled
+  7.B.1 + Implementiere das Auslesen aus der Json in map.spaceTiles
+
 - 8.0: Das Gageway-Sprite als Basisklasse implementieren.
      + 8.1 Beim Gateway soll man einfach nur die Grafik austausen damit Gateways mit unterschiedlichem Aussehen erstellt werden können.
 
