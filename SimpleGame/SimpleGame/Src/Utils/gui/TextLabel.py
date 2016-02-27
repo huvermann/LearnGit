@@ -7,6 +7,7 @@ class TextLabel(pygame.sprite.Sprite):
         self._y = y
         self._buttonColor = (0,0,255)
         self._borderColor = (0,0,0)
+        self._fontColor = (0,0,0)
         self._borderHeight = 4
         self._borderWidth = 4
         self._onClickHandler = None
@@ -19,7 +20,7 @@ class TextLabel(pygame.sprite.Sprite):
         pass
     def updateImage(self):
         font = pygame.font.Font(None, 24)
-        text = font.render(self._caption, 1, (255, 10, 10))
+        text = font.render(self._caption, 1, self._fontColor)
         textpos = text.get_rect()
         self.image = pygame.Surface([textpos.width+self._borderWidth * 2, textpos.height+self._borderHeight*2])
         self.image.fill(self._buttonColor)
@@ -38,5 +39,34 @@ class TextLabel(pygame.sprite.Sprite):
     def caption(self, value):
         self._caption = value
         self.updateImage()
+
+    @property
+    def borderColor(self):
+        return self._borderColor
+
+    @borderColor.setter
+    def borderColor(self, value):
+        self._borderColor = value
+        self.updateImage()
+
+    @property
+    def buttonColor(self):
+        return self._buttonColor
+
+    @buttonColor.setter
+    def buttonColor(self, value):
+        self._buttonColor = value
+        self.updateImage()
+
+    @property
+    def fontColor(self):
+        return self._fontColor
+
+    @fontColor.setter
+    def fontColor(self, value):
+        self._fontColor = value
+        self.updateImage()
+
+
 
 

@@ -355,6 +355,11 @@ class TiledMap(object):
         return self.__sprites
 
     @property
+    def spaceTiles(self):
+        #Todo: Read the space tiles from map data.
+        return [0, 1]
+
+    @property
     def screenOffset(self):
         result = None
         liste = list(filter(lambda x: x.name == "Screen", self.__objectGroups))
