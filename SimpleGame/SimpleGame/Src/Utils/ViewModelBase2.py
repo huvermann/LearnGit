@@ -42,7 +42,7 @@ class ViewModelBase2():
 
     def suspendView(self):
         """View goes into suspend mode."""
-        containerServices = [ServiceNames.CurrentView, ServiceNames.Map, ServiceNames.Player, ServiceNames.TiledWatcher, ServiceNames.ViewPointer]
+        containerServices = [ServiceNames.CurrentView, ServiceNames.Map, ServiceNames.Player, ServiceNames.ViewPointer]
         container = {}
 
         for service in containerServices:
