@@ -100,9 +100,6 @@
     <Compile Include="Src\Tiled\TiledSpriteCollider.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Src\Tiled\TiledWatcher.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Src\Tiled\TilesPainter.py">
       <SubType>Code</SubType>
     </Compile>
