@@ -254,11 +254,11 @@ class ShowJump(ViewPluginBase):
 
     def drawPlugin(self):
 
-        #if self._pluginVisible:
-        #    if self._player.moveState == PlayerMoveState.Standing:
-        #        self.drawJumpUp()
-        #    self.drawCurve()
-        #self._xGroup.draw(self._screen)
+        if self._pluginVisible:
+            if self._player.moveState == PlayerMoveState.Standing:
+                self.drawJumpUp()
+            self.drawCurve()
+        self._xGroup.draw(self._screen)
         pass
         
 

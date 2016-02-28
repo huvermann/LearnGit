@@ -2,7 +2,6 @@ from Utils.JoystickStates import JoystickEvents, JoystickState
 from Utils.Constants import Corners
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Utils.ViewPointer import ViewPointer, ViewPoint
-#from Tiled.TiledWatcher import TiledWatcher, CheckDirection
 from Tiled.TiledSpriteCollider import TiledSpriteCollider, CollisionResult, CollisionDetail, TileTouchState
 from Utils.MoveTimeCalculator import MoveTimeCalculator
 import pygame

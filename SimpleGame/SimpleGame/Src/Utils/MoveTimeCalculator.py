@@ -32,7 +32,7 @@ class MoveTimeCalculator(object):
             position = ViewPoint(offset.left + x * vector.X, offset.top - y)
             state = self._collider.checkCollideAt(self._map, rect, position)
             #if self._tilesWatcher.isBarrierOnPosition(position, CheckDirection.Ground):
-            if state.isGrounded:
+            if state.isGrounded or state.isUpperLayerTouched or state.isLeftTouched or state.isRightToched:
                 result = (time, position)
                 abort = True
             elif time >= 10000:

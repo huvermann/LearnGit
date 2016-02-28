@@ -23,6 +23,8 @@ class CollosionLab(ViewPluginBase):
         self.RightButton = TextLabel(580, 325, "Rechts")
         self.RightButton.buttonColor = (255, 0,0)
         self.buttons.add(self.RightButton)
+        self.ButtonOnSurface = TextLabel(580, 400, "Oberfläche")
+        self.buttons.add(self.ButtonOnSurface)
 
 
 
@@ -81,6 +83,11 @@ class CollosionLab(ViewPluginBase):
             self.RightButton.buttonColor = red
         else:
             self.RightButton.buttonColor = green
+
+        if Info.isStandOnSurface:
+            self.ButtonOnSurface.buttonColor = green
+        else:
+            self.ButtonOnSurface.buttonColor = red
 
 
         self.buttons.draw(self._screen)

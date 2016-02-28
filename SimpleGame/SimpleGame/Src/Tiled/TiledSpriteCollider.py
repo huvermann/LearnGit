@@ -53,8 +53,8 @@ class CollisionResult(object):
 
         result.TopLeft = ViewPoint(self._rect.left + self._position.left, self._rect.top + self._position.top - 1)
         result.TopRight = ViewPoint(self._rect.left + self._position.left + self._rect.width, self._rect.top + self._position.top - 1)
-        result.BottomLeft = ViewPoint(self._rect.left + self._position.left, self._rect.top + self._position.top + self._rect.height)
-        result.BottomRight = ViewPoint(self._rect.left + self._position.left + self._rect.width, self._rect.top + self._position.top + self._rect.height)
+        result.BottomLeft = ViewPoint(self._rect.left + self._position.left + 1, self._rect.top + self._position.top + self._rect.height)
+        result.BottomRight = ViewPoint(self._rect.left + self._position.left + self._rect.width - 1, self._rect.top + self._position.top + self._rect.height)
         result.Center = ViewPoint(self._rect.left + self._position.left + self._rect.width // 2, self._rect.top + self._position.top + self._rect.height // 2)
         result.Left = ViewPoint(self._rect.left + self._position.left, self._position.top + self._rect.top + self._rect.height //2)
         result.Right = ViewPoint(self._rect.left + self._position.left + self._rect.width, self._rect.top + self._position.top + self._rect.height // 2)
@@ -98,6 +98,15 @@ class CollisionResult(object):
     def isGrounded(self):
         result = self.BottomLeft.State != TileTouchState.Space or self.BottomRight.State != TileTouchState.Space
         return result
+
+    @property
+    def isStandOnSurface(self):
+        if self.BottomLeft.State != TileTouchState.Space:
+            if self.BottomLeft.VerticalShift:
+                return self.BottomLeft.VerticalShift < 5
+            if self.BottomRight.VerticalShift:
+                return self.BottomRight.VerticalShift < 5
+        return False
 
     @property
     def isDockGround(self):

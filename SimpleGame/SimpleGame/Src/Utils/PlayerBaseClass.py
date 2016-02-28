@@ -181,6 +181,16 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         if not moveStateMachine.tilesWatcher.standExactOnSurface():
                 self._viewPointer.playerPositionY -= 1
 
+    def fixWallCollide(self, moveStateMachine):
+        moveStateMachine.collider.setPlayerPosition(self._viewPointer.getPlayerMapPosition())
+        info = moveStateMachine.collider.currentState
+        if info.isLeftTouched:
+            self._viewPointer.playerPositionX += 4
+        elif info.isRightToched:
+            self._viewPointer.playerPositionX -= 4
+
+        pass
+
 
     def _updatePosition(self, timeStamp, moveStateMachine):
         #Todo: Implement handler for eache move state
@@ -214,6 +224,7 @@ class PlayerBaseClass(pygame.sprite.Sprite):
                 self._moveStateMachine._MoveEndFlag = None
 
             #self._fixGroundingPosition(moveStateMachine)
+            self.fixWallCollide(moveStateMachine)
 
         elif moveStateMachine.moveState in [PlayerMoveState.JumpLeft, PlayerMoveState.JumpRight, PlayerMoveState.JumpUp]:
             self.onMoveStateJump(timeStamp, moveStateMachine)
