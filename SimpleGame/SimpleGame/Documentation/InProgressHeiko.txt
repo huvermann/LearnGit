@@ -1,4 +1,10 @@
 In Progress Heiko
 -----------------------
 
-- 3.0: TileMap Kollosion (Pixel-Kollosion mit Kachel) implementieren
+- 4.0 Bewegung und Kollosion:
+  + 4.1: Richtungsänderung im Sprung implementieren
+  + 4.2: Klettern auf Leiter-Kachel
+  Erl: + 4.3: Spieler soll von der Decke abprallen (Kollosionsprüfung)
+  + 4.4: Spieler soll 1 Kachel hochklettern können, aber nicht eine Wand die höher als 2 Kacheln ist.
+  + 4.5: Es soll 2 verschiedene Sprungweiten (klein, gross) geben. Aus dem Stand macht man kleine Sprüng
+         Aus dem Gehen macht man große Sprünge.
