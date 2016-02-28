@@ -21,7 +21,7 @@ class CheatKeyPlugin(ViewPluginBase):
     def handleKeyboardEvent(self, event):
         if event.key == pygame.K_t:
             # On 't' change to Training Level.
-            changeviewEvent = pygame.event.Event(Utils.UserEvents.EVENT_CHANGEVIEW, ViewName='Training', Position=Utils.ViewPointer.ViewPoint(400, 206))
+            changeviewEvent = pygame.event.Event(Utils.UserEvents.EVENT_CHANGEVIEW, ViewName='Training', Position=Utils.ViewPointer.ViewPoint(89, 206))
             pygame.event.post(changeviewEvent)
         elif event.key == pygame.K_F1:
             changeviewEvent = pygame.event.Event(Utils.UserEvents.EVENT_CHANGEVIEW, ViewName='Level1')

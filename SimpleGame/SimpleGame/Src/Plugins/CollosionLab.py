@@ -34,25 +34,32 @@ class CollosionLab(ViewPluginBase):
         self._screenRect = self._screen.get_rect()
 
 
-    #def paintBullet(self, hasCollosion):
-    #    if hasCollosion:
-    #        pygame.draw.circle(self._screen, (255,0,0), (400,400), 8)
-    #    else:
-    #        pygame.draw.circle(self._screen, (0,255,0), (400,400), 8)
-    #    pass
-
     def drawPlugin(self):
         collider = TiledSpriteCollider()
         position = self._viewPointer.getPlayerMapPosition()
 
-        Info = collider.checkCollideAt(self._map, self._player.rect, position)
+        Info = collider.checkCollideAt(self._map, self._player.collideRect, position)
 
         
         red =  (255,0,0)
         green = (0,255,0)
         
-        pygame.draw.circle(self._screen, red, (Info._checkPoints.Left.left, Info._checkPoints.Left.top), 4)
-        pygame.draw.circle(self._screen, red, (Info._checkPoints.Right.left, Info._checkPoints.Right.top), 4)
+        Left = self._viewPointer.mapPositionToScreenOffset(Info._checkPoints.Left)
+        Right = self._viewPointer.mapPositionToScreenOffset(Info._checkPoints.Right)
+        BottomLeft = self._viewPointer.mapPositionToScreenOffset(Info._checkPoints.BottomLeft)
+        BottomRight = self._viewPointer.mapPositionToScreenOffset(Info._checkPoints.BottomRight)
+        Center = self._viewPointer.mapPositionToScreenOffset(Info._checkPoints.Center)
+        TopLeft = self._viewPointer.mapPositionToScreenOffset(Info._checkPoints.TopLeft)
+        TopRight = self._viewPointer.mapPositionToScreenOffset(Info._checkPoints.TopRight)
+
+
+        pygame.draw.circle(self._screen, red, (Left.left, Left.top), 2)
+        pygame.draw.circle(self._screen, red, (Right.left, Right.top), 2)
+        pygame.draw.circle(self._screen, red, (BottomLeft.left, BottomLeft.top), 2)
+        pygame.draw.circle(self._screen, red, (BottomRight.left, BottomRight.top), 2)
+        pygame.draw.circle(self._screen, red, (TopLeft.left, TopLeft.top), 2)
+        pygame.draw.circle(self._screen, red, (TopRight.left, TopRight.top), 2)
+        pygame.draw.circle(self._screen, green, (Center.left, Center.top), 2)
 
         #print("Is Grounded: {0}; Is Docked: {1}, Upper: {2}; upperDock: {3}".format(Info.isGrounded, test, Info.isUpperLayerTouched, Info.isUpperLayerDocked))
         if Info.isUpperLayerTouched:

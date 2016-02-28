@@ -50,13 +50,14 @@ class CollisionResult(object):
 
     def _prepareCheckpoints(self):
         result = CheckPoints()
-        result.TopLeft = ViewPoint(self._position.left, self._position.top - 1)
-        result.TopRight = ViewPoint(self._position.left + self._rect.width, self._position.top - 1)
-        result.BottomLeft = ViewPoint(self._position.left, self._position.top + self._rect.height)
-        result.BottomRight = ViewPoint(self._position.left + self._rect.width, self._position.top + self._rect.height)
-        result.Center = ViewPoint(self._position.left + self._rect.width // 2, self._position.top + self._rect.height // 2)
-        result.Left = ViewPoint(self._position.left, self._position.top + self._rect.height //2)
-        result.Right = ViewPoint(self._position.left + self._rect.width, self._position.top + self._rect.height // 2)
+
+        result.TopLeft = ViewPoint(self._rect.left + self._position.left, self._rect.top + self._position.top - 1)
+        result.TopRight = ViewPoint(self._rect.left + self._position.left + self._rect.width, self._rect.top + self._position.top - 1)
+        result.BottomLeft = ViewPoint(self._rect.left + self._position.left, self._rect.top + self._position.top + self._rect.height)
+        result.BottomRight = ViewPoint(self._rect.left + self._position.left + self._rect.width, self._rect.top + self._position.top + self._rect.height)
+        result.Center = ViewPoint(self._rect.left + self._position.left + self._rect.width // 2, self._rect.top + self._position.top + self._rect.height // 2)
+        result.Left = ViewPoint(self._rect.left + self._position.left, self._position.top + self._rect.top + self._rect.height //2)
+        result.Right = ViewPoint(self._rect.left + self._position.left + self._rect.width, self._rect.top + self._position.top + self._rect.height // 2)
 
         return result
 
@@ -146,6 +147,8 @@ class TiledSpriteCollider(object):
 
     def __init__(self):
         self.__currentState = None
+        self._collideRect = None
+        self._map = None
 
     def checkCollideAt(self, map, rect, position):
 
@@ -153,10 +156,13 @@ class TiledSpriteCollider(object):
         return result
 
     def setPlayerPosition(self, position):
-        map = ServiceLocator.getGlobalServiceInstance(ServiceNames.Map)
-        collideRect = ServiceLocator.getGlobalServiceInstance(ServiceNames.Player).collideRect
+        if not self._map:
+           self._map = ServiceLocator.getGlobalServiceInstance(ServiceNames.Map)
+        if not self._collideRect:
+            player = ServiceLocator.getGlobalServiceInstance(ServiceNames.Player)
+            self._collideRect = player.collideRect
 
-        self.__currentState = self.checkCollideAt(map, collideRect, position)
+        self.__currentState = self.checkCollideAt(self._map, self._collideRect, position)
         pass
 
     @property

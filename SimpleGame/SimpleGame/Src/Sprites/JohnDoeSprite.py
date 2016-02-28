@@ -80,6 +80,16 @@ class JohnDoeSprite(PlayerBaseClass):
         "Delay": 25
       } }'''
         return json.loads(data)
+
+    @property
+    def collideRect(self):
+        """Overwrite collision rectangle: Make it smaller."""
+        rect = self.rect.copy()
+        rect.top = 0
+        rect.left = 9
+        rect.width = 14
+        return rect
+
         
 
 
