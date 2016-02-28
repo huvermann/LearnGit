@@ -16,9 +16,6 @@ class PlayerBaseClass(pygame.sprite.Sprite):
     #def __init__(self, screen, spriteName, position, tileMapManager):
     def __init__(self, spriteName):
         super().__init__()
-        print("Constructor: PlayerBaseClass")
-        self._tileMapManager = None #tileMapManager
-        #self._tileMapManager2 = ServiceLocator.getGlobalServiceInstance(ServiceNames.
         self._viewPointer = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewPointer)
         self.image = pygame.Surface([32,32])
         self.image.fill((0,0,0))
@@ -178,11 +175,12 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         pass
 
     def _fixGroundingPosition(self, moveStateMachine):
-        if not moveStateMachine.tilesWatcher.standExactOnSurface():
+        info = moveStateMachine.collider.currentState
+        if not info.isDockGround:
                 self._viewPointer.playerPositionY -= 1
 
     def fixWallCollide(self, moveStateMachine):
-        moveStateMachine.collider.setPlayerPosition(self._viewPointer.getPlayerMapPosition())
+        
         info = moveStateMachine.collider.currentState
         if info.isLeftTouched:
             self._viewPointer.playerPositionX += 4
@@ -201,12 +199,10 @@ class PlayerBaseClass(pygame.sprite.Sprite):
                     self._viewPointer.playerPositionX = moveStateMachine._MoveEndFlag[1].left
                     self._viewPointer.playerPositionY = moveStateMachine._MoveEndFlag[1].top
                     moveStateMachine._MoveEndFlag = None
-                    print("Handled MoveEndFlag")
                     pass
 
                 vectors = moveStateMachine.getVectors(moveStateMachine.moveState)
                 duration = timeStamp - moveStateMachine.lastChange
-                #move = duration * self.speed / 1000 * vectors.X
                 move = self._JumpCalculator.calcWalking(duration, vectors.X)
                 self._viewPointer.playerPositionX = int(moveStateMachine.lastPosition.left + move)
 
@@ -214,7 +210,6 @@ class PlayerBaseClass(pygame.sprite.Sprite):
             #Falling
             if moveStateMachine.lastChange:
                 duration = timeStamp - moveStateMachine.lastChange
-                #move = duration * self.fallSpeed / 1000
                 move = self._JumpCalculator.calcFalling(duration)
                 self._viewPointer.playerPositionY =  int(moveStateMachine.lastPosition.top + move)
         elif moveStateMachine.moveState in [PlayerMoveState.Standing, PlayerMoveState.StandingLeft, PlayerMoveState.StandingRight]:
@@ -223,7 +218,8 @@ class PlayerBaseClass(pygame.sprite.Sprite):
                 self._viewPointer.playerPositionY = moveStateMachine._MoveEndFlag[1].top
                 self._moveStateMachine._MoveEndFlag = None
 
-            #self._fixGroundingPosition(moveStateMachine)
+            moveStateMachine.collider.setPlayerPosition(self._viewPointer.getPlayerMapPosition())
+            self._fixGroundingPosition(moveStateMachine)
             self.fixWallCollide(moveStateMachine)
 
         elif moveStateMachine.moveState in [PlayerMoveState.JumpLeft, PlayerMoveState.JumpRight, PlayerMoveState.JumpUp]:
