@@ -7,7 +7,6 @@ class ServiceNames:
     ViewController = 'viewcontroller'
     Map = 'Map'
     Player = 'Player'
-    TiledWatcher = 'TiledWatcher'
     CurrentView = 'CurrentView'
 
 

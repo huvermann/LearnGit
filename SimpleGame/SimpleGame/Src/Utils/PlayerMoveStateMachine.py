@@ -2,7 +2,8 @@ from Utils.JoystickStates import JoystickEvents, JoystickState
 from Utils.Constants import Corners
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Utils.ViewPointer import ViewPointer, ViewPoint
-from Tiled.TiledWatcher import TiledWatcher, CheckDirection
+#from Tiled.TiledWatcher import TiledWatcher, CheckDirection
+from Tiled.TiledSpriteCollider import TiledSpriteCollider, CollisionResult, CollisionDetail, TileTouchState
 from Utils.MoveTimeCalculator import MoveTimeCalculator
 import pygame
 
@@ -43,9 +44,11 @@ class PlayerMoveStateMachine(object):
         
         self._backgroundTiles = [0, 28, 29, 30, 31]
         self.__viewPoint = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewPointer)
-        self.__tileWatcher = TiledWatcher(parentPlayer)
-        self._moveTimeCalculator = MoveTimeCalculator(self.__viewPoint, self.__tileWatcher, parentPlayer._JumpCalculator)
-        ServiceLocator.registerGlobalService(ServiceNames.TiledWatcher, self.__tileWatcher)
+        self.__collider = TiledSpriteCollider()
+
+        
+        self._moveTimeCalculator = MoveTimeCalculator(self.__viewPoint, self.__collider, parentPlayer._JumpCalculator)
+        #ServiceLocator.registerGlobalService(ServiceNames.TiledWatcher, self.__tileWatcher)
     
     def getVectors(self, moveState):
         """Returns moving vectors depending on move state."""
@@ -73,6 +76,7 @@ class PlayerMoveStateMachine(object):
 
     def updateState(self, timeStamp):
         """Updates and returns the move state."""
+        self.__collider.setPlayerPosition(self.__viewPoint.getPlayerMapPosition())
         if self._moveState in [PlayerMoveState.Standing, PlayerMoveState.StandingLeft, PlayerMoveState.StandingRight]:
             self._checkStanding(timeStamp)
         elif self._moveState in [PlayerMoveState.Falling, PlayerMoveState.FallingLeft, PlayerMoveState.FallingRight]:
@@ -88,7 +92,8 @@ class PlayerMoveStateMachine(object):
 
     def _checkStanding(self, timeStamp):
         """Checks if the move state must be changed."""
-        if not self.__tileWatcher.isBarrierOn(CheckDirection.Ground):
+        #if not self.__tileWatcher.isBarrierOn(CheckDirection.Ground):
+        if not self.__collider.currentState.isGrounded:
             self._changeToFalling(timeStamp)
         elif self._joystickState.keyState in [JoystickEvents.MoveLeft, JoystickEvents.MoveRight]:
             self._changeToDirection(self._joystickState.keyState, timeStamp)
@@ -101,7 +106,8 @@ class PlayerMoveStateMachine(object):
 
     def _checkFalling(self, timeStamp):
         """Checks if the move state must be changed."""
-        if self.__tileWatcher.isBarrierOn(CheckDirection.Ground):
+        #if self.__tileWatcher.isBarrierOn(CheckDirection.Ground):
+        if self.__collider.currentState.isGrounded:
             self._changeToStanding(timeStamp)
         elif self._joystickState.keyState in [JoystickEvents.MoveLeft, JoystickEvents.MoveRight]:
             self._manipulateWhileFalling(timeStamp)
@@ -116,7 +122,8 @@ class PlayerMoveStateMachine(object):
         """Checks if the move state must be changed."""
         if self.moveTimeLimit and timeStamp >= self.lastChange + self.moveTimeLimit[0]:
             self._changeToStanding(timeStamp)
-        if not self.__tileWatcher.isBarrierOn(CheckDirection.Ground):
+        #if not self.__tileWatcher.isBarrierOn(CheckDirection.Ground):
+        if not self.__collider.currentState.isGrounded:
             self._changeToFalling(timeStamp)
         elif self._moveState == PlayerMoveState.MoveLeft:
             #check left
@@ -131,7 +138,8 @@ class PlayerMoveStateMachine(object):
             elif self._joystickState.keyState == JoystickEvents.KeyReleased:
                 #self._changeToStanding(timeStamp)
                 self._moveWhileKeyRelease(timeStamp)
-            elif self.__tileWatcher.isBarrierOn(CheckDirection.Left):
+            #elif self.__tileWatcher.isBarrierOn(CheckDirection.Left):
+            elif self.__collider.currentState.isLeftTouched:
                 self._changeToStanding(timeStamp)
 
             
@@ -148,7 +156,8 @@ class PlayerMoveStateMachine(object):
             elif self._joystickState.keyState == JoystickEvents.KeyReleased:
                 #self._changeToStanding(timeStamp)
                 self._moveWhileKeyRelease(timeStamp)
-            elif self.__tileWatcher.isBarrierOn(CheckDirection.Right):
+            #elif self.__tileWatcher.isBarrierOn(CheckDirection.Right):
+            elif self.__collider.currentState.isRightToched:
                 self._changeToStanding(timeStamp) 
 
         pass
@@ -285,8 +294,8 @@ class PlayerMoveStateMachine(object):
         self._moveTimeLimit = value
 
     @property
-    def tilesWatcher(self):
-        return self.__tileWatcher
+    def collider(self):
+        return self.__collider
 
 
 

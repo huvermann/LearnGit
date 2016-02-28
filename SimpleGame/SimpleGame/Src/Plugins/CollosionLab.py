@@ -1,7 +1,6 @@
 from Utils.ViewPluginBase import ViewPluginBase
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Utils.gui.TextLabel import TextLabel
-from Tiled.TiledWatcher import TiledWatcher
 from Tiled.TiledMap import TiledMap
 from Tiled.TiledSpriteCollider import TiledSpriteCollider
 import pygame
@@ -31,7 +30,6 @@ class CollosionLab(ViewPluginBase):
         super().initializePlugin(parentView)
         if not self._player:
             self._player = ServiceLocator.getGlobalServiceInstance(ServiceNames.Player)
-        self._tileCollider = ServiceLocator.getGlobalServiceInstance(ServiceNames.TiledWatcher)
         self._map = ServiceLocator.getGlobalServiceInstance(ServiceNames.Map)
         self._screenRect = self._screen.get_rect()
 

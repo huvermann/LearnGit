@@ -9,7 +9,7 @@ from Utils.TileMapManager import TileMapManager
 from Utils.AnimationInfo import AnimationInfo, AniConfigKeys, AnimationTypes
 from Utils.JumpCalculator import JumpCalculator
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
-from Tiled.TiledWatcher import CheckDirection
+#from Tiled.TiledWatcher import CheckDirection
 
 class PlayerBaseClass(pygame.sprite.Sprite):
     """The player sprite base class."""
@@ -268,8 +268,13 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         self._JumpCalculator.vx = value
 
     @property
-    def tilesWatcher(self):
-        return self._moveStateMachine.tilesWatcher
+    def collideRect(self):
+        """Returns the rectangel that causes a collisoin with the background."""
+        return self.rect
+
+    @property
+    def collider(self):
+        return self._moveStateMachine.collider
 
 
 

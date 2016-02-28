@@ -2,7 +2,7 @@ from Utils.ViewPluginBase import ViewPluginBase
 from Utils.JumpCalculator import JumpCalculator
 import pygame
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
-from Utils.PlayerMoveStateMachine import PlayerMoveState, CheckDirection
+from Utils.PlayerMoveStateMachine import PlayerMoveState
 from Utils.ViewPointer import ViewPoint
 from Utils.gui.TextLabel import TextLabel
 import json
@@ -193,7 +193,8 @@ class ShowJump(ViewPluginBase):
             y = self._jumpCalculator.calcY(time)
             position = ViewPoint(offset.left - x * vector, offset.top - y)
             # Check barriers
-            if self._player.tilesWatcher.isBarrierOnPosition(position, CheckDirection.Ground):
+            #if self._player.tilesWatcher.isBarrierOnPosition(position, CheckDirection.Ground):
+            if self._player.collider.currentState.isGrounded:
                 screenOffset = self._viewPointer.playerOffset.copy()
                 vector = self.getMoveStateVector()
                 relativ = (screenOffset.left - x * vector, screenOffset.top - y)
@@ -253,11 +254,12 @@ class ShowJump(ViewPluginBase):
 
     def drawPlugin(self):
 
-        if self._pluginVisible:
-            if self._player.moveState == PlayerMoveState.Standing:
-                self.drawJumpUp()
-            self.drawCurve()
-        self._xGroup.draw(self._screen)
+        #if self._pluginVisible:
+        #    if self._player.moveState == PlayerMoveState.Standing:
+        #        self.drawJumpUp()
+        #    self.drawCurve()
+        #self._xGroup.draw(self._screen)
+        pass
         
 
         

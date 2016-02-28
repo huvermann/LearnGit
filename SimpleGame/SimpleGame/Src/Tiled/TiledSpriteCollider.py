@@ -144,10 +144,27 @@ class CollisionResult(object):
 class TiledSpriteCollider(object):
     """Checks the collosion state of a sprite."""
 
+    def __init__(self):
+        self.__currentState = None
+
     def checkCollideAt(self, map, rect, position):
 
         result = CollisionResult(map, rect, position)
         return result
+
+    def setPlayerPosition(self, position):
+        map = ServiceLocator.getGlobalServiceInstance(ServiceNames.Map)
+        collideRect = ServiceLocator.getGlobalServiceInstance(ServiceNames.Player).collideRect
+
+        self.__currentState = self.checkCollideAt(map, collideRect, position)
+        pass
+
+    @property
+    def currentState(self):
+        return self.__currentState
+
+
+
 
 
 
