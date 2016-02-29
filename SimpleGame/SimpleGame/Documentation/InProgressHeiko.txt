@@ -1,17 +1,10 @@
 In Progress Heiko
 -----------------------
 
-- 4.0 Bewegung und Kollosion:
+- 5.0: ViewPointer: (Kameraführung)
+  + 5.1 Der Spieler soll nicht mehr aus der Screen herausfallen, weil die Nachführung zu langsam ist.
+  + 5.2 Die Ränder für die Nachführung noch breiter machen
+  + 5.3 Bei den Map-Enden soll nicht mehr weitergescrollt werden.
   
 
-  + 4.2: Klettern auf Leiter-Kachel
-  Ist das wichtig?
-
-  + 4.1: Richtungsänderung im Sprung implementieren
-
-  + 4.4: Spieler soll 1 Kachel hochklettern können, aber nicht eine Wand die höher als 2 Kacheln ist.
-
   Erledigt:
-  + 4.3: Spieler soll von der Decke abprallen (Kollosionsprüfung)
-  + 4.5: Es soll 2 verschiedene Sprungweiten (klein, gross) geben. Aus dem Stand macht man kleine Sprüng
-         Aus dem Gehen macht man große Sprünge, stehend macht man kleine Sprünge
