@@ -260,7 +260,10 @@ class PlayerMoveStateMachine(object):
     def changeJumpSize(self, jumpSize):
         """Change the jump size."""
         assert jumpSize == 0 or jumpSize == 1, "JumpSitze must be JumpSizeMode.Short or JumpSizeMode.Long."
-        ServiceLocator.getGlobalServiceInstance(ServiceNames.Player).jumpCalculator.horizontalJumpSize = jumpSize
+        #ServiceLocator.getGlobalServiceInstance(ServiceNames.Player).jumpCalculator.horizontalJumpSize = jumpSize
+        player = ServiceLocator.getGlobalServiceInstance(ServiceNames.Player)
+        calculator = player.jumpCalculator
+        calculator.horizontalJumpSize = jumpSize
 
 
     def _changeToStanding(self, timeStamp):

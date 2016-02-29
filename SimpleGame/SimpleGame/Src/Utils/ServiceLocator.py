@@ -25,7 +25,7 @@ class ServiceLocator(object):
     @staticmethod
     def getGlobalServiceInstance(serviceName):
         """Returns the service instance by name."""
-        print("Get Global Service Instance: {0}".format(serviceName))
+        #print("Get Global Service Instance: {0}".format(serviceName))
         if serviceName in ServiceLocator.services:
             result = ServiceLocator.services[serviceName]
         else:
@@ -40,6 +40,7 @@ class ServiceLocator(object):
     @staticmethod
     def UnregisterService(serviceName):
         """Unregister service from service list."""
+        print("UnregisterService: {0}".format(serviceName))
         del(ServiceLocator.services[serviceName])
 
 

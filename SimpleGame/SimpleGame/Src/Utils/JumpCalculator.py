@@ -16,14 +16,31 @@ class JumpParameters():
 
 class JumpCalculator(object):
     """Calcualates a ballistic curve."""
-    def __init__(self):
+    def __init__(self,  **kwargs):
         self.g = None #g * 1000 #9.81 #Erdbeschleunigung
         self.v0 = None #v0 # Geschwindigkeit (pixex/s)
         self.vx = None #vx
-        self._jumpUpSpeed = 250 / 1000
-        self._jumpUpTime = 500 / 1000
-        self._fallSpeed = 200 /1000
-        self._walkSpeed = 120 / 1000
+        if 'jumpUpSpeed' in kwargs:
+            self._jumpUpSpeed = kwargs['jumpUpSpeed']
+        else:
+            self._jumpUpSpeed = 250 / 1000
+
+        if 'jumpUpTime' in kwargs:
+            self._jumpUpTime = kwargs['jumpUpTime']
+        else:
+            self._jumpUpTime = 500 / 1000
+
+        if 'fallSpeed' in kwargs:
+            self._fallSpeed = kwargs['fallSpeed']
+        else:
+            self._fallSpeed = 200 /1000
+
+        if 'walkSpeed' in kwargs:
+            self.walkSpeed = kwargs['walkSpeed']
+        else:
+            self._walkSpeed = 120 / 1000
+
+
         self._horizontalJumpSize = None
         self._params = {}
         self._params[JumpSizeMode.Short] = JumpParameters(g=500, v0=275, vx=70)

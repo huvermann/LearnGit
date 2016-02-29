@@ -26,9 +26,9 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         self._transparenceKey = None
         self.loadAnimations(spriteName)
 
-        self._JumpCalculator = JumpCalculator()
-        self._JumpCalculator.jumpUpSpeed = 200
-        self._JumpCalculator.jumpUpTime = 500
+        self._JumpCalculator = JumpCalculator(jumpUpSpeed = 200, jumpUpTime = 500)
+        #self._JumpCalculator.jumpUpSpeed = 200
+        #self._JumpCalculator.jumpUpTime = 500
 
         self._moveStateMachine = PlayerMoveStateMachine(self)
 

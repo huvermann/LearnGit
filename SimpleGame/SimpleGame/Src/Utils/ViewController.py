@@ -35,6 +35,9 @@ class ViewController(object):
             return self._currentView
         else:
             try:
+                if self._currentView:
+                    self._currentView.suspendView()
+
                 newView = self.viewFactory(viewName)
             except Exception as e:
                 newView = None
