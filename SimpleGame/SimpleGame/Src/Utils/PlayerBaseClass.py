@@ -26,7 +26,7 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         self._transparenceKey = None
         self.loadAnimations(spriteName)
 
-        self._JumpCalculator = JumpCalculator(jumpUpSpeed = 200, jumpUpTime = 500)
+        self._JumpCalculator = JumpCalculator(jumpUpSpeed = 0.2, jumpUpTime = 500)
         #self._JumpCalculator.jumpUpSpeed = 200
         #self._JumpCalculator.jumpUpTime = 500
 
@@ -45,7 +45,7 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         """Configure the animation from config file."""
         defaultAnimations = [AnimationNames.Standing, AnimationNames.StandingLeft, AnimationNames.StandingRight, AnimationNames.Falling, 
                              AnimationNames.Left, AnimationNames.Right, AnimationNames.JumpLeft, 
-                             AnimationNames.JumpRight, AnimationNames.JumpUp, AnimationNames.FallingLeft, AnimationNames.FallingRight]
+                             AnimationNames.JumpRight, AnimationNames.JumpUp, AnimationNames.FallingLeft, AnimationNames.FallingRight, AnimationNames.Climb]
         for aniName in defaultAnimations:
             if aniName in configuration:
                 self._animations[aniName] = self.loadAnimationFromConfiguration(aniName, configuration[aniName])
@@ -121,6 +121,10 @@ class PlayerBaseClass(pygame.sprite.Sprite):
             result = self._animations[AnimationNames.StandingRight]
         elif moveState == PlayerMoveState.JumpUp:
             result = self._animations[AnimationNames.JumpUp]
+        elif moveState == PlayerMoveState.ClimbUp:
+            result = self._animations[AnimationNames.Climb]
+        elif moveState == PlayerMoveState.ClimbDown:
+            result = self._animations[AnimationNames.Climb]
         else:
             result = self._animations[AnimationNames.Standing]
             logging.warn("No animation defined for movestate: {0}".format(moveState))
@@ -142,6 +146,15 @@ class PlayerBaseClass(pygame.sprite.Sprite):
                 result = ani.getAnimationPictureByIndex(index)
         return result
 
+    def onMoveStateClimb(self, timeStamp, moveStateMachine):
+        duration = timeStamp - moveStateMachine.lastChange
+        if moveStateMachine.moveState == PlayerMoveState.ClimbUp:
+            movey = self._JumpCalculator.calcClimbing(duration)
+            self._viewPointer.playerPositionY = moveStateMachine.lastPosition.top - movey
+        elif moveStateMachine.moveState == PlayerMoveState.ClimbDown:
+            movey = self._JumpCalculator.calcClimbing(duration)
+            self._viewPointer.playerPositionY = moveStateMachine.lastPosition.top + movey
+        pass
 
 
     def onMoveStateJump(self, timeStamp, moveStateMachine):
@@ -169,16 +182,21 @@ class PlayerBaseClass(pygame.sprite.Sprite):
 
     def _fixGroundingPosition(self, moveStateMachine):
         info = moveStateMachine.collider.currentState
-        if not info.isDockGround:
+        if not info.isDockGround and not info.isLadderTouched:
                 self._viewPointer.playerPositionY -= 1
 
     def fixWallCollide(self, moveStateMachine):
         
         info = moveStateMachine.collider.currentState
         if info.isLeftTouched:
-            self._viewPointer.playerPositionX += 4
+            self._viewPointer.playerPositionX += 8
+            #moveStateMachine.lastChange = None
+            #moveStateMachine.moveState == PlayerMoveState.Standing
         elif info.isRightToched:
-            self._viewPointer.playerPositionX -= 4
+            self._viewPointer.playerPositionX -= 8
+            #moveStateMachine.lastChange = None
+            #moveStateMachine.moveState == PlayerMoveState.Standing
+
 
         pass
 
@@ -212,11 +230,13 @@ class PlayerBaseClass(pygame.sprite.Sprite):
                 self._moveStateMachine._MoveEndFlag = None
 
             moveStateMachine.collider.setPlayerPosition(self._viewPointer.getPlayerMapPosition())
-            self._fixGroundingPosition(moveStateMachine)
+            #self._fixGroundingPosition(moveStateMachine)
             self.fixWallCollide(moveStateMachine)
 
         elif moveStateMachine.moveState in [PlayerMoveState.JumpLeft, PlayerMoveState.JumpRight, PlayerMoveState.JumpUp]:
             self.onMoveStateJump(timeStamp, moveStateMachine)
+        elif moveStateMachine.moveState in [PlayerMoveState.ClimbUp, PlayerMoveState.ClimbDown]:
+            self.onMoveStateClimb(timeStamp, moveStateMachine)
 
         pass
 

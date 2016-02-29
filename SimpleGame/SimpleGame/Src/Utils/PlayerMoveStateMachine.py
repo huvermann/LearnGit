@@ -20,9 +20,11 @@ class PlayerMoveState(object):
     JumpLeft = 9
     JumpRight = 10
     JumpUp = 11
-    Dying = 12
-    Killed = 13
-    invisible = 14
+    ClimbUp = 12
+    ClimbDown = 13
+    Dying = 14
+    Killed = 15
+    invisible = 16
 
 
 
@@ -91,6 +93,9 @@ class PlayerMoveStateMachine(object):
         elif self._moveState in [PlayerMoveState.JumpLeft, PlayerMoveState.JumpRight, PlayerMoveState.JumpUp]:
             self._checkJump(timeStamp)
 
+        if self._moveState in [PlayerMoveState.ClimbUp, PlayerMoveState.ClimbDown]:
+            self._checkClimb(timeStamp)
+
         return self._moveState
 
     def _checkStanding(self, timeStamp):
@@ -103,8 +108,40 @@ class PlayerMoveStateMachine(object):
         elif self._joystickState.buttonState == JoystickEvents.JumpButton:
             self._changeToJumping(timeStamp)
         elif self._joystickState.keyState == JoystickEvents.MoveUp:
-            self._moveState = PlayerMoveState.Standing
+            if self.__collider.currentState.isLadderTouched:
+                self._changeToClimbing(timeStamp)
+            else:
+                self._moveState = PlayerMoveState.Standing
+        elif self._joystickState.keyState == JoystickEvents.MoveDown:
+            if self.__collider.currentState.isLadderTouched:
+                self._changeToClimbing(timeStamp)
+
         #impl: self._joystickState == JoystickEvents.MoveDown:
+        pass
+
+    def _checkClimb(self, timeStamp):
+        if self._joystickState.keyState == JoystickEvents.KeyReleased:
+            self._changeToStanding(timeStamp)
+        elif not self.__collider.currentState.isGrounded:
+            self._changeToFalling(timeStamp)
+        elif self._joystickState.keyState in [JoystickEvents.MoveLeft, JoystickEvents.MoveRight]:
+            self._changeToDirection(self._joystickState.keyState, timeStamp)
+        elif self._joystickState.buttonState == JoystickEvents.JumpButton:
+            self._changeToJumping(timeStamp)
+        elif self._joystickState.keyState == JoystickEvents.MoveDown and self._moveState == PlayerMoveState.ClimbUp:
+            self._changeToClimbing(timeStamp)
+        elif self._joystickState.keyState == JoystickEvents.MoveUp and self._moveState == PlayerMoveState.ClimbDown:
+            self._changeToClimbing(timeStamp)
+        elif self._moveState == PlayerMoveState.ClimbDown and not self.__collider.currentState.isLadderOnFeeds:
+            self._changeToStanding(timeStamp)
+        pass
+
+    def _changeToClimbing(self, timeStamp):
+        self._saveTimePosition(timeStamp)
+        if self._joystickState.keyState == JoystickEvents.MoveUp:
+            self._moveState = PlayerMoveState.ClimbUp
+        elif self._joystickState.keyState == JoystickEvents.MoveDown:
+            self._moveState = PlayerMoveState.ClimbDown
         pass
 
     def _checkFalling(self, timeStamp):

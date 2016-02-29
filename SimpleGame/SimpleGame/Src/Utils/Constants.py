@@ -47,6 +47,7 @@ class AnimationNames(object):
     JumpLeft = "JumpLeft"
     JumpRight = "JumpRight"
     JumpUp = "JumpUp"
+    Climb = "Climb"
 
 class DIRS(object):
     ASSETS = "Assets"

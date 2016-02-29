@@ -72,6 +72,9 @@ class JumpCalculator(object):
             result = int(time * self._walkSpeed * vector)
         return result
 
+    def calcClimbing(self, time):
+        return int(time * self._walkSpeed)
+
 
     @property
     def jumpUpSpeed(self):

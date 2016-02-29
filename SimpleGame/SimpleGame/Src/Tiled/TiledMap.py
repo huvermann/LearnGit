@@ -217,7 +217,7 @@ class TiledMap(object):
         if self._mapTileset:
             for tileNo in self._mapTileset.tileproperties:
                 if 'Ladder' in self._mapTileset.tileproperties[tileNo]:
-                    result.append(int(tileNo))
+                    result.append(int(tileNo)+1)
         return result
 
     def __configureSpaceTiles(self):
@@ -225,8 +225,8 @@ class TiledMap(object):
         if self._mapTileset:
             for tileNo in self._mapTileset.tileproperties:
                 if 'Space' in self._mapTileset.tileproperties[tileNo]:
-                    result.append(int(tileNo))
-        result.extend(self.__ladderTiles)
+                    result.append(int(tileNo)+1)
+        #result.extend(self.__ladderTiles)
         return result
 
                 

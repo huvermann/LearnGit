@@ -42,7 +42,7 @@ class CollisionResult(object):
         self._middleVertical = map.tileWidth // 2
         self.TopLeft = self.__touchAt(self._checkPoints.TopLeft)
         self.TopRight = self.__touchAt(self._checkPoints.TopRight)
-        #self.Center = self.__touchAt(self._checkPoints.Center)
+        self.Center = self.__touchAt(self._checkPoints.Center)
         self.BottomLeft = self.__touchAt(self._checkPoints.BottomLeft)
         self.BottomRight = self.__touchAt(self._checkPoints.BottomRight)
         self.Left = self.__touchAt(self._checkPoints.Left)
@@ -116,13 +116,13 @@ class CollisionResult(object):
     @property
     def isLeftTouched(self):
         result = (self.Left.StateHorizontal == TileTouchState.DockLeft 
-                  or self.Left.StateHorizontal == TileTouchState.InsideRight)
+                  or self.Left.StateHorizontal == TileTouchState.InsideRight) and self.Left.TideIndex not in self._map.ladderTiles
         return result
     
     @property
     def isRightToched(self):
         result = (self.Right.StateHorizontal == TileTouchState.InsideLeft
-                  or self.Right.StateHorizontal == TileTouchState.DockRight)
+                  or self.Right.StateHorizontal == TileTouchState.DockRight) and self.Right.TideIndex not in self._map.ladderTiles
         return result
 
     @property
@@ -148,6 +148,21 @@ class CollisionResult(object):
         result = (self.TopLeft.StateVertical == TileTouchState.DockUp
                   or self.TopRight.StateVertical == TileTouchState.DockUp)
         return result
+
+    @property
+    def isLadderTouched(self):
+        result = (self.BottomLeft.TideIndex in self._map.ladderTiles 
+                  or self.BottomRight.TideIndex in self._map.ladderTiles
+                  or self.Center.TideIndex in self._map.ladderTiles)
+        return result
+
+    @property
+    def isLadderOnFeeds(self):
+        result = (self.BottomLeft.TideIndex in self._map.ladderTiles 
+                  or self.BottomRight.TideIndex in self._map.ladderTiles)
+        return result
+
+
 
 
 
