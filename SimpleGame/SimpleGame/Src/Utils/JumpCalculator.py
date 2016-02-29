@@ -8,11 +8,6 @@ class JumpParameters():
         self.g = kwargs['g']
         self.v0 = kwargs['v0']
         self.vx = kwargs['vx']
-    #    pass
-
-    #g = 0
-    #v0 = 0
-    #vx = 0
 
 class JumpCalculator(object):
     """Calcualates a ballistic curve."""
@@ -119,6 +114,10 @@ class JumpCalculator(object):
             self.g = param.g
             self.v0 = param.v0
             self.vx = param.vx
+
+    @property
+    def jumpParameters(self):
+        return self._params
          
 
 

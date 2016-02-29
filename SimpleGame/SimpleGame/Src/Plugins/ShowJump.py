@@ -1,5 +1,5 @@
 from Utils.ViewPluginBase import ViewPluginBase
-from Utils.JumpCalculator import JumpCalculator
+from Utils.JumpCalculator import JumpCalculator, JumpSizeMode, JumpParameters
 import pygame
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Utils.PlayerMoveStateMachine import PlayerMoveState
@@ -7,10 +7,8 @@ from Utils.ViewPointer import ViewPoint
 from Utils.gui.TextLabel import TextLabel
 import json
 import os.path
+import jsonpickle
 
-class JumpMode(object):
-    Short = 0
-    Long = 1
 
 
 class ShowJump(ViewPluginBase):
@@ -22,10 +20,8 @@ class ShowJump(ViewPluginBase):
         self._calculationDirty = True
         self._savedGameCoordinates = {}
         self._maxCalculationTime = None
-        self._parameters = {}
-        self._parameters[JumpMode.Short] = (500, 275, 70)
-        self._parameters[JumpMode.Long] = (500, 500, 200)
-        self._jumpMode = JumpMode.Short
+        self._parameters = None
+        self._jumpMode = JumpSizeMode.Short
 
 
         self._jumpCalculator = None # JumpCalculator(0.5, 500, 100)
@@ -97,6 +93,8 @@ class ShowJump(ViewPluginBase):
             #self._jumpCalculator.v0 = self._player.jumpV0
             #self._jumpCalculator.vx = self._player.jumpVx
             self._jumpCalculator = self._player._JumpCalculator
+            self._parameters = self._jumpCalculator.jumpParameters
+
         self.registerEventHandler()
 
 
@@ -209,17 +207,17 @@ class ShowJump(ViewPluginBase):
         return result
 
 
-    def drawMaxCalculationTimePoint(self):
-        if self._maxCalculationTime:
+    #def drawMaxCalculationTimePoint(self):
+    #    if self._maxCalculationTime:
 
-            if self._player.moveState in [PlayerMoveState.StandingLeft, PlayerMoveState.MoveLeft]:
-                vector = 1
-            elif self._player.moveState in [PlayerMoveState.StandingRight, PlayerMoveState.MoveRight]:
-                vector = -1
+    #        if self._player.moveState in [PlayerMoveState.StandingLeft, PlayerMoveState.MoveLeft]:
+    #            vector = 1
+    #        elif self._player.moveState in [PlayerMoveState.StandingRight, PlayerMoveState.MoveRight]:
+    #            vector = -1
 
-            if self._maxCalculationTime[2]:
-                rect = pygame.Rect(self._maxCalculationTime[2][0], self._maxCalculationTime[2][1], 32, 32)
-                pygame.draw.rect(self._screen, (0, 255, 0), rect, 2)
+    #        if self._maxCalculationTime[2]:
+    #            rect = pygame.Rect(self._maxCalculationTime[2][0], self._maxCalculationTime[2][1], 32, 32)
+    #            pygame.draw.rect(self._screen, (0, 255, 0), rect, 2)
 
 
 
@@ -247,7 +245,7 @@ class ShowJump(ViewPluginBase):
 
             self._buttons.draw(self._screen)
             self.drawCurveParametersText()
-            self.drawMaxCalculationTimePoint()
+            #self.drawMaxCalculationTimePoint()
         pass
 
     def drawJumpUp(self):
@@ -300,10 +298,12 @@ class ShowJump(ViewPluginBase):
         self._calculationDirty = True
 
     def on_jumpModeButtonClick(self, sender):
-        if self._jumpMode == JumpMode.Short:
-            self.jumpMode = JumpMode.Long
+        current = JumpParameters(g=self._jumpCalculator.g, v0= self._jumpCalculator.v0, vx = self._jumpCalculator.vx)
+        self._jumpCalculator.jumpParameters[self._jumpCalculator.horizontalJumpSize] = current
+        if self._jumpMode == JumpSizeMode.Short:
+            self.jumpMode = JumpSizeMode.Long
         else:
-            self.jumpMode = JumpMode.Short
+            self.jumpMode = JumpSizeMode.Short
 
 
     def serializeObject(self, data):
@@ -332,28 +332,36 @@ class ShowJump(ViewPluginBase):
 
     def onSaveButtonClick(self, sender):
         #Save current jump parameters into parameters store
-        self._parameters[self._jumpMode] = (self._jumpCalculator.g, self._jumpCalculator.v0, self._jumpCalculator.vx)
+        #self._parameters[self._jumpMode] = (self._jumpCalculator.g, self._jumpCalculator.v0, self._jumpCalculator.vx)
         #Save into file
 
 
+        #data = {"JumpParameters" : self._parameters,
+        #        "Teleports" : self.serializeObject(self._savedGameCoordinates)
+        #        }
         data = {"JumpParameters" : self._parameters,
-                "Teleports" : self.serializeObject(self._savedGameCoordinates)
+                "Teleports" : self._savedGameCoordinates
                 }
 
-        with open('jumpdata.json', 'w') as outfile:
-            json.dump(data, outfile)
+        #with open('jumpdata.json', 'w') as outfile:
+        #    json.dump(data, outfile)
+        with open('jumpdata.json', 'w') as text_file:
+            text_file.write(jsonpickle.encode(data))
 
         pass
     def onLoadButtonClick(self, sender):
         data = None
         if os.path.isfile('jumpdata.json'):
             with open('jumpdata.json') as data_file:
-                data = json.load(data_file)
+                #data = json.load(data_file)
+                txt = data_file.read()
+                data = jsonpickle.decode(txt)
             params = data["JumpParameters"]
-            self._savedGameCoordinates = self.deserializeObject(data["Teleports"])
+            #self._savedGameCoordinates = self.deserializeObject(data["Teleports"])
+            self._savedGameCoordinates = data["Teleports"]
 
-            self._parameters[JumpMode.Short] = params["{0}".format(JumpMode.Short)]
-            self._parameters[JumpMode.Long] = params["{0}".format(JumpMode.Long)]
+            #self._parameters[JumpMode.Short] = params["{0}".format(JumpMode.Short)]
+            #self._parameters[JumpMode.Long] = params["{0}".format(JumpMode.Long)]
 
             #if "1" in teleports:
             #    self._savedGameCoordinates[1] = 
@@ -371,10 +379,9 @@ class ShowJump(ViewPluginBase):
 
     def changeJumpMode(self, mode):
         parameters = self._parameters[mode]
-        self._jumpCalculator.g = parameters[0]
-        self._jumpCalculator.v0 = parameters[1]
-        self._jumpCalculator.vx = parameters[2]
-        if mode == JumpMode.Long:
+        self._jumpCalculator.horizontalJumpSize = mode
+
+        if mode == JumpSizeMode.Long:
             self._buttonJumpMonde.caption = "Long"
         else:
             self._buttonJumpMonde.caption = "Short"

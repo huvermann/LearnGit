@@ -143,9 +143,9 @@
  "orientation":"orthogonal",
  "properties":
     {
-     "Plugin":"xPlugin=ShowJump",
+     "Plugin":"Plugin=ShowJump",
      "Plugin2":"Plugin=CollosionLab",
-     "Plugin3":"Plugin=CheatKeyPlugin"
+     "Plugin3":"xPlugin=CheatKeyPlugin"
     },
  "renderorder":"right-down",
  "tileheight":32,
