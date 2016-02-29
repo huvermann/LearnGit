@@ -25,15 +25,15 @@ class PlayerBaseClass(pygame.sprite.Sprite):
         self._animations = {}
         self._transparenceKey = None
         self.loadAnimations(spriteName)
-        self._speed = 120 # Default speed pixel per second
-        self._fallSpeed = 200
-        self._jumpSpeedY = 200
+        #self._speed = 120 # Default speed pixel per second
+        #self._fallSpeed = 200
+        #self._jumpSpeedY = 200
 
-        g=0.5
-        v0= 275
-        vx = 70
+        #g=0.5
+        #v0= 275
+        #vx = 70
 
-        self._JumpCalculator = JumpCalculator(g, v0, vx)
+        self._JumpCalculator = JumpCalculator()
         self._JumpCalculator.jumpUpSpeed = 200
         self._JumpCalculator.jumpUpTime = 500
 
@@ -282,6 +282,10 @@ class PlayerBaseClass(pygame.sprite.Sprite):
     @property
     def collider(self):
         return self._moveStateMachine.collider
+
+    @property
+    def jumpCalculator(self):
+        return self._JumpCalculator
 
 
 

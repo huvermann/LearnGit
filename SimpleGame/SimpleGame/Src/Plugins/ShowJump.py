@@ -28,7 +28,7 @@ class ShowJump(ViewPluginBase):
         self._jumpMode = JumpMode.Short
 
 
-        self._jumpCalculator = JumpCalculator(0.5, 500, 100)
+        self._jumpCalculator = None # JumpCalculator(0.5, 500, 100)
         self._buttons = pygame.sprite.Group()
 
         self._xGroup = pygame.sprite.Group()
@@ -93,9 +93,10 @@ class ShowJump(ViewPluginBase):
 
         if not self._player:
             self._player = ServiceLocator.getGlobalServiceInstance(ServiceNames.Player)
-            self._jumpCalculator.g = self._player.jumpG
-            self._jumpCalculator.v0 = self._player.jumpV0
-            self._jumpCalculator.vx = self._player.jumpVx
+            #self._jumpCalculator.g = self._player.jumpG
+            #self._jumpCalculator.v0 = self._player.jumpV0
+            #self._jumpCalculator.vx = self._player.jumpVx
+            self._jumpCalculator = self._player._JumpCalculator
         self.registerEventHandler()
 
 

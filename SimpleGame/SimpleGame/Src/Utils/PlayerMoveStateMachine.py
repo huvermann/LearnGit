@@ -4,6 +4,7 @@ from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Utils.ViewPointer import ViewPointer, ViewPoint
 from Tiled.TiledSpriteCollider import TiledSpriteCollider, CollisionResult, CollisionDetail, TileTouchState
 from Utils.MoveTimeCalculator import MoveTimeCalculator
+from Utils.JumpCalculator import JumpCalculator, JumpSizeMode
 import pygame
 
 
@@ -23,6 +24,8 @@ class PlayerMoveState(object):
     Killed = 13
     invisible = 14
 
+
+
 class MoveVector(object):
     X = 0
     Y = 0
@@ -40,6 +43,7 @@ class PlayerMoveStateMachine(object):
         self._getTileInfoCallback = None
         self._getCurrentPositionCallback = None
         self._jumpTimeout = 100
+        self._jumpSize = None
         
         self._backgroundTiles = [0, 28, 29, 30, 31]
         self.__viewPoint = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewPointer)
@@ -216,16 +220,26 @@ class PlayerMoveStateMachine(object):
     def _changeToJumping(self, timeStamp):
         """Changes into jumping mode."""
         print("change to jumping")
-        #Todo: calculate maximum jump time.
         self._saveTimePosition(timeStamp)
         
         if self._moveState in [PlayerMoveState.FallingLeft, PlayerMoveState.MoveLeft, PlayerMoveState.StandingLeft]:
+            if self._moveState == PlayerMoveState.StandingLeft:
+                self.changeJumpSize(JumpSizeMode.Short)
+            else:
+                self.changeJumpSize(JumpSizeMode.Long)
             self._moveState = PlayerMoveState.JumpLeft
+           
             self._moveTimeLimit = self._calculateMaxJumpTime(timeStamp, self.moveState)
         elif self._moveState in [PlayerMoveState.FallingRight, PlayerMoveState.MoveRight, PlayerMoveState.StandingRight]:
+            if self._moveState == PlayerMoveState.StandingRight:
+                self.changeJumpSize(JumpSizeMode.Short)
+            else:
+                self.changeJumpSize(JumpSizeMode.Long)
             self._moveState = PlayerMoveState.JumpRight
             self._moveTimeLimit = self._calculateMaxJumpTime(timeStamp, self.moveState)
         else:
+            #Todo: Kleiner Sprung aktivieren
+            self.changeJumpSize(JumpSizeMode.Short)
             self._calculateMaxJumpUpTime(timeStamp)
             self._moveTimeLimit = self._calculateMaxJumpUpTime(timeStamp)
             self._moveState = PlayerMoveState.JumpUp
@@ -242,6 +256,11 @@ class PlayerMoveStateMachine(object):
 
     def calculateMaxFallTime(self, timestamp):
         return self._moveTimeCalculator.calculateMaximumFallDownTime()
+
+    def changeJumpSize(self, jumpSize):
+        """Change the jump size."""
+        assert jumpSize == 0 or jumpSize == 1, "JumpSitze must be JumpSizeMode.Short or JumpSizeMode.Long."
+        ServiceLocator.getGlobalServiceInstance(ServiceNames.Player).jumpCalculator.horizontalJumpSize = jumpSize
 
 
     def _changeToStanding(self, timeStamp):
@@ -295,6 +314,10 @@ class PlayerMoveStateMachine(object):
     @property
     def collider(self):
         return self.__collider
+
+    @property
+    def jumpSize(self):
+        return self._jumpSize
 
 
 
