@@ -316,6 +316,8 @@
     <Content Include="Assets\Views\Level2\Level2.png" />
     <Content Include="Assets\Views\Level2\Level2.pyxel" />
     <Content Include="Assets\Views\Level2\Level2.tmx" />
+    <Content Include="Assets\Views\Level3\Level3.tmx" />
+    <Content Include="Assets\Views\Level3\map.json" />
     <Content Include="Assets\Views\Training\background3.png" />
     <Content Include="Assets\Views\Training\map.json" />
     <Content Include="Assets\Views\Training\training.png" />
@@ -352,6 +354,7 @@
     <Folder Include="Assets\Sound\" />
     <Folder Include="Assets\Views\Level1\" />
     <Folder Include="Assets\Views\Level2\" />
+    <Folder Include="Assets\Views\Level3\" />
     <Folder Include="Assets\Views\Training\" />
     <Folder Include="Assets\Views\View1\" />
     <Folder Include="Documentation\" />
