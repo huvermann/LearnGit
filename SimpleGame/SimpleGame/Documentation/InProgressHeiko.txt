@@ -3,8 +3,7 @@ In Progress Heiko
 
 - 4.0 Bewegung und Kollosion:
   
-  + 4.5: Es soll 2 verschiedene Sprungweiten (klein, gross) geben. Aus dem Stand macht man kleine Sprüng
-         Aus dem Gehen macht man große Sprünge, stehend macht man kleine Sprünge
+
   + 4.2: Klettern auf Leiter-Kachel
   Ist das wichtig?
 
@@ -14,3 +13,5 @@ In Progress Heiko
 
   Erledigt:
   + 4.3: Spieler soll von der Decke abprallen (Kollosionsprüfung)
+  + 4.5: Es soll 2 verschiedene Sprungweiten (klein, gross) geben. Aus dem Stand macht man kleine Sprüng
+         Aus dem Gehen macht man große Sprünge, stehend macht man kleine Sprünge
