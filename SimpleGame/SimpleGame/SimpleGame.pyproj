@@ -245,6 +245,12 @@
     <Content Include="Assets\Sprites\Bloob\Bloob_links_und_mitte.png" />
     <Content Include="Assets\Sprites\Bloob\Bloob_rechts_und_mitte.png" />
     <Content Include="Assets\Sprites\Bloob\bloob_red.pyxel" />
+    <Content Include="Assets\Sprites\Bloob\bloob_red_gehen_links.png" />
+    <Content Include="Assets\Sprites\Bloob\bloob_red_gehen_rechts.png" />
+    <Content Include="Assets\Sprites\Bloob\bloob_red_links_drehen.png" />
+    <Content Include="Assets\Sprites\Bloob\bloob_red_rechts_drehen.png" />
+    <Content Include="Assets\Sprites\Bloob\bloob_red_springen.png" />
+    <Content Include="Assets\Sprites\Bloob\bloob_red_sterben.png" />
     <Content Include="Assets\Sprites\Bloob\Bloob_springen.png" />
     <Content Include="Assets\Sprites\Bloob\Bloob_sterben.png" />
     <Content Include="Assets\Sprites\Bloob\bloob_yellow.pyxel" />
