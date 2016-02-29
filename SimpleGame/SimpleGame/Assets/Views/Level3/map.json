@@ -159,7 +159,7 @@
  "orientation":"orthogonal",
  "properties":
     {
-
+     "Plugin":"Plugin=CheatKeyPlugin"
     },
  "renderorder":"right-down",
  "tileheight":32,
