@@ -179,13 +179,15 @@ class TiledMap(object):
         self.__tileSets = None
         self.__imageLayers = None
         self.__map = None
-        self.__mapTileset = None
+        self._mapTileset = None
         self.__backgroundImage = None
         self.__sprites = None
         self.__player = None
         self.__viewName = viewName
         self.__properties = None
         self.__tileTransparentColor = None
+        self.__spaceTiles = None
+        self.__ladderTiles = None
         self.configure(jsonConfig, viewName)
         pass
 
@@ -199,13 +201,36 @@ class TiledMap(object):
         self.configureTileSets(config['tilesets'], viewName)
         self.__map = self.__getMapLayerByName('Map')
         self.__backgroundMap = self.__getMapLayerByName('BackgroundMap')
-        self.__mapTileset = self.__getTileSetByName('Map')
+        self._mapTileset = self.__getTileSetByName('Map')
         self.__backgroundImage = self.__getImageLayerByName('Image')
         self.__sprites = self.__getObjectLayerByName('Sprites')
         self.__player = self.__getPlayerObject()
         self.__tileTransparentColor = self._getTilesetTransparenceColor('Map')
+        
+        self.__ladderTiles = self.__configureLadderTiles()
+        self.__spaceTiles = self.__configureSpaceTiles()
 
         pass
+
+    def __configureLadderTiles(self):
+        result = []
+        if self._mapTileset:
+            for tileNo in self._mapTileset.tileproperties:
+                if 'Ladder' in self._mapTileset.tileproperties[tileNo]:
+                    result.append(int(tileNo))
+        return result
+
+    def __configureSpaceTiles(self):
+        result = [0]
+        if self._mapTileset:
+            for tileNo in self._mapTileset.tileproperties:
+                if 'Space' in self._mapTileset.tileproperties[tileNo]:
+                    result.append(int(tileNo))
+        result.extend(self.__ladderTiles)
+        return result
+
+                
+
 
 
     def __getMapLayerByName(self, mapName):
@@ -320,7 +345,7 @@ class TiledMap(object):
 
 
     def getTileImage(self, index):        
-        return self.__mapTileset.surfaceArray[index-self.__mapTileset.firstgid]
+        return self._mapTileset.surfaceArray[index-self._mapTileset.firstgid]
 
 
     @property
@@ -356,8 +381,11 @@ class TiledMap(object):
 
     @property
     def spaceTiles(self):
-        #Todo: Read the space tiles from map data.
-        return [0, 1]
+        return self.__spaceTiles
+
+    @property
+    def ladderTiles(self):
+        return self.__ladderTiles
 
     @property
     def screenOffset(self):
