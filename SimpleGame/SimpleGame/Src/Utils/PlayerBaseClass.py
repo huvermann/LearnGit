@@ -230,7 +230,7 @@ class PlayerBaseClass(pygame.sprite.Sprite):
                 self._moveStateMachine._MoveEndFlag = None
 
             moveStateMachine.collider.setPlayerPosition(self._viewPointer.getPlayerMapPosition())
-            #self._fixGroundingPosition(moveStateMachine)
+            self._fixGroundingPosition(moveStateMachine)
             self.fixWallCollide(moveStateMachine)
 
         elif moveStateMachine.moveState in [PlayerMoveState.JumpLeft, PlayerMoveState.JumpRight, PlayerMoveState.JumpUp]:
