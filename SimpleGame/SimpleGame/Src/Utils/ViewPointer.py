@@ -36,10 +36,10 @@ class ViewPointer(object):
         self.__screenrect = screen.get_rect()
         self.__innerBorder = self.__screenrect.copy()
         
-        self.__innerBorder.left = 40
-        self.__innerBorder.width -= 80+32
-        self.__innerBorder.height -= 80+32
-        self.__innerBorder.top += 40
+        self.__innerBorder.left = 80
+        self.__innerBorder.width -= 160+32
+        self.__innerBorder.height -= 160+32
+        self.__innerBorder.top += 80
 
         self.__mapHeight = None
         self.__mapWidth = None

@@ -1,10 +1,19 @@
 In Progress Heiko
 -----------------------
+- 6.0: Beampoint
+  + 6.1: Tor mit xy-Koordinaten auf Map, damit man komfortabel von Map zu Map reisen kann.
+         mit BeamPoint(x,y) soll man die Spielerposition innerhalb der Map konfigurieren.
 
-- 5.0: ViewPointer: (Kameraführung)
-  + 5.1 Der Spieler soll nicht mehr aus der Screen herausfallen, weil die Nachführung zu langsam ist.
-  + 5.2 Die Ränder für die Nachführung noch breiter machen
-  + 5.3 Bei den Map-Enden soll nicht mehr weitergescrollt werden.
+- 7.0: Impl.: Sprite Basisklassen
+  7.1: + Sprite läuft hin- und her
+  7.2: + Sprite läuft immer in Richtung Spieler, bei Hinderniss läuft es kurz zurück und dann wieder
+         zum Spieler
+  7.3: + Sprite springt hoch und runter
+  7.4: + Sprites mit den neuen Grafiken erstellen und testen.
+
+- 7.B: Definiere Space-Tiles über Tiled
+  7.B.1 + Implementiere das Auslesen aus der Json in map.spaceTiles
+
   
 
   Erledigt:
