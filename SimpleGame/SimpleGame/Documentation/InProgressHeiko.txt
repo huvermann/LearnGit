@@ -1,8 +1,6 @@
 In Progress Heiko
 -----------------------
-- 6.0: Beampoint
-  + 6.1: Tor mit xy-Koordinaten auf Map, damit man komfortabel von Map zu Map reisen kann.
-         mit BeamPoint(x,y) soll man die Spielerposition innerhalb der Map konfigurieren.
+ChangeView: Center Player Position
 
 - 7.0: Impl.: Sprite Basisklassen
   7.1: + Sprite läuft hin- und her
@@ -17,3 +15,7 @@ In Progress Heiko
   
 
   Erledigt:
+
+  - 6.0: Beampoint
+  + 6.1: Tor mit xy-Koordinaten auf Map, damit man komfortabel von Map zu Map reisen kann.
+         mit BeamPoint(x,y) soll man die Spielerposition innerhalb der Map konfigurieren.

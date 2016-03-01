@@ -181,6 +181,7 @@ class TiledMap(object):
         self.__map = None
         self._mapTileset = None
         self.__backgroundImage = None
+        self.__objects = None
         self.__sprites = None
         self.__player = None
         self.__viewName = viewName
@@ -203,6 +204,11 @@ class TiledMap(object):
         self.__backgroundMap = self.__getMapLayerByName('BackgroundMap')
         self._mapTileset = self.__getTileSetByName('Map')
         self.__backgroundImage = self.__getImageLayerByName('Image')
+        try:
+            self.__objects = self.__getObjectLayerByName('Objects')
+        except SyntaxError:
+            print("No objects layer found!")
+
         self.__sprites = self.__getObjectLayerByName('Sprites')
         self.__player = self.__getPlayerObject()
         self.__tileTransparentColor = self._getTilesetTransparenceColor('Map')
@@ -378,6 +384,10 @@ class TiledMap(object):
     @property
     def spriteConfiguration(self):
         return self.__sprites
+
+    @property
+    def objectsConfiguration(self):
+        return self.__objects
 
     @property
     def spaceTiles(self):

@@ -7,6 +7,7 @@ from Utils.JoystickStates import JoystickEvents
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Utils import UserEvents
 from Utils.ViewPointer import ViewPointer
+from MapObjects.BeamPoint import BeamPoint
 
 
 class ViewModelBase2():
@@ -17,6 +18,8 @@ class ViewModelBase2():
         self._viewName = viewName
         self._screen = ServiceLocator.getGlobalServiceInstance(ServiceNames.Screen)
         self.__map = None
+        self.__mapObjects = []
+        self._beamPointRegistry = {}
         self.__drawBackground = None
         self.__drawTilesCall = None
         self.__playerSprite = None
@@ -67,11 +70,13 @@ class ViewModelBase2():
         self._viewPointer.mapWidth = self.map.width * self.map.tileWidth
         self._viewPointer.mapHeight = self.map.height * self.map.tileHeight
 
+        for obj in self.__mapObjects:
+            obj.initializeObject(self)
+
         # Initialize Plugins
         for plugin in self.plugins:
             plugin.initializePlugin(self)
         pass
-
 
     def __initKeyboardManager(self):
         """Assigns the event handler for keys."""
@@ -371,6 +376,14 @@ class ViewModelBase2():
     @property
     def plugins(self):
         return self.__plugins
+
+    @property
+    def mapObjects(self):
+        return self.__mapObjects
+
+    @property
+    def beamPointRegistry(self):
+        return self._beamPointRegistry
 
 
 

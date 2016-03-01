@@ -7,6 +7,7 @@ from pygame.locals import *
 from GameState import GameState
 from Utils.ViewController import ViewController
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
+from Utils.BeamPointRegistry import BeamPointRegistry
 
 if not pygame.font: print ('Warning, fonts disabled')
 if not pygame.mixer: print ('Warning, sound disabled')
@@ -31,6 +32,7 @@ class MainGame:
         ServiceLocator.registerGlobalService(ServiceNames.PyGame, pygame)
         ServiceLocator.registerGlobalService(ServiceNames.ViewController, self.viewController)
         ServiceLocator.registerGlobalService(ServiceNames.Gamestate, self.gameState)
+        ServiceLocator.registerGlobalService(ServiceNames.BeamPoints, BeamPointRegistry())
         pass
     def cleanup(self):
         pygame.quit()

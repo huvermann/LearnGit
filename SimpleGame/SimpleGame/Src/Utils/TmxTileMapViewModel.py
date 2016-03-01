@@ -7,6 +7,7 @@ import json
 from Tiled.TiledMap import TiledMap, TiledObjectLayer
 from Tiled.TilesPainter import TilesPainter
 from Plugins.PluginFactory import createPluginInstance
+from Utils.MapObjectFactory import createObjectInstance
 
 
 
@@ -30,6 +31,8 @@ class TmxTileMapViewModel(ViewModelBase2):
         self.configurePluginsFromMapProperties(self.map.properties)
         
         self.allSprites.add(self.player)
+        if self.map.objectsConfiguration:
+            self.configureMapObjects(self.map.objectsConfiguration)
         self.configureSprites(self.map.spriteConfiguration)
         pass
 
@@ -93,4 +96,16 @@ class TmxTileMapViewModel(ViewModelBase2):
                 if instance:
                     self.plugins.append(instance)
         pass
+
+    def configureMapObjects(self, config):
+        assert isinstance(config, TiledObjectLayer), "Expected config to be TiledObjectLayer."
+        assert config.name == "Objects", "The layer must have the name 'Objects'."
+        
+        for obj in config.objects:
+            classname = obj.type
+            newObject = createObjectInstance(classname)
+            newObject.configure(obj)
+            self.mapObjects.append(newObject)
+
+
 

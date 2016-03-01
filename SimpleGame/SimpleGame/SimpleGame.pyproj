@@ -37,6 +37,10 @@
     <Compile Include="Src\JoystickExample.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\MapObjects\BeamPoint.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\MapObjects\__init__.py" />
     <Compile Include="Src\Plugins\CheatKeyPlugin.py">
       <SubType>Code</SubType>
     </Compile>
@@ -83,6 +87,9 @@
     <Compile Include="Src\Sprites\SpriteFactory.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Sprites\TeleporterSprite.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Sprites\__init__.py">
       <SubType>Code</SubType>
     </Compile>
@@ -109,10 +116,19 @@
     <Compile Include="Src\Utils\AnimationInfo.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Utils\BeamPointRegistry.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Utils\gui\TextLabel.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\gui\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\MapObjectBase.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\MapObjectFactory.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\MoveTimeCalculator.py">
@@ -359,6 +375,7 @@
     <Folder Include="Assets\Views\View1\" />
     <Folder Include="Documentation\" />
     <Folder Include="Deployment\" />
+    <Folder Include="Src\MapObjects\" />
     <Folder Include="Src\Plugins\" />
     <Folder Include="Src\Tiled\" />
     <Folder Include="Src\Sprites\" />

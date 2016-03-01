@@ -8,6 +8,7 @@ class ServiceNames:
     Map = 'Map'
     Player = 'Player'
     CurrentView = 'CurrentView'
+    BeamPoints = "BeamPoints" 
 
 
 class ServiceLocator(object):
