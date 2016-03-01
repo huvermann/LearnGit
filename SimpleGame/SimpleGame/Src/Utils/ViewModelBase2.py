@@ -63,6 +63,10 @@ class ViewModelBase2():
 
     def initializeView(self):
         """View is initialized the first time."""
+        # Init MapSize
+        self._viewPointer.mapWidth = self.map.width * self.map.tileWidth
+        self._viewPointer.mapHeight = self.map.height * self.map.tileHeight
+
         # Initialize Plugins
         for plugin in self.plugins:
             plugin.initializePlugin(self)
