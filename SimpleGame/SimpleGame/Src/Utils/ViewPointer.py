@@ -33,8 +33,8 @@ class ViewPointer(object):
         self._cameraSpeed = 20
 
         screen = ServiceLocator.getGlobalServiceInstance(ServiceNames.Screen)
-        self.__screenrect = screen.get_rect()
-        self.__innerBorder = self.__screenrect.copy()
+        self._screenrect = screen.get_rect()
+        self.__innerBorder = self._screenrect.copy()
         
         self.__innerBorder.left = 80
         self.__innerBorder.width -= 160+32
@@ -45,7 +45,7 @@ class ViewPointer(object):
         self.__mapWidth = None
 
         #Center player
-        self._playerOffset = ViewPoint(self.__screenrect.centerx, self.__screenrect.centery)
+        self._playerOffset = ViewPoint(self._screenrect.centerx, self._screenrect.centery)
     def mapPositionToScreenOffset(self, position):
         """Converts the abs. map position to screen offset."""
         assert isinstance(position, ViewPoint), "Position must be of type ViewPoint."
@@ -55,6 +55,28 @@ class ViewPointer(object):
         result = ViewPoint(left, top)
         return result
 
+    def centerPlayerPositionToScreen(self, playerPosition):
+        """Move the player to that position and centers the player on the screen."""
+        assert isinstance(playerPosition, ViewPoint), "Expected playerPosition to be of type ViewPoint."
+        if playerPosition.left - self._screenrect.centerx > 0:
+            self.screenPosition.left = playerPosition.left - self._screenrect.centerx
+            self._playerOffset.left = self._screenrect.centerx
+            #Todo: protect the viewPointer to place the screen behind the right border of the map.
+        else:
+            self.screenPosition.left = 0
+            self._playerOffset.left = playerPosition.left
+
+        if playerPosition.top - self._screenrect.centery > 0:
+            self.screenPosition.top = playerPosition.top - self._screenrect.centery
+            self._playerOffset.top = self._screenrect.centery
+            #Todo: Protect the viewPointer to place the screen behind the lower border of the map.
+        else:
+            self.screenPosition.top = 0
+            self._playerOffset.top = playerPosition.top
+        
+        
+        pass
+
     def getPlayerMapPosition(self):
         return ViewPoint(self.playerPositionX, self.playerPositionY)
 
@@ -63,7 +85,7 @@ class ViewPointer(object):
         if self.__followStateX == ViewPointerFollowState.FixedPosition:
             # Check if right border is reached
             if self._playerOffset.left >= self.__innerBorder.right:
-                if self.screenPosition.left < self.mapWidth - self.__screenrect.width:
+                if self.screenPosition.left < self.mapWidth - self._screenrect.width:
                     self.__followStateX = ViewPointerFollowState.FollowLeft
 
             elif self._playerOffset.left <= self.__innerBorder.left:
@@ -74,15 +96,15 @@ class ViewPointer(object):
             if self.__followStateX == ViewPointerFollowState.FollowLeft:
                 self._playerOffset.left -= self._cameraSpeed
                 self._screenPosition.left += self._cameraSpeed
-                if self._playerOffset.left <= self.__screenrect.centerx:
+                if self._playerOffset.left <= self._screenrect.centerx:
                     self.__followStateX = ViewPointerFollowState.FixedPosition
-                if self.screenPosition.left >= self.mapWidth - self.__screenrect.width:
+                if self.screenPosition.left >= self.mapWidth - self._screenrect.width:
                     self.__followStateX = ViewPointerFollowState.FixedPosition
 
             if self.__followStateX == ViewPointerFollowState.FollowRight:
                 self._playerOffset.left += self._cameraSpeed
                 self._screenPosition.left -= self._cameraSpeed
-                if self._playerOffset.left>= self.__screenrect.centerx:
+                if self._playerOffset.left>= self._screenrect.centerx:
                     self.__followStateX = ViewPointerFollowState.FixedPosition
 
         if self.__followStateY==ViewPointerFollowState.FixedPosition:
@@ -96,17 +118,17 @@ class ViewPointer(object):
                 self._playerOffset.top -= self._cameraSpeed
                 self._screenPosition.top += self._cameraSpeed
                 # Check player goes out of screen
-                if self._playerOffset.top > self.__screenrect.bottom - self.__innerBorder.left:
+                if self._playerOffset.top > self._screenrect.bottom - self.__innerBorder.left:
                     diff = 50
                     self._playerOffset.top -= diff
                     self._screenPosition.top += diff
 
-                if self._playerOffset.top <= self.__screenrect.centery:
+                if self._playerOffset.top <= self._screenrect.centery:
                     self.__followStateY = ViewPointerFollowState.FixedPosition
             elif self.__followStateY == ViewPointerFollowState.FollowDown:
                 self._playerOffset.top += self._cameraSpeed
                 self._screenPosition.top -= self._cameraSpeed
-                if self._playerOffset.top >= self.__screenrect.centery:
+                if self._playerOffset.top >= self._screenrect.centery:
                     self.__followStateY = ViewPointerFollowState.FixedPosition
 
         pass

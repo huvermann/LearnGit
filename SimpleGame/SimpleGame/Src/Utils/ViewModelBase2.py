@@ -257,6 +257,7 @@ class ViewModelBase2():
                 #pygame.event.post(newPosEvent)
                 viewController.currentView._viewPointer.playerPositionX = event.Position.left
                 viewController.currentView._viewPointer.playerPositionY = event.Position.top
+                viewController.currentView._viewPointer.centerPlayerPositionToScreen(event.Position)
 
         pass
 
