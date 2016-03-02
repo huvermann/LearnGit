@@ -1,6 +1,17 @@
 In Progress Heiko
 -----------------------
-ChangeView: Center Player Position
+
+Neue Sprite-Basisklasse, die folgende properties aus der TMX-Map-Datei:
+- Score: Anzahl der Punkte bei Berührung
+- Style: Style-Klasse, die die Animationskonfiguration enthält
+- KillSprite: True oder 1, wenn das Sprite bei Berührung verschwinden soll
+- KillPlayer: True, wenn der Spieler bei Berührung sterben soll
+- Behaviour: Bei Berührung wird ein bestimmtes programmiertes Verhalten ausgelöst.
+- Item: Bei Berührung wird der Inventory des Spielers ein Item hinzugefügt.
+- Energie: Es wird dem Spieler Energie hinzugefügt.
+- Sound: Bei Berührung wird eine Sound-Datei abgespielt.
+- Itelligence: Programmierte Bewegungen und Verhalten währen des Spiels.
+
 
 - 7.0: Impl.: Sprite Basisklassen
   7.1: + Sprite läuft hin- und her
@@ -9,13 +20,12 @@ ChangeView: Center Player Position
   7.3: + Sprite springt hoch und runter
   7.4: + Sprites mit den neuen Grafiken erstellen und testen.
 
-- 7.B: Definiere Space-Tiles über Tiled
-  7.B.1 + Implementiere das Auslesen aus der Json in map.spaceTiles
+
 
   
 
   Erledigt:
 
-  - 6.0: Beampoint
-  + 6.1: Tor mit xy-Koordinaten auf Map, damit man komfortabel von Map zu Map reisen kann.
-         mit BeamPoint(x,y) soll man die Spielerposition innerhalb der Map konfigurieren.
+
+
+

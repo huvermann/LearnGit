@@ -144,8 +144,9 @@ class ViewPointer(object):
         return self._screenPosition.left + self._playerOffset.left
     @playerPositionX.setter
     def playerPositionX(self, value):
-        if value > self.__innerBorder.left:
-            if value < self.__mapWidth - self.__innerBorder.left:
+        if value > 2:
+            #if value < self.__mapWidth - self.__innerBorder.left:
+            if value < self.__mapWidth -2:
                 self._playerOffset.left = value - self._screenPosition.left
         pass
     @property
@@ -153,8 +154,8 @@ class ViewPointer(object):
         return self._screenPosition.top + self._playerOffset.top
     @playerPositionY.setter
     def playerPositionY(self, value):
-        if value > self.__innerBorder.top:
-            if value < self.__mapHeight - self.__innerBorder.top:
+        if value > 2:
+            if value < self.__mapHeight - 2:
                 self._playerOffset.top = value - self._screenPosition.top
         pass
 

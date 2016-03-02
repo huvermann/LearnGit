@@ -97,6 +97,44 @@ Bemerkung:
   + 5.2 Die Ränder für die Nachführung noch breiter machen
   + 5.3 Bei den Map-Enden soll nicht mehr weitergescrollt werden.
 
+  ChangeView: Center Player Position
+  Bemerkung:
+
+  Die Nachführung der Kamera ist nun schneller (20 pix/frame)
+  Falls die Spielfigur trotzdem aus dem Screen herausläuft, wird die Kamera auf die Spielfigur gezogen.
+  Die Ränder für die Nachführung sind nun auf 80 Pixel fixiert.
+  Die Kamera kann nun nicht mehr über die Map-Enden überlaufen.
+  Der Spieler kann nicht mehr über die Map-Enden bewegt werden. Er wird bei den Nachführungsrändern gestoppt.
+
+--------------------------------------
+  - 6.0: Beampoint
+	  + 6.1: Tor mit xy-Koordinaten auf Map, damit man komfortabel von Map zu Map reisen kann.
+         mit BeamPoint(x,y) soll man die Spielerposition innerhalb der Map konfigurieren.
+		Bemerkung:
+
+		Beampoints werden auf der Map im Objects-Layer angelegt.
+		Jeder Beampoint muss einen eindeutigen Namen haben.
+		Die xy-Position des Objekt-Rechtecks wird als Zielposition für den Spieler definiert
+		über die globale Beampoint-Registry kann man alle Beampoints abrufen.
+		Die beampoint.beam() methode erzeugt ein Change-View-Event. Die Positionsänderung wird dann vom Eventhändler erledigt.
+
+		Jeder Beampoint im Spiel kann über die Beampoint-Registry angesprungen werden:
+		
+		Beispiel:
+		beamService = ServiceLocator.getGlobalServiceInstance(ServiceNames.BeamPoints)
+        beamService.beam("Ziel3")
+
+  ----------------------------------
+  - 7.B: Definiere Space-Tiles über Tiled
+  7.B.1 + Implementiere das Auslesen aus der Json in map.spaceTiles
+
+  Bemerkung zu 7.B:
+  Im Tileset kann zu jeder Tile Properties angelegt werden.
+  Folgende Properties können definiert werden:
+  Space=1 : Die Tile ist leerer Raum, man kann durchlaufen und durchfallen.
+  Ladder=1 : Die Tile ist eine Leiter, man kann an ihr hochklettern.
+
+
  Zurückgestellte Tasks Heiko
  ============================
    Ist das wichtig?
