@@ -8,6 +8,7 @@ from Tiled.TiledMap import TiledMap, TiledObjectLayer
 from Tiled.TilesPainter import TilesPainter
 from Plugins.PluginFactory import createPluginInstance
 from Utils.MapObjectFactory import createObjectInstance
+from Utils.sprites.SpriteBase import SpriteBase
 
 
 
@@ -66,9 +67,12 @@ class TmxTileMapViewModel(ViewModelBase2):
         for sprite in config.objects:
             className = sprite.type
             newSprite = createSpriteInstance(className)
-            newSprite.position.left = sprite.x
-            newSprite.position.top = sprite.y
-            newSprite.configureProperties(sprite.properties)
+            if not isinstance(newSprite, SpriteBase):
+                newSprite.position.left = sprite.x
+                newSprite.position.top = sprite.y
+                newSprite.configureProperties(sprite.properties)
+            else:
+                newSprite.configureSprite(sprite)
             self.allSprites.add(newSprite)
             self.objectSprites.add(newSprite)
         pass

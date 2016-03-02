@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="12">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="14">
  <properties>
   <property name="Plugin" value="Plugin=ShowJump"/>
   <property name="Plugin2" value="Plugin=CollosionLab"/>
   <property name="Plugin3" value="xPlugin=CheatKeyPlugin"/>
  </properties>
- <tileset firstgid="1" name="Map" tilewidth="32" tileheight="32" tilecount="144" columns="8">
-  <image source="training.png" trans="4a61f3" width="256" height="576"/>
+ <tileset firstgid="1" name="Map" tilewidth="32" tileheight="32" tilecount="152" columns="8">
+  <image source="training.png" trans="4a61f3" width="256" height="608"/>
   <tile id="82">
    <properties>
     <property name="Ladder" value="1"/>
@@ -18,10 +18,10 @@
    </properties>
   </tile>
  </tileset>
- <tileset firstgid="145" name="standing_right" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+ <tileset firstgid="153" name="standing_right" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="../../Sprites/John_Doe/standing_right.png" trans="4a61f3" width="32" height="32"/>
  </tileset>
- <tileset firstgid="146" name="Coin_Ani" tilewidth="32" tileheight="32" tilecount="8" columns="8">
+ <tileset firstgid="154" name="Coin_Ani" tilewidth="32" tileheight="32" tilecount="8" columns="8">
   <image source="../../Sprites/Coin/Coin_Ani.png" trans="4a61f3" width="256" height="32"/>
  </tileset>
  <imagelayer name="Image" visible="0">
@@ -136,14 +136,14 @@
  </layer>
  <layer name="Map" width="100" height="100" offsetx="6" offsety="1">
   <data encoding="csv">
-26,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+26,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,83,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,83,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,83,0,0,0,0,0,0,0,83,
-83,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,83,0,0,0,0,0,0,0,83,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,83,5,5,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,83,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,6,83,6,6,6,6,6,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,83,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,83,0,0,0,0,0,0,0,0,
+83,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,83,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,83,0,0,0,0,0,0,0,28,
 6,21,21,21,21,0,83,21,21,22,84,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,
 0,0,0,0,0,0,83,0,0,0,84,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,6,6,6,6,6,6,6,6,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,83,0,0,0,84,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -239,20 +239,32 @@
 </data>
  </layer>
  <objectgroup name="Sprites" offsetx="0" offsety="32">
-  <object id="3" name="Coin1" type="CoinSprite" gid="146" x="284" y="112" width="32" height="32"/>
-  <object id="4" name="xx" type="DrawbridgeSprite" gid="37" x="448" y="212" width="32" height="32">
+  <object id="3" name="Coin1" type="CoinSprite" gid="154" x="284" y="112" width="32" height="32"/>
+  <object id="4" name="xx" type="DrawbridgeSprite" gid="37" x="477" y="116" width="32" height="32">
    <properties>
     <property name="ViewName" value="Level1"/>
    </properties>
   </object>
-  <object id="11" name="Teleporter" type="TeleporterSprite" gid="37" x="656" y="190" width="32" height="32">
+  <object id="11" name="Teleporter" type="TeleporterSprite" gid="37" x="657" y="136" width="32" height="32">
    <properties>
     <property name="BeamPoint" value="Ziel3"/>
    </properties>
   </object>
+  <object id="12" name="Example" type="GenericSprite" gid="25" x="564" y="160" width="32" height="32">
+   <properties>
+    <property name="Behavior" value="DefaultSpriteBehavior"/>
+    <property name="Energy" value="10"/>
+    <property name="KillPlayer" value="True"/>
+    <property name="KillSprite" value="False"/>
+    <property name="Points" value="30"/>
+    <property name="Sound" value="beep.wav"/>
+    <property name="Style" value="CoinStyle"/>
+    <property name="Supplies" value="GunThing"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Player" offsetx="0" offsety="32">
-  <object id="2" name="Player" type="JohnDoeSprite" gid="145" x="89" y="206" width="32" height="32"/>
+  <object id="2" name="Player" type="JohnDoeSprite" gid="153" x="646" y="211" width="32" height="32"/>
  </objectgroup>
  <objectgroup color="#005500" name="Objects" offsetx="0" offsety="32">
   <object id="5" name="Ziel1" type="BeamPoint" x="718" y="497"/>

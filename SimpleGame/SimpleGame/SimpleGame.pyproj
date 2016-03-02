@@ -31,9 +31,6 @@
     <Compile Include="Src\GameState.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Src\InventoryItems\__init__.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Src\joystick.py">
       <SubType>Code</SubType>
     </Compile>
@@ -60,10 +57,25 @@
     <Compile Include="Src\Plugins\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\SpriteBehaviors\DefaultSpriteBehavior.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\SpriteBehaviors\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\SpriteIntelligence\DefaultSpriteIntelligence.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\SpriteIntelligence\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\SpriteStyles\CoinStyle.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\SpriteStyles\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\SpriteSupplies\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Sprites\Blob2Sprite.py">
@@ -76,6 +88,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Sprites\DrawbridgeSprite.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Sprites\GenericSprite.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Sprites\HeartSprite.py">
@@ -147,6 +162,21 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\SpriteItemWalkingBase.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\sprites\SpriteBase.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\sprites\SpriteBehaviorBase.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\sprites\SpriteIntelligenceBase.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\sprites\SpriteStyleBase.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\sprites\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\TmxTileMapViewModel.py">
@@ -385,16 +415,18 @@
     <Folder Include="Assets\Views\View1\" />
     <Folder Include="Documentation\" />
     <Folder Include="Deployment\" />
-    <Folder Include="Src\InventoryItems\" />
     <Folder Include="Src\MapObjects\" />
     <Folder Include="Src\Plugins\" />
     <Folder Include="Src\SpriteBehaviors\" />
+    <Folder Include="Src\SpriteIntelligence\" />
     <Folder Include="Src\SpriteStyles\" />
+    <Folder Include="Src\SpriteSupplies\" />
     <Folder Include="Src\Tiled\" />
     <Folder Include="Src\Sprites\" />
     <Folder Include="Src\Tests\" />
     <Folder Include="Src\Utils\" />
     <Folder Include="Src\Utils\gui\" />
+    <Folder Include="Src\Utils\sprites\" />
     <Folder Include="Src\Views\" />
     <Folder Include="Tests\" />
     <Folder Include="Src\" />
