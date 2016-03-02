@@ -31,6 +31,9 @@
     <Compile Include="Src\GameState.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\InventoryItems\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\joystick.py">
       <SubType>Code</SubType>
     </Compile>
@@ -55,6 +58,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Plugins\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\SpriteBehaviors\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\SpriteStyles\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Sprites\Blob2Sprite.py">
@@ -335,8 +344,8 @@
     <Content Include="Assets\Views\Level3\Level3.tmx" />
     <Content Include="Assets\Views\Level3\map.json" />
     <Content Include="Assets\Views\Training\background3.png" />
-    <Content Include="Assets\Views\Training\map.json" />
     <Content Include="Assets\Views\Training\training.png" />
+    <Content Include="Assets\Views\Training\map.json" />
     <Content Include="Assets\Views\Training\training.tmx" />
     <Content Include="Assets\Views\View1\view1.json" />
     <Content Include="Assets\Views\View1\view1.png" />
@@ -344,6 +353,7 @@
     <Content Include="Deployment\Game.spec" />
     <Content Include="Deployment\MakeExe.bat" />
     <Content Include="Deployment\readme.txt" />
+    <Content Include="Documentation\Bugs.txt" />
     <Content Include="Documentation\InProgressHeiko.txt" />
     <Content Include="Documentation\readme.txt" />
     <Content Include="Documentation\TodoList.txt" />
@@ -375,8 +385,11 @@
     <Folder Include="Assets\Views\View1\" />
     <Folder Include="Documentation\" />
     <Folder Include="Deployment\" />
+    <Folder Include="Src\InventoryItems\" />
     <Folder Include="Src\MapObjects\" />
     <Folder Include="Src\Plugins\" />
+    <Folder Include="Src\SpriteBehaviors\" />
+    <Folder Include="Src\SpriteStyles\" />
     <Folder Include="Src\Tiled\" />
     <Folder Include="Src\Sprites\" />
     <Folder Include="Src\Tests\" />
