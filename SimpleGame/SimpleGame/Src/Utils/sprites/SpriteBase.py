@@ -72,7 +72,7 @@ class SpriteBase(pygame.sprite.Sprite):
         if SpritePropNames.Style in properties:
             self.style = self.styleFactory(properties[SpritePropNames.Style])
         if SpritePropNames.Behavior in properties:
-            self.behavior = self.behaviorFactory(properties[SpritePropNames.Behavior])
+            self.behavior = self.behaviorFactory(properties[SpritePropNames.Behavior], properties)
         if SpritePropNames.Supplies in properties:
             self.supplies = self.suppliesFactory(properties[SpritePropNames.Supplies])
         if SpritePropNames.Intelligence in properties:
@@ -89,11 +89,11 @@ class SpriteBase(pygame.sprite.Sprite):
         styleClass = getattr(importlib.import_module(module_name), styleClassName)
         return styleClass(self)
 
-    def behaviorFactory(self, behaviorClassName):
+    def behaviorFactory(self, behaviorClassName, properties):
         """Returns a behavior class."""
         module_name = "SpriteBehaviors.{0}".format(behaviorClassName)
         spriteBehaviorClass = getattr(importlib.import_module(module_name), behaviorClassName)
-        return spriteBehaviorClass(self)
+        return spriteBehaviorClass(self, properties)
 
     def intelligenceFactory(self, intelligenceClassName):
         """Returns a sprite intelligence class."""
@@ -111,6 +111,7 @@ class SpriteBase(pygame.sprite.Sprite):
     def doCollide(self):
         """Is called when the player collides with this sprite."""
         result = CollosionInfo(spriteDies = self._killSprite, playerDies = self._killPlayer, points = self.points, parent = self, sound = self.sound)
+        self.behavior.doCollide()
         return result
 
     def update(self, *args):

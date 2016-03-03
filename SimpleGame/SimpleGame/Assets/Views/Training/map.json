@@ -88,7 +88,7 @@
                  "gid":37,
                  "height":32,
                  "id":4,
-                 "name":"xx",
+                 "name":"DrawBridge",
                  "properties":
                     {
                      "ViewName":"Level1"
@@ -97,8 +97,8 @@
                  "type":"DrawbridgeSprite",
                  "visible":true,
                  "width":32,
-                 "x":477,
-                 "y":116
+                 "x":423,
+                 "y":200
                 }, 
                 {
                  "gid":37,
@@ -138,8 +138,8 @@
                  "type":"GenericSprite",
                  "visible":true,
                  "width":32,
-                 "x":847,
-                 "y":216
+                 "x":1145,
+                 "y":207
                 }, 
                 {
                  "gid":151,
@@ -172,6 +172,22 @@
                  "width":32,
                  "x":256,
                  "y":223
+                }, 
+                {
+                 "gid":37,
+                 "height":32,
+                 "id":18,
+                 "name":"DrawBridge",
+                 "properties":
+                    {
+                     "BeamPoint":"Ziel1"
+                    },
+                 "rotation":0,
+                 "type":"DrawbridgeSprite",
+                 "visible":true,
+                 "width":32,
+                 "x":964,
+                 "y":209
                 }],
          "offsetx":0,
          "offsety":32,
@@ -272,7 +288,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":18,
+ "nextobjectid":19,
  "orientation":"orthogonal",
  "properties":
     {

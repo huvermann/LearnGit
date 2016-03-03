@@ -18,7 +18,7 @@ class Coin(SpriteBase):
         if not SpritePropNames.Intelligence in properties:
             self.intelligence = self.intelligenceFactory('DefaultSpriteIntelligence')
         if not SpritePropNames.Behavior in properties:
-            self.behavior = self.behaviorFactory('DefaultSpriteBehavior')
+            self.behavior = self.behaviorFactory('DefaultSpriteBehavior', properties)
         if not SpritePropNames.Supplies in properties:
             self.supplies = self.suppliesFactory('Nothing')
 

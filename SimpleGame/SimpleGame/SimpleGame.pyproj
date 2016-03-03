@@ -60,6 +60,9 @@
     <Compile Include="Src\SpriteBehaviors\DefaultSpriteBehavior.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\SpriteBehaviors\TeleporterBehavior.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\SpriteBehaviors\__init__.py">
       <SubType>Code</SubType>
     </Compile>
@@ -73,6 +76,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\SpriteStyles\CoinStyle.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\SpriteStyles\DrawbridgeStyle.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\SpriteStyles\HeartStyle.py">

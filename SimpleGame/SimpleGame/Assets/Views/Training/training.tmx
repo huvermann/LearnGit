@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="18">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="19">
  <properties>
   <property name="Plugin" value="Plugin=ShowJump"/>
   <property name="Plugin2" value="Plugin=CollosionLab"/>
@@ -240,7 +240,7 @@
  </layer>
  <objectgroup name="Sprites" offsetx="0" offsety="32">
   <object id="3" name="Coin1" type="CoinSprite" gid="154" x="284" y="112" width="32" height="32"/>
-  <object id="4" name="xx" type="DrawbridgeSprite" gid="37" x="477" y="116" width="32" height="32">
+  <object id="4" name="DrawBridge" type="DrawbridgeSprite" gid="37" x="423" y="200" width="32" height="32">
    <properties>
     <property name="ViewName" value="Level1"/>
    </properties>
@@ -250,7 +250,7 @@
     <property name="BeamPoint" value="Ziel3"/>
    </properties>
   </object>
-  <object id="12" name="Example" type="GenericSprite" gid="25" x="847" y="216" width="32" height="32">
+  <object id="12" name="Example" type="GenericSprite" gid="25" x="1145" y="207" width="32" height="32">
    <properties>
     <property name="AssetName" value="Coin"/>
     <property name="Behavior" value="DefaultSpriteBehavior"/>
@@ -266,6 +266,11 @@
   </object>
   <object id="14" name="Coin" type="Coin" gid="151" x="566" y="201" width="32" height="32"/>
   <object id="15" name="Bloob" type="BloobSprite" gid="151" x="256" y="223" width="32" height="32"/>
+  <object id="18" name="DrawBridge" type="DrawbridgeSprite" gid="37" x="964" y="209" width="32" height="32">
+   <properties>
+    <property name="BeamPoint" value="Ziel1"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Player" offsetx="0" offsety="32">
   <object id="2" name="Player" type="JohnDoeSprite" gid="153" x="646" y="211" width="32" height="32"/>
