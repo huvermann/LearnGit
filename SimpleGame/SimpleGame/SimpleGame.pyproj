@@ -72,6 +72,9 @@
     <Compile Include="Src\SpriteStyles\CoinStyle.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\SpriteStyles\HeartStyle.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\SpriteStyles\__init__.py">
       <SubType>Code</SubType>
     </Compile>

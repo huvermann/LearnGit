@@ -1,36 +1,27 @@
-import pygame
-from Utils.SpriteItemBase import SpriteItemBase
-from Sprites.MagicSpriteStrings import SpriteNames
-from Utils.Constants import SoundNames
+from Utils.sprites.SpriteBase import SpriteBase, SpritePropNames
 
-class HeartSprite(SpriteItemBase):
-    """description of class"""
-    def __init__(self):
-        resourceName = SpriteNames.Heart
-        super().__init__(resourceName)
-        self._animation = None
-        self.loadAnimations(resourceName)
-        self._collosionInfo.sound = SoundNames.CoinTouched
-        pass
+class HeartSprite(SpriteBase):
+    """A bumping heart sprite."""
+    def configureFromProperties(self, properties):
+        # Predefine the coin specific properties
+        self.name = 'Heart'
+        self._assetName = 'Heart'
+        self.killPlayer = False
+        self.killSprite = True
+        self.points = 30
+        self.energy = 5
+        self.sound = 'beep.wav'
+        
+        if not SpritePropNames.Style in properties:
+            self.style = self.styleFactory('HeartStyle')
+        if not SpritePropNames.Intelligence in properties:
+            self.intelligence = self.intelligenceFactory('DefaultSpriteIntelligence')
+        if not SpritePropNames.Behavior in properties:
+            self.behavior = self.behaviorFactory('DefaultSpriteBehavior')
+        if not SpritePropNames.Supplies in properties:
+            self.supplies = self.suppliesFactory('Nothing')
 
-    def update(self):
-        # calculate position
-        rect = SpriteItemBase.getRectTimeBased(self._animation["Count"], self._animation["ImageSize"], 100)
-        self.image = self._animation["Image"].subsurface(rect)
-        return super().update()
-
-    def configureProperties(self, properties):
-        super().configureProperties(properties)
-        # Check to configured properties here.
-        pass
-
-    def loadAnimations(self, spriteName):
-        self._animation = {}
-        self._animation["Image"]= SpriteItemBase.loadAnimationFile(spriteName, "Ani")
-        if self._animation["Image"]:
-            self._animation["Image"].set_colorkey(self._animation["Image"].get_at((0,0)))
-            self._animation["Count"] = SpriteItemBase.countAnimationLength(self._animation["Image"])
-            self._animation["ImageSize"] = SpriteItemBase.getPictureSize(self._animation["Image"])
+        return super().configureFromProperties(properties)
 
 
 

@@ -1,18 +1,14 @@
 from Utils.sprites.SpriteStyleBase import SpriteStyleBase
 from Utils.Constants import AnimationNames
 
-class CoinStyle(SpriteStyleBase):
-    """Animation style of the coin sprite."""
-    
-    #def __init__(self, parent):
-    #    return super().__init__(parent)
-
+class HeartStyle(SpriteStyleBase):
+    """Animation style of the heard sprite."""
     def getStyleData(self):
         result = {
             AnimationNames.Standing : {
-                "Filename": "Coin_Ani.png",
+                "Filename": "Heart_Ani.png",
                 "AnimationType": "TimeBased",
-                "Delay": 15}
+                "Delay": 100}
             }
         return result
 
