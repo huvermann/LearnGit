@@ -87,6 +87,9 @@
     <Compile Include="Src\Sprites\BlobSprite.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Sprites\Coin.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Sprites\CoinSprite.py">
       <SubType>Code</SubType>
     </Compile>

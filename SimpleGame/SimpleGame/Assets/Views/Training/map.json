@@ -117,29 +117,20 @@
                  "y":136
                 }, 
                 {
-                 "gid":25,
+                 "gid":151,
                  "height":32,
-                 "id":12,
-                 "name":"Example",
+                 "id":14,
+                 "name":"Coin",
                  "properties":
                     {
-                     "AssetName":"Coin",
-                     "Behavior":"DefaultSpriteBehavior",
-                     "Energy":"10",
-                     "Intelligence":"DefaultSpriteIntelligence",
-                     "KillPlayer":"False",
-                     "KillSprite":"True",
-                     "Points":"30",
-                     "Sound":"beep.wav",
-                     "Style":"CoinStyle",
-                     "Supplies":"Nothing"
+
                     },
                  "rotation":0,
-                 "type":"GenericSprite",
+                 "type":"Coin",
                  "visible":true,
                  "width":32,
-                 "x":847,
-                 "y":216
+                 "x":566,
+                 "y":201
                 }],
          "offsetx":0,
          "offsety":32,
@@ -240,7 +231,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":14,
+ "nextobjectid":15,
  "orientation":"orthogonal",
  "properties":
     {

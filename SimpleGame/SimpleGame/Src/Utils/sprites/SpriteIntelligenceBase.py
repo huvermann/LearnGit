@@ -1,4 +1,3 @@
-#from Utils.sprites.SpriteBase import SpriteBase
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Utils.ViewPointer import ViewPoint
 
