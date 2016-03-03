@@ -75,6 +75,9 @@
     <Compile Include="Src\SpriteStyles\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\SpriteSupplies\Nothing.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\SpriteSupplies\__init__.py">
       <SubType>Code</SubType>
     </Compile>
@@ -174,6 +177,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\sprites\SpriteStyleBase.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\sprites\SpriteSupplyBase.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\sprites\__init__.py">

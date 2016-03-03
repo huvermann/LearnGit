@@ -1,13 +1,13 @@
 class CollosionInfo(object):
     """The colosion info data object."""
-    def __init__(self, spriteDies = True, playerDies = False, points = 10, parent = None, sound=None, metaData = None):
+    def __init__(self, spriteDies = True, playerDies = False, points = 0, energy = 0, parent = None, sound=None):
         """Initializes the collosion info DTO."""
         self._spriteDies = spriteDies
         self._playerDies = playerDies
         self._points = points
+        self._energy = energy
         self._parent = parent
         self._sound = sound
-        self._metaData = metaData
         pass
 
     @property
@@ -50,5 +50,12 @@ class CollosionInfo(object):
     @sound.setter
     def sound(self, value):
         self._sound = value
+
+    @property
+    def energy(self):
+        return self._energy
+    @energy.setter
+    def energy(self, value):
+        self._energy = value
 
 

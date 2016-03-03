@@ -123,21 +123,23 @@
                  "name":"Example",
                  "properties":
                     {
+                     "AssetName":"Coin",
                      "Behavior":"DefaultSpriteBehavior",
                      "Energy":"10",
-                     "KillPlayer":"True",
-                     "KillSprite":"False",
+                     "Intelligence":"DefaultSpriteIntelligence",
+                     "KillPlayer":"False",
+                     "KillSprite":"True",
                      "Points":"30",
                      "Sound":"beep.wav",
                      "Style":"CoinStyle",
-                     "Things":"GunThing"
+                     "Supplies":"Nothing"
                     },
                  "rotation":0,
                  "type":"GenericSprite",
                  "visible":true,
                  "width":32,
-                 "x":564,
-                 "y":160
+                 "x":847,
+                 "y":216
                 }],
          "offsetx":0,
          "offsety":32,
@@ -238,7 +240,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":13,
+ "nextobjectid":14,
  "orientation":"orthogonal",
  "properties":
     {

@@ -2,6 +2,8 @@ import pygame
 import importlib
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Tiled.TiledMap import TiledObjectItem
+from SpriteIntelligence import DefaultSpriteIntelligence
+from Utils.CollosionInfo import CollosionInfo
 
 class SpritePropNames():
     Points = "Points"
@@ -13,6 +15,7 @@ class SpritePropNames():
     Energy = "Energy"
     Sound = "Sound"
     Intelligence = "Intelligence"
+    AssetName = "AssetName"
 
 
 class SpriteBase(pygame.sprite.Sprite):
@@ -24,6 +27,7 @@ class SpriteBase(pygame.sprite.Sprite):
         self._name = None
         self._x = None
         self._y = None
+        self._assetName = None # The path name for sprite resources.
         self._points = 0 # Points the player gets if this item is touched.
         self._energy = 0 # Energy points the player gets if this is touched.
         self._style = None # The animation style
@@ -34,6 +38,7 @@ class SpriteBase(pygame.sprite.Sprite):
         self._supplies = None # Items the player gets if sprite is touched.
         self._behavior = None # Special coded behavior that is executed if collided with the player sprite.
         self._viewPointer = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewPointer)
+        self.rect = None
         pass
 
     def configureSprite(self, properties):
@@ -49,6 +54,10 @@ class SpriteBase(pygame.sprite.Sprite):
         """Configures the sprite from tmx object properties."""
         def strToBool(value):
             return value in ['1', 'true', 'True', 'yes', 'Yes', 'jupp']
+        if SpritePropNames.AssetName in properties:
+            self._assetName = properties[SpritePropNames.AssetName]
+        else:
+            self._assetName = self.name
 
         if SpritePropNames.Points in properties:
             self.points = int(properties[SpritePropNames.Points])
@@ -68,6 +77,9 @@ class SpriteBase(pygame.sprite.Sprite):
             self.supplies = self.suppliesFactory(properties[SpritePropNames.Supplies])
         if SpritePropNames.Intelligence in properties:
             self.intelligence = self.intelligenceFactory(properties[SpritePropNames.Intelligence])
+        else:
+            self.intelligence = DefaultSpriteIntelligence()
+
         pass
 
     def styleFactory(self, styleClassName):
@@ -97,7 +109,19 @@ class SpriteBase(pygame.sprite.Sprite):
 
     def doCollide(self):
         """Is called when the player collides with this sprite."""
-        return self._collosionInfo
+        result = CollosionInfo(spriteDies = self._killSprite, playerDies = self._killPlayer, points = self.points, parent = self, sound = self.sound)
+        return result
+
+    def update(self, *args):
+        """Updates the sprite."""
+        ticks = pygame.time.get_ticks()
+        
+        self.image = self._style.getImage(self, ticks)
+        if not self.rect:
+            self.rect = self.image.get_rect()
+        self._intelligence.updatePosition(self, ticks)
+
+        super().update(*args)
         
     @property
     def name(self):
@@ -193,6 +217,10 @@ class SpriteBase(pygame.sprite.Sprite):
     @behavior.setter
     def behavior(self, value):
         self._behavior = value
+
+    @property
+    def assetName(self):
+        return self._assetName
 
 
          

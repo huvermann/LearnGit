@@ -250,16 +250,18 @@
     <property name="BeamPoint" value="Ziel3"/>
    </properties>
   </object>
-  <object id="12" name="Example" type="GenericSprite" gid="25" x="564" y="160" width="32" height="32">
+  <object id="12" name="Example" type="GenericSprite" gid="25" x="847" y="216" width="32" height="32">
    <properties>
+    <property name="AssetName" value="Coin"/>
     <property name="Behavior" value="DefaultSpriteBehavior"/>
     <property name="Energy" value="10"/>
-    <property name="KillPlayer" value="True"/>
-    <property name="KillSprite" value="False"/>
+    <property name="Intelligence" value="DefaultSpriteIntelligence"/>
+    <property name="KillPlayer" value="False"/>
+    <property name="KillSprite" value="True"/>
     <property name="Points" value="30"/>
     <property name="Sound" value="beep.wav"/>
     <property name="Style" value="CoinStyle"/>
-    <property name="Supplies" value="GunThing"/>
+    <property name="Supplies" value="Nothing"/>
    </properties>
   </object>
  </objectgroup>
