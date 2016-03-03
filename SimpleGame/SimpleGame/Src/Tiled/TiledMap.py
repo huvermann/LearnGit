@@ -47,8 +47,8 @@ class TiledObjectItem():
     def _configure(self, configure):
         self.name = configure['name']
         self.type = configure['type']
-        self.x = configure['x']
-        self.y = configure['y']
+        self.x = int(configure['x'])
+        self.y = int(configure['y'])
         self.id = configure['id']
         if 'gid' in configure:
             self.gid = configure['gid']
