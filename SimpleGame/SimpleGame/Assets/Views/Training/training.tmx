@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="15">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="18">
  <properties>
   <property name="Plugin" value="Plugin=ShowJump"/>
   <property name="Plugin2" value="Plugin=CollosionLab"/>
@@ -265,6 +265,7 @@
    </properties>
   </object>
   <object id="14" name="Coin" type="Coin" gid="151" x="566" y="201" width="32" height="32"/>
+  <object id="15" name="Bloob" type="BloobSprite" gid="151" x="256" y="223" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Player" offsetx="0" offsety="32">
   <object id="2" name="Player" type="JohnDoeSprite" gid="153" x="646" y="211" width="32" height="32"/>

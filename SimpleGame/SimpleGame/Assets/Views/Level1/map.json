@@ -110,7 +110,7 @@
 
                     },
                  "rotation":0,
-                 "type":"BlobSprite",
+                 "type":"BloobSprite",
                  "visible":true,
                  "width":32,
                  "x":736,
@@ -157,13 +157,13 @@
         }, 
         {
          "draworder":"topdown",
-         "height":24,
+         "height":0,
          "name":"Objects",
          "objects":[],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
-         "width":110,
+         "width":0,
          "x":0,
          "y":0
         }],

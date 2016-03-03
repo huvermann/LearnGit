@@ -117,6 +117,31 @@
                  "y":136
                 }, 
                 {
+                 "gid":25,
+                 "height":32,
+                 "id":12,
+                 "name":"Example",
+                 "properties":
+                    {
+                     "AssetName":"Coin",
+                     "Behavior":"DefaultSpriteBehavior",
+                     "Energy":"10",
+                     "Intelligence":"DefaultSpriteIntelligence",
+                     "KillPlayer":"False",
+                     "KillSprite":"True",
+                     "Points":"30",
+                     "Sound":"beep.wav",
+                     "Style":"CoinStyle",
+                     "Supplies":"Nothing"
+                    },
+                 "rotation":0,
+                 "type":"GenericSprite",
+                 "visible":true,
+                 "width":32,
+                 "x":847,
+                 "y":216
+                }, 
+                {
                  "gid":151,
                  "height":32,
                  "id":14,
@@ -131,6 +156,22 @@
                  "width":32,
                  "x":566,
                  "y":201
+                }, 
+                {
+                 "gid":151,
+                 "height":32,
+                 "id":15,
+                 "name":"Bloob",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"BloobSprite",
+                 "visible":true,
+                 "width":32,
+                 "x":256,
+                 "y":223
                 }],
          "offsetx":0,
          "offsety":32,
@@ -231,7 +272,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":15,
+ "nextobjectid":18,
  "orientation":"orthogonal",
  "properties":
     {

@@ -156,7 +156,7 @@
  <objectgroup name="Sprites" offsetx="0" offsety="32">
   <object id="7" name="coin1" type="CoinSprite" gid="182" x="433" y="300" width="32" height="32"/>
   <object id="11" name="h1" type="HeartSprite" gid="190" x="737" y="378" width="32" height="32"/>
-  <object id="12" name="b1" type="BlobSprite" gid="180" x="736" y="597" width="32" height="32"/>
+  <object id="12" name="b1" type="BloobSprite" gid="180" x="736" y="597" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Player" offsetx="0" offsety="32">
   <object id="6" name="Player" type="JohnDoeSprite" gid="196" x="109" y="218" width="32" height="32"/>
