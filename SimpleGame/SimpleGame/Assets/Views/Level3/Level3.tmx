@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="110" height="100" tilewidth="32" tileheight="32" nextobjectid="28">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="110" height="100" tilewidth="32" tileheight="32" nextobjectid="30">
  <properties>
   <property name="Plugin" value="Plugin=CheatKeyPlugin"/>
  </properties>
@@ -135,11 +135,14 @@
  <tileset firstgid="196" name="Player" tilewidth="32" tileheight="32" tilecount="2" columns="2">
   <image source="../../Sprites/Jimbo/Jimbo_standing.png" trans="b2dcef" width="64" height="32"/>
  </tileset>
+ <tileset firstgid="198" name="Soldat" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../Sprites/Commander/commander_standing_front.png" trans="4a61f3" width="32" height="32"/>
+ </tileset>
  <imagelayer name="Image" visible="0" offsetx="-2" offsety="-1">
   <image source="../Level2/background6.png"/>
  </imagelayer>
  <objectgroup color="#ff0000" name="Screen" visible="0">
-  <object id="9" name="Screen" type="Screen" x="0" y="1216" width="800" height="600"/>
+  <object id="9" name="Screen" type="Screen" x="63" y="2410" width="800" height="600"/>
  </objectgroup>
  <layer name="BackgroundMap" width="110" height="100">
   <data encoding="csv">
@@ -352,25 +355,29 @@
  <objectgroup name="Sprites" offsetx="0" offsety="32">
   <object id="7" name="coin1" type="CoinSprite" gid="182" x="2113.33" y="1918.18" width="32" height="32"/>
   <object id="11" name="h1" type="HeartSprite" gid="190" x="992" y="2848" width="32" height="32"/>
-  <object id="12" name="b1" type="BlobSprite" gid="180" x="276" y="1817" width="32" height="32"/>
+  <object id="12" name="b1" type="BloobSprite" gid="180" x="276" y="1817" width="32" height="32"/>
   <object id="13" name="coin1" type="CoinSprite" gid="182" x="2099" y="1888.5" width="32" height="32"/>
   <object id="14" name="coin1" type="CoinSprite" gid="182" x="2144.33" y="1919.33" width="32" height="32"/>
   <object id="15" name="coin1" type="CoinSprite" gid="182" x="2129" y="1889" width="32" height="32"/>
   <object id="16" name="h1" type="HeartSprite" gid="190" x="2624" y="2847" width="32" height="32"/>
   <object id="17" name="h1" type="HeartSprite" gid="190" x="543" y="1248" width="32" height="32"/>
-  <object id="18" name="b1" type="BlobSprite" gid="180" x="608" y="2847" width="32" height="32"/>
-  <object id="19" name="b1" type="BlobSprite" gid="180" x="1951" y="2848" width="32" height="32"/>
-  <object id="20" name="b1" type="BlobSprite" gid="180" x="3200" y="2590" width="32" height="32"/>
-  <object id="21" name="b1" type="BlobSprite" gid="180" x="2848" y="2495" width="32" height="32"/>
-  <object id="22" name="b1" type="BlobSprite" gid="180" x="3200" y="2205" width="32" height="32"/>
-  <object id="23" name="b1" type="BlobSprite" gid="180" x="2752" y="1919" width="32" height="32"/>
-  <object id="24" name="b1" type="BlobSprite" gid="180" x="2624" y="1759" width="32" height="32"/>
-  <object id="25" name="b1" type="BlobSprite" gid="180" x="1536" y="1919" width="32" height="32"/>
-  <object id="26" name="b1" type="BlobSprite" gid="180" x="1153" y="1917" width="32" height="32"/>
-  <object id="27" name="b1" type="BlobSprite" gid="180" x="929" y="2398" width="32" height="32"/>
+  <object id="18" name="b1" type="BloobSprite" gid="180" x="608" y="2847" width="32" height="32"/>
+  <object id="19" name="b1" type="BloobSprite" gid="180" x="1951" y="2848" width="32" height="32"/>
+  <object id="20" name="b1" type="BloobSprite" gid="180" x="3200" y="2590" width="32" height="32"/>
+  <object id="21" name="b1" type="BloobSprite" gid="180" x="2848" y="2495" width="32" height="32"/>
+  <object id="22" name="b1" type="BloobSprite" gid="180" x="3200" y="2205" width="32" height="32"/>
+  <object id="23" name="b1" type="BloobSprite" gid="180" x="2752" y="1919" width="32" height="32">
+   <properties>
+    <property name="Style" value="BloobStyleBlue"/>
+   </properties>
+  </object>
+  <object id="24" name="b1" type="BloobSprite" gid="180" x="2624" y="1759" width="32" height="32"/>
+  <object id="25" name="b1" type="BloobSprite" gid="180" x="1536" y="1919" width="32" height="32"/>
+  <object id="26" name="b1" type="BloobSprite" gid="180" x="1153" y="1917" width="32" height="32"/>
+  <object id="27" name="b1" type="BloobSprite" gid="180" x="929" y="2398" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Player" visible="0" offsetx="0" offsety="32">
-  <object id="6" name="Player" type="JohnDoeSprite" gid="196" x="3152" y="1901" width="32" height="32"/>
+ <objectgroup name="Player" offsetx="0" offsety="32">
+  <object id="6" name="Player" type="JohnDoeSprite" gid="196" x="161" y="2848" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Objects" visible="0"/>
+ <objectgroup name="Objects"/>
 </map>

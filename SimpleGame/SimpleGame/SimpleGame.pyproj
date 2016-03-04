@@ -75,6 +75,15 @@
     <Compile Include="Src\SpriteStyles\BloobStyle.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\SpriteStyles\BloobStyleBlue.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\SpriteStyles\BloobStyleRed.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\SpriteStyles\BloobStyleYellow.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\SpriteStyles\CoinStyle.py">
       <SubType>Code</SubType>
     </Compile>

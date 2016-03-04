@@ -31,8 +31,8 @@
                  "type":"Screen",
                  "visible":true,
                  "width":800,
-                 "x":0,
-                 "y":1216
+                 "x":63,
+                 "y":2410
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -110,7 +110,7 @@
 
                     },
                  "rotation":0,
-                 "type":"BlobSprite",
+                 "type":"BloobSprite",
                  "visible":true,
                  "width":32,
                  "x":276,
@@ -206,7 +206,7 @@
 
                     },
                  "rotation":0,
-                 "type":"BlobSprite",
+                 "type":"BloobSprite",
                  "visible":true,
                  "width":32,
                  "x":608,
@@ -222,7 +222,7 @@
 
                     },
                  "rotation":0,
-                 "type":"BlobSprite",
+                 "type":"BloobSprite",
                  "visible":true,
                  "width":32,
                  "x":1951,
@@ -238,7 +238,7 @@
 
                     },
                  "rotation":0,
-                 "type":"BlobSprite",
+                 "type":"BloobSprite",
                  "visible":true,
                  "width":32,
                  "x":3200,
@@ -254,7 +254,7 @@
 
                     },
                  "rotation":0,
-                 "type":"BlobSprite",
+                 "type":"BloobSprite",
                  "visible":true,
                  "width":32,
                  "x":2848,
@@ -270,7 +270,7 @@
 
                     },
                  "rotation":0,
-                 "type":"BlobSprite",
+                 "type":"BloobSprite",
                  "visible":true,
                  "width":32,
                  "x":3200,
@@ -283,10 +283,10 @@
                  "name":"b1",
                  "properties":
                     {
-
+                     "Style":"BloobStyleBlue"
                     },
                  "rotation":0,
-                 "type":"BlobSprite",
+                 "type":"BloobSprite",
                  "visible":true,
                  "width":32,
                  "x":2752,
@@ -302,7 +302,7 @@
 
                     },
                  "rotation":0,
-                 "type":"BlobSprite",
+                 "type":"BloobSprite",
                  "visible":true,
                  "width":32,
                  "x":2624,
@@ -318,7 +318,7 @@
 
                     },
                  "rotation":0,
-                 "type":"BlobSprite",
+                 "type":"BloobSprite",
                  "visible":true,
                  "width":32,
                  "x":1536,
@@ -334,7 +334,7 @@
 
                     },
                  "rotation":0,
-                 "type":"BlobSprite",
+                 "type":"BloobSprite",
                  "visible":true,
                  "width":32,
                  "x":1153,
@@ -350,7 +350,7 @@
 
                     },
                  "rotation":0,
-                 "type":"BlobSprite",
+                 "type":"BloobSprite",
                  "visible":true,
                  "width":32,
                  "x":929,
@@ -383,14 +383,14 @@
                  "type":"JohnDoeSprite",
                  "visible":true,
                  "width":32,
-                 "x":3152,
-                 "y":1901
+                 "x":161,
+                 "y":2848
                 }],
          "offsetx":0,
          "offsety":32,
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "width":0,
          "x":0,
          "y":0
@@ -402,12 +402,12 @@
          "objects":[],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "width":0,
          "x":0,
          "y":0
         }],
- "nextobjectid":28,
+ "nextobjectid":30,
  "orientation":"orthogonal",
  "properties":
     {
@@ -750,6 +750,24 @@
          "tileheight":32,
          "tilewidth":32,
          "transparentcolor":"#b2dcef"
+        }, 
+        {
+         "columns":1,
+         "firstgid":198,
+         "image":"..\/..\/Sprites\/Commander\/commander_standing_front.png",
+         "imageheight":32,
+         "imagewidth":32,
+         "margin":0,
+         "name":"Soldat",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tilecount":1,
+         "tileheight":32,
+         "tilewidth":32,
+         "transparentcolor":"#4a61f3"
         }],
  "tilewidth":32,
  "version":1,
