@@ -138,8 +138,8 @@
                  "type":"GenericSprite",
                  "visible":true,
                  "width":32,
-                 "x":1145,
-                 "y":207
+                 "x":1242,
+                 "y":193
                 }, 
                 {
                  "gid":151,
@@ -154,8 +154,8 @@
                  "type":"Coin",
                  "visible":true,
                  "width":32,
-                 "x":566,
-                 "y":201
+                 "x":386,
+                 "y":102
                 }, 
                 {
                  "gid":151,
@@ -170,8 +170,8 @@
                  "type":"BloobSprite",
                  "visible":true,
                  "width":32,
-                 "x":256,
-                 "y":223
+                 "x":526,
+                 "y":84
                 }, 
                 {
                  "gid":37,
@@ -216,8 +216,8 @@
                  "type":"JohnDoeSprite",
                  "visible":true,
                  "width":32,
-                 "x":646,
-                 "y":211
+                 "x":588,
+                 "y":214
                 }],
          "offsetx":0,
          "offsety":32,

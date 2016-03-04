@@ -4,6 +4,7 @@ from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Tiled.TiledMap import TiledObjectItem
 from SpriteIntelligence import DefaultSpriteIntelligence
 from Utils.CollosionInfo import CollosionInfo
+from Utils.ViewPointer import ViewPoint
 
 class SpritePropNames():
     Points = "Points"
@@ -147,6 +148,14 @@ class SpriteBase(pygame.sprite.Sprite):
         """The y-position of the sprite."""
         return self._y
 
+    @y.setter
+    def y(self, value):
+        self._y = value
+
+    @property
+    def position(self):
+        return ViewPoint(self._x, self._y)
+
     @property
     def points(self):
         """Points the player gets if this item is touched."""
@@ -223,6 +232,14 @@ class SpriteBase(pygame.sprite.Sprite):
     @property
     def assetName(self):
         return self._assetName
+
+    @property
+    def collideRect(self):
+        """Returns the collide rect. Override this property, if the collide rect is different."""
+        result = self.rect.copy()
+        result.top = 0
+        result.left = 0
+        return result
 
 
          

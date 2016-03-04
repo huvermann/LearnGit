@@ -1,6 +1,12 @@
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Utils.ViewPointer import ViewPoint
 
+class SpriteMoveState():
+    FallingDown = 1
+    Standing = 2
+    MoveLeft = 3
+    MoveRight = 4
+
 
 class SpriteIntelligenceBase(object):
     """description of class"""
