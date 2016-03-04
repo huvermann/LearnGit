@@ -10,11 +10,18 @@ class SpriteMoveState():
 
 class SpriteIntelligenceBase(object):
     """description of class"""
-    def __init__(self, parentSprite):
+    def __init__(self, parentSprite, properties):
         #assert isinstance(parentSprite, SpriteBase)
         self._parentSprite = parentSprite
         self._viewPointer = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewPointer)
         self._style = self._parentSprite.style
+        self.configureProperties(properties)
+        pass
+
+    def configureProperties(self, properties):
+        pass
+
+
 
     def updatePosition(self, sprite, time):
         """Updates the position of the sprite."""

@@ -71,24 +71,24 @@ class SpriteBase(pygame.sprite.Sprite):
         if SpritePropNames.Sound in properties:
             self.sound = properties[SpritePropNames.Sound]
         if SpritePropNames.Style in properties:
-            self.style = self.styleFactory(properties[SpritePropNames.Style])
+            self.style = self.styleFactory(properties[SpritePropNames.Style], properties)
         if SpritePropNames.Behavior in properties:
             self.behavior = self.behaviorFactory(properties[SpritePropNames.Behavior], properties)
         if SpritePropNames.Supplies in properties:
-            self.supplies = self.suppliesFactory(properties[SpritePropNames.Supplies])
+            self.supplies = self.suppliesFactory(properties[SpritePropNames.Supplies], properties)
         if SpritePropNames.Intelligence in properties:
-            self.intelligence = self.intelligenceFactory(properties[SpritePropNames.Intelligence])
+            self.intelligence = self.intelligenceFactory(properties[SpritePropNames.Intelligence], properties)
         else:
             if not self.intelligence:
                 self.intelligence = DefaultSpriteIntelligence(self)
 
         pass
 
-    def styleFactory(self, styleClassName):
+    def styleFactory(self, styleClassName, properties):
         """Creates a style class."""
         module_name = "SpriteStyles.{0}".format(styleClassName)
         styleClass = getattr(importlib.import_module(module_name), styleClassName)
-        return styleClass(self)
+        return styleClass(self, properties)
 
     def behaviorFactory(self, behaviorClassName, properties):
         """Returns a behavior class."""
@@ -96,18 +96,18 @@ class SpriteBase(pygame.sprite.Sprite):
         spriteBehaviorClass = getattr(importlib.import_module(module_name), behaviorClassName)
         return spriteBehaviorClass(self, properties)
 
-    def intelligenceFactory(self, intelligenceClassName):
+    def intelligenceFactory(self, intelligenceClassName, properties):
         """Returns a sprite intelligence class."""
         module_name = "SpriteIntelligence.{0}".format(intelligenceClassName)
         spriteIntelligenceClass = getattr(importlib.import_module(module_name), intelligenceClassName)
-        return spriteIntelligenceClass(self)
+        return spriteIntelligenceClass(self, properties)
 
 
-    def suppliesFactory(self, supplyClassName):
+    def suppliesFactory(self, supplyClassName, properties):
         """Returns a sprite supply class."""
         module_name = "SpriteSupplies.{0}".format(supplyClassName)
         spriteSupplyClass = getattr(importlib.import_module(module_name), supplyClassName)
-        return spriteSupplyClass(self)
+        return spriteSupplyClass(self, properties)
 
     def doCollide(self):
         """Is called when the player collides with this sprite."""

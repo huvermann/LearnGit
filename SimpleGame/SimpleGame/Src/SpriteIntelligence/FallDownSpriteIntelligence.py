@@ -6,7 +6,7 @@ from Utils.ViewPointer import ViewPoint
 
 class FallDownSpriteIntelligence(SpriteIntelligenceBase):
     """This sprite is just intelligent enough to fall down on the ground. Wow!"""
-    def __init__(self, parentSprite):
+    def __init__(self, parentSprite, properties):
         self._map = ServiceLocator.getGlobalServiceInstance(ServiceNames.Map)
         self._collider = TiledSpriteCollider()
         self._moveState = SpriteMoveState.Standing
@@ -14,7 +14,7 @@ class FallDownSpriteIntelligence(SpriteIntelligenceBase):
         self._lastPosition = None
         self._lastChange = None
 
-        return super().__init__(parentSprite)
+        return super().__init__(parentSprite, properties)
 
     def calculateMaxFallingTime(self, sprite):
         result = None

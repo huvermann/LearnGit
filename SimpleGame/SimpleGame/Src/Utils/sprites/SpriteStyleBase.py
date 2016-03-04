@@ -2,7 +2,7 @@ from Utils.Constants import AnimationNames
 from Utils.AnimationInfo import AnimationInfo, AnimationTypes
 class SpriteStyleBase(object):
     """The sprite style base class."""
-    def __init__(self, parent):
+    def __init__(self, parent, properties):
         self.image = None
         self.rect = None
         self._parent = parent
@@ -10,6 +10,11 @@ class SpriteStyleBase(object):
         styleData = self.getStyleData()
         self.configureAnimations(parent.assetName, styleData)
         self._currentAnimation = self.getDefaultAnimation()
+        self.configureProperties(properties)
+        pass
+
+    def configureProperties(self, properties):
+        """Reads the properties from tmx."""
         pass
 
     def getStyleAnimationNames(self):

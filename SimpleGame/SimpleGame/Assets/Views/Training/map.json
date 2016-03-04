@@ -34,7 +34,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "width":0,
          "x":0,
          "y":0
@@ -99,22 +99,6 @@
                  "width":32,
                  "x":423,
                  "y":200
-                }, 
-                {
-                 "gid":37,
-                 "height":32,
-                 "id":11,
-                 "name":"Teleporter",
-                 "properties":
-                    {
-                     "BeamPoint":"Ziel3"
-                    },
-                 "rotation":0,
-                 "type":"TeleporterSprite",
-                 "visible":true,
-                 "width":32,
-                 "x":657,
-                 "y":136
                 }, 
                 {
                  "gid":25,
@@ -288,7 +272,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":19,
+ "nextobjectid":21,
  "orientation":"orthogonal",
  "properties":
     {

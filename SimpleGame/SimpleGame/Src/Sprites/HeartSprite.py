@@ -13,13 +13,13 @@ class HeartSprite(SpriteBase):
         self.sound = 'beep.wav'
         
         if not SpritePropNames.Style in properties:
-            self.style = self.styleFactory('HeartStyle')
+            self.style = self.styleFactory('HeartStyle', properties)
         if not SpritePropNames.Intelligence in properties:
-            self.intelligence = self.intelligenceFactory('DefaultSpriteIntelligence')
+            self.intelligence = self.intelligenceFactory('DefaultSpriteIntelligence', properties)
         if not SpritePropNames.Behavior in properties:
             self.behavior = self.behaviorFactory('DefaultSpriteBehavior', properties)
         if not SpritePropNames.Supplies in properties:
-            self.supplies = self.suppliesFactory('Nothing')
+            self.supplies = self.suppliesFactory('Nothing', properties)
 
         return super().configureFromProperties(properties)
 
