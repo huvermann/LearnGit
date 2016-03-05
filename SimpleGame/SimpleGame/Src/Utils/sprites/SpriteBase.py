@@ -6,6 +6,12 @@ from SpriteIntelligence import DefaultSpriteIntelligence
 from Utils.CollosionInfo import CollosionInfo
 from Utils.ViewPointer import ViewPoint
 
+class SpriteMoveState():
+    FallingDown = 1
+    Standing = 2
+    MoveLeft = 3
+    MoveRight = 4
+
 class SpritePropNames():
     Points = "Points"
     Style = "Style"
@@ -40,6 +46,7 @@ class SpriteBase(pygame.sprite.Sprite):
         self._behavior = None # Special coded behavior that is executed if collided with the player sprite.
         self._viewPointer = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewPointer)
         self.rect = None
+        self._moveState = None
         pass
 
     def configureSprite(self, properties):
@@ -239,7 +246,16 @@ class SpriteBase(pygame.sprite.Sprite):
         result = self.rect.copy()
         result.top = 0
         result.left = 0
+
         return result
+
+    @property
+    def moveState(self):
+        return self._moveState
+
+    @moveState.setter
+    def moveState(self, value):
+        self._moveState = value
 
 
          

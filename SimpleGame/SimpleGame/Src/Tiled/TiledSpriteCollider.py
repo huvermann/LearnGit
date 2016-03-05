@@ -162,8 +162,10 @@ class CollisionResult(object):
                   or self.BottomRight.TideIndex in self._map.ladderTiles)
         return result
 
-
-
+    @property
+    def isStandingOnEdge(self):
+        result = self.BottomLeft.State == TileTouchState.Space or self.BottomRight.State == TileTouchState.Space
+        return result
 
 
 class TiledSpriteCollider(object):
