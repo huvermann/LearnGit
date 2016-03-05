@@ -1,5 +1,7 @@
 from Utils.Constants import AnimationNames
 from Utils.AnimationInfo import AnimationInfo, AnimationTypes
+from Utils.sprites.SpriteBase import SpriteMoveState
+
 class SpriteStyleBase(object):
     """The sprite style base class."""
     def __init__(self, parent, properties):
@@ -48,6 +50,19 @@ class SpriteStyleBase(object):
             index = self._currentAnimation.calculatePositionIndex(sprite.x)
             result = self._currentAnimation.getAnimationPictureByIndex(index)
         return result
+
+    def setMoveState(self, moveState):
+        # Set animation by moveState
+        if moveState == SpriteMoveState.FallingDown:
+            self.currentAnimation = self._animations[AnimationNames.Falling]
+        elif moveState == SpriteMoveState.MoveLeft:
+            self.currentAnimation = self._animations[AnimationNames.Left]
+        elif moveState == SpriteMoveState.MoveRight:
+            self.currentAnimation = self._animations[AnimationNames.Right]
+        elif moveState == SpriteMoveState.Standing:
+            self.currentAnimation = self._animations[AnimationNames.Standing]
+        else:
+            self.currentAnimation = self._animations[AnimationNames.Standing]
 
 
 

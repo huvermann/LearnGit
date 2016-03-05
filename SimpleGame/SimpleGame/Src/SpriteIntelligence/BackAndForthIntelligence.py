@@ -35,7 +35,7 @@ class BackAndForthIntelligence(SpriteIntelligenceBase):
             if moveState == SpriteMoveState.MoveLeft:
                 position = ViewPoint(offset.left - x, offset.top)
                 state = self._collider.checkCollideAt(self._map, rect, position)
-                if state.isLeftTouched or state.isStandingOnEdge or time >= 5000:
+                if state.isLeftTouched or state.isStandingOnEdge or time >= 15000:
                     abort = True
                     result = (time, position)
 
@@ -43,7 +43,7 @@ class BackAndForthIntelligence(SpriteIntelligenceBase):
                 position = ViewPoint(offset.left + x, offset.top)
                 state = self._collider.checkCollideAt(self._map, rect, position)
                 state.BottomLeft.StateVertical
-                if state.isRightToched or state.isStandingOnEdge or time > 5000:
+                if state.isRightToched or state.isStandingOnEdge or time > 15000:
                     abort = True
                     result = (time, position)
 

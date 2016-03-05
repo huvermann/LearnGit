@@ -255,7 +255,9 @@ class SpriteBase(pygame.sprite.Sprite):
 
     @moveState.setter
     def moveState(self, value):
-        self._moveState = value
+        if self._moveState != value:
+            self._moveState = value
+            self._style.setMoveState(value)
 
 
          
