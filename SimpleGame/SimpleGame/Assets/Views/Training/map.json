@@ -138,8 +138,8 @@
                  "type":"Coin",
                  "visible":true,
                  "width":32,
-                 "x":386,
-                 "y":102
+                 "x":416,
+                 "y":60
                 }, 
                 {
                  "gid":151,
@@ -155,8 +155,8 @@
                  "type":"BloobSprite",
                  "visible":true,
                  "width":32,
-                 "x":526,
-                 "y":84
+                 "x":550,
+                 "y":38
                 }, 
                 {
                  "gid":37,
@@ -205,8 +205,8 @@
                  "type":"BloobSprite",
                  "visible":true,
                  "width":32,
-                 "x":42,
-                 "y":176
+                 "x":35,
+                 "y":44
                 }, 
                 {
                  "gid":151,
@@ -222,8 +222,8 @@
                  "type":"BloobSprite",
                  "visible":true,
                  "width":32,
-                 "x":98,
-                 "y":200
+                 "x":83,
+                 "y":49
                 }, 
                 {
                  "gid":151,
@@ -239,8 +239,8 @@
                  "type":"BloobSprite",
                  "visible":true,
                  "width":32,
-                 "x":261,
-                 "y":207
+                 "x":67,
+                 "y":97
                 }, 
                 {
                  "gid":151,
@@ -256,8 +256,8 @@
                  "type":"BloobSprite",
                  "visible":true,
                  "width":32,
-                 "x":403,
-                 "y":197
+                 "x":364,
+                 "y":38
                 }, 
                 {
                  "gid":151,
@@ -273,8 +273,8 @@
                  "type":"BloobSprite",
                  "visible":true,
                  "width":32,
-                 "x":476,
-                 "y":206
+                 "x":479,
+                 "y":38
                 }],
          "offsetx":0,
          "offsety":32,

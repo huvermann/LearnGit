@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>da9d3ad3-2ece-426a-a977-e83b691ddc1a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Src\JoystickExample.py</StartupFile>
+    <StartupFile>Src\Game.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -14,6 +14,9 @@
     <RootNamespace>SimpleGame</RootNamespace>
     <InterpreterId>{ab8ef5c4-9fc3-4532-90cf-90d71360e93c}</InterpreterId>
     <InterpreterVersion>3.5</InterpreterVersion>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <CommandLineArguments>-v Training</CommandLineArguments>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>

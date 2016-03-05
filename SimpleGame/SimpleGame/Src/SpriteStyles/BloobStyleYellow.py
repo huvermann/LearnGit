@@ -24,6 +24,10 @@ class BloobStyleYellow(SpriteStyleBase):
             AnimationNames.Right : { 
                 "Filename": "bloob_yellow_gehen_rechts.png",
                 "AnimationType": "TimeBased",
+                "Delay": 25},
+             AnimationNames.Falling : {
+                "Filename": "bloob_yellow_springen.png",
+                "AnimationType": "TimeBased",
                 "Delay": 25}
             
             

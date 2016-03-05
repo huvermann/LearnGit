@@ -46,6 +46,9 @@ class BackAndForthIntelligence(SpriteIntelligenceBase):
                 if state.isRightToched or state.isStandingOnEdge or time > 15000:
                     abort = True
                     result = (time, position)
+            else:
+                result = (0, sprite.position)
+                abort = True
 
         return result
 
@@ -78,6 +81,8 @@ class BackAndForthIntelligence(SpriteIntelligenceBase):
                 # Maximum time move reached
                 sprite.x = self._maxMoveTime[1].left
                 self._changeToDirection(sprite, time, SpriteMoveState.MoveLeft)
+        else:
+            sprite.moveState = SpriteMoveState.MoveLeft
 
         #################
         # Move the sprite

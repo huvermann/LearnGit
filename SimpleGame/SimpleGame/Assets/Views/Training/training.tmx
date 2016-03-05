@@ -259,8 +259,8 @@
     <property name="Supplies" value="Nothing"/>
    </properties>
   </object>
-  <object id="14" name="Coin" type="Coin" gid="151" x="386" y="102" width="32" height="32"/>
-  <object id="15" name="Bloob" type="BloobSprite" gid="151" x="526" y="84" width="32" height="32">
+  <object id="14" name="Coin" type="Coin" gid="151" x="416" y="60" width="32" height="32"/>
+  <object id="15" name="Bloob" type="BloobSprite" gid="151" x="550" y="38" width="32" height="32">
    <properties>
     <property name="Intelligence" value="DropdownAndMoveIntelligence"/>
     <property name="KillSprite" value="False"/>
@@ -277,31 +277,31 @@
     <property name="KillSprite" value="False"/>
    </properties>
   </object>
-  <object id="22" name="Bloob" type="BloobSprite" gid="151" x="42" y="176" width="32" height="32">
+  <object id="22" name="Bloob" type="BloobSprite" gid="151" x="35" y="44" width="32" height="32">
    <properties>
     <property name="Intelligence" value="DropdownAndMoveIntelligence"/>
     <property name="KillSprite" value="False"/>
    </properties>
   </object>
-  <object id="23" name="Bloob" type="BloobSprite" gid="151" x="98" y="200" width="32" height="32">
+  <object id="23" name="Bloob" type="BloobSprite" gid="151" x="83" y="49" width="32" height="32">
    <properties>
     <property name="Intelligence" value="DropdownAndMoveIntelligence"/>
     <property name="KillSprite" value="False"/>
    </properties>
   </object>
-  <object id="24" name="Bloob" type="BloobSprite" gid="151" x="261" y="207" width="32" height="32">
+  <object id="24" name="Bloob" type="BloobSprite" gid="151" x="67" y="97" width="32" height="32">
    <properties>
     <property name="Intelligence" value="DropdownAndMoveIntelligence"/>
     <property name="KillSprite" value="False"/>
    </properties>
   </object>
-  <object id="25" name="Bloob" type="BloobSprite" gid="151" x="403" y="197" width="32" height="32">
+  <object id="25" name="Bloob" type="BloobSprite" gid="151" x="364" y="38" width="32" height="32">
    <properties>
     <property name="Intelligence" value="DropdownAndMoveIntelligence"/>
     <property name="KillSprite" value="False"/>
    </properties>
   </object>
-  <object id="26" name="Bloob" type="BloobSprite" gid="151" x="476" y="206" width="32" height="32">
+  <object id="26" name="Bloob" type="BloobSprite" gid="151" x="479" y="38" width="32" height="32">
    <properties>
     <property name="Intelligence" value="DropdownAndMoveIntelligence"/>
     <property name="KillSprite" value="False"/>

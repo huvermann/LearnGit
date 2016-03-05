@@ -10,8 +10,8 @@ class FallDownSpriteIntelligence(SpriteIntelligenceBase):
     def __init__(self, parentSprite, properties):
         self._map = ServiceLocator.getGlobalServiceInstance(ServiceNames.Map)
         self._collider = TiledSpriteCollider()
-        self._moveState = SpriteMoveState.Standing
-        self._moveCalculator = JumpCalculator(fallSpeed = 0.2)
+        parentSprite.moveState = SpriteMoveState.Standing
+        self._moveCalculator = JumpCalculator(fallSpeed = 0.1)
         self._lastPosition = None
         self._lastChange = None
         self._onSpriteHasGrounded = None
@@ -44,19 +44,19 @@ class FallDownSpriteIntelligence(SpriteIntelligenceBase):
         self._lastChange = None
         self._lastPosition = None
         self._maxMoveTime = None
-        self._moveState = SpriteMoveState.Standing
+        sprite.moveState = SpriteMoveState.Standing
         pass
 
     def _changeToFallingState(self, sprite, time):
         self._lastChange = time
         self._lastPosition = sprite.position
         self._maxMoveTime = self.calculateMaxFallingTime(sprite)
-        self._moveState = SpriteMoveState.FallingDown
+        sprite.moveState = SpriteMoveState.FallingDown
         pass
 
     def updatePosition(self, sprite, time):
         area = self._collider.checkCollideAt(self._map, sprite.collideRect, sprite.position)
-        if self._moveState == SpriteMoveState.FallingDown:
+        if sprite.moveState == SpriteMoveState.FallingDown:
             if not self._maxMoveTime:
                 self._maxMoveTime = self.calculateMaxFallingTime(sprite)
             
@@ -66,10 +66,14 @@ class FallDownSpriteIntelligence(SpriteIntelligenceBase):
                 self._changeToStandingState(sprite, time)
                 if self._onSpriteHasGrounded:
                     self._onSpriteHasGrounded()
-        elif self._moveState == SpriteMoveState.Standing:
+        elif sprite.moveState == SpriteMoveState.Standing:
             if not area.isGrounded:
                 self._changeToFallingState(sprite, time)
-        if self._moveState == SpriteMoveState.FallingDown:
+        else:
+            # make shure you are in a defined state.
+            sprite.moveState = SpriteMoveState.Standing
+
+        if sprite.moveState == SpriteMoveState.FallingDown:
             duration = time - self._lastChange
             move = self._moveCalculator.calcFalling(duration)
             sprite.y = self._lastPosition.top + move
