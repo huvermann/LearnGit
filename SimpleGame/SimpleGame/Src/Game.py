@@ -1,6 +1,6 @@
 # Main File.
 import pygame
-import os, sys
+import os, sys, getopt
 import logging
 import Utils
 from pygame.locals import *
@@ -41,15 +41,30 @@ class MainGame:
         """Run the game loop"""
         # pygame.display.set_icon(pygame.image.load(Utils.DirHelper.getResourceFilePath("icon")))
         pygame.display.set_caption("SimpleGame")
+        defaultStartView = "Level1"
         # Start-Screen
-        #self.viewController.changeView("Training")
-        self.viewController.changeView("Level1")
+        viewName = self.parseViewNameFromCommandArgs()
+        if viewName:
+            self.viewController.changeView(viewName)
+        else:
+            self.viewController.changeView(defaultStartView)
         try:
             while not self.gameState.done:
                 self.viewController.currentView.runView()
         except Exception as e:
             logging.error(e)
             self.gameState.done = True
+
+    def parseViewNameFromCommandArgs(self):
+        result = None
+        opts, args = getopt.getopt(sys.argv[1:], "v:", ["view="])
+        for o, a in opts:
+            if o == "-v":
+                result = a
+            if o == "view=":
+                result = a
+
+        return result
 
 if __name__ == "__main__":
     game = MainGame()
