@@ -126,39 +126,6 @@
                  "y":193
                 }, 
                 {
-                 "gid":151,
-                 "height":32,
-                 "id":14,
-                 "name":"Coin",
-                 "properties":
-                    {
-
-                    },
-                 "rotation":0,
-                 "type":"Coin",
-                 "visible":true,
-                 "width":32,
-                 "x":416,
-                 "y":60
-                }, 
-                {
-                 "gid":151,
-                 "height":32,
-                 "id":15,
-                 "name":"Bloob",
-                 "properties":
-                    {
-                     "Intelligence":"DropdownAndMoveIntelligence",
-                     "KillSprite":"False"
-                    },
-                 "rotation":0,
-                 "type":"BloobSprite",
-                 "visible":true,
-                 "width":32,
-                 "x":550,
-                 "y":38
-                }, 
-                {
                  "gid":37,
                  "height":32,
                  "id":18,
@@ -194,80 +161,16 @@
                 {
                  "gid":151,
                  "height":32,
-                 "id":22,
-                 "name":"Bloob",
-                 "properties":
-                    {
-                     "Intelligence":"DropdownAndMoveIntelligence",
-                     "KillSprite":"False"
-                    },
-                 "rotation":0,
-                 "type":"BloobSprite",
-                 "visible":true,
-                 "width":32,
-                 "x":35,
-                 "y":44
-                }, 
-                {
-                 "gid":151,
-                 "height":32,
-                 "id":23,
-                 "name":"Bloob",
-                 "properties":
-                    {
-                     "Intelligence":"DropdownAndMoveIntelligence",
-                     "KillSprite":"False"
-                    },
-                 "rotation":0,
-                 "type":"BloobSprite",
-                 "visible":true,
-                 "width":32,
-                 "x":83,
-                 "y":49
-                }, 
-                {
-                 "gid":151,
-                 "height":32,
-                 "id":24,
-                 "name":"Bloob",
-                 "properties":
-                    {
-                     "Intelligence":"DropdownAndMoveIntelligence",
-                     "KillSprite":"False"
-                    },
-                 "rotation":0,
-                 "type":"BloobSprite",
-                 "visible":true,
-                 "width":32,
-                 "x":67,
-                 "y":97
-                }, 
-                {
-                 "gid":151,
-                 "height":32,
-                 "id":25,
-                 "name":"Bloob",
-                 "properties":
-                    {
-                     "Intelligence":"DropdownAndMoveIntelligence",
-                     "KillSprite":"False"
-                    },
-                 "rotation":0,
-                 "type":"BloobSprite",
-                 "visible":true,
-                 "width":32,
-                 "x":364,
-                 "y":38
-                }, 
-                {
-                 "gid":151,
-                 "height":32,
                  "id":26,
-                 "name":"Bloob",
+                 "name":"Flash",
                  "properties":
                     {
+                     "FallSpeed":"20",
                      "Intelligence":"DropdownAndMoveIntelligence",
-                     "KillSprite":"False"
+                     "KillSprite":"False",
+                     "Style":"BloobStyleRed",
+                     "WalkDirection":"left",
+                     "WalkSpeed":"200"
                     },
                  "rotation":0,
                  "type":"BloobSprite",

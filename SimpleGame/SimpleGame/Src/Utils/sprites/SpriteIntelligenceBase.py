@@ -1,6 +1,12 @@
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Utils.ViewPointer import ViewPoint
 
+class AIPropertyNames():
+    FallSpeed = 'FallSpeed'
+    WalkSpeed = 'WalkSpeed'
+    WalkDirection = "WalkDirection"
+
+
 class SpriteIntelligenceBase(object):
     """description of class"""
     def __init__(self, parentSprite, properties):

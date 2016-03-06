@@ -1,5 +1,5 @@
 from Utils.sprites.SpriteBase import SpriteMoveState
-from Utils.sprites.SpriteIntelligenceBase import SpriteIntelligenceBase
+from Utils.sprites.SpriteIntelligenceBase import SpriteIntelligenceBase, AIPropertyNames
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Tiled.TiledSpriteCollider import TiledSpriteCollider, TileTouchState, CollisionResult
 from Utils.JumpCalculator import JumpCalculator
@@ -17,6 +17,11 @@ class FallDownSpriteIntelligence(SpriteIntelligenceBase):
         self._onSpriteHasGrounded = None
 
         return super().__init__(parentSprite, properties)
+
+    def configureProperties(self, properties):
+        if AIPropertyNames.FallSpeed in properties:
+            self._moveCalculator.fallSpeed = int(properties[AIPropertyNames.FallSpeed])
+        return super().configureProperties(properties)
 
     def registerOnGroundingHandler(self, callback):
         self._onSpriteHasGrounded = callback

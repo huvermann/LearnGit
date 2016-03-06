@@ -20,17 +20,23 @@ class BackAndForthIntelligence(SpriteIntelligenceBase):
 
         return super().__init__(parentSprite, properties)
 
+        def configureProperties(self, properties):
+            if AIPropertyNames.WalkSpeed in properties:
+                self._walkSpeed = int(properties[AIPropertyNames.WalkSpeed]) / 1000
+        return super().configureProperties(properties)
+
     def calcWalking(self, time):
         return int(time * self._walkSpeed)
 
     def calculateMoveTime(self, sprite, moveState):
+        #Todo: Rework it! Check directly on map, don´t use the collider.
         result = None
         offset = sprite.position
         rect = sprite.collideRect
         abort = False
         time = 0
         while not abort:
-            time += 10
+            time += 20
             x = self.calcWalking(time)
             if moveState == SpriteMoveState.MoveLeft:
                 position = ViewPoint(offset.left - x, offset.top)
