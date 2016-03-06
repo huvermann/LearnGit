@@ -1,30 +1,54 @@
-import pygame
+from Utils.MapObjectBase import MapObjectBase, TiledObjectItem
+from Utils.UserEvents import *
 import Utils.DirHelper
-from Utils.UserEvents import EVENT_MUSIC_ENDED
+import pygame
 import os
-import logging
 
+class PlayerProps():
+    Loop = "Loop"
+    Start = "Start"
 
-class MusicPlayer(object):
-    """Class to play music in sequence."""
+class MusicPlayer(MapObjectBase):
+    """Implements the music player as map object."""
 
     SoundDictionary = {}
     SongDictionary = {}
 
-    def __init__(self, songs, start = True, loop = True):
+    def __init__(self):
+        super().__init__()
         pygame.mixer.init()
         pygame.mixer.music.set_endevent(EVENT_MUSIC_ENDED)
-        self._songs = songs
-        self._loop = loop
+        self._songs = []
+        self._loop = None
         self._stop = False
         self._pause = False
-        if len(self._songs) > 0:
-            self._currentSongIndex = 0
-            if start:
-                self.play(self._currentSongIndex)
-        else:
-            self._currentSongIndex = None
-        pass
+
+    def configure(self, configuration):
+        print(configuration)
+        assert isinstance(configuration, TiledObjectItem), "Expected configuration of type TiledObjectItem."
+        self.configureProperties(configuration.properties)
+        return super().configure(configuration)
+
+    def initializeObject(self, parent):
+        super().initializeObject(parent)
+        if self._start:
+            self.play()
+
+    def configureProperties(self, properties):
+        """Configure the properties from TMX properties."""
+        trueStringList = ['True', 'true', '1', 1]
+        songlist = []
+
+        for prop in properties:
+            if prop == PlayerProps.Loop:
+                self._loop = properties[prop] in trueStringList
+            elif prop == PlayerProps.Start:
+                self._start = properties[prop] in trueStringList
+            else:
+               song = {"Name" : prop, "FileName" : properties[prop]}
+               self._songs.append(song)
+               
+         
 
     def loadSounds(self, soundConfig):
         for sound in soundConfig:
@@ -44,14 +68,15 @@ class MusicPlayer(object):
             logging.error("Sound not found: {0}".format(soundname))
         pass
 
-    def play(self, index = None):
+    def play(self, index = 0):
         """Plays the song index."""
         if index != None:
-            musicFile = Utils.DirHelper.getSongResourceFile(self._songs[index]["Filename"])
-            if os.path.isfile(musicFile):
-                pygame.mixer.music.load(musicFile)
-                print("Playing song: ", self._songs[index]["Filename"])
-                pygame.mixer.music.play()
+            if len(self._songs) > 0:
+                musicFile = Utils.DirHelper.getSongResourceFile(self._songs[index]["FileName"])
+                if os.path.isfile(musicFile):
+                    pygame.mixer.music.load(musicFile)
+                    print("Playing song: ", self._songs[index]["FileName"])
+                    pygame.mixer.music.play()
         pass
 
     def playNextSong(self):
@@ -77,12 +102,6 @@ class MusicPlayer(object):
             pygame.mixer.music.unpause()
     pass
 
-
-
-
-
-
-
-
+    
 
 

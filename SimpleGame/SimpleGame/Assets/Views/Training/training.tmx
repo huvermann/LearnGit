@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="27">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="29">
  <properties>
   <property name="Plugin" value="Plugin=ShowJump"/>
   <property name="Plugin2" value="Plugin=CollosionLab"/>
@@ -245,7 +245,7 @@
     <property name="ViewName" value="Level1"/>
    </properties>
   </object>
-  <object id="12" name="Example" type="GenericSprite" gid="25" x="1242" y="193" width="32" height="32">
+  <object id="12" name="Example" type="GenericSprite" gid="25" x="1221" y="168" width="32" height="32">
    <properties>
     <property name="AssetName" value="Coin"/>
     <property name="Behavior" value="DefaultSpriteBehavior"/>
@@ -259,18 +259,18 @@
     <property name="Supplies" value="Nothing"/>
    </properties>
   </object>
-  <object id="18" name="DrawBridge" type="DrawbridgeSprite" gid="37" x="952" y="121" width="32" height="32">
+  <object id="18" name="DrawBridge" type="DrawbridgeSprite" gid="37" x="1422" y="103" width="32" height="32">
    <properties>
     <property name="BeamPoint" value="Ziel1"/>
    </properties>
   </object>
-  <object id="21" name="BackAndForth" type="BloobSprite" gid="151" x="1432" y="186" width="32" height="32">
+  <object id="21" name="BackAndForth" type="BloobSprite" gid="151" x="1423" y="218" width="32" height="32">
    <properties>
     <property name="Intelligence" value="DropdownAndMoveIntelligence"/>
     <property name="KillSprite" value="False"/>
    </properties>
   </object>
-  <object id="26" name="Flash" type="BloobSprite" gid="151" x="479" y="38" width="32" height="32">
+  <object id="26" name="Flash" type="BloobSprite" gid="151" x="478" y="220" width="32" height="32">
    <properties>
     <property name="FallSpeed" value="20"/>
     <property name="Intelligence" value="DropdownAndMoveIntelligence"/>
@@ -288,5 +288,12 @@
   <object id="5" name="Ziel1" type="BeamPoint" x="718" y="497"/>
   <object id="6" name="Ziel2" type="BeamPoint" x="908" y="494"/>
   <object id="8" name="Ziel3" type="BeamPoint" x="1583" y="695"/>
+  <object id="27" name="MusicPlayer" type="MusicPlayer" x="1703" y="66">
+   <properties>
+    <property name="Loop" value="True"/>
+    <property name="Song1" value="m4rt3z_m4rt3z---Primal-Snap-320.mp3"/>
+    <property name="Start" value="True"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

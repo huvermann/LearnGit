@@ -43,6 +43,9 @@
     <Compile Include="Src\MapObjects\BeamPoint.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\MapObjects\MusicPlayer.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\MapObjects\__init__.py" />
     <Compile Include="Src\Plugins\CheatKeyPlugin.py">
       <SubType>Code</SubType>
@@ -237,9 +240,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\MapPosition.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Src\Utils\MusicPlayer.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\PlayerBaseClass.py">
