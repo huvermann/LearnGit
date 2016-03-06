@@ -5,7 +5,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>da9d3ad3-2ece-426a-a977-e83b691ddc1a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Src\Game.py</StartupFile>
+    <StartupFile>
+    </StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -412,6 +413,7 @@
     <Content Include="Deployment\readme.txt" />
     <Content Include="Documentation\Bugs.txt" />
     <Content Include="Documentation\InProgressHeiko.txt" />
+    <Content Include="Documentation\Manual_GameDesigner.docx" />
     <Content Include="Documentation\readme.txt" />
     <Content Include="Documentation\TodoList.txt" />
     <Content Include="requirements.txt" />
