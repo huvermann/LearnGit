@@ -114,7 +114,7 @@
                      "KillPlayer":"False",
                      "KillSprite":"True",
                      "Points":"30",
-                     "Sound":"beep.wav",
+                     "Sound":"Beep",
                      "Style":"CoinStyle",
                      "Supplies":"Nothing"
                     },
@@ -149,7 +149,8 @@
                  "properties":
                     {
                      "Intelligence":"DropdownAndMoveIntelligence",
-                     "KillSprite":"False"
+                     "KillSprite":"False",
+                     "Sound":"Beep"
                     },
                  "rotation":0,
                  "type":"BloobSprite",
@@ -285,6 +286,24 @@
                  "width":0,
                  "x":1703,
                  "y":66
+                }, 
+                {
+                 "height":0,
+                 "id":29,
+                 "name":"SoundList",
+                 "properties":
+                    {
+                     "Beep":"319200__18hiltc__pixel-game-beep.wav",
+                     "GameOver":"319200__18hiltc__pixel-game-beep.wav",
+                     "Jumping":"172205__fins__jumping.wav",
+                     "Laser":"146725__fins__laser.wav"
+                    },
+                 "rotation":0,
+                 "type":"SoundList",
+                 "visible":true,
+                 "width":0,
+                 "x":1829,
+                 "y":59
                 }],
          "offsetx":0,
          "offsety":32,
@@ -295,7 +314,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":29,
+ "nextobjectid":30,
  "orientation":"orthogonal",
  "properties":
     {

@@ -10,7 +10,7 @@ class DrawbridgeSprite(SpriteBase):
         self.killSprite = False
         self.points = 0
         self.energy = 0
-        self.sound = 'beem.wav'
+        self.sound = None
         
         if not SpritePropNames.Style in properties:
             self.style = self.styleFactory('DrawbridgeStyle', properties)

@@ -24,6 +24,8 @@ class ViewModelBase2():
         self.__drawTilesCall = None
         self.__playerSprite = None
         self.__serviceContainer = None
+        self._musicPlayer = None
+        self._soundPlayer = None
         self.__plugins = []
         self.__objectSprites = pygame.sprite.Group()
         self.__allSprites = pygame.sprite.Group()
@@ -316,6 +318,8 @@ class ViewModelBase2():
             if pygame.sprite.collide_mask(self.__playerSprite, sprite):
                 #info = sprite.collideCallback()
                 info = sprite.doCollide()
+                if info.sound:
+                    self.soundPlayer.playSoundByName(info.sound)
                 if info.spriteDies and info.parent != None:
                     info.parent.kill()
                 if info.playerDies:
@@ -385,6 +389,22 @@ class ViewModelBase2():
     @property
     def beamPointRegistry(self):
         return self._beamPointRegistry
+
+    @property
+    def musicPlayer(self):
+        return self._musicPlayer
+    @musicPlayer.setter
+    def musicPlayer(self, value):
+        self._musicPlayer = value
+
+    @property
+    def soundPlayer(self):
+        return self._soundPlayer
+
+    @soundPlayer.setter
+    def soundPlayer(self, value):
+        self._soundPlayer = value
+
 
 
 

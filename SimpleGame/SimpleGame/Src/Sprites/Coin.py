@@ -11,7 +11,7 @@ class Coin(SpriteBase):
         self.killSprite = True
         self.points = 30
         self.energy = 5
-        self.sound = 'beep.wav'
+        self.sound = 'Beep'
         
         if not SpritePropNames.Style in properties:
             self.style = self.styleFactory('CoinStyle', properties)

@@ -46,6 +46,9 @@
     <Compile Include="Src\MapObjects\MusicPlayer.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\MapObjects\SoundList.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\MapObjects\__init__.py" />
     <Compile Include="Src\Plugins\CheatKeyPlugin.py">
       <SubType>Code</SubType>

@@ -10,8 +10,6 @@ class PlayerProps():
 
 class MusicPlayer(MapObjectBase):
     """Implements the music player as map object."""
-
-    SoundDictionary = {}
     SongDictionary = {}
 
     def __init__(self):
@@ -24,12 +22,12 @@ class MusicPlayer(MapObjectBase):
         self._pause = False
 
     def configure(self, configuration):
-        print(configuration)
         assert isinstance(configuration, TiledObjectItem), "Expected configuration of type TiledObjectItem."
         self.configureProperties(configuration.properties)
         return super().configure(configuration)
 
     def initializeObject(self, parent):
+        parent.musicPlayer = parent
         super().initializeObject(parent)
         if self._start:
             self.play()
@@ -48,25 +46,6 @@ class MusicPlayer(MapObjectBase):
                song = {"Name" : prop, "FileName" : properties[prop]}
                self._songs.append(song)
                
-         
-
-    def loadSounds(self, soundConfig):
-        for sound in soundConfig:
-            resourceFileName = Utils.DirHelper.getSongResourceFile(sound["FileName"])
-            if os.path.isfile(resourceFileName):
-                #load file
-                soundResource = pygame.mixer.Sound(resourceFileName)
-                MusicPlayer.SoundDictionary[sound["Name"]] = soundResource
-            else:
-                logging.error("Song file missing: {0}".format(resourceFileName))
-        pass
-
-    def playSoundByName(self, soundname):
-        if MusicPlayer.SoundDictionary[soundname]:
-            MusicPlayer.SoundDictionary[soundname].play()
-        else:
-            logging.error("Sound not found: {0}".format(soundname))
-        pass
 
     def play(self, index = 0):
         """Plays the song index."""
