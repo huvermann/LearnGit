@@ -2,6 +2,13 @@ Buglist
 =================
 
 0001: Bildschirm scrollt zu weit nach oben. Scrollen in y-Richtung über Map-Grenze hinaus verhindern.
+0002: Spieler kann manchmal durch einzelne Fliesen gehen -> Fehler in Berechnung bei kurzem Tastendruck.
+
+
+Optimierungen
+======================
+0003: Sprites: Sprungberechnung optimieren. Nicht über Collider lösen, sondern direkt über das Fliesen-Array
+0004: Spieler: Move-Berechnung optimieren, nicht den Collider benutzen
 
 
 
