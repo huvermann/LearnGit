@@ -1,24 +1,6 @@
 In Progress Heiko
 -----------------------
 
-Neue Sprite-Basisklasse, die folgende properties aus der TMX-Map-Datei:
-- Score: Anzahl der Punkte bei Berührung
-- Style: Style-Klasse, die die Animationskonfiguration enthält
-- KillSprite: True oder 1, wenn das Sprite bei Berührung verschwinden soll
-- KillPlayer: True, wenn der Spieler bei Berührung sterben soll
-- Behaviour: Bei Berührung wird ein bestimmtes programmiertes Verhalten ausgelöst.
-- Item: Bei Berührung wird der Inventory des Spielers ein Item hinzugefügt.
-- Energie: Es wird dem Spieler Energie hinzugefügt.
-- Sound: Bei Berührung wird eine Sound-Datei abgespielt.
-- Itelligence: Programmierte Bewegungen und Verhalten währen des Spiels.
-
-
-- 7.0: Impl.: Sprite Basisklassen
-  7.1: + Sprite läuft hin- und her
-  7.2: + Sprite läuft immer in Richtung Spieler, bei Hinderniss läuft es kurz zurück und dann wieder
-         zum Spieler
-  7.3: + Sprite springt hoch und runter
-  7.4: + Sprites mit den neuen Grafiken erstellen und testen.
 
 
 

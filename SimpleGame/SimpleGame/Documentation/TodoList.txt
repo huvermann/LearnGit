@@ -18,8 +18,7 @@ Kai
 Heiko
 =======
 
-- 8.0: Das Gageway-Sprite als Basisklasse implementieren.
-     + 8.1 Beim Gateway soll man einfach nur die Grafik austausen damit Gateways mit unterschiedlichem Aussehen erstellt werden können.
+
 
 - 9.0: Impl: Projektil-Sprite:
   + 9.1 Wenn der Spieler mit der Waffe feuert, fliegt das Projektil, bis es etwas trifft, oder aus dem Bildschirm verschwindet.
@@ -134,6 +133,30 @@ Bemerkung:
   Space=1 : Die Tile ist leerer Raum, man kann durchlaufen und durchfallen.
   Ladder=1 : Die Tile ist eine Leiter, man kann an ihr hochklettern.
 
+  - 7.0: Impl.: Sprite Basisklassen
+  7.1: + Sprite läuft hin- und her
+
+  Neue Sprite-Basisklasse, die folgende properties aus der TMX-Map-Datei:
+- Score: Anzahl der Punkte bei Berührung
+- Style: Style-Klasse, die die Animationskonfiguration enthält
+- KillSprite: True oder 1, wenn das Sprite bei Berührung verschwinden soll
+- KillPlayer: True, wenn der Spieler bei Berührung sterben soll
+- Behaviour: Bei Berührung wird ein bestimmtes programmiertes Verhalten ausgelöst.
+- Item: Bei Berührung wird der Inventory des Spielers ein Item hinzugefügt.
+- Energie: Es wird dem Spieler Energie hinzugefügt.
+- Sound: Bei Berührung wird eine Sound-Datei abgespielt.
+- Itelligence: Programmierte Bewegungen und Verhalten währen des Spiels.
+
+- 8.0: Das Gageway-Sprite als Basisklasse implementieren.
+     + 8.1 Beim Gateway soll man einfach nur die Grafik austausen damit Gateways mit unterschiedlichem Aussehen erstellt werden können.
+
+Bemerkung zu 8.0 und 8.1.
+Ein Gateway-Sprite muß einfach nur das TeleporterBehavior als Behavior-Eigenschaft verwenden. Die Grafik wird ganz normal über die Style-Eigenschaft festgelegt.
+Ein Sprite mit dem TeleporterBehavior verwendet die Properties ViewPoint oder Beam-Point.
+Beampoints (Ziele für den Teleporter) werden auf der Objekt-Layer-Ebene als Typ BeamPoint angelegt.
+Siehe auch Manual_GameDesigner.docx
+
+
 
  Zurückgestellte Tasks Heiko
  ============================
@@ -141,3 +164,10 @@ Bemerkung:
 
   + 4.1: Richtungsänderung im Sprung implementieren
   + 4.4: Spieler soll 1 Kachel hochklettern können, aber nicht eine Wand die höher als 2 Kacheln ist.
+
+  - 7.0: Impl.: Sprite Basisklassen
+
+  7.2: + Sprite läuft immer in Richtung Spieler, bei Hinderniss läuft es kurz zurück und dann wieder
+         zum Spieler
+  7.3: + Sprite springt hoch und runter
+  7.4: + Sprites mit den neuen Grafiken erstellen und testen.
