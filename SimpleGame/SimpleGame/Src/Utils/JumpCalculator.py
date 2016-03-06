@@ -90,7 +90,7 @@ class JumpCalculator(object):
     def fallSpeed(self):
         return self._fallSpeed * 1000
     @fallSpeed.setter
-    def fallSpied(self, value):
+    def fallSpeed(self, value):
         self._fallSpeed = value / 1000
     @property
     def walkSpeed(self):
