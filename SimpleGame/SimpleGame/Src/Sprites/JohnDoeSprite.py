@@ -82,7 +82,7 @@ class JohnDoeSprite(PlayerBaseClass):
      "Climb": {
         "Filename": "climb.png",
         "AnimationType": "TimeBased",
-        "Delay": 100
+        "Delay": 200
       } }'''
         return json.loads(data)
 
