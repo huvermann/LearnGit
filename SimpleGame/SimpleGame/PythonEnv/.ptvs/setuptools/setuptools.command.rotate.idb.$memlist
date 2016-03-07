@@ -3,5 +3,5 @@ log
 convert_path
 rotate
 Command
+six
 DistutilsOptionError
-basestring
