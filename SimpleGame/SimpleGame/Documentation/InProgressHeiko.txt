@@ -1,10 +1,8 @@
 In Progress Heiko
 -----------------------
 
-- 11.0: Musik abspielen wieder aktivieren
-
-- 12.0: Sounds abspielen wieder aktivieren (Bum, Peng)
-
+- 13.0: ScorePanel implementieren
+  + 13.1 Das Scorepanel soll Anzahl Leben und Punkte anzeigen.
 
 
   Erledigt:

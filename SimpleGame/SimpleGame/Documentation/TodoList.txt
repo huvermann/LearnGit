@@ -26,8 +26,7 @@ Heiko
 - 10.0: Impl. Callouts (Sprechblasen) für Text (Eine Figur sagt was.)
 
 
-- 13.0: ScorePanel implementieren
-  + 13.1 Das Scorepanel soll Anzahl Leben und Punkte anzeigen.
+
 
 - 14.0: Button-Basisklasse
   + 14.1: Button mit austauschbarer Grafik zum anklicken implementieren.
@@ -151,6 +150,20 @@ Ein Gateway-Sprite muß einfach nur das TeleporterBehavior als Behavior-Eigenscha
 Ein Sprite mit dem TeleporterBehavior verwendet die Properties ViewPoint oder Beam-Point.
 Beampoints (Ziele für den Teleporter) werden auf der Objekt-Layer-Ebene als Typ BeamPoint angelegt.
 Siehe auch Manual_GameDesigner.docx
+
+
+- 11.0: Musik abspielen wieder aktivieren
+Bemerkung zu 11.0:
+Um Musik zu spielen muss in der Map im Objects-Layer ein Objekt MusicPlayer angelegt werden.
+Siehe auch Dokumentation: Manual_GameDesign.docx
+Die Songs werden im MusicPlayer-Objekt als Benutzerdefinierte Properties angelegt.
+
+- 12.0: Sounds abspielen wieder aktivieren (Bum, Peng)
+Bemerkung zu 12:
+Um Soundeffekte zu spielen muß im Ojects-Layer ein SoundList-Objekt definiert sein.
+Alle Sounds werden in der SoundList als Benutzerdefinierte Properties definiert.
+Siehe auch Dokumentation: Manual_GameDesign.docx
+
 
 
 
