@@ -15,7 +15,8 @@
     <InterpreterId>{ab8ef5c4-9fc3-4532-90cf-90d71360e93c}</InterpreterId>
     <InterpreterVersion>3.5</InterpreterVersion>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <CommandLineArguments>-v Training</CommandLineArguments>
+    <CommandLineArguments>
+    </CommandLineArguments>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -383,6 +384,7 @@
     <Content Include="Assets\Sprites\John_Doe\jump_left.png" />
     <Content Include="Assets\Sprites\John_Doe\jump_right.png" />
     <Content Include="Assets\Sprites\John_Doe\jump_up.png" />
+    <Content Include="Assets\Sprites\John_Doe\climb.png" />
     <Content Include="Assets\Sprites\John_Doe\New_Man_in_Town.pyxel" />
     <Content Include="Assets\Sprites\John_Doe\standing_front.png" />
     <Content Include="Assets\Sprites\John_Doe\standing_left.png" />

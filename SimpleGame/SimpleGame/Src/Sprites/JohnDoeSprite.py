@@ -80,9 +80,9 @@ class JohnDoeSprite(PlayerBaseClass):
         "Delay": 25
       },
      "Climb": {
-        "Filename": "standing_front.png",
+        "Filename": "climb.png",
         "AnimationType": "TimeBased",
-        "Delay": 25
+        "Delay": 100
       } }'''
         return json.loads(data)
 
