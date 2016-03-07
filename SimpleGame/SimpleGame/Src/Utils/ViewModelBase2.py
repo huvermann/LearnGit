@@ -311,6 +311,24 @@ class ViewModelBase2():
         pygame.display.flip()
         self._state.clock.tick(80)
 
+    def PlayerLostGame(self):
+        #Todo: implement Lost Game
+        pass
+
+    def showLostLiveDialog(self):
+        #Todo: implement lost life dialog
+        pass
+
+
+    def playerLostHisLive(self):
+        """The player has lost a live."""
+        self._state.GameState -= 1
+        if self._state.GameState <= 0:
+            self.PlayerLostGame()
+        else:
+            self.showLostLiveDialog()
+
+
     def checkClashes(self):
         """Checks if sprites collides with player."""
         #raise NotImplementedError("Please implement checkClashes in your view model.")
@@ -324,6 +342,7 @@ class ViewModelBase2():
                     info.parent.kill()
                 if info.playerDies:
                     logging.debug("The player touched with deadly sprite.")
+                    self.playerLostHisLive()
 
     def updateCameraPosition(self):
         """Updates the viewPointer camera position."""
