@@ -283,6 +283,7 @@
                  "name":"bloob6",
                  "properties":
                     {
+                     "Intelligence":"DropdownAndMoveIntelligence",
                      "Style":"BloobStyleBlue"
                     },
                  "rotation":0,
