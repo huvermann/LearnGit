@@ -141,9 +141,14 @@ class PlayerBaseClass(pygame.sprite.Sprite):
             if ani.AnimationType == AnimationTypes.TimeBased:
                 index = ani.calculateTimeIndex(time)
                 result = ani.getAnimationPictureByIndex(index)
-            else:
+            elif ani.AnimationType == AnimationTypes.PositionBased:
                 index = ani.calculatePositionIndex(position.left)
                 result = ani.getAnimationPictureByIndex(index)
+            elif ani.AnimationType == AnimationTypes.VerticalPositionBased:
+                index = ani.calculatePositionIndex(position.top)
+                result = ani.getAnimationTerminated(time)
+            elif ani.AnimationType == AnimationTypes.TerminatedAnimation:
+                index = ani.getAnimationTerminated(time)
         return result
 
     def onMoveStateClimb(self, timeStamp, moveStateMachine):
