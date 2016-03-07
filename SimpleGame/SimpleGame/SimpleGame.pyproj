@@ -395,6 +395,7 @@
     <Content Include="Assets\Sprites\Jimbo\Jimbo_Right.png" />
     <Content Include="Assets\Sprites\Jimbo\Jimbo_standing.png" />
     <Content Include="Assets\Sprites\John_Doe\John_Doe_springen.pyxel" />
+    <Content Include="Assets\Sprites\John_Doe\jubeln.png" />
     <Content Include="Assets\Sprites\John_Doe\jump_left.png" />
     <Content Include="Assets\Sprites\John_Doe\jump_right.png" />
     <Content Include="Assets\Sprites\John_Doe\jump_up.png" />
@@ -403,6 +404,7 @@
     <Content Include="Assets\Sprites\John_Doe\standing_front.png" />
     <Content Include="Assets\Sprites\John_Doe\standing_left.png" />
     <Content Include="Assets\Sprites\John_Doe\standing_right.png" />
+    <Content Include="Assets\Sprites\John_Doe\tot.png" />
     <Content Include="Assets\Sprites\John_Doe\walk_right.png" />
     <Content Include="Assets\Sprites\John_Doe\walk_left.png" />
     <Content Include="Assets\Sprites\Monster_Bloob\MonsterBloob.pyxel" />
@@ -468,6 +470,7 @@
     <Folder Include="Assets\Views\Level1\" />
     <Folder Include="Assets\Views\Level2\" />
     <Folder Include="Assets\Views\Level3\" />
+    <Folder Include="Assets\Views\DemoStart\" />
     <Folder Include="Assets\Views\Training\" />
     <Folder Include="Documentation\" />
     <Folder Include="Deployment\" />
