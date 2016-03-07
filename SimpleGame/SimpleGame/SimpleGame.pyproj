@@ -56,6 +56,9 @@
     <Compile Include="Src\Plugins\CollosionLab.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Plugins\DefaultScorePanel.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Plugins\PluginFactory.py" />
     <Compile Include="Src\Plugins\ShowJump.py">
       <SubType>Code</SubType>
@@ -180,6 +183,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\BeamPointRegistry.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\gui\FontProvider.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\gui\TextLabel.py">
@@ -392,6 +398,8 @@
     <Content Include="Assets\Sprites\Private\privat_standing_front.png" />
     <Content Include="Assets\Sprites\Private\privat_walk_left.png" />
     <Content Include="Assets\Sprites\Private\privat_walk_right.png" />
+    <Content Include="Assets\Views\Demo\demo.tmx" />
+    <Content Include="Assets\Views\Demo\map.json" />
     <Content Include="Assets\Views\Level1\background3.png" />
     <Content Include="Assets\Views\Level1\Level1.png" />
     <Content Include="Assets\Views\Level1\Level1.pyxel" />
@@ -439,6 +447,7 @@
     <Folder Include="Assets\Sprites\Private\" />
     <Folder Include="Assets\Views\" />
     <Folder Include="Assets\Sound\" />
+    <Folder Include="Assets\Views\Demo\" />
     <Folder Include="Assets\Views\Level1\" />
     <Folder Include="Assets\Views\Level2\" />
     <Folder Include="Assets\Views\Level3\" />

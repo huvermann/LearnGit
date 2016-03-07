@@ -179,6 +179,38 @@
                  "width":32,
                  "x":478,
                  "y":220
+                }, 
+                {
+                 "gid":36,
+                 "height":32,
+                 "id":31,
+                 "name":"test",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"BloobSprite",
+                 "visible":true,
+                 "width":32,
+                 "x":670,
+                 "y":214
+                }, 
+                {
+                 "gid":36,
+                 "height":32,
+                 "id":32,
+                 "name":"bb",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"BloobSprite",
+                 "visible":true,
+                 "width":32,
+                 "x":368,
+                 "y":177
                 }],
          "offsetx":0,
          "offsety":32,
@@ -314,13 +346,14 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":30,
+ "nextobjectid":34,
  "orientation":"orthogonal",
  "properties":
     {
-     "Plugin":"Plugin=ShowJump",
-     "Plugin2":"Plugin=CollosionLab",
-     "Plugin3":"xPlugin=CheatKeyPlugin"
+     "Plugin":"xPlugin=ShowJump",
+     "Plugin2":"xPlugin=CollosionLab",
+     "Plugin3":"Plugin=CheatKeyPlugin",
+     "Plugin4":"Plugin=DefaultScorePanel"
     },
  "renderorder":"right-down",
  "tileheight":32,
