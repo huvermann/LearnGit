@@ -32,7 +32,7 @@ class BloobStyle(SpriteStyleBase):
                 "AnimationType": "TimeBased",
                 "Delay": 25},
             AnimationNames.Falling : {
-                "Filename": "Bloob_springen.png",
+                "Filename": "bloob_fallen_links.png",
                 "AnimationType": "TimeBased",
                 "Delay": 25}
             

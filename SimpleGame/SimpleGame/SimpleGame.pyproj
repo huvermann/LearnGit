@@ -338,6 +338,8 @@
     <Content Include="Assets\Sprites\Bloob\bloob_blue_rechts_drehen.png" />
     <Content Include="Assets\Sprites\Bloob\bloob_blue_springen.png" />
     <Content Include="Assets\Sprites\Bloob\bloob_blue_sterben.png" />
+    <Content Include="Assets\Sprites\Bloob\bloob_fallen_links.png" />
+    <Content Include="Assets\Sprites\Bloob\bloob_fallen_rechts.png" />
     <Content Include="Assets\Sprites\Bloob\Bloob_gehen_links.png" />
     <Content Include="Assets\Sprites\Bloob\Bloob_gehen_rechts.png" />
     <Content Include="Assets\Sprites\Bloob\Bloob_links_und_mitte.png" />
