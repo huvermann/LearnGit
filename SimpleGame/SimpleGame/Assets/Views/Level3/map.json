@@ -88,7 +88,7 @@
                  "gid":190,
                  "height":32,
                  "id":11,
-                 "name":"h1",
+                 "name":"heart3",
                  "properties":
                     {
 
@@ -104,7 +104,7 @@
                  "gid":180,
                  "height":32,
                  "id":12,
-                 "name":"b1",
+                 "name":"bloob1",
                  "properties":
                     {
 
@@ -136,7 +136,7 @@
                  "gid":182,
                  "height":32,
                  "id":14,
-                 "name":"coin1",
+                 "name":"coin2",
                  "properties":
                     {
 
@@ -152,7 +152,7 @@
                  "gid":182,
                  "height":32,
                  "id":15,
-                 "name":"coin1",
+                 "name":"coin3",
                  "properties":
                     {
 
@@ -168,7 +168,7 @@
                  "gid":190,
                  "height":32,
                  "id":16,
-                 "name":"h1",
+                 "name":"heart1",
                  "properties":
                     {
 
@@ -184,7 +184,7 @@
                  "gid":190,
                  "height":32,
                  "id":17,
-                 "name":"h1",
+                 "name":"heart2",
                  "properties":
                     {
 
@@ -200,7 +200,7 @@
                  "gid":180,
                  "height":32,
                  "id":18,
-                 "name":"b1",
+                 "name":"bloob2",
                  "properties":
                     {
 
@@ -216,7 +216,7 @@
                  "gid":180,
                  "height":32,
                  "id":19,
-                 "name":"b1",
+                 "name":"bloob3",
                  "properties":
                     {
 
@@ -232,7 +232,7 @@
                  "gid":180,
                  "height":32,
                  "id":20,
-                 "name":"b1",
+                 "name":"bloob4",
                  "properties":
                     {
 
@@ -248,7 +248,7 @@
                  "gid":180,
                  "height":32,
                  "id":21,
-                 "name":"b1",
+                 "name":"bloob1",
                  "properties":
                     {
 
@@ -264,7 +264,7 @@
                  "gid":180,
                  "height":32,
                  "id":22,
-                 "name":"b1",
+                 "name":"bloob5",
                  "properties":
                     {
 
@@ -280,7 +280,7 @@
                  "gid":180,
                  "height":32,
                  "id":23,
-                 "name":"b1",
+                 "name":"bloob6",
                  "properties":
                     {
                      "Style":"BloobStyleBlue"
@@ -296,7 +296,7 @@
                  "gid":180,
                  "height":32,
                  "id":24,
-                 "name":"b1",
+                 "name":"bloob7",
                  "properties":
                     {
 
@@ -312,7 +312,7 @@
                  "gid":180,
                  "height":32,
                  "id":25,
-                 "name":"b1",
+                 "name":"bloob8",
                  "properties":
                     {
 
@@ -328,7 +328,7 @@
                  "gid":180,
                  "height":32,
                  "id":26,
-                 "name":"b1",
+                 "name":"bloob9",
                  "properties":
                     {
 
@@ -344,7 +344,7 @@
                  "gid":180,
                  "height":32,
                  "id":27,
-                 "name":"b1",
+                 "name":"bloob10",
                  "properties":
                     {
 

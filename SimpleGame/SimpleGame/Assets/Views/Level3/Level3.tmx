@@ -354,47 +354,46 @@
  </layer>
  <objectgroup name="Sprites" offsetx="0" offsety="32">
   <object id="7" name="coin1" type="CoinSprite" gid="182" x="2113.33" y="1918.18" width="32" height="32"/>
-  <object id="11" name="h1" type="HeartSprite" gid="190" x="992" y="2848" width="32" height="32"/>
-  <object id="12" name="b1" type="BloobSprite" gid="180" x="276" y="1817" width="32" height="32"/>
+  <object id="11" name="heart3" type="HeartSprite" gid="190" x="992" y="2848" width="32" height="32"/>
+  <object id="12" name="bloob1" type="BloobSprite" gid="180" x="276" y="1817" width="32" height="32"/>
   <object id="13" name="coin1" type="CoinSprite" gid="182" x="2099" y="1888.5" width="32" height="32"/>
-  <object id="14" name="coin1" type="CoinSprite" gid="182" x="2144.33" y="1919.33" width="32" height="32"/>
-  <object id="15" name="coin1" type="CoinSprite" gid="182" x="2129" y="1889" width="32" height="32"/>
-  <object id="16" name="h1" type="HeartSprite" gid="190" x="2624" y="2847" width="32" height="32"/>
-  <object id="17" name="h1" type="HeartSprite" gid="190" x="543" y="1248" width="32" height="32"/>
-  <object id="18" name="b1" type="BloobSprite" gid="180" x="608" y="2847" width="32" height="32"/>
-  <object id="19" name="b1" type="BloobSprite" gid="180" x="1951" y="2848" width="32" height="32"/>
-  <object id="20" name="b1" type="BloobSprite" gid="180" x="3200" y="2590" width="32" height="32"/>
-  <object id="21" name="b1" type="BloobSprite" gid="180" x="2848" y="2495" width="32" height="32"/>
-  <object id="22" name="b1" type="BloobSprite" gid="180" x="3200" y="2205" width="32" height="32"/>
-  <object id="23" name="b1" type="BloobSprite" gid="180" x="2752" y="1919" width="32" height="32">
+  <object id="14" name="coin2" type="CoinSprite" gid="182" x="2144.33" y="1919.33" width="32" height="32"/>
+  <object id="15" name="coin3" type="CoinSprite" gid="182" x="2129" y="1889" width="32" height="32"/>
+  <object id="16" name="heart1" type="HeartSprite" gid="190" x="2624" y="2847" width="32" height="32"/>
+  <object id="17" name="heart2" type="HeartSprite" gid="190" x="543" y="1248" width="32" height="32"/>
+  <object id="18" name="bloob2" type="BloobSprite" gid="180" x="608" y="2847" width="32" height="32"/>
+  <object id="19" name="bloob3" type="BloobSprite" gid="180" x="1951" y="2848" width="32" height="32"/>
+  <object id="20" name="bloob4" type="BloobSprite" gid="180" x="3200" y="2590" width="32" height="32"/>
+  <object id="21" name="bloob1" type="BloobSprite" gid="180" x="2848" y="2495" width="32" height="32"/>
+  <object id="22" name="bloob5" type="BloobSprite" gid="180" x="3200" y="2205" width="32" height="32"/>
+  <object id="23" name="bloob6" type="BloobSprite" gid="180" x="2752" y="1919" width="32" height="32">
    <properties>
     <property name="Style" value="BloobStyleBlue"/>
    </properties>
   </object>
-  <object id="24" name="b1" type="BloobSprite" gid="180" x="2624" y="1759" width="32" height="32"/>
-  <object id="25" name="b1" type="BloobSprite" gid="180" x="1536" y="1919" width="32" height="32"/>
-  <object id="26" name="b1" type="BloobSprite" gid="180" x="1153" y="1917" width="32" height="32"/>
-  <object id="27" name="b1" type="BloobSprite" gid="180" x="929" y="2398" width="32" height="32"/>
+  <object id="24" name="bloob7" type="BloobSprite" gid="180" x="2624" y="1759" width="32" height="32"/>
+  <object id="25" name="bloob8" type="BloobSprite" gid="180" x="1536" y="1919" width="32" height="32"/>
+  <object id="26" name="bloob9" type="BloobSprite" gid="180" x="1153" y="1917" width="32" height="32"/>
+  <object id="27" name="bloob10" type="BloobSprite" gid="180" x="929" y="2398" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Player" offsetx="0" offsety="32">
   <object id="6" name="Player" type="JohnDoeSprite" gid="196" x="161" y="2848" width="32" height="32"/>
  </objectgroup>
-  <objectgroup color="#005500" name="Objects" offsetx="0" offsety="32">
-   
-    <object id="27" name="MusicPlayer" type="MusicPlayer" x="1703" y="66">
-      <properties>
-        <property name="Loop" value="True"/>
-        <property name="Song1" value="m4rt3z_m4rt3z---Primal-Snap-320.mp3"/>
-        <property name="Start" value="False"/>
-      </properties>
-    </object>
-    <object id="29" name="SoundList" type="SoundList" x="1829" y="59">
-      <properties>
-        <property name="Beep" value="319200__18hiltc__pixel-game-beep.wav"/>
-        <property name="GameOver" value="319200__18hiltc__pixel-game-beep.wav"/>
-        <property name="Jumping" value="172205__fins__jumping.wav"/>
-        <property name="Laser" value="146725__fins__laser.wav"/>
-      </properties>
-    </object>
-  </objectgroup>
-  </map>
+ <objectgroup color="#005500" name="Objects" offsetx="0" offsety="32">
+  <object id="27" name="MusicPlayer" type="MusicPlayer" x="1703" y="66">
+   <properties>
+    <property name="Loop" value="True"/>
+    <property name="Song1" value="m4rt3z_m4rt3z---Primal-Snap-320.mp3"/>
+    <property name="Start" value="False"/>
+   </properties>
+  </object>
+  <object id="29" name="SoundList" type="SoundList" x="1829" y="59">
+   <properties>
+    <property name="Beep" value="319200__18hiltc__pixel-game-beep.wav"/>
+    <property name="GameOver" value="319200__18hiltc__pixel-game-beep.wav"/>
+    <property name="Jumping" value="172205__fins__jumping.wav"/>
+    <property name="Laser" value="146725__fins__laser.wav"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
