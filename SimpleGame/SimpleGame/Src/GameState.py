@@ -9,6 +9,7 @@ class GameState(object):
         self.clock = pygame.time.Clock()
         self.points = 0
         self.lifes = 3
+        self.energy = 100
 
 
 

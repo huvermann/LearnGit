@@ -274,6 +274,7 @@
   </object>
   <object id="26" name="Flash" type="BloobSprite" gid="151" x="478" y="220" width="32" height="32">
    <properties>
+    <property name="Energy" value="-50"/>
     <property name="FallSpeed" value="20"/>
     <property name="Intelligence" value="DropdownAndMoveIntelligence"/>
     <property name="KillSprite" value="False"/>

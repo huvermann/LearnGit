@@ -1,5 +1,7 @@
 from Utils.ViewPluginBase import ViewPluginBase
 from Utils.gui.FontProvider import FontProvider
+from Utils.ServiceLocator import ServiceLocator, ServiceNames
+from GameState import GameState
 
 class DefaultScorePanel(ViewPluginBase):
     """Plugin to draw the ScorePanel."""
@@ -7,6 +9,8 @@ class DefaultScorePanel(ViewPluginBase):
         super().__init__()
         self._screenRect = self._screen.get_rect()
         self._fontColor = (0,0,0)
+        self._status = ServiceLocator.getGlobalServiceInstance(ServiceNames.Gamestate)
+        assert isinstance(self._status, GameState)
 
 
     def drawTextLabel(self, x, y, text, font=FontProvider.defaultFont(), color=(0,0,0)):
@@ -15,26 +19,10 @@ class DefaultScorePanel(ViewPluginBase):
         textPos.left = x
         textPos.top = y
         self._screen.blit(label, textPos)
-        pass
-
-    def drawFrame(self):
-        pass
-
-    def drawLives(self):
-        pass
-
-    def drawPoints(self):
-        self.drawTextLabel(10, 10, "Points: {0}".format(100))
-        pass
-
-    def drawEnergy(self):
-        pass
-
-
+        return textPos
 
     def drawPlugin(self):
-        self.drawFrame()
-        self.drawLives()
-        self.drawPoints()
-        self.drawEnergy()
-        return super().drawPlugin()
+        pos = self.drawTextLabel(10, 10, "Points: {0}".format(self._status.points))
+        pos = self.drawTextLabel(10, pos.bottom + 8, "Energy: {0}".format(self._status.energy))
+        pos = self.drawTextLabel(10, pos.bottom + 8, "Lifes: {0}".format(self._status.lifes))
+        #return super().drawPlugin()

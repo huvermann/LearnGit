@@ -35,6 +35,7 @@ class ViewModelBase2():
         self._state = ServiceLocator.getGlobalServiceInstance(ServiceNames.Gamestate)
         self.__eventHandlers = [] # Event handlers for plugins
         self._viewPointer = ViewPointer()
+        self._gamePaused = False
         ServiceLocator.registerGlobalService(ServiceNames.ViewPointer, self._viewPointer)
         
       
@@ -272,8 +273,9 @@ class ViewModelBase2():
 
     def updateSprites(self):
         """Calculates the next view x,y position."""
-        self.__playerSprite.update()    
-        self.objectSprites.update()
+        if not self._gamePaused:
+            self.__playerSprite.update()    
+            self.objectSprites.update()
 
     def drawTiles(self):
         """Draw the tiles to the screen."""
@@ -317,6 +319,7 @@ class ViewModelBase2():
 
     def showLostLiveDialog(self):
         #Todo: implement lost life dialog
+        self._gamePaused = True
         pass
 
 
@@ -327,22 +330,28 @@ class ViewModelBase2():
             self.PlayerLostGame()
         else:
             self.showLostLiveDialog()
+            self._state.energy = 100
 
 
     def checkClashes(self):
         """Checks if sprites collides with player."""
-        #raise NotImplementedError("Please implement checkClashes in your view model.")
-        for sprite in self.__objectSprites:
-            if pygame.sprite.collide_mask(self.__playerSprite, sprite):
-                #info = sprite.collideCallback()
-                info = sprite.doCollide()
-                if info.sound:
-                    self.soundPlayer.playSoundByName(info.sound)
-                if info.spriteDies and info.parent != None:
-                    info.parent.kill()
-                if info.playerDies:
-                    logging.debug("The player touched with deadly sprite.")
-                    self.playerLostHisLive()
+        if not self._gamePaused:
+            for sprite in self.__objectSprites:
+                if pygame.sprite.collide_mask(self.__playerSprite, sprite):
+                    info = sprite.doCollide()
+                    if info:
+                        self._state.points += info.points
+                        self._state.energy += info.energy
+
+                        if info.sound:
+                            self.soundPlayer.playSoundByName(info.sound)
+                        if info.spriteDies and info.parent != None:
+                            info.parent.kill()
+                        if info.playerDies:
+                            logging.debug("The player touched with deadly sprite.")
+                            self.playerLostHisLive()
+                        elif self._state.energy <= 0:
+                            self.playerLostHisLive()
 
     def updateCameraPosition(self):
         """Updates the viewPointer camera position."""

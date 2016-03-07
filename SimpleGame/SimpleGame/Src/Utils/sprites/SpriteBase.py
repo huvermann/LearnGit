@@ -47,6 +47,7 @@ class SpriteBase(pygame.sprite.Sprite):
         self._viewPointer = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewPointer)
         self.rect = None
         self._moveState = None
+        self._lastCollide = None
         pass
 
     def configureSprite(self, properties):
@@ -116,11 +117,26 @@ class SpriteBase(pygame.sprite.Sprite):
         spriteSupplyClass = getattr(importlib.import_module(module_name), supplyClassName)
         return spriteSupplyClass(self, properties)
 
-    def doCollide(self):
+    def getCollideInfo(self):
         """Is called when the player collides with this sprite."""
-        result = CollosionInfo(spriteDies = self._killSprite, playerDies = self._killPlayer, points = self.points, parent = self, sound = self.sound)
+        result = CollosionInfo(spriteDies = self._killSprite, playerDies = self._killPlayer, points = self.points, energy = self._energy, parent = self, sound = self.sound)
         self.behavior.doCollide()
         return result
+        pass
+
+
+    def doCollide(self):
+        if not self._lastCollide:
+            self._lastCollide = pygame.time.get_ticks()
+            return self.getCollideInfo()
+        else:
+            now = pygame.time.get_ticks()
+            if now - self._lastCollide > 300:
+                self._lastCollide = now
+                return self.getCollideInfo()
+            else:
+                return None 
+       
 
     def update(self, *args):
         """Updates the sprite."""

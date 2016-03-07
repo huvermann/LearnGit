@@ -166,6 +166,7 @@
                  "name":"Flash",
                  "properties":
                     {
+                     "Energy":"-50",
                      "FallSpeed":"20",
                      "Intelligence":"DropdownAndMoveIntelligence",
                      "KillSprite":"False",

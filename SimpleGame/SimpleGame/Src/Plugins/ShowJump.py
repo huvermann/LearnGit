@@ -7,7 +7,7 @@ from Utils.ViewPointer import ViewPoint
 from Utils.gui.TextLabel import TextLabel
 import json
 import os.path
-import jsonpickle
+#import jsonpickle
 
 
 
