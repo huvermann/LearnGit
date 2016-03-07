@@ -1,0 +1,24 @@
+Kai
+=====
+
+
+
+
+
+
+Zurückgestellt:
+- 3.0: Gensequenzer zeichnen (Oder entsprechendes Gerät)
+- 4.0: Spieler hält Waffe oder Gerät
+   Links, Rechts, GeheLinks, GeheRechs mit Waffe
+   Waffe freistellen
+- 5.0: Dynamitladung zeichnen
+- 6.0: Tileset für Raumschiff innen
+
+
+
+Erledigt
+--------
+- 1.0: Farbige Blobs animieren
+- 2.0: Megabloobs zeichnen
+- 7.0: Groben-Plan für Spielfeld machen
+       Fallen und Gegner kommen später hinein.
