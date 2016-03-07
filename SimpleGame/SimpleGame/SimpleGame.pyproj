@@ -115,6 +115,9 @@
     <Compile Include="Src\SpriteStyles\HeartStyle.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\SpriteStyles\MonsterBloobStyle.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\SpriteStyles\__init__.py">
       <SubType>Code</SubType>
     </Compile>
@@ -152,6 +155,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Sprites\MockSprite.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Sprites\MonsterBloobSprite.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Sprites\SpriteFactory.py">
@@ -399,6 +405,10 @@
     <Content Include="Assets\Sprites\John_Doe\standing_right.png" />
     <Content Include="Assets\Sprites\John_Doe\walk_right.png" />
     <Content Include="Assets\Sprites\John_Doe\walk_left.png" />
+    <Content Include="Assets\Sprites\Monster_Bloob\MonsterBloob.pyxel" />
+    <Content Include="Assets\Sprites\Monster_Bloob\MonsterBloob_green_die.png" />
+    <Content Include="Assets\Sprites\Monster_Bloob\MonsterBloob_green_walk_left.png" />
+    <Content Include="Assets\Sprites\Monster_Bloob\MonsterBloob_green_walk_right.png" />
     <Content Include="Assets\Sprites\Private\privat_standing_front.png" />
     <Content Include="Assets\Sprites\Private\privat_walk_left.png" />
     <Content Include="Assets\Sprites\Private\privat_walk_right.png" />
@@ -411,6 +421,7 @@
     <Content Include="Assets\Views\Level1\map.json" />
     <Content Include="Assets\Views\Level2\background6.png" />
     <Content Include="Assets\Views\Level2\map.json" />
+    <Content Include="Assets\Views\Level2\MonsterBloob_green_die.png" />
     <Content Include="Assets\Views\Level2\view.map" />
     <Content Include="Assets\Views\Level2\Level2.png" />
     <Content Include="Assets\Views\Level2\Level2.pyxel" />
@@ -429,6 +440,7 @@
     <Content Include="Documentation\InProgressHeiko.txt" />
     <Content Include="Documentation\Manual_GameDesigner.docx" />
     <Content Include="Documentation\readme.txt" />
+    <Content Include="Documentation\TodoKai.txt" />
     <Content Include="Documentation\TodoList.txt" />
     <Content Include="requirements.txt" />
     <Content Include="Tests\readme.txt" />
@@ -448,6 +460,7 @@
     <Folder Include="Assets\Sprites\Heart\" />
     <Folder Include="Assets\Sprites\John_Doe\" />
     <Folder Include="Assets\Sprites\Commander\" />
+    <Folder Include="Assets\Sprites\Monster_Bloob\" />
     <Folder Include="Assets\Sprites\Private\" />
     <Folder Include="Assets\Views\" />
     <Folder Include="Assets\Sound\" />

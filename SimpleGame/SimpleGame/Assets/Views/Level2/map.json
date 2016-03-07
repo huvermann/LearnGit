@@ -113,6 +113,22 @@
                  "width":32,
                  "x":276,
                  "y":601
+                }, 
+                {
+                 "gid":198,
+                 "height":64,
+                 "id":14,
+                 "name":"Monster1",
+                 "properties":
+                    {
+                     "WalkSpeed":"600"
+                    },
+                 "rotation":0,
+                 "type":"MonsterBloobSprite",
+                 "visible":true,
+                 "width":64,
+                 "x":520,
+                 "y":575
                 }],
          "offsetx":0,
          "offsety":32,
@@ -203,7 +219,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":13,
+ "nextobjectid":16,
  "orientation":"orthogonal",
  "properties":
     {
@@ -546,6 +562,24 @@
          "tileheight":32,
          "tilewidth":32,
          "transparentcolor":"#b2dcef"
+        }, 
+        {
+         "columns":4,
+         "firstgid":198,
+         "image":"MonsterBloob_green_die.png",
+         "imageheight":64,
+         "imagewidth":256,
+         "margin":0,
+         "name":"MonsterBloob",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tilecount":4,
+         "tileheight":64,
+         "tilewidth":64,
+         "transparentcolor":"#4a61f3"
         }],
  "tilewidth":32,
  "version":1,
