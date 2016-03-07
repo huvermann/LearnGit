@@ -322,8 +322,8 @@ class ViewModelBase2():
 
     def playerLostHisLive(self):
         """The player has lost a live."""
-        self._state.GameState -= 1
-        if self._state.GameState <= 0:
+        self._state.lifes -= 1
+        if self._state.lifes <= 0:
             self.PlayerLostGame()
         else:
             self.showLostLiveDialog()
