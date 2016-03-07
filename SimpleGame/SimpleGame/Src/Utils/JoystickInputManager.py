@@ -1,6 +1,12 @@
 import pygame
 from Utils.InputManagerBase import InputManagerBase
 
+class ButtonAssignment(object):
+    JumpButton = 2
+    FireButton = 3
+    StartButton = 9
+    ExitButton = 8
+
 class JoystickInputManager(InputManagerBase):
     """Maps the joystick events to the action calls"""
     def __init__(self):
@@ -23,17 +29,17 @@ class JoystickInputManager(InputManagerBase):
         """Handle joystick events."""
         if self._joystick:
             if event.type == pygame.JOYBUTTONDOWN:
-                if event.button == 3:
+                if event.button == ButtonAssignment.JumpButton:
                     self.onJump(event)
-                elif event.button == 8:
+                elif event.button == ButtonAssignment.ExitButton:
                     self.onExit(event)
-                elif event.button == 9:
+                elif event.button == ButtonAssignment.StartButton:
                     self.onStart(event)
                 else:
                     print(event)
 
             elif event.type == pygame.JOYBUTTONUP:
-                if event.button == 3:
+                if event.button == ButtonAssignment.JumpButton:
                     self.onJumpButtonRelease(event)
 
             elif event.type == pygame.JOYHATMOTION:
