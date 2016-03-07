@@ -161,5 +161,22 @@
  <objectgroup name="Player" offsetx="0" offsety="32">
   <object id="6" name="Player" type="JohnDoeSprite" gid="196" x="109" y="218" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Objects"/>
+  <objectgroup color="#005500" name="Objects" offsetx="0" offsety="32">
+    
+    <object id="27" name="MusicPlayer" type="MusicPlayer" x="1703" y="66">
+      <properties>
+        <property name="Loop" value="True"/>
+        <property name="Song1" value="m4rt3z_m4rt3z---Primal-Snap-320.mp3"/>
+        <property name="Start" value="False"/>
+      </properties>
+    </object>
+    <object id="29" name="SoundList" type="SoundList" x="1829" y="59">
+      <properties>
+        <property name="Beep" value="319200__18hiltc__pixel-game-beep.wav"/>
+        <property name="GameOver" value="319200__18hiltc__pixel-game-beep.wav"/>
+        <property name="Jumping" value="172205__fins__jumping.wav"/>
+        <property name="Laser" value="146725__fins__laser.wav"/>
+      </properties>
+    </object>
+  </objectgroup>
 </map>

@@ -396,10 +396,48 @@
          "y":0
         }, 
         {
+         "color":"#005500",
          "draworder":"topdown",
          "height":0,
          "name":"Objects",
-         "objects":[],
+         "objects":[
+                {
+                 "height":0,
+                 "id":27,
+                 "name":"MusicPlayer",
+                 "properties":
+                    {
+                     "Loop":"True",
+                     "Song1":"m4rt3z_m4rt3z---Primal-Snap-320.mp3",
+                     "Start":"False"
+                    },
+                 "rotation":0,
+                 "type":"MusicPlayer",
+                 "visible":true,
+                 "width":0,
+                 "x":1703,
+                 "y":66
+                }, 
+                {
+                 "height":0,
+                 "id":29,
+                 "name":"SoundList",
+                 "properties":
+                    {
+                     "Beep":"319200__18hiltc__pixel-game-beep.wav",
+                     "GameOver":"319200__18hiltc__pixel-game-beep.wav",
+                     "Jumping":"172205__fins__jumping.wav",
+                     "Laser":"146725__fins__laser.wav"
+                    },
+                 "rotation":0,
+                 "type":"SoundList",
+                 "visible":true,
+                 "width":0,
+                 "x":1829,
+                 "y":59
+                }],
+         "offsetx":0,
+         "offsety":32,
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
