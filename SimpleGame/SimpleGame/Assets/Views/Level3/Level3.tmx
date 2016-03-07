@@ -368,6 +368,7 @@
   <object id="22" name="bloob5" type="BloobSprite" gid="180" x="3200" y="2205" width="32" height="32"/>
   <object id="23" name="bloob6" type="BloobSprite" gid="180" x="2752" y="1919" width="32" height="32">
    <properties>
+    <property name="Intelligence" value="DropdownAndMoveIntelligence"/>
     <property name="Style" value="BloobStyleBlue"/>
    </properties>
   </object>

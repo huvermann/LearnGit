@@ -15,6 +15,8 @@ class AniConfigKeys(object):
 class AnimationTypes(object):
     TimeBased = "TimeBased"
     PositionBased = "PositionBased"
+    VerticalPositionBased = "VerticalPositionBased"
+    TerminatedAnimation = "TerminatedAnimation"
     
 class AnimationInfo(object):
     """Animation information container"""
@@ -74,6 +76,11 @@ class AnimationInfo(object):
         rect = (left, 0, self.PictureSize[0], self.PictureSize[1])
         result = self.ImageSurface.subsurface(rect)
         return result
+
+    def getAnimationTerminated(self, time):
+        #Todo: Implement
+        #this is a dummy:
+        return self.getAnimationPictureByIndex(0)
 
     def calculateTimeIndex(self, time):
         return (time // (self.Delay * self.ImageCount)) % self.ImageCount

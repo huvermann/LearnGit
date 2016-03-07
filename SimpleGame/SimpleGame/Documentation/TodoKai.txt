@@ -4,11 +4,36 @@ Kai
 - Mini-Spiel-Level entwerfen. (Komplettes Spiel)
   Das Spiel soll alles demonstrieren, was wir schon fertig haben.
 
+- StartDemo-Level bauen:
+  - Oben auf den Start-Screen soll der Name des Spieles stehen
+  - Button-Grafik für Startbildschirm bauen
+    - Start Game
+	- Resume Game
+	- Options
+	- Exit
+
+  - Hintergrundbildschirm für Startbildschirm
+  - Es wird ein ButtonSprite geben. (Wird programmiert)
+  - Für jeden Button muss ein Style mit nur einer Animation angelegt werden, die den Dateinamen des Bildes enthält.
+
+  
+- Game-Over (Lost)
+  Beim Spielende soll eine Schrift zentriert auf dem Bildschirm angezeigt werden. (Game over)
+  Unter dem Schild liegt der Player tot. (Einzelbild)
+  Durch Button drücken kommt man zurück in die Start-Demo View
+
+- Game-Won
+  Spielende, der Spieler hat die Aufgabe gelöst.
+  Eine Schrift (Schild) wird eingeblendet. Darunter jubelt der Spieler
+  Durch Button drücken kommt man zurück in die Start-Demo View
+
+
+
 - Nachsehen, ob brauchbare Sounds auf Sampleswap.org sind.
 - Suchen auf https://love2d.org/wiki/Free_Game_Resources, 
-- Game-Over Animation: Einbauen, testen: 4h
-- Game-Won-Animation
-- Spieler ist gestorben-Animation
+
+
+
 - Spieler jubelt-Animation (Gewonnen)
 
 
