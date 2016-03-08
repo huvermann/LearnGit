@@ -127,6 +127,15 @@
     <Compile Include="Src\SpriteStyles\MonsterBloobStyle.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\SpriteStyles\TargedpointStyle.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\SpriteStyles\TeleporterFrontStyle.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\SpriteStyles\TeleporterStyle.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\SpriteStyles\__init__.py">
       <SubType>Code</SubType>
     </Compile>
@@ -170,6 +179,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Sprites\SpriteFactory.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Sprites\TargedpointSprite.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Sprites\TeleporterFrontSprite.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Sprites\TeleporterSprite.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Sprites\__init__.py">
@@ -425,7 +443,17 @@
     <Content Include="Assets\Sprites\Private\privat_standing_front.png" />
     <Content Include="Assets\Sprites\Private\privat_walk_left.png" />
     <Content Include="Assets\Sprites\Private\privat_walk_right.png" />
+    <Content Include="Assets\Sprites\Targedpoint\Flagge1.png" />
+    <Content Include="Assets\Sprites\Targedpoint\Flagge2.png" />
+    <Content Include="Assets\Sprites\Targedpoint\Flagge3.png" />
+    <Content Include="Assets\Sprites\Targedpoint\Flagge4.png" />
+    <Content Include="Assets\Sprites\Targedpoint\Flagge5.png" />
+    <Content Include="Assets\Sprites\Teleporter\Teleporter_Back.png" />
+    <Content Include="Assets\Sprites\Teleporter\Teleporter_Front.png" />
+    <Content Include="Assets\Sprites\Teleporter\Telepunkt.png" />
+    <Content Include="Assets\Views\Demo\demo.png" />
     <Content Include="Assets\Views\Demo\demo.tmx" />
+    <Content Include="Assets\Views\Demo\Demobackground.png" />
     <Content Include="Assets\Views\Demo\map.json" />
     <Content Include="Assets\Views\Level1\background3.png" />
     <Content Include="Assets\Views\Level1\Level1.png" />
@@ -474,6 +502,8 @@
     <Folder Include="Assets\Sprites\John_Doe\" />
     <Folder Include="Assets\Sprites\Commander\" />
     <Folder Include="Assets\Sprites\Monster_Bloob\" />
+    <Folder Include="Assets\Sprites\Targedpoint\" />
+    <Folder Include="Assets\Sprites\Teleporter\" />
     <Folder Include="Assets\Sprites\LifeLostMessage\" />
     <Folder Include="Assets\Sprites\Private\" />
     <Folder Include="Assets\Views\" />

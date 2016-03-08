@@ -1,36 +1,27 @@
-from Utils.sprites.SpriteStyleBase import SpriteStyleBase
 from Utils.sprites.SpriteBase import SpriteBase, SpritePropNames
 
-
-
-class BloobSprite(SpriteBase):
-    """Implementation of the Blob sprite."""
+class TargedpointSprite(SpriteBase):
+    """description of class"""
     def configureFromProperties(self, properties):
-        # Predefine the coin specific properties
-        self.name = 'Bloob'
-        self._assetName = 'Bloob'
+        self.name = 'Targed'
+        self._assetName = 'Targedpoint'
         self.killPlayer = False
-        self.killSprite = True
-        self.points = 30
-        self.energy = -25
-        self.sound = 'Beep'
+        self.killSprite = False
+        self.points = 0
+        self.energy = 0
+        self.sound = None
         
         if not SpritePropNames.Style in properties:
-            self.style = self.styleFactory('BloobStyle', properties)
+            self.style = self.styleFactory('TargedpointStyle', properties)
         if not SpritePropNames.Intelligence in properties:
-            self.intelligence = self.intelligenceFactory('FallDownSpriteIntelligence', properties)
+            self.intelligence = self.intelligenceFactory('DefaultSpriteIntelligence', properties)
+        #if not SpritePropNames.Behavior in properties:
+        #    self.behavior = self.behaviorFactory('TargedpointBehavior', properties)
         if not SpritePropNames.Behavior in properties:
             self.behavior = self.behaviorFactory('DefaultSpriteBehavior', properties)
         if not SpritePropNames.Supplies in properties:
             self.supplies = self.suppliesFactory('Nothing', properties)
 
         return super().configureFromProperties(properties)
-
-
-       
-
-   
-
-
 
 
