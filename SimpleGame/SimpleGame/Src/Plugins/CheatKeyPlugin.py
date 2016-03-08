@@ -32,6 +32,9 @@ class CheatKeyPlugin(ViewPluginBase):
         elif event.key == pygame.K_F3:
             changeviewEvent = pygame.event.Event(Utils.UserEvents.EVENT_CHANGEVIEW, ViewName='Level3')
             pygame.event.post(changeviewEvent)
+        elif event.key == pygame.K_F4:
+            changeviewEvent = pygame.event.Event(Utils.UserEvents.EVENT_CHANGEVIEW, ViewName='Demo')
+            pygame.event.post(changeviewEvent)
 
 
 

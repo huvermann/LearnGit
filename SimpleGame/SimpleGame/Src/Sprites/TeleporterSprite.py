@@ -5,7 +5,7 @@ class TeleporterSprite(SpriteBase):
     """description of class"""
     def configureFromProperties(self, properties):
         self.name = 'Tele'
-        self._assetName = 'Teleport'
+        self._assetName = 'Teleporter'
         self.killPlayer = False
         self.killSprite = False
         self.points = 0
