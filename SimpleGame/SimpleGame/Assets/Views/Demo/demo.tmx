@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="62">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="65">
  <properties>
   <property name="Plugin" value="xPlugin=ShowJump"/>
   <property name="Plugin3" value="Plugin=CheatKeyPlugin"/>
@@ -42,6 +42,9 @@
  </tileset>
  <tileset firstgid="189" name="Teleporter_Front" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="../../Sprites/Teleporter/Teleporter_Front.png" trans="4a61f3" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="190" name="Flagge5" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../../Sprites/Targedpoint/Flagge5.png" trans="4a61f3" width="128" height="32"/>
  </tileset>
  <imagelayer name="Image" visible="0">
   <image source="../Training/background3.png"/>
@@ -285,6 +288,7 @@
     <property name="BeamPoint" value="Ziel1"/>
    </properties>
   </object>
+  <object id="62" name="BunteFlagge" type="TargedpointSprite" gid="190" x="192" y="1504" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Player" visible="0" offsetx="0" offsety="32">
   <object id="2" name="Player" type="JohnDoeSprite" gid="177" x="158" y="2972" width="32" height="32"/>
