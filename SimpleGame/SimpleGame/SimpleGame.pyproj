@@ -411,6 +411,13 @@
     <Content Include="Assets\Sprites\Private\privat_standing_front.png" />
     <Content Include="Assets\Sprites\Private\privat_walk_left.png" />
     <Content Include="Assets\Sprites\Private\privat_walk_right.png" />
+    <Content Include="Assets\Sprites\Targedpoint\Flagge1.png" />
+    <Content Include="Assets\Sprites\Targedpoint\Flagge2.png" />
+    <Content Include="Assets\Sprites\Targedpoint\Flagge3.png" />
+    <Content Include="Assets\Sprites\Targedpoint\Flagge4.png" />
+    <Content Include="Assets\Sprites\Targedpoint\Flagge5.png" />
+    <Content Include="Assets\Sprites\Teleporter\Teleporter_Back.png" />
+    <Content Include="Assets\Sprites\Teleporter\Teleporter_Front.png" />
     <Content Include="Assets\Views\Demo\demo.tmx" />
     <Content Include="Assets\Views\Demo\map.json" />
     <Content Include="Assets\Views\Level1\background3.png" />
@@ -460,6 +467,8 @@
     <Folder Include="Assets\Sprites\John_Doe\" />
     <Folder Include="Assets\Sprites\Commander\" />
     <Folder Include="Assets\Sprites\Monster_Bloob\" />
+    <Folder Include="Assets\Sprites\Targedpoint\" />
+    <Folder Include="Assets\Sprites\Teleporter\" />
     <Folder Include="Assets\Sprites\Private\" />
     <Folder Include="Assets\Views\" />
     <Folder Include="Assets\Sound\" />
