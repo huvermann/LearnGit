@@ -439,6 +439,7 @@
     <Content Include="Assets\Sprites\Teleporter\Telepunkt.png" />
     <Content Include="Assets\Views\Demo\demo.png" />
     <Content Include="Assets\Views\Demo\demo.tmx" />
+    <Content Include="Assets\Views\Demo\Demobackground.png" />
     <Content Include="Assets\Views\Demo\map.json" />
     <Content Include="Assets\Views\Level1\background3.png" />
     <Content Include="Assets\Views\Level1\Level1.png" />
