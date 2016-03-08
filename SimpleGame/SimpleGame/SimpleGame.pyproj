@@ -121,6 +121,9 @@
     <Compile Include="Src\SpriteStyles\TargedpointStyle.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\SpriteStyles\TeleporterFrontStyle.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\SpriteStyles\TeleporterStyle.py">
       <SubType>Code</SubType>
     </Compile>
@@ -167,6 +170,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Sprites\TargedpointSprite.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Sprites\TeleporterFrontSprite.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Sprites\TeleporterSprite.py">
@@ -430,6 +436,8 @@
     <Content Include="Assets\Sprites\Targedpoint\Flagge5.png" />
     <Content Include="Assets\Sprites\Teleporter\Teleporter_Back.png" />
     <Content Include="Assets\Sprites\Teleporter\Teleporter_Front.png" />
+    <Content Include="Assets\Sprites\Teleporter\Telepunkt.png" />
+    <Content Include="Assets\Views\Demo\demo.png" />
     <Content Include="Assets\Views\Demo\demo.tmx" />
     <Content Include="Assets\Views\Demo\map.json" />
     <Content Include="Assets\Views\Level1\background3.png" />
