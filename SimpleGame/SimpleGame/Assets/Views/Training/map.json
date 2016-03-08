@@ -122,8 +122,8 @@
                  "type":"GenericSprite",
                  "visible":true,
                  "width":32,
-                 "x":1221,
-                 "y":168
+                 "x":1205,
+                 "y":171
                 }, 
                 {
                  "gid":37,
@@ -169,6 +169,7 @@
                      "Energy":"-50",
                      "FallSpeed":"20",
                      "Intelligence":"DropdownAndMoveIntelligence",
+                     "KillPlayer":"True",
                      "KillSprite":"False",
                      "Style":"BloobStyleRed",
                      "WalkDirection":"left",
@@ -259,7 +260,7 @@
          "name":"Objects",
          "objects":[
                 {
-                 "height":0,
+                 "height":32,
                  "id":5,
                  "name":"Ziel1",
                  "properties":
@@ -269,12 +270,12 @@
                  "rotation":0,
                  "type":"BeamPoint",
                  "visible":true,
-                 "width":0,
-                 "x":718,
-                 "y":497
+                 "width":32,
+                 "x":717,
+                 "y":473
                 }, 
                 {
-                 "height":0,
+                 "height":32,
                  "id":6,
                  "name":"Ziel2",
                  "properties":
@@ -284,12 +285,12 @@
                  "rotation":0,
                  "type":"BeamPoint",
                  "visible":true,
-                 "width":0,
-                 "x":908,
-                 "y":494
+                 "width":32,
+                 "x":883,
+                 "y":470
                 }, 
                 {
-                 "height":0,
+                 "height":32,
                  "id":8,
                  "name":"Ziel3",
                  "properties":
@@ -299,12 +300,12 @@
                  "rotation":0,
                  "type":"BeamPoint",
                  "visible":true,
-                 "width":0,
-                 "x":1583,
-                 "y":695
+                 "width":32,
+                 "x":1570,
+                 "y":778
                 }, 
                 {
-                 "height":0,
+                 "height":32,
                  "id":27,
                  "name":"MusicPlayer",
                  "properties":
@@ -316,12 +317,12 @@
                  "rotation":0,
                  "type":"MusicPlayer",
                  "visible":true,
-                 "width":0,
-                 "x":1703,
-                 "y":66
+                 "width":32,
+                 "x":1686,
+                 "y":34
                 }, 
                 {
-                 "height":0,
+                 "height":32,
                  "id":29,
                  "name":"SoundList",
                  "properties":
@@ -334,9 +335,24 @@
                  "rotation":0,
                  "type":"SoundList",
                  "visible":true,
-                 "width":0,
-                 "x":1829,
-                 "y":59
+                 "width":32,
+                 "x":1782,
+                 "y":33
+                }, 
+                {
+                 "height":32,
+                 "id":34,
+                 "name":"LifeLostMessage",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"LifeLostMessage",
+                 "visible":true,
+                 "width":32,
+                 "x":1893,
+                 "y":34
                 }],
          "offsetx":0,
          "offsety":32,
@@ -347,7 +363,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":34,
+ "nextobjectid":36,
  "orientation":"orthogonal",
  "properties":
     {

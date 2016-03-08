@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="34">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="36">
  <properties>
   <property name="Plugin" value="xPlugin=ShowJump"/>
   <property name="Plugin2" value="xPlugin=CollosionLab"/>
@@ -246,7 +246,7 @@
     <property name="ViewName" value="Level1"/>
    </properties>
   </object>
-  <object id="12" name="Example" type="GenericSprite" gid="25" x="1221" y="168" width="32" height="32">
+  <object id="12" name="Example" type="GenericSprite" gid="25" x="1205" y="171" width="32" height="32">
    <properties>
     <property name="AssetName" value="Coin"/>
     <property name="Behavior" value="DefaultSpriteBehavior"/>
@@ -277,6 +277,7 @@
     <property name="Energy" value="-50"/>
     <property name="FallSpeed" value="20"/>
     <property name="Intelligence" value="DropdownAndMoveIntelligence"/>
+    <property name="KillPlayer" value="True"/>
     <property name="KillSprite" value="False"/>
     <property name="Style" value="BloobStyleRed"/>
     <property name="WalkDirection" value="left"/>
@@ -290,17 +291,17 @@
   <object id="2" name="Player" type="JohnDoeSprite" gid="153" x="588" y="214" width="32" height="32"/>
  </objectgroup>
  <objectgroup color="#005500" name="Objects" offsetx="0" offsety="32">
-  <object id="5" name="Ziel1" type="BeamPoint" x="718" y="497"/>
-  <object id="6" name="Ziel2" type="BeamPoint" x="908" y="494"/>
-  <object id="8" name="Ziel3" type="BeamPoint" x="1583" y="695"/>
-  <object id="27" name="MusicPlayer" type="MusicPlayer" x="1703" y="66">
+  <object id="5" name="Ziel1" type="BeamPoint" x="717" y="473" width="32" height="32"/>
+  <object id="6" name="Ziel2" type="BeamPoint" x="883" y="470" width="32" height="32"/>
+  <object id="8" name="Ziel3" type="BeamPoint" x="1570" y="778" width="32" height="32"/>
+  <object id="27" name="MusicPlayer" type="MusicPlayer" x="1686" y="34" width="32" height="32">
    <properties>
     <property name="Loop" value="True"/>
     <property name="Song1" value="m4rt3z_m4rt3z---Primal-Snap-320.mp3"/>
     <property name="Start" value="False"/>
    </properties>
   </object>
-  <object id="29" name="SoundList" type="SoundList" x="1829" y="59">
+  <object id="29" name="SoundList" type="SoundList" x="1782" y="33" width="32" height="32">
    <properties>
     <property name="Beep" value="319200__18hiltc__pixel-game-beep.wav"/>
     <property name="GameOver" value="319200__18hiltc__pixel-game-beep.wav"/>
@@ -308,5 +309,6 @@
     <property name="Laser" value="146725__fins__laser.wav"/>
    </properties>
   </object>
+  <object id="34" name="LifeLostMessage" type="LifeLostMessage" x="1893" y="34" width="32" height="32"/>
  </objectgroup>
 </map>

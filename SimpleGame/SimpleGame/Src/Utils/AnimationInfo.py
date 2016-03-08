@@ -57,7 +57,8 @@ class AnimationInfo(object):
 
         # Read ImageRect
         self.ImageRect = self.ImageSurface.get_rect()
-
+        if AniConfigKeys.PictureSize in configuration:
+            self.PictureSize = (int(configuration[AniConfigKeys.PictureSize][0]), int(configuration[AniConfigKeys.PictureSize][1]))
         # Calculate ImageCount
         if not self.PictureSize:
             # Assume we have a Squere if no PictureSize is defined.

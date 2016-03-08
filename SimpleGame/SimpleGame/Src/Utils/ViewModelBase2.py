@@ -36,6 +36,7 @@ class ViewModelBase2():
         self.__eventHandlers = [] # Event handlers for plugins
         self._viewPointer = ViewPointer()
         self._gamePaused = False
+        self._lifeLostMessageCallback = None
         ServiceLocator.registerGlobalService(ServiceNames.ViewPointer, self._viewPointer)
         
       
@@ -319,7 +320,9 @@ class ViewModelBase2():
 
     def showLostLiveDialog(self):
         #Todo: implement lost life dialog
-        self._gamePaused = True
+        if self.lifeLostMessageCallback:
+            self._gamePaused = True
+            self.lifeLostMessageCallback(self.allSprites, self.objectSprites)
         pass
 
 
@@ -432,6 +435,15 @@ class ViewModelBase2():
     @soundPlayer.setter
     def soundPlayer(self, value):
         self._soundPlayer = value
+
+    @property
+    def lifeLostMessageCallback(self):
+        return self._lifeLostMessageCallback
+
+    @lifeLostMessageCallback.setter
+    def lifeLostMessageCallback(self, value):
+        self._lifeLostMessageCallback = value
+
 
 
 

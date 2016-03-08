@@ -2,15 +2,15 @@ In Progress Heiko
 -----------------------
 
 - 12.99: Spieler stierbt durch Bloob.
-
-- 13.0: ScorePanel implementieren
-  + 13.1 Das Scorepanel soll Anzahl Leben und Punkte anzeigen.
-
+  + Player Lost Life Dialog anzeigen
   + 12.1a: Bei zu wenig Lebensenergie stirbt der Spieler
 
 
 
   Erledigt:
+
+  - 13.0: ScorePanel implementieren
+  + 13.1 Das Scorepanel soll Anzahl Leben und Punkte anzeigen.
 
 
 

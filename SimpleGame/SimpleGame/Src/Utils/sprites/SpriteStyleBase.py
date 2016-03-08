@@ -41,6 +41,7 @@ class SpriteStyleBase(object):
         return result
 
     def getImage(self, sprite, ticks):
+        #Todo: Move the getAnimation method to the Animation itself.
         result = None
         if self._currentAnimation.AnimationType == AnimationTypes.TimeBased:
             index = self._currentAnimation.calculateTimeIndex(ticks)
@@ -52,6 +53,7 @@ class SpriteStyleBase(object):
         return result
 
     def setMoveState(self, moveState):
+        #Todo: Implement a SpriteMoveState to AnimationName helper class.
         # Set animation by moveState
         if moveState == SpriteMoveState.FallingDown:
             self.currentAnimation = self._animations[AnimationNames.Falling]
