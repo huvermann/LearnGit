@@ -4,7 +4,7 @@ import os, sys, getopt
 import logging
 import Utils
 from pygame.locals import *
-from GameState import GameState
+from Utils.GameState import GameState
 from Utils.ViewController import ViewController
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Utils.BeamPointRegistry import BeamPointRegistry

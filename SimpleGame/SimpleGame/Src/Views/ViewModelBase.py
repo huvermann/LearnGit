@@ -3,7 +3,7 @@ import os.path
 import logging
 from decimal import Decimal
 import json
-from GameState import GameState
+from Utils.GameState import GameState
 from Utils import UserEvents, TileMapManager
 from Utils.DirHelper import getFontResourceFile, getConfigurationFile
 from pygame.color import THECOLORS

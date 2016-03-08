@@ -28,17 +28,8 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Src\CurveGame.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Src\Game.py" />
-    <Compile Include="Src\GameState.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Src\joystick.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Src\JoystickExample.py">
+    <Compile Include="Src\Utils\GameState.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\MapObjects\BeamPoint.py">
