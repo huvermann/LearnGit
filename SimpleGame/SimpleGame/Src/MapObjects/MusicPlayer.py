@@ -27,7 +27,7 @@ class MusicPlayer(MapObjectBase):
         return super().configure(configuration)
 
     def initializeObject(self, parent):
-        parent.musicPlayer = parent
+        parent.musicPlayer = self
         super().initializeObject(parent)
         if self._start:
             self.play()
@@ -55,7 +55,9 @@ class MusicPlayer(MapObjectBase):
                 if os.path.isfile(musicFile):
                     pygame.mixer.music.load(musicFile)
                     print("Playing song: ", self._songs[index]["FileName"])
+                    self._currentSongIndex = 0
                     pygame.mixer.music.play()
+
         pass
 
     def playNextSong(self):

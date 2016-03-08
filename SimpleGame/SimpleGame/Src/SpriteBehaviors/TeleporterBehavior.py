@@ -25,7 +25,6 @@ class TeleporterBehavior(SpriteBehaviorBase):
             beamService = ServiceLocator.getGlobalServiceInstance(ServiceNames.BeamPoints)
             beamService.beam(self._beamPoint)
         elif self._targetViewName:
-            print("ViewTarget")
             event = pygame.event.Event(EVENT_CHANGEVIEW, ViewName = self._targetViewName)
             pygame.event.post(event)
         else:

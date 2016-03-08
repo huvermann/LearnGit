@@ -353,6 +353,36 @@
                  "width":32,
                  "x":1893,
                  "y":34
+                }, 
+                {
+                 "height":32,
+                 "id":36,
+                 "name":"IsLevelSavePoint",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"IsLevelSavePoint",
+                 "visible":true,
+                 "width":32,
+                 "x":2038,
+                 "y":33
+                }, 
+                {
+                 "height":32,
+                 "id":37,
+                 "name":"OnGameLost",
+                 "properties":
+                    {
+                     "TargetView":"GameLost"
+                    },
+                 "rotation":0,
+                 "type":"OnGameLost",
+                 "visible":true,
+                 "width":32,
+                 "x":2165,
+                 "y":33
                 }],
          "offsetx":0,
          "offsety":32,
@@ -363,7 +393,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":36,
+ "nextobjectid":38,
  "orientation":"orthogonal",
  "properties":
     {

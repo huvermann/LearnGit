@@ -7,9 +7,8 @@ class LifeLostMessageStyle(SpriteStyleBase):
     def getStyleData(self):
         result = {
             AnimationNames.Standing : {
-                "Filename": "LifeLostMessage.png",
+                "Filename": "graveStone.png",
                 "AnimationType": "TimeBased",
-                "PictureSize" : [400,250],
                 "ImageCount" : 1,
                 "Delay": 100}
             }

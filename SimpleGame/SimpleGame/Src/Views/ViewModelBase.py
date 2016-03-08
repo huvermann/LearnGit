@@ -272,8 +272,6 @@ class ViewModelBase:
             self.onMusicEvent(event)
         elif event.type == UserEvents.EVENT_CHANGEVIEW:
             self.onViewChange(event)
-        elif event.type == UserEvents.EVENT_NOISE:
-            self.onNoiseEvent(event)
         elif event.type == pygame.JOYAXISMOTION:
             self._joystickEventHandler.handleEvent(event)
         elif event.type == pygame.JOYBUTTONDOWN:
@@ -313,10 +311,6 @@ class ViewModelBase:
 
         pass
 
-    def onNoiseEvent(self, event):
-        """Start a sound."""
-        # Todo: implement play sound.
-        pass
 
     def onViewChange(self, event):
         """View is going to be changed."""
