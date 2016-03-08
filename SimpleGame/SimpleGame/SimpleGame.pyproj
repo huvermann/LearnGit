@@ -118,6 +118,9 @@
     <Compile Include="Src\SpriteStyles\MonsterBloobStyle.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\SpriteStyles\TeleporterStyle.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\SpriteStyles\__init__.py">
       <SubType>Code</SubType>
     </Compile>
@@ -158,6 +161,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Sprites\SpriteFactory.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Sprites\TeleporterSprite.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Sprites\__init__.py">
