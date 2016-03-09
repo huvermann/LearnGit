@@ -25,4 +25,8 @@ class DefaultScorePanel(ViewPluginBase):
         pos = self.drawTextLabel(10, 10, "Points: {0}".format(self._status.points))
         pos = self.drawTextLabel(10, pos.bottom + 8, "Energy: {0}".format(self._status.energy))
         pos = self.drawTextLabel(10, pos.bottom + 8, "Lifes: {0}".format(self._status.lifes))
+
+        pos = self.drawTextLabel(9, 9, "Points: {0}".format(self._status.points), color = (255,255,255))
+        pos = self.drawTextLabel(9, pos.bottom + 8, "Energy: {0}".format(self._status.energy), color = (255,255,255))
+        pos = self.drawTextLabel(9, pos.bottom + 8, "Lifes: {0}".format(self._status.lifes), color = (255,255,255))
         #return super().drawPlugin()
