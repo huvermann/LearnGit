@@ -361,6 +361,8 @@
   <ItemGroup>
     <Content Include="Assets\Controls\ScorePanel\Highscore_Panel.png" />
     <Content Include="Assets\Fonts\InknutAntiqua-Light.ttf" />
+    <Content Include="Assets\Fonts\Maximum-Security.zip" />
+    <Content Include="Assets\Fonts\passion-one.zip" />
     <Content Include="Assets\Fonts\readme.txt" />
     <Content Include="Assets\Images\dog.ico" />
     <Content Include="Assets\Images\dog.png" />
@@ -456,6 +458,9 @@
     <Content Include="Assets\Sprites\Teleporter\Teleporter_Back.png" />
     <Content Include="Assets\Sprites\Teleporter\Teleporter_Front.png" />
     <Content Include="Assets\Sprites\Teleporter\Telepunkt.png" />
+    <Content Include="Assets\Views\DemoStart\Demobackground.png" />
+    <Content Include="Assets\Views\DemoStart\DemoStart.tmx" />
+    <Content Include="Assets\Views\DemoStart\map.json" />
     <Content Include="Assets\Views\Demo\demo.png" />
     <Content Include="Assets\Views\Demo\demo.tmx" />
     <Content Include="Assets\Views\Demo\Demobackground.png" />
