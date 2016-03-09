@@ -358,6 +358,8 @@
   <ItemGroup>
     <Content Include="Assets\Controls\ScorePanel\Highscore_Panel.png" />
     <Content Include="Assets\Fonts\InknutAntiqua-Light.ttf" />
+    <Content Include="Assets\Fonts\Maximum-Security.zip" />
+    <Content Include="Assets\Fonts\passion-one.zip" />
     <Content Include="Assets\Fonts\readme.txt" />
     <Content Include="Assets\Images\dog.ico" />
     <Content Include="Assets\Images\dog.png" />
