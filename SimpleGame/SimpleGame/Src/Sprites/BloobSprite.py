@@ -18,7 +18,7 @@ class BloobSprite(SpriteBase):
         if not SpritePropNames.Style in properties:
             self.style = self.styleFactory('BloobStyle', properties)
         if not SpritePropNames.Intelligence in properties:
-            self.intelligence = self.intelligenceFactory('FallDownSpriteIntelligence', properties)
+            self.intelligence = self.intelligenceFactory('DropdownAndMoveIntelligence', properties)
         if not SpritePropNames.Behavior in properties:
             self.behavior = self.behaviorFactory('DefaultSpriteBehavior', properties)
         if not SpritePropNames.Supplies in properties:

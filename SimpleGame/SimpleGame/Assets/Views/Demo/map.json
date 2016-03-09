@@ -45,7 +45,7 @@
          "name":"BackgroundMap",
          "opacity":1,
          "type":"tilelayer",
-         "visible":false,
+         "visible":true,
          "width":100,
          "x":0,
          "y":0
@@ -56,7 +56,7 @@
          "name":"Map",
          "opacity":1,
          "type":"tilelayer",
-         "visible":false,
+         "visible":true,
          "width":100,
          "x":0,
          "y":0
@@ -399,8 +399,8 @@
                  "type":"TeleporterSprite",
                  "visible":true,
                  "width":32,
-                 "x":1639.90909090909,
-                 "y":2726.18181818182
+                 "x":1639.91,
+                 "y":2726.18
                 }, 
                 {
                  "gid":194,
@@ -422,7 +422,7 @@
          "offsety":32,
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "width":0,
          "x":0,
          "y":0
@@ -464,7 +464,7 @@
          "name":"Objects",
          "objects":[
                 {
-                 "height":0,
+                 "height":32,
                  "id":27,
                  "name":"MusicPlayer",
                  "properties":
@@ -476,12 +476,12 @@
                  "rotation":0,
                  "type":"MusicPlayer",
                  "visible":true,
-                 "width":0,
-                 "x":865,
-                 "y":12
+                 "width":32,
+                 "x":2393,
+                 "y":1284
                 }, 
                 {
-                 "height":0,
+                 "height":32,
                  "id":29,
                  "name":"SoundList",
                  "properties":
@@ -494,9 +494,9 @@
                  "rotation":0,
                  "type":"SoundList",
                  "visible":true,
-                 "width":0,
-                 "x":864,
-                 "y":63
+                 "width":32,
+                 "x":2278,
+                 "y":1289
                 }, 
                 {
                  "height":31,
@@ -527,17 +527,62 @@
                  "width":31,
                  "x":1216,
                  "y":1472
+                }, 
+                {
+                 "height":32,
+                 "id":71,
+                 "name":"LifeLostMessage",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"LifeLostMessage",
+                 "visible":true,
+                 "width":32,
+                 "x":1914,
+                 "y":1290
+                }, 
+                {
+                 "height":32,
+                 "id":72,
+                 "name":"IsLevelSavePoint",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"IsLevelSavePoint",
+                 "visible":true,
+                 "width":32,
+                 "x":2118,
+                 "y":1286
+                }, 
+                {
+                 "height":32,
+                 "id":73,
+                 "name":"OnGameLost",
+                 "properties":
+                    {
+                     "TargetView":"GameLost"
+                    },
+                 "rotation":0,
+                 "type":"OnGameLost",
+                 "visible":true,
+                 "width":32,
+                 "x":2010,
+                 "y":1288
                 }],
          "offsetx":0,
          "offsety":32,
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "width":0,
          "x":0,
          "y":0
         }],
- "nextobjectid":67,
+ "nextobjectid":74,
  "orientation":"orthogonal",
  "properties":
     {

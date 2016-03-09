@@ -8,7 +8,7 @@ class HeartSprite(SpriteBase):
         self._assetName = 'Heart'
         self.killPlayer = False
         self.killSprite = True
-        self.points = 30
+        self.points = 0
         self.energy = 5
         self.sound = None
         
