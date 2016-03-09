@@ -63,6 +63,9 @@ class ViewController(object):
             # Loads any model 
             return ViewModelMapLoader(viewName)
 
+    def destroyAllRunningViews(self):
+        self.viewList.clear()
+
 
     def run(self):
         """Run the view."""

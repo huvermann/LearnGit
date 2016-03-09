@@ -50,6 +50,7 @@ class ViewModelBase2():
 
     def suspendView(self):
         """View goes into suspend mode."""
+        self.musicPlayer.stop()
         containerServices = [ServiceNames.CurrentView, ServiceNames.Map, ServiceNames.Player, ServiceNames.ViewPointer]
         container = {}
 
@@ -63,6 +64,7 @@ class ViewModelBase2():
         pass
 
     def unSuspendView(self):
+        
         if self.__serviceContainer:
             for serviceName in self.__serviceContainer:
                 ServiceLocator.registerGlobalService(serviceName, self.__serviceContainer[serviceName])

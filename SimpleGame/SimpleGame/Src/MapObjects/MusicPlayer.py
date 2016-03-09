@@ -20,6 +20,7 @@ class MusicPlayer(MapObjectBase):
         self._loop = None
         self._stop = False
         self._pause = False
+        self._currentSongIndex = None
 
     def configure(self, configuration):
         assert isinstance(configuration, TiledObjectItem), "Expected configuration of type TiledObjectItem."
@@ -61,7 +62,7 @@ class MusicPlayer(MapObjectBase):
         pass
 
     def playNextSong(self):
-        if self._songs and len(self._songs) > 0 and self._stop == False:
+        if self._songs and len(self._songs) > 0 and self._stop == False and self._currentSongIndex != None:
             if self._currentSongIndex + 1 < len(self._songs):
                 self._currentSongIndex += 1
                 self.play(self._currentSongIndex)

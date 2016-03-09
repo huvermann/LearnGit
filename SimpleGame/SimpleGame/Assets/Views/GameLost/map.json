@@ -1,19 +1,19 @@
 { "height":30,
  "layers":[
         {
-         "height":30,
+         "height":0,
          "image":"..\/Training\/background3.png",
          "name":"Image",
          "opacity":1,
          "type":"imagelayer",
          "visible":true,
-         "width":30,
+         "width":0,
          "x":0,
          "y":0
         }, 
         {
          "draworder":"topdown",
-         "height":30,
+         "height":0,
          "name":"Screen",
          "objects":[
                 {
@@ -34,7 +34,7 @@
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
-         "width":30,
+         "width":0,
          "x":0,
          "y":0
         }, 
@@ -62,7 +62,7 @@
         }, 
         {
          "draworder":"topdown",
-         "height":30,
+         "height":0,
          "name":"Sprites",
          "objects":[],
          "offsetx":0,
@@ -70,13 +70,13 @@
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
-         "width":30,
+         "width":0,
          "x":0,
          "y":0
         }, 
         {
          "draworder":"topdown",
-         "height":30,
+         "height":0,
          "name":"Player",
          "objects":[
                 {
@@ -99,13 +99,13 @@
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
-         "width":30,
+         "width":0,
          "x":0,
          "y":0
         }, 
         {
          "draworder":"topdown",
-         "height":30,
+         "height":0,
          "name":"Objects",
          "objects":[
                 {
@@ -139,17 +139,47 @@
                  "width":32,
                  "x":915,
                  "y":103
+                }, 
+                {
+                 "height":32,
+                 "id":5,
+                 "name":"PressSpaceOrButtonNavigator",
+                 "properties":
+                    {
+                     "TargetView":"Training"
+                    },
+                 "rotation":0,
+                 "type":"PressSpaceOrButtonNavigator",
+                 "visible":true,
+                 "width":32,
+                 "x":916,
+                 "y":173
+                }, 
+                {
+                 "height":32,
+                 "id":6,
+                 "name":"IsGameLostView",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"IsGameLostView",
+                 "visible":true,
+                 "width":32,
+                 "x":921,
+                 "y":253
                 }],
          "offsetx":0,
          "offsety":32,
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
-         "width":30,
+         "width":0,
          "x":0,
          "y":0
         }],
- "nextobjectid":5,
+ "nextobjectid":7,
  "orientation":"orthogonal",
  "properties":
     {

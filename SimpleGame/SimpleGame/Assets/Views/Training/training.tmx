@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="38">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="42">
  <properties>
   <property name="Plugin" value="xPlugin=ShowJump"/>
   <property name="Plugin2" value="xPlugin=CollosionLab"/>
@@ -294,6 +294,21 @@
     <property name="Style" value="BloobStyleBlue"/>
    </properties>
   </object>
+  <object id="39" name="Coin1" type="CoinSprite" gid="154" x="441" y="211" width="32" height="32">
+   <properties>
+    <property name="KillPlayer" value="True"/>
+   </properties>
+  </object>
+  <object id="40" name="Coin1" type="CoinSprite" gid="154" x="497" y="214" width="32" height="32">
+   <properties>
+    <property name="KillPlayer" value="True"/>
+   </properties>
+  </object>
+  <object id="41" name="Coin1" type="CoinSprite" gid="154" x="592" y="219" width="32" height="32">
+   <properties>
+    <property name="KillPlayer" value="True"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Player" offsetx="0" offsety="32">
   <object id="2" name="Player" type="JohnDoeSprite" gid="153" x="232" y="221" width="32" height="32"/>
@@ -324,5 +339,6 @@
     <property name="TargetView" value="GameLost"/>
    </properties>
   </object>
+  <object id="38" name="PressSpaceOrButtonNavigator" type="PressSpaceOrButtonNavigator" x="2339" y="33" width="32" height="32"/>
  </objectgroup>
 </map>

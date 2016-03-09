@@ -29,6 +29,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Src\Game.py" />
+    <Compile Include="Src\MapObjects\IsGameLostView.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\MapObjects\PressSpaceOrButtonNavigator.py">
       <SubType>Code</SubType>
     </Compile>

@@ -213,6 +213,54 @@
                  "width":32,
                  "x":765,
                  "y":55
+                }, 
+                {
+                 "gid":154,
+                 "height":32,
+                 "id":39,
+                 "name":"Coin1",
+                 "properties":
+                    {
+                     "KillPlayer":"True"
+                    },
+                 "rotation":0,
+                 "type":"CoinSprite",
+                 "visible":true,
+                 "width":32,
+                 "x":441,
+                 "y":211
+                }, 
+                {
+                 "gid":154,
+                 "height":32,
+                 "id":40,
+                 "name":"Coin1",
+                 "properties":
+                    {
+                     "KillPlayer":"True"
+                    },
+                 "rotation":0,
+                 "type":"CoinSprite",
+                 "visible":true,
+                 "width":32,
+                 "x":497,
+                 "y":214
+                }, 
+                {
+                 "gid":154,
+                 "height":32,
+                 "id":41,
+                 "name":"Coin1",
+                 "properties":
+                    {
+                     "KillPlayer":"True"
+                    },
+                 "rotation":0,
+                 "type":"CoinSprite",
+                 "visible":true,
+                 "width":32,
+                 "x":592,
+                 "y":219
                 }],
          "offsetx":0,
          "offsety":32,
@@ -383,6 +431,21 @@
                  "width":32,
                  "x":2165,
                  "y":33
+                }, 
+                {
+                 "height":32,
+                 "id":38,
+                 "name":"PressSpaceOrButtonNavigator",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"PressSpaceOrButtonNavigator",
+                 "visible":true,
+                 "width":32,
+                 "x":2339,
+                 "y":33
                 }],
          "offsetx":0,
          "offsety":32,
@@ -393,7 +456,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":38,
+ "nextobjectid":42,
  "orientation":"orthogonal",
  "properties":
     {
