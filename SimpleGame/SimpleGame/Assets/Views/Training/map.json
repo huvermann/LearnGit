@@ -75,14 +75,14 @@
                  "name":"Coin1",
                  "properties":
                     {
-
+                     "KillPlayer":"True"
                     },
                  "rotation":0,
                  "type":"CoinSprite",
                  "visible":true,
                  "width":32,
-                 "x":284,
-                 "y":112
+                 "x":885,
+                 "y":214
                 }, 
                 {
                  "gid":37,
@@ -122,8 +122,8 @@
                  "type":"GenericSprite",
                  "visible":true,
                  "width":32,
-                 "x":1205,
-                 "y":171
+                 "x":1654,
+                 "y":202
                 }, 
                 {
                  "gid":37,
@@ -179,8 +179,8 @@
                  "type":"BloobSprite",
                  "visible":true,
                  "width":32,
-                 "x":478,
-                 "y":220
+                 "x":841,
+                 "y":51
                 }, 
                 {
                  "gid":36,
@@ -195,8 +195,8 @@
                  "type":"BloobSprite",
                  "visible":true,
                  "width":32,
-                 "x":670,
-                 "y":214
+                 "x":907,
+                 "y":128
                 }, 
                 {
                  "gid":36,
@@ -205,14 +205,14 @@
                  "name":"bb",
                  "properties":
                     {
-
+                     "Style":"BloobStyleBlue"
                     },
                  "rotation":0,
                  "type":"BloobSprite",
                  "visible":true,
                  "width":32,
-                 "x":368,
-                 "y":177
+                 "x":765,
+                 "y":55
                 }],
          "offsetx":0,
          "offsety":32,
@@ -241,8 +241,8 @@
                  "type":"JohnDoeSprite",
                  "visible":true,
                  "width":32,
-                 "x":588,
-                 "y":214
+                 "x":232,
+                 "y":221
                 }],
          "offsetx":0,
          "offsety":32,

@@ -240,13 +240,17 @@
 </data>
  </layer>
  <objectgroup name="Sprites" offsetx="0" offsety="32">
-  <object id="3" name="Coin1" type="CoinSprite" gid="154" x="284" y="112" width="32" height="32"/>
+  <object id="3" name="Coin1" type="CoinSprite" gid="154" x="885" y="214" width="32" height="32">
+   <properties>
+    <property name="KillPlayer" value="True"/>
+   </properties>
+  </object>
   <object id="4" name="DrawBridge" type="DrawbridgeSprite" gid="37" x="911" y="60" width="32" height="32">
    <properties>
     <property name="ViewName" value="Level1"/>
    </properties>
   </object>
-  <object id="12" name="Example" type="GenericSprite" gid="25" x="1205" y="171" width="32" height="32">
+  <object id="12" name="Example" type="GenericSprite" gid="25" x="1654" y="202" width="32" height="32">
    <properties>
     <property name="AssetName" value="Coin"/>
     <property name="Behavior" value="DefaultSpriteBehavior"/>
@@ -272,7 +276,7 @@
     <property name="Sound" value="Beep"/>
    </properties>
   </object>
-  <object id="26" name="Flash" type="BloobSprite" gid="151" x="478" y="220" width="32" height="32">
+  <object id="26" name="Flash" type="BloobSprite" gid="151" x="841" y="51" width="32" height="32">
    <properties>
     <property name="Energy" value="-50"/>
     <property name="FallSpeed" value="20"/>
@@ -284,11 +288,15 @@
     <property name="WalkSpeed" value="200"/>
    </properties>
   </object>
-  <object id="31" name="test" type="BloobSprite" gid="36" x="670" y="214" width="32" height="32"/>
-  <object id="32" name="bb" type="BloobSprite" gid="36" x="368" y="177" width="32" height="32"/>
+  <object id="31" name="test" type="BloobSprite" gid="36" x="907" y="128" width="32" height="32"/>
+  <object id="32" name="bb" type="BloobSprite" gid="36" x="765" y="55" width="32" height="32">
+   <properties>
+    <property name="Style" value="BloobStyleBlue"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Player" offsetx="0" offsety="32">
-  <object id="2" name="Player" type="JohnDoeSprite" gid="153" x="588" y="214" width="32" height="32"/>
+  <object id="2" name="Player" type="JohnDoeSprite" gid="153" x="232" y="221" width="32" height="32"/>
  </objectgroup>
  <objectgroup color="#005500" name="Objects" offsetx="0" offsety="32">
   <object id="5" name="Ziel1" type="BeamPoint" x="717" y="473" width="32" height="32"/>

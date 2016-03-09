@@ -73,6 +73,9 @@ class PlayerMoveStateMachine(object):
         #Todo: Implement vector for jumping
         return result
 
+    def reset(self):
+        self._changeToStanding(pygame.time.get_ticks())
+        pass
 
 
     def joystickChanged(self, state):

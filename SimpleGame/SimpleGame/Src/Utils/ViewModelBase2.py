@@ -6,7 +6,7 @@ from Utils.JoystickInputManager import JoystickInputManager
 from Utils.JoystickStates import JoystickEvents
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Utils import UserEvents
-from Utils.ViewPointer import ViewPointer
+from Utils.ViewPointer import ViewPointer, ViewPoint
 from MapObjects.BeamPoint import BeamPoint
 from Utils.SavePoint import SavePoint
 
@@ -99,14 +99,7 @@ class ViewModelBase2():
 
         return result
 
-    def registerSavePoint(self):
-        """Saves the current position and camera position."""
-        savePoint = SavePoint()
-        savePoint.viewName = self.viewName
-        savePoint.screenPosition = self._viewPointer.screenPosition
-        savePoint.playerPosition = self._viewPointer._playerOffset
-        ServiceLocator.registerGlobalService(ServiceNames.LastSavePoint, savePoint)
-        pass
+
 
     def __initJoystickManager(self):
         result = JoystickInputManager()
@@ -259,20 +252,41 @@ class ViewModelBase2():
         #print(self._infoText)
         pass
 
+    def registerSavePoint(self):
+        """Saves the current position and camera position."""
+        savePoint = SavePoint()
+        savePoint.viewName = self.viewName
+        savePoint.screenPosition = self._viewPointer.screenPosition.copy()
+        savePoint.playerPosition =  ViewPoint(self._viewPointer.playerPositionX, self._viewPointer.playerPositionY)
+        #print("Screen Position: {0}, {1}".format(savePoint.screenPosition.left, savePoint.screenPosition.top))
+        #print("Player Position: {0}, {1}".format(savePoint.playerPosition.left, savePoint.playerPosition.top))
+        ServiceLocator.registerGlobalService(ServiceNames.LastSavePoint, savePoint)
+        pass
+
 
     def onViewChange(self, event):
         """View is going to be changed."""
         # Todo: Implement change the view.
         viewController = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewController)
-        if viewController:
-            viewController.changeView(event.ViewName)
-            if 'Position' in event.dict:
-                # Change the position
-                #newPosEvent = pygame.event.Event(EVENT_CHANGEPOSITION, x=event.Position.left, y=event.Position.top)
-                #pygame.event.post(newPosEvent)
-                viewController.currentView._viewPointer.playerPositionX = event.Position.left
-                viewController.currentView._viewPointer.playerPositionY = event.Position.top
-                viewController.currentView._viewPointer.centerPlayerPositionToScreen(event.Position)
+        if 'ViewName' in event.dict:
+            if viewController:
+                viewController.changeView(event.ViewName)
+                if 'Position' in event.dict:
+                    viewController.currentView._viewPointer.playerPositionX = event.Position.left
+                    viewController.currentView._viewPointer.playerPositionY = event.Position.top
+                    viewController.currentView._viewPointer.centerPlayerPositionToScreen(event.Position)
+        elif 'SavePoint' in event.dict:
+            sp =  event.SavePoint.screenPosition.copy()
+            pp = event.SavePoint.playerPosition.copy()
+            viewController.currentView._viewPointer.screenPosition = sp
+            viewController.currentView._viewPointer.initPlayerPosition(pp.left, pp.top)
+            viewController.currentView.player._moveStateMachine.reset()
+            #print("------------")
+            #print("Screen Position: {0}, {1}".format(sp.left, sp.top))
+            #print("Player Position: {0}, {1}".format(pp.left, pp.top))
+            #print("------------")
+
+            
         pass
 
     def updateSprites(self):
@@ -319,7 +333,11 @@ class ViewModelBase2():
 
     def restartGame(self):
         """Go to savepoint and resume game."""
-
+        savePoint = ServiceLocator.getGlobalServiceInstance(ServiceNames.LastSavePoint)
+        if savePoint:
+            assert isinstance(savePoint, SavePoint), "Expected to get a SavePoint type."
+            changeviewEvent = pygame.event.Event(UserEvents.EVENT_CHANGEVIEW, SavePoint = savePoint)
+        pygame.event.post(changeviewEvent)
         pass
 
     def gameOver(self):
