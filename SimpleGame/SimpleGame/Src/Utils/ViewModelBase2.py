@@ -8,6 +8,7 @@ from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Utils import UserEvents
 from Utils.ViewPointer import ViewPointer
 from MapObjects.BeamPoint import BeamPoint
+from Utils.SavePoint import SavePoint
 
 
 class ViewModelBase2():
@@ -98,6 +99,15 @@ class ViewModelBase2():
 
         return result
 
+    def registerSavePoint(self):
+        """Saves the current position and camera position."""
+        savePoint = SavePoint()
+        savePoint.viewName = self.viewName
+        savePoint.screenPosition = self._viewPointer.screenPosition
+        savePoint.playerPosition = self._viewPointer._playerOffset
+        ServiceLocator.registerGlobalService(ServiceNames.LastSavePoint, savePoint)
+        pass
+
     def __initJoystickManager(self):
         result = JoystickInputManager()
         result.mapCallbacks(
@@ -172,8 +182,6 @@ class ViewModelBase2():
     def saveStartingPosition(self):
         """Saves time and position when a move starts."""
         self._moveStartTime = pygame.time.get_ticks()
-        #self._moveStartPosition = (self._position.left, self._position.top)
-        #self._moveStartPosition = (self._viewPointer.playerPosition.left, self._viewPointer.playerPosition.top)
         self._moveStartPosition = (self._viewPointer.playerPositionX, self._viewPointer.playerPositionY)
 
     def handleEvents(self):
@@ -199,12 +207,10 @@ class ViewModelBase2():
         elif event.type == pygame.KEYDOWN:
             self.onKeyboardEvent(event)
             self.__keyboardEventHandler.handleEvent(event)
-        elif event.type == UserEvents.EVENT_MUSIC:
-            self.onMusicEvent(event)
         elif event.type == UserEvents.EVENT_CHANGEVIEW:
             self.onViewChange(event)
-        elif event.type == UserEvents.EVENT_NOISE:
-            self.onNoiseEvent(event)
+        elif event.type == UserEvents.EVENT_NEWGAME:
+            self.onNewGameEvent(event)
         elif event.type == pygame.JOYAXISMOTION:
             self.__joystickEventHandler.handleEvent(event)
         elif event.type == pygame.JOYBUTTONDOWN:
@@ -230,6 +236,10 @@ class ViewModelBase2():
         """To register external event handlers for plugin modules."""
         self.__eventHandlers.append(handler)
 
+    def unRegisterEventHandler(self, handler):
+        self.__eventHandlers.remove(handler)
+        
+
     def onKeyboardEvent(self, event):
         """Handle the keyboard events."""
         print("A key was pressed: ", event.key)
@@ -249,6 +259,7 @@ class ViewModelBase2():
         #print(self._infoText)
         pass
 
+
     def onViewChange(self, event):
         """View is going to be changed."""
         # Todo: Implement change the view.
@@ -262,15 +273,7 @@ class ViewModelBase2():
                 viewController.currentView._viewPointer.playerPositionX = event.Position.left
                 viewController.currentView._viewPointer.playerPositionY = event.Position.top
                 viewController.currentView._viewPointer.centerPlayerPositionToScreen(event.Position)
-
         pass
-
-
-    def onNoiseEvent(self, event):
-        """Start a sound."""
-        # Todo: implement play sound.
-        pass
-
 
     def updateSprites(self):
         """Calculates the next view x,y position."""
@@ -314,8 +317,27 @@ class ViewModelBase2():
         pygame.display.flip()
         self._state.clock.tick(80)
 
-    def PlayerLostGame(self):
-        #Todo: implement Lost Game
+    def restartGame(self):
+        """Go to savepoint and resume game."""
+
+        pass
+
+    def gameOver(self):
+        """Terminate the game and go to game over view."""
+        # Change to gameover view.
+        gameOverViewName = ServiceLocator.getGlobalServiceInstance(ServiceNames.GameLostTarget)
+        changeviewEvent = pygame.event.Event(UserEvents.EVENT_CHANGEVIEW, ViewName=gameOverViewName)
+        pygame.event.post(changeviewEvent)
+
+
+    def onNewGameEvent(self, event):
+        """Game has been lost. Start a new game if still lifes are left. The newgame user event is thrown by the LifeLostMessage."""
+        self._gamePaused = False
+        if self._state.lifes > 0:
+            self.restartGame()
+        else:
+            self.gameOver()
+
         pass
 
     def showLostLiveDialog(self):
@@ -329,11 +351,8 @@ class ViewModelBase2():
     def playerLostHisLive(self):
         """The player has lost a live."""
         self._state.lifes -= 1
-        if self._state.lifes <= 0:
-            self.PlayerLostGame()
-        else:
-            self.showLostLiveDialog()
-            self._state.energy = 100
+        self.showLostLiveDialog()
+        self._state.energy = 100
 
 
     def checkClashes(self):

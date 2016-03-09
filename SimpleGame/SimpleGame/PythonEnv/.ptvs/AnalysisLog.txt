@@ -16832,3 +16832,13 @@ C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Micro
 2016-03-07T23:40:12: Saving group "D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\wheel"
 2016-03-07T23:40:12: End of group "D:\Daten\Repositories\LearnGit\SimpleGame\SimpleGame\PythonEnv\Lib\site-packages\wheel"
 2016-03-07T23:40:12: Deleting 0 files
+
+2016-03-08T14:27:43: Start analysis
+2016-03-08T14:27:43: [WARNING] Library was set explicitly - skipping path detection
+2016-03-08T14:27:43: IncludeModulesFromModulePath = win32com
+2016-03-08T14:27:44: Deleting 0 files
+
+2016-03-08T21:06:08: Start analysis
+2016-03-08T21:06:08: [WARNING] Library was set explicitly - skipping path detection
+2016-03-08T21:06:08: IncludeModulesFromModulePath = win32com
+2016-03-08T21:06:08: Deleting 0 files

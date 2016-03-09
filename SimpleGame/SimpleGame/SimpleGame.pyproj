@@ -28,26 +28,23 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Src\CurveGame.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Src\Game.py" />
-    <Compile Include="Src\GameState.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Src\joystick.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Src\JoystickExample.py">
+    <Compile Include="Src\Utils\GameState.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\MapObjects\BeamPoint.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\MapObjects\IsLevelSavePoint.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\MapObjects\LifeLostMessage.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\MapObjects\MusicPlayer.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\MapObjects\OnGameLost.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\MapObjects\SoundList.py">
@@ -237,6 +234,9 @@
     <Compile Include="Src\Utils\MoveTimeCalculator.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Utils\SavePoint.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Utils\ServiceLocator.py">
       <SubType>Code</SubType>
     </Compile>
@@ -367,6 +367,7 @@
     <Content Include="Assets\Sound\172205__fins__jumping.wav" />
     <Content Include="Assets\Sound\173859__jivatma07__j1game-over-mono.wav" />
     <Content Include="Assets\Sound\319200__18hiltc__pixel-game-beep.wav" />
+    <Content Include="Assets\Sound\flohwalzer_60_sec_0100_demo.mp3" />
     <Content Include="Assets\Sound\m4rt3z_m4rt3z---Elemental-Energy-Oxy-320.mp3" />
     <Content Include="Assets\Sound\m4rt3z_m4rt3z---Primal-Snap-320.mp3" />
     <Content Include="Assets\Sound\readme.txt" />
@@ -435,6 +436,7 @@
     <Content Include="Assets\Sprites\John_Doe\tot.png" />
     <Content Include="Assets\Sprites\John_Doe\walk_right.png" />
     <Content Include="Assets\Sprites\John_Doe\walk_left.png" />
+    <Content Include="Assets\Sprites\LifeLostMessage\graveStone.png" />
     <Content Include="Assets\Sprites\LifeLostMessage\LifeLostMessage.png" />
     <Content Include="Assets\Sprites\Monster_Bloob\MonsterBloob.pyxel" />
     <Content Include="Assets\Sprites\Monster_Bloob\MonsterBloob_green_die.png" />
@@ -513,6 +515,7 @@
     <Folder Include="Assets\Views\Level2\" />
     <Folder Include="Assets\Views\Level3\" />
     <Folder Include="Assets\Views\DemoStart\" />
+    <Folder Include="Assets\Views\GameLost\" />
     <Folder Include="Assets\Views\Training\" />
     <Folder Include="Documentation\" />
     <Folder Include="Deployment\" />

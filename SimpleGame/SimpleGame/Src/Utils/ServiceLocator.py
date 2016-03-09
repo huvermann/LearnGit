@@ -8,7 +8,9 @@ class ServiceNames:
     Map = 'Map'
     Player = 'Player'
     CurrentView = 'CurrentView'
-    BeamPoints = "BeamPoints" 
+    BeamPoints = "BeamPoints"
+    LastSavePoint = 'LastSavePoint' 
+    GameLostTarget = 'GameLostTarget'
 
 
 class ServiceLocator(object):

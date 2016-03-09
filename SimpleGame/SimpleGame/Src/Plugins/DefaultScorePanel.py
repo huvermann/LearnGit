@@ -1,7 +1,7 @@
 from Utils.ViewPluginBase import ViewPluginBase
 from Utils.gui.FontProvider import FontProvider
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
-from GameState import GameState
+from Utils.GameState import GameState
 
 class DefaultScorePanel(ViewPluginBase):
     """Plugin to draw the ScorePanel."""
