@@ -77,7 +77,7 @@ class TileMapTestClass(TileMapManager):
             for x in range(tileSetWith):
                 row.append(cnt)
                 cnt += 1
-
+        self._nonSolidTiles = [0]
         pass
 
     def getTileCount(self, screen):
