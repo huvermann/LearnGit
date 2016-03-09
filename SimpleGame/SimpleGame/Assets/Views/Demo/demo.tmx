@@ -82,7 +82,7 @@
   <image source="../../Sprites/Bloob/bloob_blue_springen.png" trans="4a61f3" width="128" height="32"/>
  </tileset>
  <imagelayer name="Image">
-  <image source="Demobackground.png"/>
+  <image source="Demobackground.png" width="1600" height="1600"/>
  </imagelayer>
  <objectgroup color="#ff0000" name="Screen" visible="0">
   <object id="1" name="Screen" type="Screen" x="2" y="2412" width="800" height="600"/>
@@ -298,7 +298,7 @@
  <objectgroup name="Sprites" offsetx="0" offsety="32">
   <object id="34" name="Coin1" type="CoinSprite" gid="178" x="2073" y="2328" width="32" height="32"/>
   <object id="37" name="Bloob1" type="BloobSprite" gid="186" x="393" y="1532" width="32" height="32"/>
-  <object id="40" name="Bloob2" type="BloobSprite" gid="186" x="1024" y="2527" width="32" height="32"/>
+  <object id="40" name="Bloob2" type="BloobSprite" gid="186" x="1024" y="2515" width="32" height="32"/>
   <object id="41" name="Coin2" type="CoinSprite" gid="178" x="2048" y="2303" width="32" height="32"/>
   <object id="42" name="Coin3" type="CoinSprite" gid="178" x="2021" y="2279" width="32" height="32"/>
   <object id="43" name="Coin4" type="CoinSprite" gid="178" x="1990" y="2259" width="32" height="32"/>
@@ -307,15 +307,19 @@
   <object id="46" name="Coin7" type="CoinSprite" gid="178" x="1893" y="2278" width="32" height="32"/>
   <object id="47" name="Coin8" type="CoinSprite" gid="178" x="1864" y="2303" width="32" height="32"/>
   <object id="48" name="Coin9" type="CoinSprite" gid="178" x="1837" y="2326" width="32" height="32"/>
-  <object id="50" name="Bloob3" type="BloobSprite" gid="186" x="1549" y="2715" width="32" height="32"/>
-  <object id="51" name="Bloob4" type="BloobSprite" gid="186" x="2272" y="2336" width="32" height="32"/>
+  <object id="50" name="Bloob3" type="BloobSprite" gid="186" x="1550.33" y="2709.67" width="32" height="32"/>
+  <object id="51" name="Bloob4" type="BloobSprite" gid="186" x="2273.33" y="2328" width="32" height="32"/>
   <object id="52" name="heart1" type="HeartSprite" gid="187" x="1445" y="2556" width="32" height="32"/>
   <object id="55" name="heart2" type="HeartSprite" gid="187" x="1505" y="2504" width="32" height="32"/>
   <object id="56" name="heart3" type="HeartSprite" gid="187" x="2624" y="2015" width="32" height="32"/>
-  <object id="57" name="Bloob5" type="BloobSprite" gid="186" x="1567" y="1502" width="32" height="32"/>
+  <object id="57" name="Bloob5" type="BloobSprite" gid="186" x="1569.67" y="1495.33" width="32" height="32"/>
   <object id="58" name="Teleporter_Front2" type="TeleporterFrontSprite" gid="189" x="544" y="2976" width="32" height="32"/>
   <object id="60" name="Teleporter_Front1" type="TeleporterFrontSprite" gid="189" x="1632" y="2720" width="32" height="32"/>
-  <object id="62" name="BunteFlagge" type="TargedpointSprite" gid="190" x="192" y="1504" width="32" height="32"/>
+  <object id="62" name="BunteFlagge" type="TargedpointSprite" gid="190" x="192" y="1504" width="32" height="32">
+   <properties>
+    <property name="ViewName" value="DemoFinale"/>
+   </properties>
+  </object>
   <object id="65" name="Telepunkt1" type="TeleporterSprite" gid="194" x="1639.91" y="2726.18" width="32" height="32">
    <properties>
     <property name="BeamPoint" value="Ziel1"/>
@@ -326,7 +330,7 @@
     <property name="BeamPoint" value="Ziel2"/>
    </properties>
   </object>
-  <object id="74" name="Bloob_red1" type="BloobSprite" gid="347" x="1504" y="2336" width="32" height="32">
+  <object id="74" name="Bloob_red1" type="BloobSprite" gid="347" x="1505.33" y="2325.33" width="32" height="32">
    <properties>
     <property name="Energy" value="-50"/>
     <property name="FallSpeed" value="20"/>
@@ -350,8 +354,16 @@
     <property name="WalkSpeed" value="200"/>
    </properties>
   </object>
-  <object id="77" name="Bloob_Blue1" type="BloobSprite" gid="355" x="2942.67" y="1497.33" width="32" height="32"/>
-  <object id="79" name="Bloob_Yellov1" type="BloobSprite" gid="351" x="1184" y="1792" width="32" height="32"/>
+  <object id="77" name="Bloob_Blue1" type="BloobSprite" gid="355" x="2942.67" y="1497.33" width="32" height="32">
+   <properties>
+    <property name="Style" value="BloobStyleBlue"/>
+   </properties>
+  </object>
+  <object id="79" name="Bloob_Yellov1" type="BloobSprite" gid="351" x="1185.33" y="1788" width="32" height="32">
+   <properties>
+    <property name="Style" value="BloobStyleYellow"/>
+   </properties>
+  </object>
   <object id="88" name="Coin17" type="CoinSprite" gid="178" x="1152" y="1791.67" width="32" height="32"/>
   <object id="87" name="Coin16" type="CoinSprite" gid="178" x="1120.67" y="1780" width="32" height="32"/>
   <object id="86" name="Coin15" type="CoinSprite" gid="178" x="1087.67" y="1792" width="32" height="32"/>
@@ -360,10 +372,26 @@
   <object id="83" name="Coin12" type="CoinSprite" gid="178" x="992.333" y="1779.67" width="32" height="32"/>
   <object id="82" name="Coin11" type="CoinSprite" gid="178" x="960.333" y="1788.67" width="32" height="32"/>
   <object id="81" name="Coin10" type="CoinSprite" gid="178" x="928.333" y="1779" width="32" height="32"/>
-  <object id="89" name="Bloob_Yellov2" type="BloobSprite" gid="351" x="2018" y="2948" width="32" height="32"/>
-  <object id="90" name="Bloob_Yellov3" type="BloobSprite" gid="351" x="2400.5" y="2942.5" width="32" height="32"/>
-  <object id="91" name="Bloob_Blue2" type="BloobSprite" gid="355" x="2688" y="2941" width="32" height="32"/>
-  <object id="92" name="Bloob_Blue3" type="BloobSprite" gid="355" x="2976" y="2944" width="32" height="32"/>
+  <object id="89" name="Bloob_Yellov2" type="BloobSprite" gid="351" x="2018" y="2948" width="32" height="32">
+   <properties>
+    <property name="Style" value="BloobStyleYellow"/>
+   </properties>
+  </object>
+  <object id="90" name="Bloob_Yellov3" type="BloobSprite" gid="351" x="2400.5" y="2942.5" width="32" height="32">
+   <properties>
+    <property name="Style" value="BloobStyleYellow"/>
+   </properties>
+  </object>
+  <object id="91" name="Bloob_Blue2" type="BloobSprite" gid="355" x="2688" y="2941" width="32" height="32">
+   <properties>
+    <property name="Style" value="BloobStyleBlue"/>
+   </properties>
+  </object>
+  <object id="92" name="Bloob_Blue3" type="BloobSprite" gid="355" x="2976" y="2944" width="32" height="32">
+   <properties>
+    <property name="Style" value="BloobStyleBlue"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Player" visible="0" offsetx="0" offsety="32">
   <object id="2" name="Player" type="JohnDoeSprite" gid="177" x="158" y="2972" width="32" height="32"/>
@@ -385,7 +413,7 @@
    </properties>
   </object>
   <object id="59" name="Ziel1" type="BeamPoint" x="864" y="1727" width="31" height="31"/>
-  <object id="61" name="Ziel2" type="BeamPoint" x="1216" y="1472" width="31" height="31"/>
+  <object id="61" name="Ziel2" type="BeamPoint" x="1248" y="1408" width="31" height="31"/>
   <object id="71" name="LifeLostMessage" type="LifeLostMessage" x="1914" y="1290" width="32" height="32"/>
   <object id="72" name="IsLevelSavePoint" type="IsLevelSavePoint" x="2118" y="1286" width="32" height="32"/>
   <object id="73" name="OnGameLost" type="OnGameLost" x="2010" y="1288" width="32" height="32">
