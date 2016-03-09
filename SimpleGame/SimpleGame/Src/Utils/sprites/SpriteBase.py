@@ -86,9 +86,9 @@ class SpriteBase(pygame.sprite.Sprite):
             self.supplies = self.suppliesFactory(properties[SpritePropNames.Supplies], properties)
         if SpritePropNames.Intelligence in properties:
             self.intelligence = self.intelligenceFactory(properties[SpritePropNames.Intelligence], properties)
-        else:
-            if not self.intelligence:
-                self.intelligence = DefaultSpriteIntelligence(self)
+        #else:
+        #    if not self.intelligence:
+        #        self.intelligence = DefaultSpriteIntelligence(self)
 
         pass
 
