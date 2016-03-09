@@ -258,15 +258,12 @@ class ViewModelBase2():
         savePoint.viewName = self.viewName
         savePoint.screenPosition = self._viewPointer.screenPosition.copy()
         savePoint.playerPosition =  ViewPoint(self._viewPointer.playerPositionX, self._viewPointer.playerPositionY)
-        #print("Screen Position: {0}, {1}".format(savePoint.screenPosition.left, savePoint.screenPosition.top))
-        #print("Player Position: {0}, {1}".format(savePoint.playerPosition.left, savePoint.playerPosition.top))
         ServiceLocator.registerGlobalService(ServiceNames.LastSavePoint, savePoint)
         pass
 
 
     def onViewChange(self, event):
         """View is going to be changed."""
-        # Todo: Implement change the view.
         viewController = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewController)
         if 'ViewName' in event.dict:
             if viewController:
@@ -281,12 +278,6 @@ class ViewModelBase2():
             viewController.currentView._viewPointer.screenPosition = sp
             viewController.currentView._viewPointer.initPlayerPosition(pp.left, pp.top)
             viewController.currentView.player._moveStateMachine.reset()
-            #print("------------")
-            #print("Screen Position: {0}, {1}".format(sp.left, sp.top))
-            #print("Player Position: {0}, {1}".format(pp.left, pp.top))
-            #print("------------")
-
-            
         pass
 
     def updateSprites(self):
