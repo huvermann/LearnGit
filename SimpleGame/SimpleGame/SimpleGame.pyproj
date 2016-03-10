@@ -450,6 +450,14 @@
     <Content Include="Assets\Sprites\Private\privat_standing_front.png" />
     <Content Include="Assets\Sprites\Private\privat_walk_left.png" />
     <Content Include="Assets\Sprites\Private\privat_walk_right.png" />
+    <Content Include="Assets\Sprites\StartMenue\Credits.png" />
+    <Content Include="Assets\Sprites\StartMenue\DemoStartButtons.png" />
+    <Content Include="Assets\Sprites\StartMenue\Exit.png" />
+    <Content Include="Assets\Sprites\StartMenue\Optionen.png" />
+    <Content Include="Assets\Sprites\StartMenue\Resume.png" />
+    <Content Include="Assets\Sprites\StartMenue\Start.png" />
+    <Content Include="Assets\Sprites\StartMenue\Titel1.png" />
+    <Content Include="Assets\Sprites\StartMenue\Titel2.png" />
     <Content Include="Assets\Sprites\Targedpoint\Flagge1.png" />
     <Content Include="Assets\Sprites\Targedpoint\Flagge2.png" />
     <Content Include="Assets\Sprites\Targedpoint\Flagge3.png" />
@@ -515,6 +523,7 @@
     <Folder Include="Assets\Sprites\John_Doe\" />
     <Folder Include="Assets\Sprites\Commander\" />
     <Folder Include="Assets\Sprites\Monster_Bloob\" />
+    <Folder Include="Assets\Sprites\StartMenue\" />
     <Folder Include="Assets\Sprites\Targedpoint\" />
     <Folder Include="Assets\Sprites\Teleporter\" />
     <Folder Include="Assets\Sprites\LifeLostMessage\" />
