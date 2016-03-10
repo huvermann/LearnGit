@@ -13,6 +13,11 @@ class DropdownAndMoveIntelligence(SpriteIntelligenceBase):
 
         return super().__init__(parentSprite, properties)
 
+    def configureProperties(self, properties):
+        self._dropDown.configureProperties(properties)
+        self._moveLeftRight.configureProperties(properties)
+        return super().configureProperties(properties)
+
     def onSpriteHasGroundedHandler(self):
         self._isSpriteGrounded = True
         pass

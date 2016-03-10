@@ -1,5 +1,5 @@
 from Utils.sprites.SpriteBase import SpriteMoveState
-from Utils.sprites.SpriteIntelligenceBase import SpriteIntelligenceBase
+from Utils.sprites.SpriteIntelligenceBase import SpriteIntelligenceBase, AIPropertyNames
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Utils.ViewPointer import ViewPoint
 from Tiled.TiledSpriteCollider import TiledSpriteCollider, TileTouchState, CollisionResult
@@ -20,10 +20,9 @@ class BackAndForthIntelligence(SpriteIntelligenceBase):
 
         return super().__init__(parentSprite, properties)
 
-        def configureProperties(self, properties):
-            if AIPropertyNames.WalkSpeed in properties:
-                self._walkSpeed = int(properties[AIPropertyNames.WalkSpeed]) / 1000
-        return super().configureProperties(properties)
+    def configureProperties(self, properties):
+        if AIPropertyNames.WalkSpeed in properties:
+            self._walkSpeed = int(properties[AIPropertyNames.WalkSpeed]) / 1000
 
     def calcWalking(self, time):
         return int(time * self._walkSpeed)
