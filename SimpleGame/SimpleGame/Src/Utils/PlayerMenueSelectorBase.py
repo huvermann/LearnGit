@@ -16,5 +16,9 @@ class PlayerMenueSelectorBase(pygame.sprite.Sprite):
     def joystickChanged(self, externalInput):
         pass
 
+    def update(self, *args):
+        """Updates the image."""
+        return super().update(*args)
+
 
 

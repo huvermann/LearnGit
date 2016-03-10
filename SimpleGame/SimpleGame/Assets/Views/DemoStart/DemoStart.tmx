@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="25" height="30" tilewidth="32" tileheight="32" nextobjectid="97">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="25" height="30" tilewidth="32" tileheight="32" nextobjectid="111">
  <properties>
   <property name="Plugin" value="xPlugin=ShowJump"/>
   <property name="Plugin3" value="Plugin=CheatKeyPlugin"/>
@@ -80,10 +80,13 @@
  <tileset firstgid="355" name="bloob_blue_springen" tilewidth="32" tileheight="32" tilecount="4" columns="4">
   <image source="../../Sprites/Bloob/bloob_blue_springen.png" trans="4a61f3" width="128" height="32"/>
  </tileset>
+ <tileset firstgid="359" name="Start" tilewidth="128" tileheight="32" tilecount="10" columns="2">
+  <image source="../../Sprites/StartMenue/DemoStartButtons.png" trans="4a61f3" width="256" height="160"/>
+ </tileset>
  <imagelayer name="Image" visible="0">
   <image source="Demobackground.png"/>
  </imagelayer>
- <objectgroup color="#ff0000" name="Screen" visible="0">
+ <objectgroup color="#ff0000" name="Screen">
   <object id="1" name="Screen" type="Screen" x="0" y="354.909" width="800" height="600"/>
  </objectgroup>
  <layer name="BackgroundMap" width="25" height="30">
@@ -187,9 +190,44 @@
   <object id="88" name="Coin1" type="CoinSprite" gid="178" x="384.667" y="742.003" width="32" height="32"/>
   <object id="94" name="Coin2" type="CoinSprite" gid="178" x="352.333" y="758.667" width="32" height="32"/>
   <object id="95" name="Coin3" type="CoinSprite" gid="178" x="416.333" y="759.667" width="32" height="32"/>
+  <object id="99" name="StartMenue" type="ImageSprite" gid="359" x="90" y="477" width="128" height="32">
+   <properties>
+    <property name="Image" value="Start.png"/>
+    <property name="Transparency" value="False"/>
+   </properties>
+  </object>
+  <object id="102" name="StartMenue" type="ImageSprite" gid="361" x="266" y="491" width="128" height="32">
+   <properties>
+    <property name="Image" value="Resume.png"/>
+    <property name="Transparency" value="False"/>
+   </properties>
+  </object>
+  <object id="103" name="StartMenue" type="ImageSprite" gid="363" x="277" y="540" width="128" height="32">
+   <properties>
+    <property name="Image" value="Optionen.png"/>
+    <property name="Transparency" value="False"/>
+   </properties>
+  </object>
+  <object id="104" name="StartMenue" type="ImageSprite" gid="365" x="280" y="585" width="128" height="32">
+   <properties>
+    <property name="Image" value="Credits.png"/>
+    <property name="Transparency" value="False"/>
+   </properties>
+  </object>
+  <object id="105" name="StartMenue" type="ImageSprite" gid="367" x="278" y="623" width="128" height="32">
+   <properties>
+    <property name="Image" value="Exit.png"/>
+    <property name="Transparency" value="False"/>
+   </properties>
+  </object>
+  <object id="110" name="Commander" type="ImageSprite" gid="367" x="2" y="551" width="128" height="32">
+   <properties>
+    <property name="Image" value="commander_walk_left.png"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Player" offsetx="0" offsety="32">
-  <object id="96" name="Player" type="MenueSelectorPlayer" gid="177" x="384.667" y="673.667" width="32" height="32"/>
+  <object id="96" name="Player" type="MenueSelectorPlayer" gid="177" x="379.667" y="676" width="365.333" height="280.333"/>
  </objectgroup>
  <objectgroup color="#005500" name="Objects" offsetx="0" offsety="32">
   <object id="27" name="MusicPlayer" type="MusicPlayer" x="169.667" y="368" width="32" height="32">
