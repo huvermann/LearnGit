@@ -470,8 +470,7 @@
     <Content Include="Assets\Sprites\StartMenue\Optionen.png" />
     <Content Include="Assets\Sprites\StartMenue\Resume.png" />
     <Content Include="Assets\Sprites\StartMenue\Start.png" />
-    <Content Include="Assets\Sprites\StartMenue\Titel1.png" />
-    <Content Include="Assets\Sprites\StartMenue\Titel2.png" />
+    <Content Include="Assets\Sprites\StartMenue\Titel.png" />
     <Content Include="Assets\Sprites\Targedpoint\Flagge1.png" />
     <Content Include="Assets\Sprites\Targedpoint\Flagge2.png" />
     <Content Include="Assets\Sprites\Targedpoint\Flagge3.png" />
