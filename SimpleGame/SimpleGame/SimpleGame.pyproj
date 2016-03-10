@@ -325,9 +325,6 @@
     <Compile Include="Src\Utils\DirHelper.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Src\Views\ViewModelBase.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Src\Views\ViewModelMapLoader.py">
       <SubType>Code</SubType>
     </Compile>
