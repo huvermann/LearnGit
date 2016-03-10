@@ -87,7 +87,7 @@
   <image source="../../Sprites/StartMenue/Titel.png" trans="000000" width="224" height="160"/>
  </tileset>
  <imagelayer name="Image">
-  <image source="Demobackground.png" width="1600" height="1600"/>
+  <image source="Demobackground.png" width="800" height="800"/>
  </imagelayer>
  <objectgroup color="#ff0000" name="Screen">
   <object id="1" name="Screen" type="Screen" x="0" y="354.909" width="800" height="600"/>
@@ -161,7 +161,7 @@
 </data>
  </layer>
  <objectgroup name="Sprites" offsetx="0" offsety="32">
-  <object id="37" name="Bloob1" type="BloobSprite" gid="186" x="387" y="791" width="32" height="32"/>
+  <object id="37" name="Bloob1" type="BloobSprite" gid="186" x="387" y="791" width="32" height="32" visible="0"/>
   <object id="57" name="Bloob5" type="BloobSprite" gid="186" x="587.67" y="755.33" width="32" height="32"/>
   <object id="62" name="BunteFlagge" type="TargedpointSprite" gid="190" x="307" y="767" width="32" height="32">
    <properties>
@@ -177,17 +177,19 @@
     <property name="KillSprite" value="False"/>
     <property name="Style" value="BloobStyleRed"/>
     <property name="WalkDirection" value="left"/>
-    <property name="WalkSpeed" value="200"/>
+    <property name="WalkSpeed" value="100"/>
    </properties>
   </object>
   <object id="77" name="Bloob_Blue1" type="BloobSprite" gid="355" x="495.67" y="731.33" width="32" height="32">
    <properties>
     <property name="Style" value="BloobStyleBlue"/>
+    <property name="WalkSpeed" value="90"/>
    </properties>
   </object>
   <object id="79" name="Bloob_Yellov1" type="BloobSprite" gid="351" x="637.997" y="751" width="32" height="32">
    <properties>
     <property name="Style" value="BloobStyleYellow"/>
+    <property name="WalkSpeed" value="150"/>
    </properties>
   </object>
   <object id="88" name="Coin1" type="CoinSprite" gid="178" x="384.667" y="742.003" width="32" height="32"/>
@@ -223,7 +225,7 @@
     <property name="Transparency" value="False"/>
    </properties>
   </object>
-  <object id="111" name="StartMenue" type="ImageSprite" gid="369" x="274" y="322" width="224" height="160">
+  <object id="111" name="StartMenue" type="ImageSprite" gid="369" x="288" y="354" width="224" height="160">
    <properties>
     <property name="Image" value="Titel.png"/>
     <property name="Transparency" value="False"/>
