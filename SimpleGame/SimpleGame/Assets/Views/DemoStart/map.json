@@ -34,7 +34,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "width":0,
          "x":0,
          "y":0
@@ -218,6 +218,107 @@
                  "width":32,
                  "x":416.333,
                  "y":759.667
+                }, 
+                {
+                 "gid":359,
+                 "height":32,
+                 "id":99,
+                 "name":"StartMenue",
+                 "properties":
+                    {
+                     "Image":"Start.png",
+                     "Transparency":"False"
+                    },
+                 "rotation":0,
+                 "type":"ImageSprite",
+                 "visible":true,
+                 "width":128,
+                 "x":90,
+                 "y":477
+                }, 
+                {
+                 "gid":361,
+                 "height":32,
+                 "id":102,
+                 "name":"StartMenue",
+                 "properties":
+                    {
+                     "Image":"Resume.png",
+                     "Transparency":"False"
+                    },
+                 "rotation":0,
+                 "type":"ImageSprite",
+                 "visible":true,
+                 "width":128,
+                 "x":266,
+                 "y":491
+                }, 
+                {
+                 "gid":363,
+                 "height":32,
+                 "id":103,
+                 "name":"StartMenue",
+                 "properties":
+                    {
+                     "Image":"Optionen.png",
+                     "Transparency":"False"
+                    },
+                 "rotation":0,
+                 "type":"ImageSprite",
+                 "visible":true,
+                 "width":128,
+                 "x":277,
+                 "y":540
+                }, 
+                {
+                 "gid":365,
+                 "height":32,
+                 "id":104,
+                 "name":"StartMenue",
+                 "properties":
+                    {
+                     "Image":"Credits.png",
+                     "Transparency":"False"
+                    },
+                 "rotation":0,
+                 "type":"ImageSprite",
+                 "visible":true,
+                 "width":128,
+                 "x":280,
+                 "y":585
+                }, 
+                {
+                 "gid":367,
+                 "height":32,
+                 "id":105,
+                 "name":"StartMenue",
+                 "properties":
+                    {
+                     "Image":"Exit.png",
+                     "Transparency":"False"
+                    },
+                 "rotation":0,
+                 "type":"ImageSprite",
+                 "visible":true,
+                 "width":128,
+                 "x":278,
+                 "y":623
+                }, 
+                {
+                 "gid":367,
+                 "height":32,
+                 "id":110,
+                 "name":"Commander",
+                 "properties":
+                    {
+                     "Image":"commander_walk_left.png"
+                    },
+                 "rotation":0,
+                 "type":"ImageSprite",
+                 "visible":true,
+                 "width":128,
+                 "x":2,
+                 "y":551
                 }],
          "offsetx":0,
          "offsety":32,
@@ -235,7 +336,7 @@
          "objects":[
                 {
                  "gid":177,
-                 "height":32,
+                 "height":280.333,
                  "id":96,
                  "name":"Player",
                  "properties":
@@ -245,9 +346,9 @@
                  "rotation":0,
                  "type":"MenueSelectorPlayer",
                  "visible":true,
-                 "width":32,
-                 "x":384.667,
-                 "y":673.667
+                 "width":365.333,
+                 "x":379.667,
+                 "y":676
                 }],
          "offsetx":0,
          "offsety":32,
@@ -308,7 +409,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":97,
+ "nextobjectid":111,
  "orientation":"orthogonal",
  "properties":
     {
@@ -570,6 +671,24 @@
          "tilecount":4,
          "tileheight":32,
          "tilewidth":32,
+         "transparentcolor":"#4a61f3"
+        }, 
+        {
+         "columns":2,
+         "firstgid":359,
+         "image":"..\/..\/Sprites\/StartMenue\/DemoStartButtons.png",
+         "imageheight":160,
+         "imagewidth":256,
+         "margin":0,
+         "name":"Start",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tilecount":10,
+         "tileheight":32,
+         "tilewidth":128,
          "transparentcolor":"#4a61f3"
         }],
  "tilewidth":32,

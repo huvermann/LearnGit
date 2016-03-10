@@ -3,10 +3,13 @@ from Utils.sprites.SpriteBase import SpriteBase, SpritePropNames
 
 class ImageSprite (SpriteBase):
      """A predefined generic image sprite class."""
+
+     def update(self, *args):
+         return super().update(*args)
+
      def configureFromProperties(self, properties):
         # Predefine the image specific properties
-        self.name = 'Images'
-        self._assetName = 'Images'
+        self._assetName = self._name
         self.killPlayer = False
         self.killSprite = False
         self.points = 0
@@ -23,4 +26,7 @@ class ImageSprite (SpriteBase):
             self.supplies = self.suppliesFactory('Nothing', properties)
 
         return super().configureFromProperties(properties)
+
+
+
 

@@ -1,4 +1,4 @@
-from Utils.sprites.ImageStyleBase
+from Utils.sprites.ImageStyleBase import ImageStyleBase
 class ImageStyle(ImageStyleBase):
     """description of class"""
 
