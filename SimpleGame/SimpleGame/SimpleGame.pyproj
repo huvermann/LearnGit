@@ -34,6 +34,12 @@
     <Compile Include="Src\MapObjects\PressSpaceOrButtonNavigator.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\SpriteStyles\ImageStyle.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Sprites\ImageSprite.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Sprites\MenueSelectorPlayer.py">
       <SubType>Code</SubType>
     </Compile>
@@ -249,6 +255,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\ServiceLocator.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\sprites\ImageStyleBase.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\sprites\SpriteBase.py">
