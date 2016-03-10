@@ -81,7 +81,7 @@
   <image source="../../Sprites/Bloob/bloob_blue_springen.png" trans="4a61f3" width="128" height="32"/>
  </tileset>
  <imagelayer name="Image" visible="0">
-  <image source="Demobackground.png" width="1600" height="1600"/>
+  <image source="Demobackground.png"/>
  </imagelayer>
  <objectgroup color="#ff0000" name="Screen" visible="0">
   <object id="1" name="Screen" type="Screen" x="0" y="354.909" width="800" height="600"/>
@@ -189,7 +189,7 @@
   <object id="95" name="Coin3" type="CoinSprite" gid="178" x="416.333" y="759.667" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Player" offsetx="0" offsety="32">
-  <object id="96" name="Player" type="JohnDoeSprite" gid="177" x="384.667" y="673.667" width="32" height="32"/>
+  <object id="96" name="Player" type="MenueSelectorPlayer" gid="177" x="384.667" y="673.667" width="32" height="32"/>
  </objectgroup>
  <objectgroup color="#005500" name="Objects" offsetx="0" offsety="32">
   <object id="27" name="MusicPlayer" type="MusicPlayer" x="169.667" y="368" width="32" height="32">

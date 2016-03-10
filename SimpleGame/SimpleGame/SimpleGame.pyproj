@@ -15,8 +15,7 @@
     <InterpreterId>{ab8ef5c4-9fc3-4532-90cf-90d71360e93c}</InterpreterId>
     <InterpreterVersion>3.5</InterpreterVersion>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <CommandLineArguments>
-    </CommandLineArguments>
+    <CommandLineArguments>-v DemoStart</CommandLineArguments>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -33,6 +32,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\MapObjects\PressSpaceOrButtonNavigator.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Sprites\MenueSelectorPlayer.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\GameState.py">
@@ -238,6 +240,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\MoveTimeCalculator.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\PlayerMenueSelectorBase.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\SavePoint.py">

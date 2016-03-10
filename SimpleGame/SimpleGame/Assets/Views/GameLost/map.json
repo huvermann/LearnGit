@@ -146,7 +146,7 @@
                  "name":"PressSpaceOrButtonNavigator",
                  "properties":
                     {
-                     "TargetView":"Training"
+                     "TargetView":"Demostart"
                     },
                  "rotation":0,
                  "type":"PressSpaceOrButtonNavigator",
