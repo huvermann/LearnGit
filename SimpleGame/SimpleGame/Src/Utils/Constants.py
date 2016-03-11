@@ -57,6 +57,7 @@ class DIRS(object):
     IMAGES = "Images"
     FONTS = "Fonts"
     SPRITES = "Sprites"
+    CONTROLS = "Controls"
 
 class FILENAMES(object):
     CONFIG = "config.json"

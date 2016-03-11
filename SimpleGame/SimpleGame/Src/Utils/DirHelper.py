@@ -60,6 +60,10 @@ def getSpriteAnimationImage(resourceName, animationName):
 def getSpriteResourceFilename(resourceName, filename):
     return os.path.join(getBasePath(), DIRS.ASSETS, DIRS.SPRITES, resourceName, filename)
 
+def getControlResourceFileName(resourceName, filename):
+    return os.path.join(getBasePath(), DIRS.ASSETS, DIRS.CONTROLS, resourceName, filename)
+
+
 
 
 
