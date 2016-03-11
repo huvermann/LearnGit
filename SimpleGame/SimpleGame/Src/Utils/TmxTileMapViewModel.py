@@ -9,6 +9,7 @@ from Tiled.TilesPainter import TilesPainter
 from Plugins.PluginFactory import createPluginInstance
 from Utils.MapObjectFactory import createObjectInstance
 from Utils.sprites.SpriteBase import SpriteBase
+from Utils.PlayerMenueSelectorBase import PlayerMenueSelectorBase
 
 
 
@@ -54,9 +55,10 @@ class TmxTileMapViewModel(ViewModelBase2):
         result = None
         playerClassname = config.type
         result = createSpriteInstance(playerClassname)
-        result.configureProperties(config.properties)
-        #self._viewPointer.playerPositionX = config.x
-        #self._viewPointer.playerPositionY = config.y
+        if isinstance(result, PlayerMenueSelectorBase):
+            result.configure(config)
+        else:
+            result.configureProperties(config.properties)
         self._viewPointer.initPlayerPosition(config.x, config.y)
         return result
 

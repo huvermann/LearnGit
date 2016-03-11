@@ -1,6 +1,6 @@
 import os
 import pygame
-from Utils.DirHelper import getSpriteResourceFilename
+from Utils.DirHelper import getSpriteResourceFilename, getControlResourceFileName
 
 class AniConfigKeys(object):
     """Contains the animation configuration key strings."""
@@ -99,6 +99,33 @@ class AnimationInfo(object):
         else:
             raise FileNotFoundError(resourceFile)
         return result
+
+class MenuAnimationInfo(AnimationInfo):
+    def __init__(self, resourceName, fileName):
+        self._resourceName = resourceName
+        self.Filename = fileName
+        super().__init__()
+        self.AnimationType = AnimationTypes.TimeBased
+        #Load the files from folder
+        self.ImageSurface = MenuAnimationInfo.loadAnimationResourceFile(resourceName, fileName)
+        # Set transparence
+        self.ImageSurface.set_colorkey(self.ImageSurface.get_at((0,0)))
+        self.ImageRect = self.ImageSurface.get_rect()
+        # Take te picture size
+        self.PictureSize = (self.ImageRect.width, self.ImageRect.height)
+        self.ImageCount = 0
+    @staticmethod
+    def loadAnimationResourceFile(resourceName, filename):
+        result = None
+        resourceFile = getControlResourceFileName(resourceName, filename)
+        if os.path.isfile(resourceFile):
+            result = pygame.image.load(resourceFile).convert()
+        else:
+            raise FileNotFoundError(resourceFile)
+        return result
+
+
+
 
 
 

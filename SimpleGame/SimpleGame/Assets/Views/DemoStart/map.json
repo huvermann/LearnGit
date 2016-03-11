@@ -30,7 +30,7 @@
                  "visible":true,
                  "width":800,
                  "x":0,
-                 "y":354.909
+                 "y":160
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -151,8 +151,8 @@
                  "type":"BloobSprite",
                  "visible":true,
                  "width":32,
-                 "x":495.67,
-                 "y":731.33
+                 "x":673.67,
+                 "y":630.33
                 }, 
                 {
                  "gid":351,
@@ -337,25 +337,29 @@
          "objects":[
                 {
                  "gid":177,
-                 "height":280.333,
+                 "height":139.333,
                  "id":96,
                  "name":"Player",
                  "properties":
                     {
-
+                     "Margin":"8",
+                     "MenuItem1":"Image=Start.png TargetView=Demo",
+                     "MenuItem2":"Image=Resume.png TargetView=Demo Resume=True",
+                     "MenuItem3":"Image=Optionen.png TargetView=Optionen",
+                     "MenuItem4":"Image=Credits.png TargetView=Credits",
+                     "MenuItem5":"Image=Exit.png Action=ExitAction",
+                     "ResourcePath":"StartMenue"
                     },
                  "rotation":0,
                  "type":"MenueSelectorPlayer",
                  "visible":true,
-                 "width":365.333,
-                 "x":379.667,
-                 "y":676
+                 "width":195.333,
+                 "x":133.667,
+                 "y":576
                 }],
-         "offsetx":0,
-         "offsety":32,
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "width":0,
          "x":0,
          "y":0
@@ -414,7 +418,6 @@
  "orientation":"orthogonal",
  "properties":
     {
-     "Plugin":"xPlugin=ShowJump",
      "Plugin3":"Plugin=CheatKeyPlugin"
     },
  "renderorder":"right-down",
