@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="25" height="30" tilewidth="32" tileheight="32" nextobjectid="114">
+ <properties>
+  <property name="Plugin" value="xPlugin=ShowJump"/>
+  <property name="Plugin3" value="Plugin=CheatKeyPlugin"/>
+ </properties>
+ <tileset firstgid="1" name="Map" tilewidth="32" tileheight="32" tilecount="176" columns="8">
+  <image source="demo.png" trans="4a61f3" width="256" height="704"/>
+  <tile id="28">
+   <properties>
+    <property name="Space" value=" 1"/>
+   </properties>
+  </tile>
+  <tile id="29">
+   <properties>
+    <property name="Space" value="1"/>
+   </properties>
+  </tile>
+  <tile id="31">
+   <properties>
+    <property name="Space" value="1"/>
+   </properties>
+  </tile>
+  <tile id="82">
+   <properties>
+    <property name="Ladder" value="1"/>
+   </properties>
+  </tile>
+  <tile id="96">
+   <properties>
+    <property name="Ladder" value="1"/>
+   </properties>
+  </tile>
+  <tile id="175">
+   <properties>
+    <property name="Space" value="1"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="177" name="standing_right" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../Sprites/John_Doe/standing_right.png" trans="4a61f3" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="178" name="Coin_Ani" tilewidth="32" tileheight="32" tilecount="8" columns="8">
+  <image source="../../Sprites/Coin/Coin_Ani.png" trans="4a61f3" width="256" height="32"/>
+ </tileset>
+ <tileset firstgid="186" name="bloob_fallen_links" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../Sprites/Bloob/bloob_fallen_links.png" trans="4a61f3" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="187" name="Heart_Ani" tilewidth="32" tileheight="32" tilecount="2" columns="2">
+  <image source="../../Sprites/Heart/Heart_Ani.png" trans="4a61f3" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="189" name="Teleporter_Front" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../Sprites/Teleporter/Teleporter_Front.png" trans="4a61f3" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="190" name="Flagge5" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../../Sprites/Targedpoint/Flagge5.png" trans="4a61f3" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="194" name="Telepunkt" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../Sprites/Teleporter/Telepunkt.png" trans="4a61f3" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="195" name="Map" tilewidth="32" tileheight="32" tilecount="152" columns="8">
+  <image source="../Training/training.png" trans="4a61f3" width="256" height="608"/>
+  <tile id="82">
+   <properties>
+    <property name="Ladder" value="1"/>
+   </properties>
+  </tile>
+  <tile id="96">
+   <properties>
+    <property name="Ladder" value="1"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="347" name="bloob_red_springen" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../../Sprites/Bloob/bloob_red_springen.png" trans="4a61f3" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="351" name="bloob_yellow_springen" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../../Sprites/Bloob/bloob_yellow_springen.png" trans="4a61f3" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="355" name="bloob_blue_springen" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../../Sprites/Bloob/bloob_blue_springen.png" trans="4a61f3" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="359" name="Start" tilewidth="128" tileheight="32" tilecount="10" columns="2">
+  <image source="../../Sprites/StartMenue/DemoStartButtons.png" trans="4a61f3" width="256" height="160"/>
+ </tileset>
+ <tileset firstgid="369" name="Titel" tilewidth="224" tileheight="160" tilecount="1" columns="1">
+  <image source="../../Sprites/StartMenue/Titel.png" trans="000000" width="224" height="160"/>
+ </tileset>
+ <imagelayer name="Image">
+  <image source="DemoFinalbackground.png" width="800" height="960"/>
+ </imagelayer>
+ <objectgroup color="#ff0000" name="Screen">
+  <object id="1" name="Screen" type="Screen" x="0" y="359.909" width="800" height="600"/>
+ </objectgroup>
+ <layer name="BackgroundMap" width="25" height="30">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer name="Map" width="25" height="30">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup name="Sprites" offsetx="0" offsety="32">
+  <object id="105" name="StartMenue" type="ImageSprite" gid="367" x="64" y="802" width="128" height="32">
+   <properties>
+    <property name="Image" value="Exit.png"/>
+    <property name="Transparency" value="False"/>
+   </properties>
+  </object>
+  <object id="113" name="ExitCommand" type="TargedpointSprite" gid="1" x="117" y="702" width="32" height="32">
+   <properties>
+    <property name="ViewName" value="DemoStart"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Player" visible="0" offsetx="0" offsety="32">
+  <object id="96" name="Player" type="MenueSelectorPlayer" gid="177" x="379.667" y="676" width="365.333" height="280.333"/>
+ </objectgroup>
+ <objectgroup color="#005500" name="Objects" offsetx="0" offsety="32">
+  <object id="27" name="MusicPlayer" type="MusicPlayer" x="169.667" y="368" width="32" height="32">
+   <properties>
+    <property name="Loop" value="True"/>
+    <property name="Song1" value="m4rt3z_m4rt3z---Primal-Snap-320.mp3"/>
+    <property name="Start" value="False"/>
+   </properties>
+  </object>
+  <object id="29" name="SoundList" type="SoundList" x="377.333" y="369.667" width="32" height="32">
+   <properties>
+    <property name="Beep" value="319200__18hiltc__pixel-game-beep.wav"/>
+    <property name="GameOver" value="319200__18hiltc__pixel-game-beep.wav"/>
+    <property name="Jumping" value="172205__fins__jumping.wav"/>
+    <property name="Laser" value="146725__fins__laser.wav"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

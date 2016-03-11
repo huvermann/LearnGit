@@ -395,6 +395,7 @@
     <Content Include="Assets\Sound\173859__jivatma07__j1game-over-mono.wav" />
     <Content Include="Assets\Sound\319200__18hiltc__pixel-game-beep.wav" />
     <Content Include="Assets\Sound\flohwalzer_60_sec_0100_demo.mp3" />
+    <Content Include="Assets\Sound\GameLost.mp3" />
     <Content Include="Assets\Sound\m4rt3z_m4rt3z---Elemental-Energy-Oxy-320.mp3" />
     <Content Include="Assets\Sound\m4rt3z_m4rt3z---Primal-Snap-320.mp3" />
     <Content Include="Assets\Sound\readme.txt" />
@@ -487,6 +488,10 @@
     <Content Include="Assets\Sprites\Teleporter\Teleporter_Back.png" />
     <Content Include="Assets\Sprites\Teleporter\Teleporter_Front.png" />
     <Content Include="Assets\Sprites\Teleporter\Telepunkt.png" />
+    <Content Include="Assets\Views\DemoFinal\demo.png" />
+    <Content Include="Assets\Views\DemoFinal\DemoFinalbackground.png" />
+    <Content Include="Assets\Views\DemoFinal\DemoFinal.tmx" />
+    <Content Include="Assets\Views\DemoFinal\map.json" />
     <Content Include="Assets\Views\DemoStart\demo.png" />
     <Content Include="Assets\Views\DemoStart\Demobackground.png" />
     <Content Include="Assets\Views\DemoStart\DemoStart.tmx" />
@@ -558,6 +563,7 @@
     <Folder Include="Assets\Views\Level3\" />
     <Folder Include="Assets\Views\DemoStart\" />
     <Folder Include="Assets\Views\GameLost\" />
+    <Folder Include="Assets\Views\DemoFinal\" />
     <Folder Include="Assets\Views\Training\" />
     <Folder Include="Documentation\" />
     <Folder Include="Deployment\" />

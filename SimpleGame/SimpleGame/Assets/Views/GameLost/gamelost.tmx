@@ -9,7 +9,7 @@
   </tile>
  </tileset>
  <imagelayer name="Image">
-  <image source="../Training/background3.png"/>
+  <image source="../Training/background3.png" width="880" height="704"/>
  </imagelayer>
  <objectgroup name="Screen">
   <object id="1" name="Screen" type="Screen" x="0" y="0" width="800" height="600"/>
@@ -90,7 +90,7 @@
   <object id="3" name="MusicPlayer" type="MusicPlayer" x="913" y="29" width="32" height="32">
    <properties>
     <property name="Loop" value="True"/>
-    <property name="Song1" value="flohwalzer_60_sec_0100_demo.mp3"/>
+    <property name="Song1" value="GameLost.mp3"/>
     <property name="Start" value="True"/>
    </properties>
   </object>
