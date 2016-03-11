@@ -377,6 +377,8 @@
     <Content Include="Assets\Controls\StartMenue\Credits.png" />
     <Content Include="Assets\Controls\StartMenue\Exit.png" />
     <Content Include="Assets\Controls\StartMenue\Optionen.png" />
+    <Content Include="Assets\Controls\StartMenue\Pfeil.png" />
+    <Content Include="Assets\Controls\StartMenue\Pfeil.pyxel" />
     <Content Include="Assets\Controls\StartMenue\Resume.png" />
     <Content Include="Assets\Controls\StartMenue\Start.png" />
     <Content Include="Assets\Controls\StartMenue\Titel.png" />
