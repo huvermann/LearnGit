@@ -96,6 +96,10 @@ class PlayerMenueSelectorBase(pygame.sprite.Sprite):
             height += itemRect.height
 
         # Create transparent surface
+        if width == 0:
+            widt = 1
+        if height == 0:
+            height = 1
         result = pygame.Surface([width,height])
         result.fill((1,2,3))
         result.set_colorkey(result.get_at((0,0)))
