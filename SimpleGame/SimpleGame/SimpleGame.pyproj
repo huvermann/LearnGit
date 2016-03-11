@@ -374,6 +374,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Controls\ScorePanel\Highscore_Panel.png" />
+    <Content Include="Assets\Controls\StartMenue\Credits.png" />
+    <Content Include="Assets\Controls\StartMenue\Exit.png" />
+    <Content Include="Assets\Controls\StartMenue\Optionen.png" />
+    <Content Include="Assets\Controls\StartMenue\Resume.png" />
+    <Content Include="Assets\Controls\StartMenue\Start.png" />
+    <Content Include="Assets\Controls\StartMenue\Titel.png" />
     <Content Include="Assets\Fonts\InknutAntiqua-Light.ttf" />
     <Content Include="Assets\Fonts\Maximum-Security.zip" />
     <Content Include="Assets\Fonts\passion-one.zip" />
@@ -522,6 +528,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />
+    <Folder Include="Assets\Controls\StartMenue\" />
     <Folder Include="Assets\Controls\ScorePanel\" />
     <Folder Include="Assets\Images\" />
     <Folder Include="Assets\Fonts\" />
