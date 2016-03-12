@@ -160,7 +160,7 @@
 </data>
  </layer>
  <objectgroup name="Sprites" offsetx="0" offsety="32">
-  <object id="37" name="Bloob1" type="BloobSprite" gid="186" x="387" y="791" width="32" height="32" visible="0"/>
+  <object id="37" name="Bloob1" type="BloobSprite" gid="186" x="387" y="791" width="32" height="32"/>
   <object id="57" name="Bloob5" type="BloobSprite" gid="186" x="587.67" y="755.33" width="32" height="32"/>
   <object id="62" name="BunteFlagge" type="TargedpointSprite" gid="190" x="307" y="767" width="32" height="32">
    <properties>
@@ -194,36 +194,6 @@
   <object id="88" name="Coin1" type="CoinSprite" gid="178" x="384.667" y="742.003" width="32" height="32"/>
   <object id="94" name="Coin2" type="CoinSprite" gid="178" x="352.333" y="758.667" width="32" height="32"/>
   <object id="95" name="Coin3" type="CoinSprite" gid="178" x="416.333" y="759.667" width="32" height="32"/>
-  <object id="99" name="StartMenue" type="ImageSprite" gid="359" x="333" y="524" width="128" height="32">
-   <properties>
-    <property name="Image" value="Start.png"/>
-    <property name="Transparency" value="False"/>
-   </properties>
-  </object>
-  <object id="102" name="StartMenue" type="ImageSprite" gid="361" x="333" y="560" width="128" height="32">
-   <properties>
-    <property name="Image" value="Resume.png"/>
-    <property name="Transparency" value="False"/>
-   </properties>
-  </object>
-  <object id="103" name="StartMenue" type="ImageSprite" gid="363" x="333" y="596" width="128" height="32">
-   <properties>
-    <property name="Image" value="Optionen.png"/>
-    <property name="Transparency" value="False"/>
-   </properties>
-  </object>
-  <object id="104" name="StartMenue" type="ImageSprite" gid="365" x="333" y="633" width="128" height="32">
-   <properties>
-    <property name="Image" value="Credits.png"/>
-    <property name="Transparency" value="False"/>
-   </properties>
-  </object>
-  <object id="105" name="StartMenue" type="ImageSprite" gid="367" x="333" y="678" width="128" height="32">
-   <properties>
-    <property name="Image" value="Exit.png"/>
-    <property name="Transparency" value="False"/>
-   </properties>
-  </object>
   <object id="111" name="StartMenue" type="ImageSprite" gid="369" x="288" y="354" width="224" height="160">
    <properties>
     <property name="Image" value="Titel.png"/>
@@ -232,7 +202,7 @@
   </object>
  </objectgroup>
  <objectgroup name="Player">
-  <object id="96" name="Player" type="MenueSelectorPlayer" gid="177" x="133.667" y="576" width="195.333" height="139.333">
+  <object id="96" name="Player" type="MenueSelectorPlayer" gid="177" x="303.667" y="564" width="195.333" height="139.333">
    <properties>
     <property name="Margin" value="8"/>
     <property name="MenuItem1" value="Image=Start.png TargetView=Demo"/>
@@ -240,7 +210,10 @@
     <property name="MenuItem3" value="Image=Optionen.png TargetView=Optionen"/>
     <property name="MenuItem4" value="Image=Credits.png TargetView=Credits"/>
     <property name="MenuItem5" value="Image=Exit.png Action=ExitAction"/>
+    <property name="Pointer" value="Image=Pfeil.png"/>
     <property name="ResourcePath" value="StartMenue"/>
+    <property name="SoundButton" value="Jumping"/>
+    <property name="SoundMove" value="Beep"/>
    </properties>
   </object>
  </objectgroup>

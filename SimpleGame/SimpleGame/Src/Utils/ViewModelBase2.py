@@ -217,6 +217,8 @@ class ViewModelBase2():
         elif event.type == UserEvents.EVENT_MUSIC_ENDED:
             if self._musicPlayer:
                 self._musicPlayer.playNextSong()
+        elif event.type == UserEvents.EVENT_PLAYSOUND:
+            self.playSoundEvent(event)
         elif event.type == pygame.MOUSEBUTTONUP:
             self._mouseButtonUp(event)
         elif event.type == pygame.MOUSEBUTTONDOWN:
@@ -225,6 +227,11 @@ class ViewModelBase2():
         #    print ("Unhandled: ", event.type)
         #    if event.type != 27:
         #        print (event) 
+        pass
+
+    def playSoundEvent(self, event):
+        if self.soundPlayer:
+            self.soundPlayer.playSoundByName(event.sound)
         pass
 
     def registerEventHandler(self, handler):

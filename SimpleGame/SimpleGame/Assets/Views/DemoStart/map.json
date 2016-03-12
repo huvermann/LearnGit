@@ -77,7 +77,7 @@
                     },
                  "rotation":0,
                  "type":"BloobSprite",
-                 "visible":false,
+                 "visible":true,
                  "width":32,
                  "x":387,
                  "y":791
@@ -220,91 +220,6 @@
                  "y":759.667
                 }, 
                 {
-                 "gid":359,
-                 "height":32,
-                 "id":99,
-                 "name":"StartMenue",
-                 "properties":
-                    {
-                     "Image":"Start.png",
-                     "Transparency":"False"
-                    },
-                 "rotation":0,
-                 "type":"ImageSprite",
-                 "visible":true,
-                 "width":128,
-                 "x":333,
-                 "y":524
-                }, 
-                {
-                 "gid":361,
-                 "height":32,
-                 "id":102,
-                 "name":"StartMenue",
-                 "properties":
-                    {
-                     "Image":"Resume.png",
-                     "Transparency":"False"
-                    },
-                 "rotation":0,
-                 "type":"ImageSprite",
-                 "visible":true,
-                 "width":128,
-                 "x":333,
-                 "y":560
-                }, 
-                {
-                 "gid":363,
-                 "height":32,
-                 "id":103,
-                 "name":"StartMenue",
-                 "properties":
-                    {
-                     "Image":"Optionen.png",
-                     "Transparency":"False"
-                    },
-                 "rotation":0,
-                 "type":"ImageSprite",
-                 "visible":true,
-                 "width":128,
-                 "x":333,
-                 "y":596
-                }, 
-                {
-                 "gid":365,
-                 "height":32,
-                 "id":104,
-                 "name":"StartMenue",
-                 "properties":
-                    {
-                     "Image":"Credits.png",
-                     "Transparency":"False"
-                    },
-                 "rotation":0,
-                 "type":"ImageSprite",
-                 "visible":true,
-                 "width":128,
-                 "x":333,
-                 "y":633
-                }, 
-                {
-                 "gid":367,
-                 "height":32,
-                 "id":105,
-                 "name":"StartMenue",
-                 "properties":
-                    {
-                     "Image":"Exit.png",
-                     "Transparency":"False"
-                    },
-                 "rotation":0,
-                 "type":"ImageSprite",
-                 "visible":true,
-                 "width":128,
-                 "x":333,
-                 "y":678
-                }, 
-                {
                  "gid":369,
                  "height":160,
                  "id":111,
@@ -348,14 +263,17 @@
                      "MenuItem3":"Image=Optionen.png TargetView=Optionen",
                      "MenuItem4":"Image=Credits.png TargetView=Credits",
                      "MenuItem5":"Image=Exit.png Action=ExitAction",
-                     "ResourcePath":"StartMenue"
+                     "Pointer":"Image=Pfeil.png",
+                     "ResourcePath":"StartMenue",
+                     "SoundButton":"Jumping",
+                     "SoundMove":"Beep"
                     },
                  "rotation":0,
                  "type":"MenueSelectorPlayer",
                  "visible":true,
                  "width":195.333,
-                 "x":133.667,
-                 "y":576
+                 "x":303.667,
+                 "y":564
                 }],
          "opacity":1,
          "type":"objectgroup",
