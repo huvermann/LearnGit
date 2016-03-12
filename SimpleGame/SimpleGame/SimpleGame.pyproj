@@ -37,6 +37,9 @@
     <Compile Include="Src\MapObjects\PressSpaceOrButtonNavigator.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Sprites\EmptyPlayer.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\SpriteStyles\ImageStyle.py">
       <SubType>Code</SubType>
     </Compile>
@@ -254,6 +257,9 @@
     <Compile Include="Src\Utils\MoveTimeCalculator.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Utils\PlayerEmptyBase.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Utils\PlayerMenueSelectorBase.py">
       <SubType>Code</SubType>
     </Compile>
@@ -379,7 +385,6 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Controls\ScorePanel\Highscore_Panel.png" />
     <Content Include="Assets\Controls\StartMenue\Credits.png" />
     <Content Include="Assets\Controls\StartMenue\Exit.png" />
     <Content Include="Assets\Controls\StartMenue\Optionen.png" />
@@ -500,6 +505,7 @@
     <Content Include="Assets\Views\DemoFinal\map.json" />
     <Content Include="Assets\Views\DemoStart\demo.png" />
     <Content Include="Assets\Views\DemoStart\Demobackground.png" />
+    <Content Include="Assets\Views\DemoStart\Demobackground2.png" />
     <Content Include="Assets\Views\DemoStart\DemoStart.tmx" />
     <Content Include="Assets\Views\DemoStart\map.json" />
     <Content Include="Assets\Views\Demo\demo.png" />
@@ -542,7 +548,6 @@
   <ItemGroup>
     <Folder Include="Assets\" />
     <Folder Include="Assets\Controls\StartMenue\" />
-    <Folder Include="Assets\Controls\ScorePanel\" />
     <Folder Include="Assets\Images\" />
     <Folder Include="Assets\Fonts\" />
     <Folder Include="Assets\Controls\" />

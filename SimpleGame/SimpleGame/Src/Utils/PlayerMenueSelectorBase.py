@@ -58,6 +58,7 @@ class PlayerMenueSelectorBase(pygame.sprite.Sprite):
         self._joyState = SelectorJoyState.WaitForJoyButton
         self._viewPointer = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewPointer)
 
+
         super().__init__()
 
     def configure(self, config):
@@ -65,7 +66,7 @@ class PlayerMenueSelectorBase(pygame.sprite.Sprite):
         self._x = int(config.x)
         # Tiled workaround: fix y-Axis
         self._y = int(config.y - config.height)
-
+        self._viewPointer.initPlayerPosition(self._x, self._y)
         pass
 
     def configureProperties(self, properties):
@@ -215,8 +216,8 @@ class PlayerMenueSelectorBase(pygame.sprite.Sprite):
             self.image = self.createImage()
             self.rect = self.image.get_rect()
 
-        self.rect.left = self._x
-        self.rect.top = self._y
+        self.rect.left = self._viewPointer.playerOffset.left
+        self.rect.top = self._viewPointer.playerOffset.top
         return super().update(*args)
 
     @property
