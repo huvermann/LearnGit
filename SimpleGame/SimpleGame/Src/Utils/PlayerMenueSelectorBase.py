@@ -4,6 +4,7 @@ import re
 from Utils.AnimationInfo import AnimationInfo, MenuAnimationInfo
 from Utils.JoystickStates import JoystickEvents
 from Utils.UserEvents import EVENT_PLAYSOUND, EVENT_CHANGEVIEW
+from Utils.ServiceLocator import ServiceLocator, ServiceNames
 
 
 
@@ -55,6 +56,7 @@ class PlayerMenueSelectorBase(pygame.sprite.Sprite):
         self._y = None
         self._itemIndex = 0
         self._joyState = SelectorJoyState.WaitForJoyButton
+        self._viewPointer = ServiceLocator.getGlobalServiceInstance(ServiceNames.ViewPointer)
 
         super().__init__()
 
@@ -212,6 +214,9 @@ class PlayerMenueSelectorBase(pygame.sprite.Sprite):
         if not self.image:
             self.image = self.createImage()
             self.rect = self.image.get_rect()
+
+        self.rect.left = self._x
+        self.rect.top = self._y
         return super().update(*args)
 
     @property
