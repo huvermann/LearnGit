@@ -89,7 +89,7 @@
   <image source="DemoFinalbackground.png"/>
  </imagelayer>
  <objectgroup color="#ff0000" name="Screen">
-  <object id="1" name="Screen" type="Screen" x="0" y="359.909" width="800" height="600"/>
+  <object id="1" name="Screen" type="Screen" x="0" y="885" width="800" height="600"/>
  </objectgroup>
  <layer name="BackgroundMap" width="25" height="30">
   <data encoding="csv">
@@ -161,7 +161,7 @@
  </layer>
  <objectgroup name="Sprites" offsetx="0" offsety="32"/>
  <objectgroup name="Player" offsetx="0" offsety="32">
-  <object id="96" name="Player" type="EmptyPlayer" gid="177" x="200.667" y="749" width="365.333" height="280.333"/>
+  <object id="96" name="Player" type="EmptyPlayer" gid="177" x="327.667" y="1057" width="182.333" height="161.333"/>
  </objectgroup>
  <objectgroup color="#005500" name="Objects" offsetx="0" offsety="32">
   <object id="27" name="MusicPlayer" type="MusicPlayer" x="713.667" y="23" width="32" height="32">

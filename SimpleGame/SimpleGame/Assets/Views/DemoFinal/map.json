@@ -30,7 +30,7 @@
                  "visible":true,
                  "width":800,
                  "x":0,
-                 "y":359.909
+                 "y":885
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -82,7 +82,7 @@
          "objects":[
                 {
                  "gid":177,
-                 "height":280.333,
+                 "height":161.333,
                  "id":96,
                  "name":"Player",
                  "properties":
@@ -92,9 +92,9 @@
                  "rotation":0,
                  "type":"EmptyPlayer",
                  "visible":true,
-                 "width":365.333,
-                 "x":200.667,
-                 "y":749
+                 "width":182.333,
+                 "x":327.667,
+                 "y":1057
                 }],
          "offsetx":0,
          "offsety":32,

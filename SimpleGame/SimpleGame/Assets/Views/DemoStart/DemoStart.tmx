@@ -222,7 +222,7 @@
    <properties>
     <property name="Loop" value="True"/>
     <property name="Song1" value="flohwalzer_60_sec_0100_demo.mp3"/>
-    <property name="Start" value="False"/>
+    <property name="Start" value="True"/>
    </properties>
   </object>
   <object id="29" name="SoundList" type="SoundList" x="377.333" y="369.667" width="32" height="32">
