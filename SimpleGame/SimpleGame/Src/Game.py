@@ -57,8 +57,6 @@ class MainGame:
             logging.error(e)
             self.gameState.done = True
 
-        absichtlich_kaputt_gemacht
-
     def parseViewNameFromCommandArgs(self):
         result = None
         opts, args = getopt.getopt(sys.argv[1:], "v:", ["view="])
