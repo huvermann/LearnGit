@@ -30,7 +30,7 @@ class ViewModelBase2():
         self.__plugins = []
         self.__objectSprites = pygame.sprite.Group()
         self.__allSprites = pygame.sprite.Group()
-        self.__initFont()
+        #self.__initFont()
         self.__keyboardEventHandler = self.__initKeyboardManager()
         self.__joystickEventHandler = self.__initJoystickManager()
         self._state = ServiceLocator.getGlobalServiceInstance(ServiceNames.Gamestate)
@@ -42,11 +42,11 @@ class ViewModelBase2():
         
       
 
-    def __initFont(self):
-        """Inits the default font."""
-        fontFile = getFontResourceFile("InknutAntiqua-Light")
-        self._font = pygame.font.Font(fontFile, 12)
-        pass
+    #def __initFont(self):
+    #    """Inits the default font."""
+    #    fontFile = getFontResourceFile("InknutAntiqua-Light")
+    #    self._font = pygame.font.Font(fontFile, 12)
+    #    pass
 
     def suspendView(self):
         """View goes into suspend mode."""

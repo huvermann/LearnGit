@@ -257,10 +257,13 @@
                  "name":"Player",
                  "properties":
                     {
+                     "Font":"Arial",
+                     "FontBackground":"#FFFFFF",
+                     "FontSize":"48",
                      "Margin":"8",
-                     "MenuItem1":"Image=Start.png TargetView=Demo",
-                     "MenuItem2":"Image=Resume.png TargetView=Demo Resume=True",
-                     "MenuItem3":"Image=Optionen.png TargetView=Optionen",
+                     "MenuItem1":"Text=Start TargetView=Demo",
+                     "MenuItem2":"Text=Resume TargetView=Demo Resume=True",
+                     "MenuItem3":"Image=Optionen.png TargetView=DemoOptions",
                      "MenuItem4":"Image=Credits.png TargetView=DemoFinal",
                      "MenuItem5":"Image=Exit.png Action=ExitAction",
                      "Pointer":"Image=Pfeil.png",
@@ -296,7 +299,7 @@
                     {
                      "Loop":"True",
                      "Song1":"flohwalzer_60_sec_0100_demo.mp3",
-                     "Start":"True"
+                     "Start":"False"
                     },
                  "rotation":0,
                  "type":"MusicPlayer",
