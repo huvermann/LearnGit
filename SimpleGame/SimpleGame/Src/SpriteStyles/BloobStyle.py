@@ -20,15 +20,15 @@ class BloobStyle(SpriteStyleBase):
                 "AnimationType": "TimeBased",
                 "Delay": 25},
             AnimationNames.StandingRight : {
-                "Filename": "bloob_gehen_rechts.png",
+                "Filename": "Bloob_gehen_rechts.png",
                 "AnimationType": "TimeBased",
                 "Delay": 25},
             AnimationNames.Left : {
-                "Filename": "bloob_gehen_links.png",
+                "Filename": "Bloob_gehen_links.png",
                 "AnimationType": "TimeBased",
                 "Delay": 25},
             AnimationNames.Right : { 
-                "Filename": "bloob_gehen_rechts.png",
+                "Filename": "Bloob_gehen_rechts.png",
                 "AnimationType": "TimeBased",
                 "Delay": 25},
             AnimationNames.Falling : {
