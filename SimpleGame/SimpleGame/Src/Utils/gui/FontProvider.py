@@ -18,10 +18,9 @@ class FontProvider(object):
         sysFontName = None
 
         if fontProperties.FontName:
-            fonts = pygame.font.get_fonts()
-            
-            if fontProperties.FontName.lower() in fonts:
-                sysfontName = fontProperties.FontName
+            # System Fonts must start with prefix 'sys.'
+            if fontProperties.FontName.startswith("sys."):
+                sysFontName = fontProperties.FontName.replace("sys.", "")
                 result = pygame.font.SysFont(sysFontName, fontProperties.Size, False)
             else:
                 fname = getFontResourceFile(fontProperties.FontName)

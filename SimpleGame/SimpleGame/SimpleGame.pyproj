@@ -401,7 +401,7 @@
     <Content Include="Assets\Controls\StartMenue\Titel.png" />
     <Content Include="Assets\Fonts\InknutAntiqua-Light.ttf" />
     <Content Include="Assets\Fonts\Maximum-Security.zip" />
-    <Content Include="Assets\Fonts\MAXIMUMSECURITY.ttf" />
+    <Content Include="Assets\Fonts\MAXIMUMSECURITY2.ttf" />
     <Content Include="Assets\Fonts\passion-one.zip" />
     <Content Include="Assets\Fonts\readme.txt" />
     <Content Include="Assets\Images\dog.ico" />

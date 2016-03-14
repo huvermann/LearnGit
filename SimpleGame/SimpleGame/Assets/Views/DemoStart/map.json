@@ -257,8 +257,9 @@
                  "name":"Player",
                  "properties":
                     {
-                     "Font":"Arial",
+                     "Font":"maximumsecurity2",
                      "FontBackground":"#FFFFFF",
+                     "FontColor":"#FF0020",
                      "FontSize":"48",
                      "Margin":"8",
                      "MenuItem1":"Text=Start TargetView=Demo",
