@@ -12,11 +12,11 @@ class BloobStyle(SpriteStyleBase):
     def getStyleData(self):
         result = {
             AnimationNames.Standing : {
-                "Filename": "bloob_gehen_links.png",
+                "Filename": "Bloob_gehen_links.png",
                 "AnimationType": "TimeBased",
                 "Delay": 25},
             AnimationNames.StandingLeft : {
-                "Filename": "bloob_gehen_links.png",
+                "Filename": "Bloob_gehen_links.png",
                 "AnimationType": "TimeBased",
                 "Delay": 25},
             AnimationNames.StandingRight : {
