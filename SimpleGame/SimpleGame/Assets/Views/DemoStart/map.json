@@ -257,7 +257,7 @@
                  "name":"Player",
                  "properties":
                     {
-                     "Font":"maximumsecurity2",
+                     "Font":"MAXIMUMSECURITY2",
                      "FontBackground":"#FFFFFF",
                      "FontColor":"#FF0020",
                      "FontSize":"48",

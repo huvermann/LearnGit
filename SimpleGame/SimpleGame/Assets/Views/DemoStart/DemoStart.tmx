@@ -204,7 +204,7 @@
  <objectgroup name="Player">
   <object id="96" name="Player" type="MenueSelectorPlayer" gid="177" x="296.667" y="228" width="195.333" height="139.333">
    <properties>
-    <property name="Font" value="maximumsecurity2"/>
+    <property name="Font" value="MAXIMUMSECURITY2"/>
     <property name="FontBackground" value="#FFFFFF"/>
     <property name="FontColor" value="#FF0020"/>
     <property name="FontSize" value="48"/>
