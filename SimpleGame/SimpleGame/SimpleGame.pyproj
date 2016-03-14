@@ -447,12 +447,14 @@
     <Content Include="Assets\Sprites\Bloob\bloob_yellow_rechts_drehen.png" />
     <Content Include="Assets\Sprites\Bloob\bloob_yellow_springen.png" />
     <Content Include="Assets\Sprites\Bloob\bloob_yellow_sterben.png" />
+    <Content Include="Assets\Sprites\Coin\Coin.png" />
     <Content Include="Assets\Sprites\Coin\Coin.pyxel" />
     <Content Include="Assets\Sprites\Coin\Coin_Ani.png" />
     <Content Include="Assets\Sprites\Commander\commander_standing_front.png" />
     <Content Include="Assets\Sprites\Commander\commander_walk_left.png" />
     <Content Include="Assets\Sprites\Commander\commander_walk_right.png" />
     <Content Include="Assets\Sprites\Drawbridge\Drawbridge_Ani.png" />
+    <Content Include="Assets\Sprites\Drawbridge\Falltor_auf.png" />
     <Content Include="Assets\Sprites\Drawbridge\Falltor_zu.png" />
     <Content Include="Assets\Sprites\Drawbridge\Stahlwand_auf.png" />
     <Content Include="Assets\Sprites\Drawbridge\Stahlwand_zu.png" />
@@ -479,6 +481,8 @@
     <Content Include="Assets\Sprites\John_Doe\standing_front.png" />
     <Content Include="Assets\Sprites\John_Doe\standing_left.png" />
     <Content Include="Assets\Sprites\John_Doe\standing_right.png" />
+    <Content Include="Assets\Sprites\John_Doe\sterben_links.png" />
+    <Content Include="Assets\Sprites\John_Doe\sterben_rechts.png" />
     <Content Include="Assets\Sprites\John_Doe\tot.png" />
     <Content Include="Assets\Sprites\John_Doe\walk_right.png" />
     <Content Include="Assets\Sprites\John_Doe\walk_left.png" />
