@@ -239,10 +239,16 @@
     <Compile Include="Src\Utils\BeamPointRegistry.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Utils\gui\FontProperties.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Utils\gui\FontProvider.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\gui\TextLabel.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\gui\TextLabelSurface.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\gui\__init__.py">
@@ -395,6 +401,7 @@
     <Content Include="Assets\Controls\StartMenue\Titel.png" />
     <Content Include="Assets\Fonts\InknutAntiqua-Light.ttf" />
     <Content Include="Assets\Fonts\Maximum-Security.zip" />
+    <Content Include="Assets\Fonts\MAXIMUMSECURITY.ttf" />
     <Content Include="Assets\Fonts\passion-one.zip" />
     <Content Include="Assets\Fonts\readme.txt" />
     <Content Include="Assets\Images\dog.ico" />
@@ -503,6 +510,7 @@
     <Content Include="Assets\Views\DemoFinal\DemoFinalbackground.png" />
     <Content Include="Assets\Views\DemoFinal\DemoFinal.tmx" />
     <Content Include="Assets\Views\DemoFinal\map.json" />
+    <Content Include="Assets\Sprites\Optionen\Optionen.png" />
     <Content Include="Assets\Views\DemoStart\demo.png" />
     <Content Include="Assets\Views\DemoStart\Demobackground.png" />
     <Content Include="Assets\Views\DemoStart\Demobackground2.png" />
@@ -561,6 +569,7 @@
     <Folder Include="Assets\Sprites\John_Doe\" />
     <Folder Include="Assets\Sprites\Commander\" />
     <Folder Include="Assets\Sprites\Monster_Bloob\" />
+    <Folder Include="Assets\Sprites\Optionen\" />
     <Folder Include="Assets\Sprites\StartMenue\" />
     <Folder Include="Assets\Sprites\Targedpoint\" />
     <Folder Include="Assets\Sprites\Teleporter\" />
@@ -575,6 +584,8 @@
     <Folder Include="Assets\Views\DemoStart\" />
     <Folder Include="Assets\Views\GameLost\" />
     <Folder Include="Assets\Views\DemoFinal\" />
+    <Folder Include="Assets\Views\DemoOptions\" />
+    <Folder Include="Assets\Views\DemoCredits\" />
     <Folder Include="Assets\Views\Training\" />
     <Folder Include="Documentation\" />
     <Folder Include="Deployment\" />

@@ -5,11 +5,15 @@ from Utils.AnimationInfo import AnimationInfo, MenuAnimationInfo
 from Utils.JoystickStates import JoystickEvents
 from Utils.UserEvents import EVENT_PLAYSOUND, EVENT_CHANGEVIEW
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
+from Utils.gui.TextLabelSurface import TextLabelSurface
+from Utils.gui.FontProperties import FontProperties
+import webcolors
 
 
 
 class MenueItem():
-    def __init__(self, resourceName):
+    def __init__(self, resourceName, fontProperties):
+        assert isinstance(fontProperties, FontProperties)
         self.id = None
         self.image = None
         self.TargetView = None
@@ -17,12 +21,16 @@ class MenueItem():
         self.animation = None
         self._resourceName = resourceName
         self._actionObject = None
-        
-        
+        self.text = None
+        self._textSurface = None
+        self._fontProperties = fontProperties
+      
 
     def configure(self):
         if self.image:
             self.animation = MenuAnimationInfo(self._resourceName, self.image)
+        if self.text:
+            self._textSurface = TextLabelSurface(self.text, self._fontProperties)
     def executeAction(self):
         if self.TargetView:
             changeviewEvent = pygame.event.Event(EVENT_CHANGEVIEW, ViewName=self.TargetView)
@@ -36,6 +44,25 @@ class MenueItem():
         module_name = "Actions.{0}".format(actionName)
         actionClass = getattr(importlib.import_module(module_name), actionName)
         return actionClass()
+
+    def getImage(self, imageMinWidth=None):
+        result = None
+        if self.animation and self._textSurface:
+            #merge text and image
+            result = self.animation.ImageSurface
+            result.blit(self._textSurface.render(), (0,0))
+        elif self.animation:
+            return self.animation.ImageSurface
+        elif self._textSurface:
+            return self._textSurface.render(imageMinWidth)
+        return result
+
+    def getItemRect(self):
+        img = self.getImage()
+        return img.get_rect()
+
+
+
 
 class SelectorJoyState():
     WaitForJoyButton = 0
@@ -52,6 +79,9 @@ class PlayerMenueSelectorBase(pygame.sprite.Sprite):
         self._margin = 0
         self._soundButton = None
         self._soundMove = None
+        #self._fontFile = None
+        #self._fontSize = 48
+        self._fontProperties = FontProperties()
         self._x = None
         self._y = None
         self._itemIndex = 0
@@ -80,6 +110,16 @@ class PlayerMenueSelectorBase(pygame.sprite.Sprite):
                 self._soundButton = properties[item]
             elif item == 'SoundMove':
                 self._soundMove = properties[item]
+            elif item == 'Font':
+                self._fontProperties.FontName = properties[item]
+            elif item == 'FontSize':
+                self._fontProperties.Size = int(properties[item])
+            elif item == 'FontColor':
+                self._fontProperties.Color = webcolors.hex_to_rgb(webcolors.normalize_hex(properties[item]))
+            elif item == 'FontBackground':
+                 self._fontProperties.Background = webcolors.hex_to_rgb(webcolors.normalize_hex(properties[item]))
+
+
 
         if self._resourcePath:
             for item in properties:
@@ -105,7 +145,7 @@ class PlayerMenueSelectorBase(pygame.sprite.Sprite):
         return parts[1]
 
     def __parseMenueItemEntry(self, resourcePath, item, line):
-        result = MenueItem(resourcePath)
+        result = MenueItem(resourcePath, self._fontProperties)
         result.id =  int(item.replace('MenuItem', ''))
         commands = line.split(' ')
         for cmd in commands:
@@ -116,11 +156,12 @@ class PlayerMenueSelectorBase(pygame.sprite.Sprite):
                 result.TargetView = value
             elif key == 'Action':
                 result.action = value
+            elif key == 'Text':
+                result.text = value
 
         return result
 
     def _playSound(self, soundName):
-        print("Playsound: {0}".format(soundName))
         playSoundEvent = pygame.event.Event(EVENT_PLAYSOUND, sound=soundName)
         pygame.event.post(playSoundEvent)
         pass
@@ -173,23 +214,25 @@ class PlayerMenueSelectorBase(pygame.sprite.Sprite):
         result = None
         pointerTop = [0]
         # Calculate Size
-        width = 0
+        maxWidth = 0
         height = 0
         for item in self._menuItems:
-            itemRect = item.animation.ImageRect
-            if itemRect.width > width:
-                width = itemRect.width
+            #itemRect = item.animation.ImageRect
+            itemRect = item.getItemRect()
+            if itemRect.width > maxWidth:
+                maxWidth = itemRect.width
+            
             height += itemRect.height + self._margin
             pointerTop.append(height)
 
         pointerRect = self.pointerImage.get_rect()
-        width += self._margin + pointerRect.width
+        maxWidth += self._margin + pointerRect.width
         # Create transparent surface
-        if width == 0:
+        if maxWidth == 0:
             widt = 1
         if height == 0:
             height = 1
-        result = pygame.Surface([width,height])
+        result = pygame.Surface([maxWidth,height])
         result.fill((1,2,3))
         result.set_colorkey(result.get_at((0,0)))
 
@@ -197,7 +240,8 @@ class PlayerMenueSelectorBase(pygame.sprite.Sprite):
         y = 0
         menuLeft = pointerRect.width + self._margin
         for item in self._menuItems:
-            img = item.animation.ImageSurface
+            #img = item.animation.ImageSurface
+            img = item.getImage(maxWidth)
             position = (menuLeft, y)
             result.blit(img, position)
             y += img.get_rect().height + self._margin
