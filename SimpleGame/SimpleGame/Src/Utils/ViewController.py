@@ -1,7 +1,4 @@
-﻿#from Views.ViewStart import ViewStart
-#from Views.View2 import *
-#from Views.Level2 import *
-from Views.ViewModelMapLoader import ViewModelMapLoader
+﻿from Views.ViewModelMapLoader import ViewModelMapLoader
 import sys
 import logging
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
@@ -18,7 +15,6 @@ class ViewController(object):
     def ChangeViewCallback(self, viewName):
         """Called by the view if the view is going to change."""
         print("Changing to view: ", viewName)
-        # Todo: Implement change the view
         self.changeView(viewName)
         pass
 
