@@ -29,7 +29,7 @@ with open(destFile, "w") as f:
     f.write(newText)
 
 
-print("OK, alles klar!")
+print("Spec-Datei erzeugt!")
 
 
 
