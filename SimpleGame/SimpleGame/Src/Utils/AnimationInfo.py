@@ -109,7 +109,7 @@ class MenuAnimationInfo(AnimationInfo):
         #Load the files from folder
         self.ImageSurface = MenuAnimationInfo.loadAnimationResourceFile(resourceName, fileName)
         # Set transparence
-        self.ImageSurface.set_colorkey(self.ImageSurface.get_at((0,0)))
+        #self.ImageSurface.set_colorkey(self.ImageSurface.get_at((0,0)))
         self.ImageRect = self.ImageSurface.get_rect()
         # Take te picture size
         self.PictureSize = (self.ImageRect.width, self.ImageRect.height)

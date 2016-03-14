@@ -41,7 +41,7 @@ class MainGame:
         """Run the game loop"""
         # pygame.display.set_icon(pygame.image.load(Utils.DirHelper.getResourceFilePath("icon")))
         pygame.display.set_caption("SimpleGame")
-        defaultStartView = "Level1"
+        defaultStartView = "DemoStart"
         # Start-Screen
         viewName = self.parseViewNameFromCommandArgs()
         if viewName:

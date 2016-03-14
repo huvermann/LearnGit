@@ -86,10 +86,10 @@
   <image source="../../Sprites/StartMenue/Titel.png" trans="000000" width="224" height="160"/>
  </tileset>
  <imagelayer name="Image">
-  <image source="Demobackground.png"/>
+  <image source="Demobackground2.png"/>
  </imagelayer>
  <objectgroup color="#ff0000" name="Screen">
-  <object id="1" name="Screen" type="Screen" x="0" y="160" width="800" height="600"/>
+  <object id="1" name="Screen" type="Screen" x="0" y="0" width="800" height="600"/>
  </objectgroup>
  <layer name="BackgroundMap" width="25" height="30">
   <data encoding="csv">
@@ -107,17 +107,17 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,55,48,49,50,51,52,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,54,40,41,42,44,46,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,53,38,39,43,45,47,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
@@ -143,31 +143,31 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,94,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 29,0,0,0,0,0,0,0,0,0,0,0,0,0,0,62,63,0,0,0,0,0,30,0,0,
 6,6,6,6,6,6,6,6,6,6,23,29,0,0,7,6,6,6,6,6,6,6,6,6,6,
 5,5,5,5,5,5,5,5,5,5,5,6,6,6,5,5,5,5,5,5,5,5,5,5,5,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
+5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
+5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
+5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
+5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
+5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
+5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
+5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
+0,0,0,0,0,0,0,0,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
  <objectgroup name="Sprites" offsetx="0" offsety="32">
-  <object id="37" name="Bloob1" type="BloobSprite" gid="186" x="387" y="791" width="32" height="32" visible="0"/>
-  <object id="57" name="Bloob5" type="BloobSprite" gid="186" x="587.67" y="755.33" width="32" height="32"/>
-  <object id="62" name="BunteFlagge" type="TargedpointSprite" gid="190" x="307" y="767" width="32" height="32">
+  <object id="37" name="Bloob1" type="BloobSprite" gid="186" x="399" y="540" width="32" height="32"/>
+  <object id="57" name="Bloob5" type="BloobSprite" gid="186" x="614.67" y="506.33" width="32" height="32"/>
+  <object id="62" name="BunteFlagge" type="TargedpointSprite" gid="190" x="234" y="510" width="32" height="32">
    <properties>
     <property name="ViewName" value="DemoFinale"/>
    </properties>
   </object>
-  <object id="74" name="Bloob_red1" type="BloobSprite" gid="347" x="554.997" y="755.997" width="32" height="32">
+  <object id="74" name="Bloob_red1" type="BloobSprite" gid="347" x="561.997" y="506.997" width="32" height="32">
    <properties>
     <property name="Energy" value="-50"/>
     <property name="FallSpeed" value="20"/>
@@ -179,52 +179,22 @@
     <property name="WalkSpeed" value="100"/>
    </properties>
   </object>
-  <object id="77" name="Bloob_Blue1" type="BloobSprite" gid="355" x="673.67" y="630.33" width="32" height="32">
+  <object id="77" name="Bloob_Blue1" type="BloobSprite" gid="355" x="737.67" y="482.33" width="32" height="32">
    <properties>
     <property name="Style" value="BloobStyleBlue"/>
     <property name="WalkSpeed" value="90"/>
    </properties>
   </object>
-  <object id="79" name="Bloob_Yellov1" type="BloobSprite" gid="351" x="637.997" y="751" width="32" height="32">
+  <object id="79" name="Bloob_Yellov1" type="BloobSprite" gid="351" x="668.997" y="503" width="32" height="32">
    <properties>
     <property name="Style" value="BloobStyleYellow"/>
     <property name="WalkSpeed" value="150"/>
    </properties>
   </object>
-  <object id="88" name="Coin1" type="CoinSprite" gid="178" x="384.667" y="742.003" width="32" height="32"/>
-  <object id="94" name="Coin2" type="CoinSprite" gid="178" x="352.333" y="758.667" width="32" height="32"/>
-  <object id="95" name="Coin3" type="CoinSprite" gid="178" x="416.333" y="759.667" width="32" height="32"/>
-  <object id="99" name="StartMenue" type="ImageSprite" gid="359" x="333" y="524" width="128" height="32">
-   <properties>
-    <property name="Image" value="Start.png"/>
-    <property name="Transparency" value="False"/>
-   </properties>
-  </object>
-  <object id="102" name="StartMenue" type="ImageSprite" gid="361" x="333" y="560" width="128" height="32">
-   <properties>
-    <property name="Image" value="Resume.png"/>
-    <property name="Transparency" value="False"/>
-   </properties>
-  </object>
-  <object id="103" name="StartMenue" type="ImageSprite" gid="363" x="333" y="596" width="128" height="32">
-   <properties>
-    <property name="Image" value="Optionen.png"/>
-    <property name="Transparency" value="False"/>
-   </properties>
-  </object>
-  <object id="104" name="StartMenue" type="ImageSprite" gid="365" x="333" y="633" width="128" height="32">
-   <properties>
-    <property name="Image" value="Credits.png"/>
-    <property name="Transparency" value="False"/>
-   </properties>
-  </object>
-  <object id="105" name="StartMenue" type="ImageSprite" gid="367" x="333" y="678" width="128" height="32">
-   <properties>
-    <property name="Image" value="Exit.png"/>
-    <property name="Transparency" value="False"/>
-   </properties>
-  </object>
-  <object id="111" name="StartMenue" type="ImageSprite" gid="369" x="288" y="354" width="224" height="160">
+  <object id="88" name="Coin1" type="CoinSprite" gid="178" x="380.667" y="455.003" width="32" height="32"/>
+  <object id="94" name="Coin2" type="CoinSprite" gid="178" x="356.333" y="471.667" width="32" height="32"/>
+  <object id="95" name="Coin3" type="CoinSprite" gid="178" x="409.333" y="475.667" width="32" height="32"/>
+  <object id="111" name="StartMenue" type="ImageSprite" gid="369" x="287" y="34" width="224" height="160">
    <properties>
     <property name="Image" value="Titel.png"/>
     <property name="Transparency" value="False"/>
@@ -232,15 +202,18 @@
   </object>
  </objectgroup>
  <objectgroup name="Player">
-  <object id="96" name="Player" type="MenueSelectorPlayer" gid="177" x="133.667" y="576" width="195.333" height="139.333">
+  <object id="96" name="Player" type="MenueSelectorPlayer" gid="177" x="296.667" y="228" width="195.333" height="139.333">
    <properties>
     <property name="Margin" value="8"/>
     <property name="MenuItem1" value="Image=Start.png TargetView=Demo"/>
     <property name="MenuItem2" value="Image=Resume.png TargetView=Demo Resume=True"/>
     <property name="MenuItem3" value="Image=Optionen.png TargetView=Optionen"/>
-    <property name="MenuItem4" value="Image=Credits.png TargetView=Credits"/>
+    <property name="MenuItem4" value="Image=Credits.png TargetView=DemoFinal"/>
     <property name="MenuItem5" value="Image=Exit.png Action=ExitAction"/>
+    <property name="Pointer" value="Image=Pfeil.png"/>
     <property name="ResourcePath" value="StartMenue"/>
+    <property name="SoundButton" value="Jumping"/>
+    <property name="SoundMove" value="Beep"/>
    </properties>
   </object>
  </objectgroup>
@@ -248,8 +221,8 @@
   <object id="27" name="MusicPlayer" type="MusicPlayer" x="169.667" y="368" width="32" height="32">
    <properties>
     <property name="Loop" value="True"/>
-    <property name="Song1" value="m4rt3z_m4rt3z---Primal-Snap-320.mp3"/>
-    <property name="Start" value="False"/>
+    <property name="Song1" value="flohwalzer_60_sec_0100_demo.mp3"/>
+    <property name="Start" value="True"/>
    </properties>
   </object>
   <object id="29" name="SoundList" type="SoundList" x="377.333" y="369.667" width="32" height="32">

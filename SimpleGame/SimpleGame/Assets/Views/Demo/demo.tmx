@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="93">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="95">
  <properties>
   <property name="Plugin" value="xPlugin=ShowJump"/>
   <property name="Plugin3" value="Plugin=CheatKeyPlugin"/>
@@ -82,10 +82,10 @@
   <image source="../../Sprites/Bloob/bloob_blue_springen.png" trans="4a61f3" width="128" height="32"/>
  </tileset>
  <imagelayer name="Image">
-  <image source="Demobackground.png" width="1600" height="1600"/>
+  <image source="Demobackground.png"/>
  </imagelayer>
- <objectgroup color="#ff0000" name="Screen" visible="0">
-  <object id="1" name="Screen" type="Screen" x="2" y="2412" width="800" height="600"/>
+ <objectgroup color="#ff0000" name="Screen">
+  <object id="1" name="Screen" type="Screen" x="0" y="2541" width="800" height="600"/>
  </objectgroup>
  <layer name="BackgroundMap" width="100" height="100">
   <data encoding="csv">
@@ -286,7 +286,7 @@
 130,146,0,0,0,0,0,0,0,0,0,0,17,24,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,145,130,
 130,146,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,145,130,
 130,146,0,0,0,0,0,0,0,0,17,22,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,145,130,
-130,146,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,176,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,145,130,
+130,146,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,176,58,0,0,0,0,58,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,145,130,
 130,130,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,134,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,135,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,117,130,130,
 130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,146,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,145,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,
 130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,136,136,136,136,136,136,136,136,136,136,136,136,136,136,136,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,
@@ -317,7 +317,7 @@
   <object id="60" name="Teleporter_Front1" type="TeleporterFrontSprite" gid="189" x="1632" y="2720" width="32" height="32"/>
   <object id="62" name="BunteFlagge" type="TargedpointSprite" gid="190" x="192" y="1504" width="32" height="32">
    <properties>
-    <property name="ViewName" value="DemoFinale"/>
+    <property name="ViewName" value="DemoFinal"/>
    </properties>
   </object>
   <object id="65" name="Telepunkt1" type="TeleporterSprite" gid="194" x="1639.91" y="2726.18" width="32" height="32">
@@ -392,8 +392,14 @@
     <property name="Style" value="BloobStyleBlue"/>
    </properties>
   </object>
+  <object id="94" name="Bloob2" type="BloobSprite" gid="186" x="645" y="2952" width="32" height="32">
+   <properties>
+    <property name="KillPlayer" value="True"/>
+    <property name="KillSprite" value="False"/>
+   </properties>
+  </object>
  </objectgroup>
- <objectgroup name="Player" visible="0" offsetx="0" offsety="32">
+ <objectgroup name="Player" offsetx="0" offsety="32">
   <object id="2" name="Player" type="JohnDoeSprite" gid="177" x="158" y="2972" width="32" height="32"/>
  </objectgroup>
  <objectgroup color="#005500" name="Objects" offsetx="0" offsety="32">
@@ -401,7 +407,7 @@
    <properties>
     <property name="Loop" value="True"/>
     <property name="Song1" value="m4rt3z_m4rt3z---Primal-Snap-320.mp3"/>
-    <property name="Start" value="False"/>
+    <property name="Start" value="True"/>
    </properties>
   </object>
   <object id="29" name="SoundList" type="SoundList" x="2278" y="1289" width="32" height="32">

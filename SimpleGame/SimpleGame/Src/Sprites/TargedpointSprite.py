@@ -18,7 +18,7 @@ class TargedpointSprite(SpriteBase):
         #if not SpritePropNames.Behavior in properties:
         #    self.behavior = self.behaviorFactory('TargedpointBehavior', properties)
         if not SpritePropNames.Behavior in properties:
-            self.behavior = self.behaviorFactory('DefaultSpriteBehavior', properties)
+            self.behavior = self.behaviorFactory('TeleporterBehavior', properties)
         if not SpritePropNames.Supplies in properties:
             self.supplies = self.suppliesFactory('Nothing', properties)
 

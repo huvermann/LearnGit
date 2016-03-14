@@ -30,7 +30,7 @@
                  "visible":true,
                  "width":800,
                  "x":0,
-                 "y":359.909
+                 "y":885
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -65,40 +65,7 @@
          "draworder":"topdown",
          "height":0,
          "name":"Sprites",
-         "objects":[
-                {
-                 "gid":367,
-                 "height":32,
-                 "id":105,
-                 "name":"StartMenue",
-                 "properties":
-                    {
-                     "Image":"Exit.png",
-                     "Transparency":"False"
-                    },
-                 "rotation":0,
-                 "type":"ImageSprite",
-                 "visible":true,
-                 "width":128,
-                 "x":64,
-                 "y":802
-                }, 
-                {
-                 "gid":1,
-                 "height":32,
-                 "id":113,
-                 "name":"ExitCommand",
-                 "properties":
-                    {
-                     "ViewName":"DemoStart"
-                    },
-                 "rotation":0,
-                 "type":"TargedpointSprite",
-                 "visible":true,
-                 "width":32,
-                 "x":117,
-                 "y":702
-                }],
+         "objects":[],
          "offsetx":0,
          "offsety":32,
          "opacity":1,
@@ -115,7 +82,7 @@
          "objects":[
                 {
                  "gid":177,
-                 "height":280.333,
+                 "height":161.333,
                  "id":96,
                  "name":"Player",
                  "properties":
@@ -123,17 +90,17 @@
 
                     },
                  "rotation":0,
-                 "type":"MenueSelectorPlayer",
+                 "type":"EmptyPlayer",
                  "visible":true,
-                 "width":365.333,
-                 "x":379.667,
-                 "y":676
+                 "width":182.333,
+                 "x":327.667,
+                 "y":1057
                 }],
          "offsetx":0,
          "offsety":32,
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "width":0,
          "x":0,
          "y":0
@@ -152,14 +119,14 @@
                     {
                      "Loop":"True",
                      "Song1":"m4rt3z_m4rt3z---Primal-Snap-320.mp3",
-                     "Start":"False"
+                     "Start":"True"
                     },
                  "rotation":0,
                  "type":"MusicPlayer",
                  "visible":true,
                  "width":32,
-                 "x":169.667,
-                 "y":368
+                 "x":713.667,
+                 "y":23
                 }, 
                 {
                  "height":32,
@@ -167,17 +134,44 @@
                  "name":"SoundList",
                  "properties":
                     {
-                     "Beep":"319200__18hiltc__pixel-game-beep.wav",
-                     "GameOver":"319200__18hiltc__pixel-game-beep.wav",
-                     "Jumping":"172205__fins__jumping.wav",
-                     "Laser":"146725__fins__laser.wav"
+
                     },
                  "rotation":0,
                  "type":"SoundList",
                  "visible":true,
                  "width":32,
-                 "x":377.333,
-                 "y":369.667
+                 "x":717.333,
+                 "y":95.667
+                }, 
+                {
+                 "height":32,
+                 "id":114,
+                 "name":"PressSpaceOrButtonNavigator",
+                 "properties":
+                    {
+                     "TargetView":"Demostart"
+                    },
+                 "rotation":0,
+                 "type":"PressSpaceOrButtonNavigator",
+                 "visible":true,
+                 "width":32,
+                 "x":669,
+                 "y":236
+                }, 
+                {
+                 "height":32,
+                 "id":115,
+                 "name":"IsGameLostView",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"IsGameLostView",
+                 "visible":true,
+                 "width":32,
+                 "x":710,
+                 "y":165
                 }],
          "offsetx":0,
          "offsety":32,
@@ -188,12 +182,11 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":114,
+ "nextobjectid":116,
  "orientation":"orthogonal",
  "properties":
     {
-     "Plugin":"xPlugin=ShowJump",
-     "Plugin3":"Plugin=CheatKeyPlugin"
+     "Plugin1":""
     },
  "renderorder":"right-down",
  "tileheight":32,
