@@ -7,7 +7,6 @@ from Utils.ViewPointer import ViewPoint
 from Utils.gui.TextLabel import TextLabel
 import json
 import os.path
-#import jsonpickle
 
 
 
@@ -346,7 +345,8 @@ class ShowJump(ViewPluginBase):
         #with open('jumpdata.json', 'w') as outfile:
         #    json.dump(data, outfile)
         with open('jumpdata.json', 'w') as text_file:
-            text_file.write(jsonpickle.encode(data))
+            #text_file.write(jsonpickle.encode(data))
+            print("Dummy")
 
         pass
     def onLoadButtonClick(self, sender):
@@ -355,7 +355,7 @@ class ShowJump(ViewPluginBase):
             with open('jumpdata.json') as data_file:
                 #data = json.load(data_file)
                 txt = data_file.read()
-                data = jsonpickle.decode(txt)
+                #data = jsonpickle.decode(txt)
             params = data["JumpParameters"]
             #self._savedGameCoordinates = self.deserializeObject(data["Teleports"])
             self._savedGameCoordinates = data["Teleports"]

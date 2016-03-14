@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>da9d3ad3-2ece-426a-a977-e83b691ddc1a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Src\Game.py</StartupFile>
+    <StartupFile>Deployment\makeSpec.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -27,6 +27,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Deployment\makeSpec.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Actions\ExitAction.py">
       <SubType>Code</SubType>
     </Compile>
