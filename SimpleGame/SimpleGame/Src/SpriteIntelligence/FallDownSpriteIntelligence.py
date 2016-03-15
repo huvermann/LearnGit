@@ -27,13 +27,14 @@ class FallDownSpriteIntelligence(SpriteIntelligenceBase):
         self._onSpriteHasGrounded = callback
 
     def calculateMaxFallingTime(self, sprite):
+        print("Calculate Falling time.")
         result = None
         offset = sprite.position
         rect = sprite.collideRect
         abort = False
         time = 0
         while not abort:
-            time += 1
+            time += 8
             y = self._moveCalculator.calcFalling(time)
             position = ViewPoint(offset.left, offset.top + y)
             state = self._collider.checkCollideAt(self._map, rect, position)
@@ -42,6 +43,7 @@ class FallDownSpriteIntelligence(SpriteIntelligenceBase):
                 abort = True
             elif time > 5000:
                 result = (5000, position)
+                abort = True
 
         return result
 

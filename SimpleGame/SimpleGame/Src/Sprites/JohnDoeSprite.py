@@ -18,22 +18,19 @@ class JohnDoeSprite(PlayerBaseClass):
         data = '''{"Standing": {
         "Filename": "standing_front.png",
         "AnimationType": "TimeBased",
-        "Delay": 250,
-        "PictureSize": [ 32, 32 ]
+        "Delay": 250
       },
 
       "StandingLeft": {
         "Filename": "standing_left.png",
         "AnimationType": "TimeBased",
-        "Delay": 250,
-        "PictureSize": [ 32, 32 ]
+        "Delay": 250
       },
 
       "StandingRight": {
         "Filename": "standing_right.png",
         "AnimationType": "TimeBased",
-        "Delay": 250,
-        "PictureSize": [ 32, 32 ]
+        "Delay": 250
       },
 
       "Falling": {
@@ -92,7 +89,8 @@ class JohnDoeSprite(PlayerBaseClass):
         rect = self.rect.copy()
         rect.top = 0
         rect.left = 9
-        rect.width = 14
+        rect.width = 32
+        rect.height = 64
         return rect
 
         
