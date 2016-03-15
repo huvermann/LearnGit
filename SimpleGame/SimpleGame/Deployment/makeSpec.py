@@ -13,9 +13,13 @@ items = []
 for root, subFolders, files in assets:
     for file in files:
         path = root.replace(dir + '\\', '').replace('\\', '\\\\')
-        #filePath = os.path.join(root, file)
+        
         item = "('..\\\\Assets\\\\{0}\\\\{1}', 'Assets\\\\{0}')".format(path, file)
-        items.append(item)
+        extension = os.path.splitext(file)[1]
+        if extension in ['.png', '.json', '.ttf', '.otf', '.wav', '.mp3']:
+            items.append(item)
+        else:
+            print('Not included: {0}'.format(file))
 
 result = ",\n".join(items)
 
