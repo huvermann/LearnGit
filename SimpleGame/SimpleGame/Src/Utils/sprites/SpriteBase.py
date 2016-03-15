@@ -55,7 +55,8 @@ class SpriteBase(pygame.sprite.Sprite):
         assert isinstance(properties, TiledObjectItem), "Expected properties to be of type TiledObjectItem."
         self._name = properties.name
         self._x = properties.x
-        self._y = properties.y
+        # Fix the y-Coordinate from tiled bug:
+        self._y = properties.y - properties.height
         self.configureFromProperties(properties.properties)
         pass
 

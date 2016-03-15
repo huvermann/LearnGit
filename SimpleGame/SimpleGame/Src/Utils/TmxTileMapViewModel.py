@@ -59,7 +59,7 @@ class TmxTileMapViewModel(ViewModelBase2):
             result.configure(config)
         else:
             result.configureProperties(config.properties)
-        self._viewPointer.initPlayerPosition(config.x, config.y)
+        self._viewPointer.initPlayerPosition(config.x, config.y-config.height)
         return result
 
     def configureSprites(self, config):
