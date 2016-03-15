@@ -15,7 +15,7 @@
     <InterpreterId>{ab8ef5c4-9fc3-4532-90cf-90d71360e93c}</InterpreterId>
     <InterpreterVersion>3.5</InterpreterVersion>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <CommandLineArguments>-v Training</CommandLineArguments>
+    <CommandLineArguments>-v Demo</CommandLineArguments>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
