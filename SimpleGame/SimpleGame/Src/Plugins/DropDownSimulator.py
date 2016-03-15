@@ -2,7 +2,7 @@ from Utils.ViewPluginBase import ViewPluginBase
 import pygame
 from Utils.ViewPointer import ViewPoint
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
-from Sprites.CoinSprite import CoinSprite
+from Sprites.BloobSprite import BloobSprite
 from SpriteIntelligence.Dropdown2AI import Dropdown2AI
 
 
@@ -26,7 +26,7 @@ class DropDownSimulator(ViewPluginBase):
         point = ViewPoint(event.pos[0], event.pos[1])
         screenOffset = self._viewPointer.screenPosition
         mapPos = ViewPoint(screenOffset.left + point.left, screenOffset.top+point.top)
-        newCoin = CoinSprite()
+        newCoin = BloobSprite()
         newCoin.configureFromProperties({})
         newCoin.intelligence = Dropdown2AI(newCoin, {})
         newCoin.x = mapPos.left
