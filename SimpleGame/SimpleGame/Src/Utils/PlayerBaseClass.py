@@ -5,7 +5,6 @@ from Utils.DirHelper import getSpriteAnimationImage, getSpriteResourceFilename
 from Utils.Constants import AnimationNames, ConfigKey
 from Utils.JoystickStates import JoystickEvents, JoystickState
 from Utils.PlayerMoveStateMachine import PlayerMoveState, PlayerMoveStateMachine
-from Utils.TileMapManager import TileMapManager
 from Utils.AnimationInfo import AnimationInfo, AniConfigKeys, AnimationTypes
 from Utils.JumpCalculator import JumpCalculator
 from Utils.ServiceLocator import ServiceLocator, ServiceNames

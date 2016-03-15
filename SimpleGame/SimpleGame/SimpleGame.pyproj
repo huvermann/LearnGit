@@ -342,9 +342,6 @@
     <Compile Include="Src\Utils\SpriteItemBase.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Src\Utils\TileMapManager.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Src\Utils\UserEvents.py">
       <SubType>Code</SubType>
     </Compile>
