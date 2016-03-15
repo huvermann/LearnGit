@@ -50,7 +50,8 @@ class MenueItem():
         if self.animation and self._textSurface:
             #merge text and image
             result = self.animation.ImageSurface
-            result.blit(self._textSurface.render(), (0,0))
+            rect = result.get_rect()
+            result.blit(self._textSurface.render(rect.width), (0,0))
         elif self.animation:
             return self.animation.ImageSurface
         elif self._textSurface:
@@ -226,15 +227,15 @@ class PlayerMenueSelectorBase(pygame.sprite.Sprite):
             pointerTop.append(height)
 
         pointerRect = self.pointerImage.get_rect()
-        maxWidth += self._margin + pointerRect.width
+        #maxWidth += self._margin + pointerRect.width
         # Create transparent surface
         if maxWidth == 0:
             widt = 1
         if height == 0:
             height = 1
-        result = pygame.Surface([maxWidth,height])
+        result = pygame.Surface([maxWidth + self._margin + pointerRect.width, height])
         result.fill((1,2,3))
-        result.set_colorkey(result.get_at((0,0)))
+        result.set_colorkey((1,2,3))
 
         # Copy items to surface
         y = 0
