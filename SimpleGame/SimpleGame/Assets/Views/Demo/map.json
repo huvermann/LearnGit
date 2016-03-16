@@ -28,8 +28,8 @@
                  "type":"Screen",
                  "visible":true,
                  "width":800,
-                 "x":1108.36363636364,
-                 "y":4704.84848484848
+                 "x":1108.36,
+                 "y":4704.85
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -66,7 +66,7 @@
          "name":"Sprites",
          "objects":[
                 {
-                 "gid":137,
+                 "gid":125,
                  "height":64,
                  "id":9,
                  "name":"Coin1",
@@ -82,7 +82,7 @@
                  "y":5020.84
                 }, 
                 {
-                 "gid":133,
+                 "gid":124,
                  "height":64,
                  "id":10,
                  "name":"Bloob1",
@@ -98,7 +98,7 @@
                  "y":5050.84
                 }, 
                 {
-                 "gid":133,
+                 "gid":124,
                  "height":64,
                  "id":11,
                  "name":"Bloob2",
@@ -110,11 +110,11 @@
                  "type":"BloobSprite",
                  "visible":true,
                  "width":64,
-                 "x":3200.48484848485,
-                 "y":4635.20363636364
+                 "x":3200.48,
+                 "y":4635.2
                 }, 
                 {
-                 "gid":137,
+                 "gid":125,
                  "height":64,
                  "id":12,
                  "name":"Coin2",
@@ -130,7 +130,7 @@
                  "y":4995.84
                 }, 
                 {
-                 "gid":137,
+                 "gid":125,
                  "height":64,
                  "id":13,
                  "name":"Coin3",
@@ -146,7 +146,7 @@
                  "y":4971.84
                 }, 
                 {
-                 "gid":137,
+                 "gid":125,
                  "height":64,
                  "id":14,
                  "name":"Coin4",
@@ -162,7 +162,7 @@
                  "y":4951.84
                 }, 
                 {
-                 "gid":137,
+                 "gid":125,
                  "height":64,
                  "id":15,
                  "name":"Coin5",
@@ -178,7 +178,7 @@
                  "y":4941.84
                 }, 
                 {
-                 "gid":137,
+                 "gid":125,
                  "height":64,
                  "id":16,
                  "name":"Coin6",
@@ -194,7 +194,7 @@
                  "y":4951.84
                 }, 
                 {
-                 "gid":137,
+                 "gid":125,
                  "height":64,
                  "id":17,
                  "name":"Coin7",
@@ -210,7 +210,7 @@
                  "y":4970.84
                 }, 
                 {
-                 "gid":137,
+                 "gid":125,
                  "height":64,
                  "id":18,
                  "name":"Coin8",
@@ -226,7 +226,7 @@
                  "y":4995.84
                 }, 
                 {
-                 "gid":137,
+                 "gid":125,
                  "height":64,
                  "id":19,
                  "name":"Coin9",
@@ -242,7 +242,7 @@
                  "y":5018.84
                 }, 
                 {
-                 "gid":133,
+                 "gid":124,
                  "height":64,
                  "id":20,
                  "name":"Bloob3",
@@ -258,7 +258,7 @@
                  "y":5907.51
                 }, 
                 {
-                 "gid":133,
+                 "gid":124,
                  "height":64,
                  "id":21,
                  "name":"Bloob4",
@@ -274,7 +274,7 @@
                  "y":2991.84
                 }, 
                 {
-                 "gid":125,
+                 "gid":122,
                  "height":64,
                  "id":22,
                  "name":"heart1",
@@ -290,7 +290,7 @@
                  "y":5057.84
                 }, 
                 {
-                 "gid":125,
+                 "gid":122,
                  "height":64,
                  "id":23,
                  "name":"heart2",
@@ -306,7 +306,7 @@
                  "y":2883.84
                 }, 
                 {
-                 "gid":125,
+                 "gid":122,
                  "height":64,
                  "id":24,
                  "name":"heart3",
@@ -322,7 +322,7 @@
                  "y":2944.84
                 }, 
                 {
-                 "gid":133,
+                 "gid":124,
                  "height":64,
                  "id":25,
                  "name":"Bloob5",
@@ -334,11 +334,11 @@
                  "type":"BloobSprite",
                  "visible":true,
                  "width":64,
-                 "x":2112.09424242424,
-                 "y":5968.06909090909
+                 "x":2112.09,
+                 "y":5968.07
                 }, 
                 {
-                 "gid":157,
+                 "gid":142,
                  "height":64,
                  "id":26,
                  "name":"Teleporter_Front2",
@@ -354,7 +354,7 @@
                  "y":5952
                 }, 
                 {
-                 "gid":157,
+                 "gid":142,
                  "height":64,
                  "id":27,
                  "name":"Teleporter_Front1",
@@ -370,7 +370,7 @@
                  "y":5440.34
                 }, 
                 {
-                 "gid":158,
+                 "gid":143,
                  "height":64,
                  "id":28,
                  "name":"BunteFlagge",
@@ -386,7 +386,7 @@
                  "y":3008
                 }, 
                 {
-                 "gid":153,
+                 "gid":141,
                  "height":64,
                  "id":29,
                  "name":"Telepunkt1",
@@ -402,7 +402,7 @@
                  "y":5456.51
                 }, 
                 {
-                 "gid":153,
+                 "gid":141,
                  "height":64,
                  "id":30,
                  "name":"Telepunkt2",
@@ -414,11 +414,11 @@
                  "type":"TeleporterSprite",
                  "visible":true,
                  "width":64,
-                 "x":1288.66787878788,
-                 "y":5968.65818181818
+                 "x":1288.67,
+                 "y":5968.66
                 }, 
                 {
-                 "gid":149,
+                 "gid":137,
                  "height":64,
                  "id":31,
                  "name":"Bloob_red1",
@@ -438,10 +438,10 @@
                  "visible":true,
                  "width":64,
                  "x":4901.33,
-                 "y":5898.25090909091
+                 "y":5898.25
                 }, 
                 {
-                 "gid":149,
+                 "gid":137,
                  "height":64,
                  "id":32,
                  "name":"Bloob_red2",
@@ -460,11 +460,11 @@
                  "type":"BloobSprite",
                  "visible":true,
                  "width":64,
-                 "x":1040.4696969697,
-                 "y":3058.35515151515
+                 "x":1040.47,
+                 "y":3058.36
                 }, 
                 {
-                 "gid":162,
+                 "gid":147,
                  "height":64,
                  "id":33,
                  "name":"Bloob_Blue1",
@@ -476,11 +476,11 @@
                  "type":"BloobSprite",
                  "visible":true,
                  "width":64,
-                 "x":5714.42757575758,
-                 "y":5897.52363636364
+                 "x":5714.43,
+                 "y":5897.52
                 }, 
                 {
-                 "gid":145,
+                 "gid":133,
                  "height":64,
                  "id":34,
                  "name":"Bloob_Yellov1",
@@ -492,11 +492,11 @@
                  "type":"BloobSprite",
                  "visible":true,
                  "width":64,
-                 "x":5375.26939393939,
-                 "y":5900.32484848485
+                 "x":5375.27,
+                 "y":5900.32
                 }, 
                 {
-                 "gid":137,
+                 "gid":125,
                  "height":64,
                  "id":35,
                  "name":"Coin17",
@@ -508,11 +508,11 @@
                  "type":"CoinSprite",
                  "visible":true,
                  "width":64,
-                 "x":2075.39393939394,
-                 "y":3620.90393939394
+                 "x":2075.39,
+                 "y":3620.9
                 }, 
                 {
-                 "gid":137,
+                 "gid":125,
                  "height":64,
                  "id":36,
                  "name":"Coin16",
@@ -524,11 +524,11 @@
                  "type":"CoinSprite",
                  "visible":true,
                  "width":64,
-                 "x":2044.06393939394,
-                 "y":3609.23393939394
+                 "x":2044.06,
+                 "y":3609.23
                 }, 
                 {
-                 "gid":137,
+                 "gid":125,
                  "height":64,
                  "id":37,
                  "name":"Coin15",
@@ -540,11 +540,11 @@
                  "type":"CoinSprite",
                  "visible":true,
                  "width":64,
-                 "x":2011.06393939394,
-                 "y":3621.23393939394
+                 "x":2011.06,
+                 "y":3621.23
                 }, 
                 {
-                 "gid":137,
+                 "gid":125,
                  "height":64,
                  "id":38,
                  "name":"Coin14",
@@ -556,11 +556,11 @@
                  "type":"CoinSprite",
                  "visible":true,
                  "width":64,
-                 "x":1979.72393939394,
-                 "y":3609.55393939394
+                 "x":1979.72,
+                 "y":3609.55
                 }, 
                 {
-                 "gid":137,
+                 "gid":125,
                  "height":64,
                  "id":39,
                  "name":"Coin13",
@@ -572,11 +572,11 @@
                  "type":"CoinSprite",
                  "visible":true,
                  "width":64,
-                 "x":1947.06393939394,
-                 "y":3620.55393939394
+                 "x":1947.06,
+                 "y":3620.55
                 }, 
                 {
-                 "gid":137,
+                 "gid":125,
                  "height":64,
                  "id":40,
                  "name":"Coin12",
@@ -588,11 +588,11 @@
                  "type":"CoinSprite",
                  "visible":true,
                  "width":64,
-                 "x":1915.72393939394,
-                 "y":3608.90393939394
+                 "x":1915.72,
+                 "y":3608.9
                 }, 
                 {
-                 "gid":137,
+                 "gid":125,
                  "height":64,
                  "id":41,
                  "name":"Coin11",
@@ -604,11 +604,11 @@
                  "type":"CoinSprite",
                  "visible":true,
                  "width":64,
-                 "x":1883.72393939394,
-                 "y":3617.90393939394
+                 "x":1883.72,
+                 "y":3617.9
                 }, 
                 {
-                 "gid":137,
+                 "gid":125,
                  "height":64,
                  "id":42,
                  "name":"Coin10",
@@ -620,11 +620,11 @@
                  "type":"CoinSprite",
                  "visible":true,
                  "width":64,
-                 "x":1851.72393939394,
-                 "y":3608.23393939394
+                 "x":1851.72,
+                 "y":3608.23
                 }, 
                 {
-                 "gid":145,
+                 "gid":133,
                  "height":64,
                  "id":43,
                  "name":"Bloob_Yellov2",
@@ -636,11 +636,11 @@
                  "type":"BloobSprite",
                  "visible":true,
                  "width":64,
-                 "x":2292.78787878788,
-                 "y":3605.77939393939
+                 "x":2292.79,
+                 "y":3605.78
                 }, 
                 {
-                 "gid":145,
+                 "gid":133,
                  "height":64,
                  "id":44,
                  "name":"Bloob_Yellov3",
@@ -652,11 +652,11 @@
                  "type":"BloobSprite",
                  "visible":true,
                  "width":64,
-                 "x":5469.22727272727,
-                 "y":2973.00666666667
+                 "x":5469.23,
+                 "y":2973.01
                 }, 
                 {
-                 "gid":162,
+                 "gid":147,
                  "height":64,
                  "id":45,
                  "name":"Bloob_Blue2",
@@ -668,11 +668,11 @@
                  "type":"BloobSprite",
                  "visible":true,
                  "width":64,
-                 "x":293.090909090909,
-                 "y":5913.93090909091
+                 "x":293.091,
+                 "y":5913.93
                 }, 
                 {
-                 "gid":162,
+                 "gid":147,
                  "height":64,
                  "id":46,
                  "name":"Bloob_Blue3",
@@ -684,25 +684,25 @@
                  "type":"BloobSprite",
                  "visible":true,
                  "width":64,
-                 "x":2878.06060606061,
-                 "y":2980.56727272727
+                 "x":2878.06,
+                 "y":2980.57
                 }, 
                 {
-                 "gid":133,
+                 "gid":124,
                  "height":64,
                  "id":47,
                  "name":"Bloob2",
                  "properties":
                     {
-                     "KillPlayer":"True",
+                     "KillPlayer":"False",
                      "KillSprite":"False"
                     },
                  "rotation":0,
                  "type":"BloobSprite",
                  "visible":true,
                  "width":64,
-                 "x":4968.27272727273,
-                 "y":4188.56727272727
+                 "x":4968.27,
+                 "y":4188.57
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -792,7 +792,7 @@
                  "visible":true,
                  "width":31,
                  "x":1487.5,
-                 "y":3345.33333333333
+                 "y":3345.33
                 }, 
                 {
                  "height":31,
@@ -807,7 +807,7 @@
                  "visible":true,
                  "width":31,
                  "x":3055.5,
-                 "y":2796.33333333333
+                 "y":2796.33
                 }, 
                 {
                  "height":32,
@@ -865,7 +865,8 @@
  "orientation":"orthogonal",
  "properties":
     {
-
+     "Plugin1":"Plugin=DefaultScorePanel",
+     "Plugin2":"Plugin=ShowJump"
     },
  "renderorder":"right-down",
  "tileheight":64,
@@ -956,14 +957,14 @@
 
             },
          "spacing":0,
-         "tilecount":4,
+         "tilecount":1,
          "tileheight":64,
          "tilewidth":64,
          "transparentcolor":"#4a61f3"
         }, 
         {
          "columns":2,
-         "firstgid":125,
+         "firstgid":122,
          "image":"..\/..\/Sprites\/Heart\/Heart_Ani.png",
          "imageheight":64,
          "imagewidth":128,
@@ -974,14 +975,14 @@
 
             },
          "spacing":0,
-         "tilecount":8,
+         "tilecount":2,
          "tileheight":64,
          "tilewidth":64,
          "transparentcolor":"#4a61f3"
         }, 
         {
          "columns":1,
-         "firstgid":133,
+         "firstgid":124,
          "image":"..\/..\/Sprites\/Bloob\/bloob_fallen_links.png",
          "imageheight":64,
          "imagewidth":64,
@@ -992,14 +993,14 @@
 
             },
          "spacing":0,
-         "tilecount":4,
+         "tilecount":1,
          "tileheight":64,
          "tilewidth":64,
          "transparentcolor":"#4a61f3"
         }, 
         {
          "columns":8,
-         "firstgid":137,
+         "firstgid":125,
          "image":"..\/..\/Sprites\/Coin\/Coin_Ani.png",
          "imageheight":64,
          "imagewidth":512,
@@ -1017,7 +1018,7 @@
         }, 
         {
          "columns":4,
-         "firstgid":145,
+         "firstgid":133,
          "image":"..\/..\/Sprites\/Bloob\/bloob_yellow_springen.png",
          "imageheight":64,
          "imagewidth":256,
@@ -1035,7 +1036,7 @@
         }, 
         {
          "columns":4,
-         "firstgid":149,
+         "firstgid":137,
          "image":"..\/..\/Sprites\/Bloob\/bloob_red_springen.png",
          "imageheight":64,
          "imagewidth":256,
@@ -1053,7 +1054,7 @@
         }, 
         {
          "columns":1,
-         "firstgid":153,
+         "firstgid":141,
          "image":"..\/..\/Sprites\/Teleporter\/Telepunkt.png",
          "imageheight":64,
          "imagewidth":64,
@@ -1064,14 +1065,14 @@
 
             },
          "spacing":0,
-         "tilecount":4,
+         "tilecount":1,
          "tileheight":64,
          "tilewidth":64,
          "transparentcolor":"#4a61f3"
         }, 
         {
          "columns":1,
-         "firstgid":157,
+         "firstgid":142,
          "image":"..\/..\/Sprites\/Teleporter\/Teleporter_Front.png",
          "imageheight":64,
          "imagewidth":64,
@@ -1089,7 +1090,7 @@
         }, 
         {
          "columns":4,
-         "firstgid":158,
+         "firstgid":143,
          "image":"..\/..\/Sprites\/Targedpoint\/Flagge5.png",
          "imageheight":64,
          "imagewidth":256,
@@ -1107,7 +1108,7 @@
         }, 
         {
          "columns":4,
-         "firstgid":162,
+         "firstgid":147,
          "image":"..\/..\/Sprites\/Bloob\/bloob_blue_springen.png",
          "imageheight":64,
          "imagewidth":256,

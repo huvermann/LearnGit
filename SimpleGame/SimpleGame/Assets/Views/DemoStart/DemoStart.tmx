@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="13" height="15" tilewidth="64" tileheight="64" nextobjectid="25">
- <tileset firstgid="1" name="standing_right" tilewidth="64" tileheight="64" tilecount="4" columns="1">
+ <tileset firstgid="1" name="standing_right" tilewidth="64" tileheight="64" tilecount="1" columns="1">
   <image source="../../Sprites/John_Doe/standing_right.png" trans="4a61f3" width="64" height="64"/>
  </tileset>
- <tileset firstgid="5" name="bloob_red_springen" tilewidth="64" tileheight="64" tilecount="16" columns="4">
+ <tileset firstgid="2" name="bloob_red_springen" tilewidth="64" tileheight="64" tilecount="4" columns="4">
   <image source="../../Sprites/Bloob/bloob_red_springen.png" trans="4a61f3" width="256" height="64"/>
  </tileset>
- <tileset firstgid="21" name="bloob_fallen_links" tilewidth="64" tileheight="64" tilecount="4" columns="1">
+ <tileset firstgid="6" name="bloob_fallen_links" tilewidth="64" tileheight="64" tilecount="1" columns="1">
   <image source="../../Sprites/Bloob/bloob_fallen_links.png" trans="4a61f3" width="64" height="64"/>
  </tileset>
- <tileset firstgid="25" name="Flagge5" tilewidth="64" tileheight="64" tilecount="16" columns="4">
+ <tileset firstgid="7" name="Flagge5" tilewidth="64" tileheight="64" tilecount="4" columns="4">
   <image source="../../Sprites/Targedpoint/Flagge5.png" trans="4a61f3" width="256" height="64"/>
  </tileset>
- <tileset firstgid="41" name="Titel" tilewidth="224" tileheight="160" tilecount="1" columns="1">
+ <tileset firstgid="11" name="Titel" tilewidth="224" tileheight="160" tilecount="1" columns="1">
   <image source="../../Sprites/StartMenue/Titel.png" trans="000000" width="224" height="160"/>
  </tileset>
- <tileset firstgid="42" name="Coin_Ani" tilewidth="64" tileheight="64" tilecount="32" columns="8">
+ <tileset firstgid="12" name="Coin_Ani" tilewidth="64" tileheight="64" tilecount="8" columns="8">
   <image source="../../Sprites/Coin/Coin_Ani.png" trans="4a61f3" width="512" height="64"/>
  </tileset>
- <tileset firstgid="74" name="bloob_blue_springen" tilewidth="64" tileheight="64" tilecount="16" columns="4">
+ <tileset firstgid="20" name="bloob_blue_springen" tilewidth="64" tileheight="64" tilecount="4" columns="4">
   <image source="../../Sprites/Bloob/bloob_blue_springen.png" trans="4a61f3" width="256" height="64"/>
  </tileset>
- <tileset firstgid="90" name="bloob_yellow_springen" tilewidth="64" tileheight="64" tilecount="16" columns="4">
+ <tileset firstgid="24" name="bloob_yellow_springen" tilewidth="64" tileheight="64" tilecount="4" columns="4">
   <image source="../../Sprites/Bloob/bloob_yellow_springen.png" trans="4a61f3" width="256" height="64"/>
  </tileset>
- <tileset firstgid="106" name="bloob_red_springen" tilewidth="32" tileheight="32" tilecount="16" columns="8">
+ <tileset firstgid="28" name="bloob_red_springen" tilewidth="32" tileheight="32" tilecount="16" columns="8">
   <image source="../../Sprites/Bloob/bloob_red_springen.png" trans="4a61f3" width="256" height="64"/>
  </tileset>
- <tileset firstgid="122" name="bloob_fallen_links" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+ <tileset firstgid="44" name="bloob_fallen_links" tilewidth="32" tileheight="32" tilecount="4" columns="2">
   <image source="../../Sprites/Bloob/bloob_fallen_links.png" trans="4a61f3" width="64" height="64"/>
  </tileset>
- <tileset firstgid="126" name="Flagge5" tilewidth="32" tileheight="32" tilecount="16" columns="8">
+ <tileset firstgid="48" name="Flagge5" tilewidth="32" tileheight="32" tilecount="16" columns="8">
   <image source="../../Sprites/Targedpoint/Flagge5.png" trans="4a61f3" width="256" height="64"/>
  </tileset>
- <tileset firstgid="142" name="Coin_Ani" tilewidth="32" tileheight="32" tilecount="32" columns="16">
+ <tileset firstgid="64" name="Coin_Ani" tilewidth="32" tileheight="32" tilecount="32" columns="16">
   <image source="../../Sprites/Coin/Coin_Ani.png" trans="4a61f3" width="512" height="64"/>
  </tileset>
- <tileset firstgid="174" name="bloob_blue_springen" tilewidth="32" tileheight="32" tilecount="16" columns="8">
+ <tileset firstgid="96" name="bloob_blue_springen" tilewidth="32" tileheight="32" tilecount="16" columns="8">
   <image source="../../Sprites/Bloob/bloob_blue_springen.png" trans="4a61f3" width="256" height="64"/>
  </tileset>
- <tileset firstgid="190" name="bloob_yellow_springen" tilewidth="32" tileheight="32" tilecount="16" columns="8">
+ <tileset firstgid="112" name="bloob_yellow_springen" tilewidth="32" tileheight="32" tilecount="16" columns="8">
   <image source="../../Sprites/Bloob/bloob_yellow_springen.png" trans="4a61f3" width="256" height="64"/>
  </tileset>
- <tileset firstgid="206" name="Map" tilewidth="64" tileheight="64" tilecount="120" columns="8">
+ <tileset firstgid="128" name="Map" tilewidth="64" tileheight="64" tilecount="120" columns="8">
   <image source="../Demo/demo.png" trans="4a61f3" width="512" height="960"/>
  </tileset>
  <imagelayer name="Image">
-  <image source="Demobackground.png" width="800" height="960"/>
+  <image source="Demobackground.png" width="800" height="600"/>
  </imagelayer>
- <objectgroup name="Screen">
+ <objectgroup name="Screen" visible="0">
   <object id="24" name="Screen" type="Screen" x="-0.67" y="161" width="800" height="600"/>
  </objectgroup>
  <layer name="BackgroundMap" width="13" height="15">
@@ -61,16 +61,16 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,
-295,296,297,298,299,300,0,0,0,0,0,0,0,
-303,304,305,306,307,308,0,0,0,0,0,0,0,
-311,312,313,314,315,316,0,0,0,0,0,0,0,
+217,218,219,220,221,222,0,0,0,0,0,0,0,
+225,226,227,228,229,230,0,0,0,0,0,0,0,
+233,234,235,236,237,238,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="Map" width="13" height="15" visible="0">
+ <layer name="Map" width="13" height="15">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -82,21 +82,21 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,
-208,208,208,208,208,208,208,208,208,208,208,208,208,
-207,207,207,206,207,207,207,206,207,207,207,206,207,
+240,0,0,0,0,0,0,0,0,0,0,0,161,
+130,130,130,130,130,130,130,130,130,130,130,130,130,
+129,129,129,128,129,129,129,128,129,129,129,128,129,
 0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
  <objectgroup name="Sprites">
-  <object id="4" name="Bloob1" type="BloobSprite" gid="21" x="249" y="685" width="64" height="64"/>
-  <object id="6" name="BunteFlagge" type="TargedpointSprite" gid="25" x="384" y="704" width="64" height="64">
+  <object id="4" name="Bloob1" type="BloobSprite" gid="6" x="249" y="685" width="64" height="64"/>
+  <object id="6" name="BunteFlagge" type="TargedpointSprite" gid="7" x="384" y="704" width="64" height="64">
    <properties>
     <property name="ViewName" value="DemoFinale"/>
    </properties>
   </object>
-  <object id="7" name="Bloob_red1" type="BloobSprite" gid="5" x="22" y="693" width="64" height="64">
+  <object id="7" name="Bloob_red1" type="BloobSprite" gid="2" x="115" y="682" width="64" height="64">
    <properties>
     <property name="Energy" value="-50"/>
     <property name="FallSpeed" value="20"/>
@@ -108,22 +108,22 @@
     <property name="WalkSpeed" value="100"/>
    </properties>
   </object>
-  <object id="8" name="Bloob_Blue1" type="BloobSprite" gid="74" x="694" y="680" width="64" height="64">
+  <object id="8" name="Bloob_Blue1" type="BloobSprite" gid="20" x="657" y="682" width="64" height="64">
    <properties>
     <property name="Style" value="BloobStyleBlue"/>
     <property name="WalkSpeed" value="90"/>
    </properties>
   </object>
-  <object id="9" name="Bloob_Yellov1" type="BloobSprite" gid="90" x="438" y="679" width="64" height="64">
+  <object id="9" name="Bloob_Yellov1" type="BloobSprite" gid="24" x="438" y="679" width="64" height="64">
    <properties>
     <property name="Style" value="BloobStyleYellow"/>
     <property name="WalkSpeed" value="150"/>
    </properties>
   </object>
-  <object id="10" name="Coin1" type="CoinSprite" gid="42" x="576" y="620" width="64" height="64"/>
-  <object id="11" name="Coin2" type="CoinSprite" gid="42" x="513" y="670" width="64" height="64"/>
-  <object id="12" name="Coin3" type="CoinSprite" gid="42" x="639" y="670" width="64" height="64"/>
-  <object id="13" name="StartMenue" type="ImageSprite" gid="41" x="288.438" y="352.879" width="224" height="160">
+  <object id="10" name="Coin1" type="CoinSprite" gid="12" x="576" y="620" width="64" height="64"/>
+  <object id="11" name="Coin2" type="CoinSprite" gid="12" x="513" y="670" width="64" height="64"/>
+  <object id="12" name="Coin3" type="CoinSprite" gid="12" x="639" y="670" width="64" height="64"/>
+  <object id="13" name="StartMenue" type="ImageSprite" gid="11" x="288.438" y="352.879" width="224" height="160">
    <properties>
     <property name="Image" value="Titel.png"/>
     <property name="Transparency" value="False"/>

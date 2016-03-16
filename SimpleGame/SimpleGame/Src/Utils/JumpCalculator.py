@@ -39,7 +39,7 @@ class JumpCalculator(object):
         self._horizontalJumpSize = None
         self._params = {}
         self._params[JumpSizeMode.Short] = JumpParameters(g=500, v0=275, vx=70)
-        self._params[JumpSizeMode.Long] = JumpParameters(g=500, v0=300, vx=100)
+        self._params[JumpSizeMode.Long] = JumpParameters(g=500, v0=460, vx=100)
         self.horizontalJumpSize = JumpSizeMode.Long
 
 
