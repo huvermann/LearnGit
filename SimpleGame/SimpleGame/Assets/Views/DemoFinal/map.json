@@ -1,4 +1,4 @@
-{ "height":30,
+{ "height":16,
  "layers":[
         {
          "height":0,
@@ -12,14 +12,13 @@
          "y":0
         }, 
         {
-         "color":"#ff0000",
          "draworder":"topdown",
          "height":0,
          "name":"Screen",
          "objects":[
                 {
                  "height":600,
-                 "id":1,
+                 "id":6,
                  "name":"Screen",
                  "properties":
                     {
@@ -29,8 +28,8 @@
                  "type":"Screen",
                  "visible":true,
                  "width":800,
-                 "x":0,
-                 "y":885
+                 "x":-0.727273,
+                 "y":360.242
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -40,24 +39,24 @@
          "y":0
         }, 
         {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-         "height":30,
+         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+         "height":16,
          "name":"BackgroundMap",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":25,
+         "width":13,
          "x":0,
          "y":0
         }, 
         {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-         "height":30,
+         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+         "height":16,
          "name":"Map",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":25,
+         "width":13,
          "x":0,
          "y":0
         }, 
@@ -66,8 +65,6 @@
          "height":0,
          "name":"Sprites",
          "objects":[],
-         "offsetx":0,
-         "offsety":32,
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -81,9 +78,9 @@
          "name":"Player",
          "objects":[
                 {
-                 "gid":177,
-                 "height":161.333,
-                 "id":96,
+                 "gid":1,
+                 "height":200,
+                 "id":5,
                  "name":"Player",
                  "properties":
                     {
@@ -92,12 +89,10 @@
                  "rotation":0,
                  "type":"EmptyPlayer",
                  "visible":true,
-                 "width":182.333,
-                 "x":327.667,
-                 "y":1057
+                 "width":400,
+                 "x":214.046,
+                 "y":806.364
                 }],
-         "offsetx":0,
-         "offsety":32,
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -106,14 +101,13 @@
          "y":0
         }, 
         {
-         "color":"#005500",
          "draworder":"topdown",
          "height":0,
          "name":"Objects",
          "objects":[
                 {
-                 "height":32,
-                 "id":27,
+                 "height":64,
+                 "id":1,
                  "name":"MusicPlayer",
                  "properties":
                     {
@@ -124,13 +118,13 @@
                  "rotation":0,
                  "type":"MusicPlayer",
                  "visible":true,
-                 "width":32,
-                 "x":713.667,
-                 "y":23
+                 "width":64,
+                 "x":577.228,
+                 "y":80.5303
                 }, 
                 {
-                 "height":32,
-                 "id":29,
+                 "height":64,
+                 "id":2,
                  "name":"SoundList",
                  "properties":
                     {
@@ -139,13 +133,13 @@
                  "rotation":0,
                  "type":"SoundList",
                  "visible":true,
-                 "width":32,
-                 "x":717.333,
-                 "y":95.667
+                 "width":64,
+                 "x":380.894,
+                 "y":80.47
                 }, 
                 {
-                 "height":32,
-                 "id":114,
+                 "height":64,
+                 "id":3,
                  "name":"PressSpaceOrButtonNavigator",
                  "properties":
                     {
@@ -154,13 +148,13 @@
                  "rotation":0,
                  "type":"PressSpaceOrButtonNavigator",
                  "visible":true,
-                 "width":32,
-                 "x":669,
-                 "y":236
+                 "width":64,
+                 "x":241.652,
+                 "y":69.2879
                 }, 
                 {
-                 "height":32,
-                 "id":115,
+                 "height":64,
+                 "id":4,
                  "name":"IsGameLostView",
                  "properties":
                     {
@@ -169,12 +163,10 @@
                  "rotation":0,
                  "type":"IsGameLostView",
                  "visible":true,
-                 "width":32,
-                 "x":710,
-                 "y":165
+                 "width":64,
+                 "x":82.6517,
+                 "y":74.0455
                 }],
-         "offsetx":0,
-         "offsety":32,
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -182,66 +174,21 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":116,
+ "nextobjectid":7,
  "orientation":"orthogonal",
  "properties":
     {
-     "Plugin1":""
+
     },
  "renderorder":"right-down",
- "tileheight":32,
+ "tileheight":64,
  "tilesets":[
         {
-         "columns":8,
-         "firstgid":1,
-         "image":"demo.png",
-         "imageheight":704,
-         "imagewidth":256,
-         "margin":0,
-         "name":"Map",
-         "properties":
-            {
-
-            },
-         "spacing":0,
-         "tilecount":176,
-         "tileheight":32,
-         "tileproperties":
-            {
-             "175":
-                {
-                 "Space":"1"
-                },
-             "28":
-                {
-                 "Space":" 1"
-                },
-             "29":
-                {
-                 "Space":"1"
-                },
-             "31":
-                {
-                 "Space":"1"
-                },
-             "82":
-                {
-                 "Ladder":"1"
-                },
-             "96":
-                {
-                 "Ladder":"1"
-                }
-            },
-         "tilewidth":32,
-         "transparentcolor":"#4a61f3"
-        }, 
-        {
          "columns":1,
-         "firstgid":177,
+         "firstgid":1,
          "image":"..\/..\/Sprites\/John_Doe\/standing_right.png",
-         "imageheight":32,
-         "imagewidth":32,
+         "imageheight":64,
+         "imagewidth":64,
          "margin":0,
          "name":"standing_right",
          "properties":
@@ -250,238 +197,11 @@
             },
          "spacing":0,
          "tilecount":1,
-         "tileheight":32,
-         "tilewidth":32,
+         "tileheight":64,
+         "tilewidth":64,
          "transparentcolor":"#4a61f3"
-        }, 
-        {
-         "columns":8,
-         "firstgid":178,
-         "image":"..\/..\/Sprites\/Coin\/Coin_Ani.png",
-         "imageheight":32,
-         "imagewidth":256,
-         "margin":0,
-         "name":"Coin_Ani",
-         "properties":
-            {
-
-            },
-         "spacing":0,
-         "tilecount":8,
-         "tileheight":32,
-         "tilewidth":32,
-         "transparentcolor":"#4a61f3"
-        }, 
-        {
-         "columns":1,
-         "firstgid":186,
-         "image":"..\/..\/Sprites\/Bloob\/bloob_fallen_links.png",
-         "imageheight":32,
-         "imagewidth":32,
-         "margin":0,
-         "name":"bloob_fallen_links",
-         "properties":
-            {
-
-            },
-         "spacing":0,
-         "tilecount":1,
-         "tileheight":32,
-         "tilewidth":32,
-         "transparentcolor":"#4a61f3"
-        }, 
-        {
-         "columns":2,
-         "firstgid":187,
-         "image":"..\/..\/Sprites\/Heart\/Heart_Ani.png",
-         "imageheight":32,
-         "imagewidth":64,
-         "margin":0,
-         "name":"Heart_Ani",
-         "properties":
-            {
-
-            },
-         "spacing":0,
-         "tilecount":2,
-         "tileheight":32,
-         "tilewidth":32,
-         "transparentcolor":"#4a61f3"
-        }, 
-        {
-         "columns":1,
-         "firstgid":189,
-         "image":"..\/..\/Sprites\/Teleporter\/Teleporter_Front.png",
-         "imageheight":32,
-         "imagewidth":32,
-         "margin":0,
-         "name":"Teleporter_Front",
-         "properties":
-            {
-
-            },
-         "spacing":0,
-         "tilecount":1,
-         "tileheight":32,
-         "tilewidth":32,
-         "transparentcolor":"#4a61f3"
-        }, 
-        {
-         "columns":4,
-         "firstgid":190,
-         "image":"..\/..\/Sprites\/Targedpoint\/Flagge5.png",
-         "imageheight":32,
-         "imagewidth":128,
-         "margin":0,
-         "name":"Flagge5",
-         "properties":
-            {
-
-            },
-         "spacing":0,
-         "tilecount":4,
-         "tileheight":32,
-         "tilewidth":32,
-         "transparentcolor":"#4a61f3"
-        }, 
-        {
-         "columns":1,
-         "firstgid":194,
-         "image":"..\/..\/Sprites\/Teleporter\/Telepunkt.png",
-         "imageheight":32,
-         "imagewidth":32,
-         "margin":0,
-         "name":"Telepunkt",
-         "properties":
-            {
-
-            },
-         "spacing":0,
-         "tilecount":1,
-         "tileheight":32,
-         "tilewidth":32,
-         "transparentcolor":"#4a61f3"
-        }, 
-        {
-         "columns":8,
-         "firstgid":195,
-         "image":"..\/Training\/training.png",
-         "imageheight":608,
-         "imagewidth":256,
-         "margin":0,
-         "name":"Map",
-         "properties":
-            {
-
-            },
-         "spacing":0,
-         "tilecount":152,
-         "tileheight":32,
-         "tileproperties":
-            {
-             "82":
-                {
-                 "Ladder":"1"
-                },
-             "96":
-                {
-                 "Ladder":"1"
-                }
-            },
-         "tilewidth":32,
-         "transparentcolor":"#4a61f3"
-        }, 
-        {
-         "columns":4,
-         "firstgid":347,
-         "image":"..\/..\/Sprites\/Bloob\/bloob_red_springen.png",
-         "imageheight":32,
-         "imagewidth":128,
-         "margin":0,
-         "name":"bloob_red_springen",
-         "properties":
-            {
-
-            },
-         "spacing":0,
-         "tilecount":4,
-         "tileheight":32,
-         "tilewidth":32,
-         "transparentcolor":"#4a61f3"
-        }, 
-        {
-         "columns":4,
-         "firstgid":351,
-         "image":"..\/..\/Sprites\/Bloob\/bloob_yellow_springen.png",
-         "imageheight":32,
-         "imagewidth":128,
-         "margin":0,
-         "name":"bloob_yellow_springen",
-         "properties":
-            {
-
-            },
-         "spacing":0,
-         "tilecount":4,
-         "tileheight":32,
-         "tilewidth":32,
-         "transparentcolor":"#4a61f3"
-        }, 
-        {
-         "columns":4,
-         "firstgid":355,
-         "image":"..\/..\/Sprites\/Bloob\/bloob_blue_springen.png",
-         "imageheight":32,
-         "imagewidth":128,
-         "margin":0,
-         "name":"bloob_blue_springen",
-         "properties":
-            {
-
-            },
-         "spacing":0,
-         "tilecount":4,
-         "tileheight":32,
-         "tilewidth":32,
-         "transparentcolor":"#4a61f3"
-        }, 
-        {
-         "columns":2,
-         "firstgid":359,
-         "image":"..\/..\/Sprites\/StartMenue\/DemoStartButtons.png",
-         "imageheight":160,
-         "imagewidth":256,
-         "margin":0,
-         "name":"Start",
-         "properties":
-            {
-
-            },
-         "spacing":0,
-         "tilecount":10,
-         "tileheight":32,
-         "tilewidth":128,
-         "transparentcolor":"#4a61f3"
-        }, 
-        {
-         "columns":1,
-         "firstgid":369,
-         "image":"..\/..\/Sprites\/StartMenue\/Titel.png",
-         "imageheight":160,
-         "imagewidth":224,
-         "margin":0,
-         "name":"Titel",
-         "properties":
-            {
-
-            },
-         "spacing":0,
-         "tilecount":1,
-         "tileheight":160,
-         "tilewidth":224,
-         "transparentcolor":"#000000"
         }],
- "tilewidth":32,
+ "tilewidth":64,
  "version":1,
- "width":25
+ "width":13
 }

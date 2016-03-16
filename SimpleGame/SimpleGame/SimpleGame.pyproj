@@ -520,8 +520,8 @@
     <Content Include="Assets\Sprites\Teleporter\Teleporter_Front.png" />
     <Content Include="Assets\Sprites\Teleporter\Telepunkt.png" />
     <Content Include="Assets\Views\DemoFinal\demo.png" />
-    <Content Include="Assets\Views\DemoFinal\DemoFinalbackground.png" />
     <Content Include="Assets\Views\DemoFinal\DemoFinal.tmx" />
+    <Content Include="Assets\Views\DemoFinal\DemoFinalbackground.png" />
     <Content Include="Assets\Views\DemoFinal\map.json" />
     <Content Include="Assets\Sprites\Optionen\Optionen.png" />
     <Content Include="Assets\Views\DemoStart\demo.png" />

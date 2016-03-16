@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="25" height="30" tilewidth="32" tileheight="32" nextobjectid="97">
+ <properties>
+  <property name="Plugin" value="xPlugin=ShowJump"/>
+  <property name="Plugin3" value="Plugin=CheatKeyPlugin"/>
+  <property name="Plugin4" value="Plugin=DefaultScorePanel"/>
+ </properties>
+ <tileset firstgid="1" name="Map" tilewidth="32" tileheight="32" tilecount="176" columns="8">
+  <image source="demo.png" trans="4a61f3" width="256" height="704"/>
+  <tile id="28">
+   <properties>
+    <property name="Space" value=" 1"/>
+   </properties>
+  </tile>
+  <tile id="29">
+   <properties>
+    <property name="Space" value="1"/>
+   </properties>
+  </tile>
+  <tile id="31">
+   <properties>
+    <property name="Space" value="1"/>
+   </properties>
+  </tile>
+  <tile id="82">
+   <properties>
+    <property name="Ladder" value="1"/>
+   </properties>
+  </tile>
+  <tile id="96">
+   <properties>
+    <property name="Ladder" value="1"/>
+   </properties>
+  </tile>
+  <tile id="175">
+   <properties>
+    <property name="Space" value="1"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="177" name="standing_right" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../Sprites/John_Doe/standing_right.png" trans="4a61f3" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="178" name="Coin_Ani" tilewidth="32" tileheight="32" tilecount="8" columns="8">
+  <image source="../../Sprites/Coin/Coin_Ani.png" trans="4a61f3" width="256" height="32"/>
+ </tileset>
+ <tileset firstgid="186" name="bloob_fallen_links" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../Sprites/Bloob/bloob_fallen_links.png" trans="4a61f3" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="187" name="Heart_Ani" tilewidth="32" tileheight="32" tilecount="2" columns="2">
+  <image source="../../Sprites/Heart/Heart_Ani.png" trans="4a61f3" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="189" name="Teleporter_Front" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../Sprites/Teleporter/Teleporter_Front.png" trans="4a61f3" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="190" name="Flagge5" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../../Sprites/Targedpoint/Flagge5.png" trans="4a61f3" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="194" name="Telepunkt" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../Sprites/Teleporter/Telepunkt.png" trans="4a61f3" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="195" name="Map" tilewidth="32" tileheight="32" tilecount="152" columns="8">
+  <image source="../Training/training.png" trans="4a61f3" width="256" height="608"/>
+  <tile id="82">
+   <properties>
+    <property name="Ladder" value="1"/>
+   </properties>
+  </tile>
+  <tile id="96">
+   <properties>
+    <property name="Ladder" value="1"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="347" name="bloob_red_springen" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../../Sprites/Bloob/bloob_red_springen.png" trans="4a61f3" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="351" name="bloob_yellow_springen" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../../Sprites/Bloob/bloob_yellow_springen.png" trans="4a61f3" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="355" name="bloob_blue_springen" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../../Sprites/Bloob/bloob_blue_springen.png" trans="4a61f3" width="128" height="32"/>
+ </tileset>
+ <imagelayer name="Image">
+  <image source="Demobackground.png" width="1600" height="1600"/>
+ </imagelayer>
+ <objectgroup color="#ff0000" name="Screen">
+  <object id="1" name="Screen" type="Screen" x="0" y="354.909" width="800" height="600"/>
+ </objectgroup>
+ <layer name="BackgroundMap" width="25" height="30">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+55,48,49,50,51,52,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+54,40,41,42,44,46,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+53,38,39,43,45,47,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer name="Map" width="25" height="30" offsetx="0" offsety="1">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,6,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+29,0,0,0,0,0,0,0,0,0,0,0,0,0,0,62,63,0,0,0,0,0,30,0,0,
+6,6,6,6,6,6,6,6,6,6,23,29,0,0,7,6,6,6,6,6,6,6,6,6,6,
+5,5,5,5,5,5,5,5,5,5,5,6,6,6,5,5,5,5,5,5,5,5,5,5,5
+</data>
+ </layer>
+ <objectgroup name="Sprites" offsetx="0" offsety="32">
+  <object id="37" name="Bloob1" type="BloobSprite" gid="186" x="393" y="892" width="32" height="32"/>
+  <object id="57" name="Bloob5" type="BloobSprite" gid="186" x="673.67" y="855.33" width="32" height="32"/>
+  <object id="62" name="BunteFlagge" type="TargedpointSprite" gid="190" x="192" y="864" width="32" height="32">
+   <properties>
+    <property name="ViewName" value="DemoFinale"/>
+   </properties>
+  </object>
+  <object id="74" name="Bloob_red1" type="BloobSprite" gid="347" x="621.997" y="854.997" width="32" height="32">
+   <properties>
+    <property name="Energy" value="-50"/>
+    <property name="FallSpeed" value="20"/>
+    <property name="Intelligence" value="DropdownAndMoveIntelligence"/>
+    <property name="KillPlayer" value="True"/>
+    <property name="KillSprite" value="False"/>
+    <property name="Style" value="BloobStyleRed"/>
+    <property name="WalkDirection" value="left"/>
+    <property name="WalkSpeed" value="200"/>
+   </properties>
+  </object>
+  <object id="77" name="Bloob_Blue1" type="BloobSprite" gid="355" x="551.67" y="859.33" width="32" height="32">
+   <properties>
+    <property name="Style" value="BloobStyleBlue"/>
+   </properties>
+  </object>
+  <object id="79" name="Bloob_Yellov1" type="BloobSprite" gid="351" x="754.997" y="854" width="32" height="32">
+   <properties>
+    <property name="Style" value="BloobStyleYellow"/>
+   </properties>
+  </object>
+  <object id="88" name="Coin1" type="CoinSprite" gid="178" x="278.667" y="833.003" width="32" height="32"/>
+  <object id="94" name="Coin2" type="CoinSprite" gid="178" x="245.333" y="854.667" width="32" height="32"/>
+  <object id="95" name="Coin3" type="CoinSprite" gid="178" x="309.333" y="854.667" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="Player" offsetx="0" offsety="32">
+  <object id="96" name="Player" type="JohnDoeSprite" gid="177" x="113.667" y="730.667" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup color="#005500" name="Objects" offsetx="0" offsety="32">
+  <object id="27" name="MusicPlayer" type="MusicPlayer" x="169.667" y="368" width="32" height="32">
+   <properties>
+    <property name="Loop" value="True"/>
+    <property name="Song1" value="m4rt3z_m4rt3z---Primal-Snap-320.mp3"/>
+    <property name="Start" value="False"/>
+   </properties>
+  </object>
+  <object id="29" name="SoundList" type="SoundList" x="377.333" y="369.667" width="32" height="32">
+   <properties>
+    <property name="Beep" value="319200__18hiltc__pixel-game-beep.wav"/>
+    <property name="GameOver" value="319200__18hiltc__pixel-game-beep.wav"/>
+    <property name="Jumping" value="172205__fins__jumping.wav"/>
+    <property name="Laser" value="146725__fins__laser.wav"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
