@@ -400,6 +400,15 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Controls\StartMenue\Button1.png" />
+    <Content Include="Assets\Controls\StartMenue\Button2.png" />
+    <Content Include="Assets\Controls\StartMenue\Button3.png" />
+    <Content Include="Assets\Controls\StartMenue\Button4.png" />
+    <Content Include="Assets\Controls\StartMenue\Button5.png" />
+    <Content Include="Assets\Controls\StartMenue\Button6.png" />
+    <Content Include="Assets\Controls\StartMenue\Button7.png" />
+    <Content Include="Assets\Controls\StartMenue\Button8.png" />
+    <Content Include="Assets\Controls\StartMenue\Button9.png" />
     <Content Include="Assets\Controls\StartMenue\Credits.png" />
     <Content Include="Assets\Controls\StartMenue\Exit.png" />
     <Content Include="Assets\Controls\StartMenue\Optionen.png" />
