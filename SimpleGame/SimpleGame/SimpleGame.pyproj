@@ -12,7 +12,7 @@
     <OutputPath>.</OutputPath>
     <Name>SimpleGame</Name>
     <RootNamespace>SimpleGame</RootNamespace>
-    <InterpreterId>{ab8ef5c4-9fc3-4532-90cf-90d71360e93c}</InterpreterId>
+    <InterpreterId>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</InterpreterId>
     <InterpreterVersion>3.5</InterpreterVersion>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
     <CommandLineArguments>-v DemoStart</CommandLineArguments>
@@ -387,19 +387,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Interpreter Include="PythonEnv\">
-      <Id>{ab8ef5c4-9fc3-4532-90cf-90d71360e93c}</Id>
-      <BaseInterpreter>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</BaseInterpreter>
-      <Version>3.5</Version>
-      <Description>PythonEnv (Python 3.5)</Description>
-      <InterpreterPath>Scripts\python.exe</InterpreterPath>
-      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
-      <LibraryPath>Lib\</LibraryPath>
-      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
-      <Architecture>X86</Architecture>
-    </Interpreter>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Assets\Controls\StartMenue\Button1.png" />
     <Content Include="Assets\Controls\StartMenue\Button2.png" />
     <Content Include="Assets\Controls\StartMenue\Button3.png" />
@@ -628,6 +615,9 @@
     <Folder Include="Tests\" />
     <Folder Include="Src\" />
     <Folder Include="Tests\MockHelper\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="{2af0f10d-7135-4994-9156-5d01c9c11b7e}\3.5" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
