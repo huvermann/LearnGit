@@ -6,7 +6,18 @@ class MapScanner(object):
         self._sprite = sprite
         self.tileWidth = self._map.tileWidth
         self.tileHeight = self._map.tileHeight
+        self._bottomLeft = None
+        self._bottomRight = None
+        self._topLeft = None
+        self._topRight = None
+        
 
+    def initCheckPoints(self):
+        collideRect = self._sprite.collideRect
+        self._bottomLeft = collideRect.bottomleft
+        self._bottomRight = collideRect.bottomright
+        self._topLeft = collideRect.topleft
+        self._topRight = collideRect.topright
 
     def getTileAddress(self, position):
         x = position[0] // self.tileWidth
@@ -25,15 +36,11 @@ class MapScanner(object):
 
     def getWayToGround(self):
         """Returns the number of pixel to fall down."""
-
-        result = 0
-        #Todo: Fields benutzen
-        sprite = self._sprite
-        collideRect = sprite.collideRect
-        bottomLeft = collideRect.bottomleft
-        bottomRight = collideRect.bottomright
-        posLeft = (sprite.x + bottomLeft[0], sprite.y + bottomLeft[1])
-        posRight = (sprite.x + bottomRight[0], sprite.y + bottomRight[1])
+        result = 0        
+        if not self._bottomLeft:
+            self.initCheckPoints()
+        posLeft = (self._sprite.x + self._bottomLeft[0], self._sprite.y + self._bottomLeft[1])
+        posRight = (self._sprite.x + self._bottomRight[0], self._sprite.y + self._bottomRight[1])
 
         yshift = posLeft[1] % self.tileHeight
         #find the bottom
@@ -47,18 +54,41 @@ class MapScanner(object):
             if self.isSolidTile(tide1) or self.isSolidTile(tide2):
                 bottom = True
             else:
-                # Mapende erreicht?
-                #if y + 1 + downRows
                 downRows += 1
         result = (downRows + 1) * self.tileHeight - yshift -1
         return result
 
-    def scanLeft(self):
+    def measureWayToLeft(self):
         """Returns the number of pixel of space to left."""
         result = 0
+        posTopLeft = (self._sprite.x + self._topLeft[0], self._sprite.y + self._topLeft[0])
+        posBottomLeft = (self._sprite.x + self._bottomLeft[0], self._sprite.y + self._bottomLeft[1])
+
+        xshift = posTopLeft[0] % self.tileWidth
+        x1, y1 = self.getTileAddress(posTopLeft)
+        x2, y2 = self.getTileAddress(posBottomLeft)
+        leftCols = 0
+        endOfWay = False
+        while not endOfWay:
+            upperTide = self._map.getTideIndex(x1 + leftCols - 1, y1)
+            lowerTide = self._map.getTideIndex(x2 + leftCols - 1, y1)
+            floorTide = self._map.getTideIndex(x2 + leftCols - 1, y2 + 1)
+            #if self.isSolidTile
+            # Fliesen prüfen, ob weg beendet
+            if (self.isSolidTile(upperTide) 
+                or self.isSolidTile(lowerTide) 
+                or not self.isSolidTile(floorTide)): 
+                endOfWay = True
+            else:
+                leftCols -= 1
+
+
+
+
+        #posTop = (self._sprite.x +)
         return result
 
-    def scanRight(self):
+    def measureWayToRight(self):
         """Returns the number of pixel of space to right."""
 
 
