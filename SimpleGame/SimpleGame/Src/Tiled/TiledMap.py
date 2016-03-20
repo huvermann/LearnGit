@@ -221,18 +221,19 @@ class TiledMap(object):
     def __configureLadderTiles(self):
         result = []
         if self._mapTileset:
-            for tileNo in self._mapTileset.tileproperties:
-                if 'Ladder' in self._mapTileset.tileproperties[tileNo]:
-                    result.append(int(tileNo)+1)
+            if self._mapTileset.tileproperties:
+                for tileNo in self._mapTileset.tileproperties:
+                    if 'Ladder' in self._mapTileset.tileproperties[tileNo]:
+                        result.append(int(tileNo)+1)
         return result
 
     def __configureSpaceTiles(self):
         result = [0]
         if self._mapTileset:
-            for tileNo in self._mapTileset.tileproperties:
-                if 'Space' in self._mapTileset.tileproperties[tileNo]:
-                    result.append(int(tileNo)+1)
-        #result.extend(self.__ladderTiles)
+            if self._mapTileset.tileproperties:
+                for tileNo in self._mapTileset.tileproperties:
+                    if 'Space' in self._mapTileset.tileproperties[tileNo]:
+                        result.append(int(tileNo)+1)
         return result
 
                 
