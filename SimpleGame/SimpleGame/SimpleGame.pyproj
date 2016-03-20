@@ -61,6 +61,9 @@
     <Compile Include="Src\Sprites\MenueSelectorPlayer.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Tiled\MapScanner.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Utils\ActionBaseClass.py">
       <SubType>Code</SubType>
     </Compile>
@@ -554,6 +557,7 @@
     <Content Include="Assets\Views\Training\training.png" />
     <Content Include="Assets\Views\Training\map.json" />
     <Content Include="Assets\Views\Training\training.tmx" />
+    <Content Include="Assets\Views\Training\training2.tmx" />
     <Content Include="Deployment\Game.spec" />
     <Content Include="Deployment\MakeExe.bat" />
     <Content Include="Deployment\readme.txt" />
