@@ -81,15 +81,36 @@ class MapScanner(object):
                 endOfWay = True
             else:
                 leftCols -= 1
-
-
-
-
-        #posTop = (self._sprite.x +)
+        result = (leftCols) * self.tileWidth - xshift
         return result
 
     def measureWayToRight(self):
         """Returns the number of pixel of space to right."""
+        result = 0
+        posTopRight = (self._sprite.x + self._topRight[0], self._sprite.y + self._topRight[0])
+        posBottomRight = (self._sprite.x + self._bottomRight[0], self._sprite.y + self._bottomRight[1])
+
+        xshift = posTopRight[0] % self.tileWidth
+
+        x1, y1 = self.getTileAddress(posTopRight)
+        x2, y2 = self.getTileAddress(posBottomRight)
+        rightCols = 0
+        endOfWay = False
+
+        while not endOfWay:
+            upperTide = self._map.getTideIndex(x1 + rightCols + 1, y1)
+            lowerTide = self._map.getTideIndex(x2 + rightCols + 1, y1)
+            floorTide = self._map.getTideIndex(x2 + rightCols, y2 + 1)
+            #if self.isSolidTile
+            # Fliesen prüfen, ob weg beendet
+            if (self.isSolidTile(upperTide) 
+                or self.isSolidTile(lowerTide) 
+                or not self.isSolidTile(floorTide)): 
+                endOfWay = True
+            else:
+                rightCols += 1
+        result = (rightCols) * self.tileWidth - xshift - 1
+        return result
 
 
 
