@@ -26,7 +26,7 @@ class BloobSprite(SpriteBase):
         super().configureFromProperties(properties)
 
         if not SpritePropNames.Intelligence in properties:
-            self.intelligence = self.intelligenceFactory('DropdownAndMoveIntelligence', properties)
+            self.intelligence = self.intelligenceFactory('Dropdown2AI', properties)
 
 
 

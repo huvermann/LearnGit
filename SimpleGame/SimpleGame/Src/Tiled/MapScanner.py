@@ -55,6 +55,8 @@ class MapScanner(object):
                 bottom = True
             else:
                 downRows += 1
+                if y1 + downRows + 1 >= self._map.height:
+                    bottom = True
         result = (downRows + 1) * self.tileHeight - yshift -1
         return result
 
@@ -81,6 +83,8 @@ class MapScanner(object):
                 endOfWay = True
             else:
                 leftCols -= 1
+                if x1 + leftCols -1 <= 0:
+                    endOfWay = True
         result = (leftCols) * self.tileWidth - xshift
         return result
 
@@ -109,6 +113,8 @@ class MapScanner(object):
                 endOfWay = True
             else:
                 rightCols += 1
+                if x1 + rightCols + 1 >= self._map.width:
+                    endOfWay = True
         result = (rightCols) * self.tileWidth - xshift - 1
         return result
 

@@ -18,7 +18,7 @@ class MonsterBloobSprite(SpriteBase):
         if not SpritePropNames.Style in properties:
             self.style = self.styleFactory('MonsterBloobStyle', properties)
         if not SpritePropNames.Intelligence in properties:
-            self.intelligence = self.intelligenceFactory('DropdownAndMoveIntelligence', properties)
+            self.intelligence = self.intelligenceFactory('Dropdown2AI', properties)
         if not SpritePropNames.Behavior in properties:
             self.behavior = self.behaviorFactory('DefaultSpriteBehavior', properties)
         if not SpritePropNames.Supplies in properties:

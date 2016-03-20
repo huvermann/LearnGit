@@ -78,8 +78,8 @@
                  "type":"BloobSprite",
                  "visible":true,
                  "width":64,
-                 "x":249,
-                 "y":685
+                 "x":250,
+                 "y":611
                 }, 
                 {
                  "gid":7,
@@ -106,7 +106,6 @@
                     {
                      "Energy":"-50",
                      "FallSpeed":"20",
-                     "Intelligence":"DropdownAndMoveIntelligence",
                      "KillPlayer":"True",
                      "KillSprite":"False",
                      "Style":"BloobStyleRed",
@@ -117,8 +116,8 @@
                  "type":"BloobSprite",
                  "visible":true,
                  "width":64,
-                 "x":115,
-                 "y":682
+                 "x":97,
+                 "y":596
                 }, 
                 {
                  "gid":20,
@@ -134,8 +133,8 @@
                  "type":"BloobSprite",
                  "visible":true,
                  "width":64,
-                 "x":657,
-                 "y":682
+                 "x":582,
+                 "y":529
                 }, 
                 {
                  "gid":24,
@@ -151,8 +150,8 @@
                  "type":"BloobSprite",
                  "visible":true,
                  "width":64,
-                 "x":438,
-                 "y":679
+                 "x":465,
+                 "y":546
                 }, 
                 {
                  "gid":12,

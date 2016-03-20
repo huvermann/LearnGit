@@ -46,7 +46,7 @@
   <image source="../Demo/demo.png" trans="4a61f3" width="512" height="960"/>
  </tileset>
  <imagelayer name="Image">
-  <image source="Demobackground.png" width="800" height="600"/>
+  <image source="Demobackground.png"/>
  </imagelayer>
  <objectgroup name="Screen" visible="0">
   <object id="24" name="Screen" type="Screen" x="-0.67" y="161" width="800" height="600"/>
@@ -90,17 +90,16 @@
 </data>
  </layer>
  <objectgroup name="Sprites">
-  <object id="4" name="Bloob1" type="BloobSprite" gid="6" x="249" y="685" width="64" height="64"/>
+  <object id="4" name="Bloob1" type="BloobSprite" gid="6" x="250" y="611" width="64" height="64"/>
   <object id="6" name="BunteFlagge" type="TargedpointSprite" gid="7" x="384" y="704" width="64" height="64">
    <properties>
     <property name="ViewName" value="DemoFinale"/>
    </properties>
   </object>
-  <object id="7" name="Bloob_red1" type="BloobSprite" gid="2" x="115" y="682" width="64" height="64">
+  <object id="7" name="Bloob_red1" type="BloobSprite" gid="2" x="97" y="596" width="64" height="64">
    <properties>
     <property name="Energy" value="-50"/>
     <property name="FallSpeed" value="20"/>
-    <property name="Intelligence" value="DropdownAndMoveIntelligence"/>
     <property name="KillPlayer" value="True"/>
     <property name="KillSprite" value="False"/>
     <property name="Style" value="BloobStyleRed"/>
@@ -108,13 +107,13 @@
     <property name="WalkSpeed" value="100"/>
    </properties>
   </object>
-  <object id="8" name="Bloob_Blue1" type="BloobSprite" gid="20" x="657" y="682" width="64" height="64">
+  <object id="8" name="Bloob_Blue1" type="BloobSprite" gid="20" x="582" y="529" width="64" height="64">
    <properties>
     <property name="Style" value="BloobStyleBlue"/>
     <property name="WalkSpeed" value="90"/>
    </properties>
   </object>
-  <object id="9" name="Bloob_Yellov1" type="BloobSprite" gid="24" x="438" y="679" width="64" height="64">
+  <object id="9" name="Bloob_Yellov1" type="BloobSprite" gid="24" x="465" y="546" width="64" height="64">
    <properties>
     <property name="Style" value="BloobStyleYellow"/>
     <property name="WalkSpeed" value="150"/>
