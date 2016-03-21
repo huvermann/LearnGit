@@ -26,8 +26,24 @@ class Dropdown2AI(SpriteIntelligenceBase):
         self._lastTime = None
         self._walkspeed = 0.05
         self._fallSpeed = 0.2
+        self._initWalkDirection = SpriteMoveState.MoveLeft
 
         return super().__init__(parentSprite, properties)
+
+    def configureProperties(self, properties):
+        if 'WalkSpeed' in properties:
+            self._walkspeed = float(int(properties['WalkSpeed']) / 1000)
+        if 'FallSpeed' in properties:
+            self._fallSpeed = float(int(properties['FallSpeed']) / 1000)
+
+        if 'WalkDirection' in properties:
+            if properties['WalkDirection'].lower() == 'left':
+                self._initWalkDirection = SpriteMoveState.MoveLeft
+            elif properties['WalkDirection'].lower() == 'right':
+                self._initWalkDirection = SpriteMoveState.MoveRight
+
+
+        return super().configureProperties(properties)
 
     def savePosition(self, sprite, time):
         self._lastPosition = (sprite.x, sprite.y)
@@ -50,7 +66,7 @@ class Dropdown2AI(SpriteIntelligenceBase):
         if level > 0:
             self.changeToFalling(sprite, time)
 
-        self.changeToMoving(sprite, time, SpriteMoveState.MoveLeft)
+        self.changeToMoving(sprite, time, self._initWalkDirection)
         pass
 
     def checkFallingDown(self, sprite, time):
