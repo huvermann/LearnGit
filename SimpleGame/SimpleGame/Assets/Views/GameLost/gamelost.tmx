@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="64" tileheight="64" nextobjectid="7">
- <tileset firstgid="1" name="Map" tilewidth="64" tileheight="64" tilecount="800" columns="8">
+ <tileset firstgid="1" name="Map" tilewidth="64" tileheight="64" tilecount="200" columns="8">
   <image source="../Training/training.png" trans="4a61f3" width="512" height="1600"/>
   <tile id="82">
    <properties>
@@ -9,9 +9,9 @@
   </tile>
  </tileset>
  <imagelayer name="Image">
-  <image source="../Training/background3.png" width="1024" height="768"/>
+  <image source="GameLost.png" width="1024" height="768"/>
  </imagelayer>
- <objectgroup name="Screen" visible="0">
+ <objectgroup name="Screen">
   <object id="1" name="Screen" type="Screen" x="0" y="0" width="1024" height="768"/>
  </objectgroup>
  <layer name="BackgroundMap" width="20" height="20">
@@ -42,15 +42,15 @@
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-172,0,0,0,172,172,172,0,0,172,172,0,172,172,172,0,0,0,0,0,
-172,0,0,0,172,0,172,0,172,0,0,0,0,172,0,0,0,0,0,0,
-172,0,0,0,172,0,172,0,172,0,0,0,0,172,0,0,0,0,0,0,
-172,0,0,0,172,0,172,0,172,0,0,0,0,172,0,0,0,0,0,0,
-172,0,0,0,172,0,172,0,172,172,172,0,0,172,0,0,0,0,0,0,
-172,0,0,0,172,0,172,0,0,0,172,0,0,172,0,0,0,0,0,0,
-172,0,0,0,172,0,172,0,0,0,172,0,0,172,0,0,0,0,0,0,
-172,0,0,0,172,0,172,0,0,0,172,0,0,172,0,0,0,0,0,1,
-172,172,172,0,172,172,172,0,172,172,0,0,0,172,0,0,0,0,0,1,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -64,9 +64,9 @@
  </layer>
  <objectgroup name="Sprites"/>
  <objectgroup name="Player">
-  <object id="2" name="Player" type="JohnDoeSprite" x="543" y="455" width="64" height="64"/>
+  <object id="2" name="Player" type="EmptyPlayer" x="825.667" y="451" width="64" height="64"/>
  </objectgroup>
- <objectgroup name="Objects" visible="0">
+ <objectgroup name="Objects">
   <object id="3" name="MusicPlayer" type="MusicPlayer" x="913" y="29" width="32" height="32">
    <properties>
     <property name="Loop" value="True"/>
