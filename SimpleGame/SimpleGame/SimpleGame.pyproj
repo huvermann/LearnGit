@@ -43,6 +43,9 @@
     <Compile Include="Src\Plugins\DropDownSimulator.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Plugins\FrameRateViewer.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\SmallGame.py">
       <SubType>Code</SubType>
     </Compile>
