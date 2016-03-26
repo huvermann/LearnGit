@@ -535,6 +535,7 @@
     <Content Include="Assets\Views\Demo\demo.tmx" />
     <Content Include="Assets\Views\Demo\Demobackground.png" />
     <Content Include="Assets\Views\Demo\map.json" />
+    <Content Include="Assets\Views\GameLost\GameLost.png" />
     <Content Include="Assets\Views\GameLost\gamelost.tmx" />
     <Content Include="Assets\Views\GameLost\map.json" />
     <Content Include="Assets\Views\Level1\background3.png" />
