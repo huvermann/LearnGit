@@ -11,7 +11,7 @@
  <imagelayer name="Image">
   <image source="GameLost.png" width="1024" height="768"/>
  </imagelayer>
- <objectgroup name="Screen">
+ <objectgroup name="Screen" visible="0">
   <object id="1" name="Screen" type="Screen" x="0" y="0" width="1024" height="768"/>
  </objectgroup>
  <layer name="BackgroundMap" width="20" height="20">
@@ -64,7 +64,7 @@
  </layer>
  <objectgroup name="Sprites"/>
  <objectgroup name="Player">
-  <object id="2" name="Player" type="EmptyPlayer" x="825.667" y="451" width="64" height="64"/>
+  <object id="2" name="Player" type="EmptyPlayer" x="523.667" y="297" width="64" height="64"/>
  </objectgroup>
  <objectgroup name="Objects">
   <object id="3" name="MusicPlayer" type="MusicPlayer" x="913" y="29" width="32" height="32">
