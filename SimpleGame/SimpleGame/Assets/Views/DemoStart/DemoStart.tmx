@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="13" height="15" tilewidth="64" tileheight="64" nextobjectid="25">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="16" height="15" tilewidth="64" tileheight="64" nextobjectid="25">
  <tileset firstgid="1" name="standing_right" tilewidth="64" tileheight="64" tilecount="1" columns="1">
   <image source="../../Sprites/John_Doe/standing_right.png" trans="4a61f3" width="64" height="64"/>
  </tileset>
@@ -46,57 +46,57 @@
   <image source="../Demo/demo.png" trans="4a61f3" width="512" height="960"/>
  </tileset>
  <imagelayer name="Image">
-  <image source="Demobackground.png"/>
+  <image source="Demobackground.png" width="1024" height="768"/>
  </imagelayer>
  <objectgroup name="Screen" visible="0">
   <object id="24" name="Screen" type="Screen" x="-0.67" y="161" width="800" height="600"/>
  </objectgroup>
- <layer name="BackgroundMap" width="13" height="15">
+ <layer name="BackgroundMap" width="16" height="15">
   <data encoding="csv">
-0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,
-217,218,219,220,221,222,0,0,0,0,0,0,0,
-225,226,227,228,229,230,0,0,0,0,0,0,0,
-233,234,235,236,237,238,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,217,218,219,220,221,222,0,0,0,0,0,0,0,0,0,
+0,225,226,227,228,229,230,0,0,0,0,0,0,0,0,0,
+0,233,234,235,236,237,238,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="Map" width="13" height="15">
+ <layer name="Map" width="16" height="15">
   <data encoding="csv">
-0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,
-240,0,0,0,0,0,0,0,0,0,0,0,161,
-130,130,130,130,130,130,130,130,130,130,130,130,130,
-129,129,129,128,129,129,129,128,129,129,129,128,129,
-0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+240,0,0,0,0,0,0,0,0,0,0,0,161,0,0,0,
+130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,
+129,129,129,128,129,129,129,128,129,129,129,128,129,129,128,129
 </data>
  </layer>
  <objectgroup name="Sprites">
-  <object id="4" name="Bloob1" type="BloobSprite" gid="6" x="250" y="611" width="64" height="64"/>
-  <object id="6" name="BunteFlagge" type="TargedpointSprite" gid="7" x="384" y="704" width="64" height="64">
+  <object id="4" name="Bloob1" type="BloobSprite" gid="6" x="308.667" y="780.333" width="64" height="64"/>
+  <object id="6" name="BunteFlagge" type="TargedpointSprite" gid="7" x="448" y="830.667" width="64" height="64">
    <properties>
     <property name="ViewName" value="DemoFinale"/>
    </properties>
   </object>
-  <object id="7" name="Bloob_red1" type="BloobSprite" gid="2" x="97" y="596" width="64" height="64">
+  <object id="7" name="Bloob_red1" type="BloobSprite" gid="2" x="135.667" y="776" width="64" height="64">
    <properties>
     <property name="Energy" value="-50"/>
     <property name="FallSpeed" value="20"/>
@@ -107,22 +107,22 @@
     <property name="WalkSpeed" value="100"/>
    </properties>
   </object>
-  <object id="8" name="Bloob_Blue1" type="BloobSprite" gid="20" x="582" y="529" width="64" height="64">
+  <object id="8" name="Bloob_Blue1" type="BloobSprite" gid="20" x="883.333" y="766.333" width="64" height="64">
    <properties>
     <property name="Style" value="BloobStyleBlue"/>
     <property name="WalkSpeed" value="90"/>
    </properties>
   </object>
-  <object id="9" name="Bloob_Yellov1" type="BloobSprite" gid="24" x="465" y="546" width="64" height="64">
+  <object id="9" name="Bloob_Yellov1" type="BloobSprite" gid="24" x="767.667" y="731.333" width="64" height="64">
    <properties>
     <property name="Style" value="BloobStyleYellow"/>
     <property name="WalkSpeed" value="150"/>
    </properties>
   </object>
-  <object id="10" name="Coin1" type="CoinSprite" gid="12" x="576" y="620" width="64" height="64"/>
-  <object id="11" name="Coin2" type="CoinSprite" gid="12" x="513" y="670" width="64" height="64"/>
-  <object id="12" name="Coin3" type="CoinSprite" gid="12" x="639" y="670" width="64" height="64"/>
-  <object id="13" name="StartMenue" type="ImageSprite" gid="11" x="288.438" y="352.879" width="224" height="160">
+  <object id="10" name="Coin1" type="CoinSprite" gid="12" x="577.333" y="750.667" width="64" height="64"/>
+  <object id="11" name="Coin2" type="CoinSprite" gid="12" x="514.333" y="800.667" width="64" height="64"/>
+  <object id="12" name="Coin3" type="CoinSprite" gid="12" x="640.333" y="800.667" width="64" height="64"/>
+  <object id="13" name="StartMenue" type="ImageSprite" gid="11" x="400.438" y="482.212" width="224" height="160">
    <properties>
     <property name="Image" value="Titel.png"/>
     <property name="Transparency" value="False"/>
@@ -130,7 +130,7 @@
   </object>
  </objectgroup>
  <objectgroup name="Player">
-  <object id="3" name="Player" type="MenueSelectorPlayer" gid="1" x="291.121" y="514.364" width="195.333" height="139.333">
+  <object id="3" name="Player" type="MenueSelectorPlayer" gid="1" x="417.788" y="653.031" width="195.333" height="139.333">
    <properties>
     <property name="Font" value="MAXIMUMSECURITY2"/>
     <property name="FontBackground" value="#FFFFFF"/>

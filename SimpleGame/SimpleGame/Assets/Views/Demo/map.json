@@ -394,7 +394,6 @@
                     {
                      "Energy":"-50",
                      "FallSpeed":"20",
-                     "Intelligence":"DropdownAndMoveIntelligence",
                      "KillPlayer":"True",
                      "KillSprite":"False",
                      "Style":"BloobStyleRed",
@@ -417,7 +416,6 @@
                     {
                      "Energy":"-50",
                      "FallSpeed":"20",
-                     "Intelligence":"DropdownAndMoveIntelligence",
                      "KillPlayer":"True",
                      "KillSprite":"False",
                      "Style":"BloobStyleRed",

@@ -103,7 +103,7 @@
   <image source="../../Sprites/Bloob/bloob_blue_springen.png" trans="4a61f3" width="256" height="64"/>
  </tileset>
  <imagelayer name="Image">
-  <image source="Demobackground.png"/>
+  <image source="Demobackground.png" width="1024" height="768"/>
  </imagelayer>
  <objectgroup name="Screen">
   <object id="49" name="Screen" type="Screen" x="1108.36" y="4704.85" width="800" height="600"/>
@@ -353,7 +353,6 @@
    <properties>
     <property name="Energy" value="-50"/>
     <property name="FallSpeed" value="20"/>
-    <property name="Intelligence" value="DropdownAndMoveIntelligence"/>
     <property name="KillPlayer" value="True"/>
     <property name="KillSprite" value="False"/>
     <property name="Style" value="BloobStyleRed"/>
@@ -365,7 +364,6 @@
    <properties>
     <property name="Energy" value="-50"/>
     <property name="FallSpeed" value="20"/>
-    <property name="Intelligence" value="DropdownAndMoveIntelligence"/>
     <property name="KillPlayer" value="True"/>
     <property name="KillSprite" value="False"/>
     <property name="Style" value="BloobStyleRed"/>
