@@ -418,6 +418,9 @@
     <Content Include="Assets\Images\dog.ico" />
     <Content Include="Assets\Images\dog.png" />
     <Content Include="Assets\Images\gameOver.png" />
+    <Content Include="Assets\Images\Icon.ico" />
+    <Content Include="Assets\Images\Icon.png" />
+    <Content Include="Assets\Images\Man.png" />
     <Content Include="Assets\Images\readme.txt" />
     <Content Include="Assets\Sound\146725__fins__laser.wav" />
     <Content Include="Assets\Sound\172205__fins__jumping.wav" />
