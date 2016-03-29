@@ -51,7 +51,7 @@
     <Compile Include="Src\SpriteIntelligence\Dropdown2AI.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Src\Sprites\EmptyPlayer.py">
+    <Compile Include="Src\Players\EmptyPlayer.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\SpriteStyles\ImageStyle.py">
@@ -60,7 +60,7 @@
     <Compile Include="Src\Sprites\ImageSprite.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Src\Sprites\MenueSelectorPlayer.py">
+    <Compile Include="Src\Players\MenueSelectorPlayer.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\start.py">
@@ -191,10 +191,10 @@
     <Compile Include="Src\Sprites\HeartSprite.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Src\Sprites\JimboSprite.py">
+    <Compile Include="Src\Players\JimboSprite.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Src\Sprites\JohnDoeSprite.py">
+    <Compile Include="Src\Players\JohnDoeSprite.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Sprites\LifeLostMessageSprite.py">
@@ -278,6 +278,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\gui\PlayerMenueSelectorBase.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\player\PlayerFactory.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\player\__init__.py">
@@ -610,6 +613,7 @@
     <Folder Include="Deployment\" />
     <Folder Include="Src\MapObjects\" />
     <Folder Include="Src\Actions\" />
+    <Folder Include="Src\Players\" />
     <Folder Include="Src\Plugins\" />
     <Folder Include="Src\SpriteBehaviors\" />
     <Folder Include="Src\SpriteIntelligence\" />

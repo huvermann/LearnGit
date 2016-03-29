@@ -6,6 +6,7 @@ import os.path
 import json
 from Tiled.TiledMap import TiledMap, TiledObjectLayer
 from Tiled.TilesPainter import TilesPainter
+from Utils.player.PlayerFactory import createPlayerInstance
 from Plugins.PluginFactory import createPluginInstance
 from Utils.MapObjectFactory import createObjectInstance
 from Utils.sprites.SpriteBase import SpriteBase
@@ -54,7 +55,7 @@ class TmxTileMapViewModel(ViewModelBase2):
     def configurePlayer(self, config):
         result = None
         playerClassname = config.type
-        result = createSpriteInstance(playerClassname)
+        result = createPlayerInstance(playerClassname)
         if isinstance(result, PlayerMenueSelectorBase):
             result.configure(config)
         else:
