@@ -25,13 +25,15 @@ class TileGame(object):
         pygame.init()
         self.gameState = GameState()
         self.__setIcon()
-        self.screen = pygame.display.set_mode(self.gameState.size, pygame.FULLSCREEN)
+        #self.screen = pygame.display.set_mode((1280,720), pygame.FULLSCREEN)
+        self.screen = pygame.display.set_mode(self.gameState.size)
         #self.screen = self.set_screen_prop()
         self.viewController = None
         self.viewController = ViewController()
         self.configure()
 
     def set_screen_prop(self):
+        """Only works on Windows."""
         user32 = ctypes.windll.user32
         screenSize =  user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
         print( screenSize)
