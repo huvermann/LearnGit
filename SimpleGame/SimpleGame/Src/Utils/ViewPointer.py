@@ -1,5 +1,4 @@
 import pygame
-from types import *
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
 
 class ViewPoint:
