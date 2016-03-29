@@ -2,7 +2,7 @@ from Utils.ViewPluginBase import ViewPluginBase
 from Utils.JumpCalculator import JumpCalculator, JumpSizeMode, JumpParameters
 import pygame
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
-from Utils.PlayerMoveStateMachine import PlayerMoveState
+from Utils.player.PlayerMoveStateMachine import PlayerMoveState
 from Utils.ViewPointer import ViewPoint
 from Utils.gui.TextLabel import TextLabel
 import json

@@ -1,6 +1,5 @@
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Utils.ViewPointer import ViewPointer, ViewPoint
-#from Tiled.TiledWatcher import TiledWatcher, CheckDirection
 from Tiled.TiledSpriteCollider import TiledSpriteCollider, CollisionResult, TileTouchState
 
 class MoveTimeCalculator(object):

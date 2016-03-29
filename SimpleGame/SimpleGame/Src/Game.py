@@ -39,8 +39,12 @@ class MainGame:
 
     def run(self):
         """Run the game loop"""
-        # pygame.display.set_icon(pygame.image.load(Utils.DirHelper.getResourceFilePath("icon")))
-        pygame.display.set_caption("SimpleGame")
+        #pygame.display.set_icon(pygame.image.load(Utils.DirHelper.getResourceFilePath("icon")))
+        img = Utils.DirHelper.getImageResourceFile("dog")
+         
+        pygame.display.set_caption("CoolVerine", img)
+        pygame.display.set_icon(pygame.image.load(img))
+        #pygame.display.set_caption("SimpleGame")
         defaultStartView = "DemoStart"
         # Start-Screen
         viewName = self.parseViewNameFromCommandArgs()

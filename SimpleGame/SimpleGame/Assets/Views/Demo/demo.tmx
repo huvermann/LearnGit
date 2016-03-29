@@ -3,6 +3,7 @@
  <properties>
   <property name="Plugin1" value="Plugin=DefaultScorePanel"/>
   <property name="Plugin2" value="Plugin=ShowJump"/>
+  <property name="Plugin3" value="Plugin=FrameRateViewer"/>
  </properties>
  <tileset firstgid="1" name="Map" tilewidth="64" tileheight="64" tilecount="120" columns="8">
   <image source="demo.png" trans="4a61f3" width="512" height="960"/>
@@ -353,7 +354,6 @@
    <properties>
     <property name="Energy" value="-50"/>
     <property name="FallSpeed" value="20"/>
-    <property name="Intelligence" value="DropdownAndMoveIntelligence"/>
     <property name="KillPlayer" value="True"/>
     <property name="KillSprite" value="False"/>
     <property name="Style" value="BloobStyleRed"/>
@@ -365,7 +365,6 @@
    <properties>
     <property name="Energy" value="-50"/>
     <property name="FallSpeed" value="20"/>
-    <property name="Intelligence" value="DropdownAndMoveIntelligence"/>
     <property name="KillPlayer" value="True"/>
     <property name="KillSprite" value="False"/>
     <property name="Style" value="BloobStyleRed"/>

@@ -3,7 +3,7 @@ from Utils.Constants import Corners
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Utils.ViewPointer import ViewPointer, ViewPoint
 from Tiled.TiledSpriteCollider import TiledSpriteCollider, CollisionResult, CollisionDetail, TileTouchState
-from Utils.MoveTimeCalculator import MoveTimeCalculator
+from Utils.player.MoveTimeCalculator import MoveTimeCalculator
 from Utils.JumpCalculator import JumpCalculator, JumpSizeMode
 import pygame
 

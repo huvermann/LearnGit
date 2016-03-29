@@ -4,7 +4,7 @@ import logging
 from Utils.DirHelper import getSpriteAnimationImage, getSpriteResourceFilename
 from Utils.Constants import AnimationNames, ConfigKey
 from Utils.JoystickStates import JoystickEvents, JoystickState
-from Utils.PlayerMoveStateMachine import PlayerMoveState, PlayerMoveStateMachine
+from Utils.player.PlayerMoveStateMachine import PlayerMoveState, PlayerMoveStateMachine
 from Utils.AnimationInfo import AnimationInfo, AniConfigKeys, AnimationTypes
 from Utils.JumpCalculator import JumpCalculator
 from Utils.ServiceLocator import ServiceLocator, ServiceNames

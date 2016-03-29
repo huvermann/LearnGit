@@ -67,7 +67,23 @@
          "draworder":"topdown",
          "height":0,
          "name":"Sprites",
-         "objects":[],
+         "objects":[
+                {
+                 "gid":237,
+                 "height":64,
+                 "id":44,
+                 "name":"Telepunkt1",
+                 "properties":
+                    {
+                     "BeamPoint":"Ziel1"
+                    },
+                 "rotation":0,
+                 "type":"TeleporterSprite",
+                 "visible":true,
+                 "width":64,
+                 "x":429.333333333333,
+                 "y":93.3333333333333
+                }],
          "offsetx":0,
          "offsety":32,
          "opacity":1,
@@ -84,7 +100,7 @@
          "objects":[
                 {
                  "gid":201,
-                 "height":32,
+                 "height":64,
                  "id":2,
                  "name":"Player",
                  "properties":
@@ -94,7 +110,7 @@
                  "rotation":0,
                  "type":"JohnDoeSprite",
                  "visible":true,
-                 "width":32,
+                 "width":64,
                  "x":224,
                  "y":64
                 }],
@@ -121,7 +137,7 @@
                     {
                      "Loop":"True",
                      "Song1":"m4rt3z_m4rt3z---Primal-Snap-320.mp3",
-                     "Start":"False"
+                     "Start":"True"
                     },
                  "rotation":0,
                  "type":"MusicPlayer",
@@ -207,6 +223,21 @@
                  "width":32,
                  "x":2339,
                  "y":33
+                }, 
+                {
+                 "height":0,
+                 "id":42,
+                 "name":"Ziel1",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"BeamPoint",
+                 "visible":true,
+                 "width":0,
+                 "x":912,
+                 "y":180
                 }],
          "offsetx":0,
          "offsety":32,
@@ -217,7 +248,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":42,
+ "nextobjectid":45,
  "orientation":"orthogonal",
  "properties":
     {
@@ -280,6 +311,24 @@
          "tilecount":32,
          "tileheight":32,
          "tilewidth":32,
+         "transparentcolor":"#4a61f3"
+        }, 
+        {
+         "columns":1,
+         "firstgid":237,
+         "image":"..\/..\/Sprites\/Teleporter\/Telepunkt.png",
+         "imageheight":64,
+         "imagewidth":64,
+         "margin":0,
+         "name":"Telepunkt",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tilecount":1,
+         "tileheight":64,
+         "tilewidth":64,
          "transparentcolor":"#4a61f3"
         }],
  "tilewidth":64,

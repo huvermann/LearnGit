@@ -1,4 +1,4 @@
-from Utils.PlayerMenueSelectorBase import PlayerMenueSelectorBase
+from Utils.gui.PlayerMenueSelectorBase import PlayerMenueSelectorBase
 class MenueSelectorPlayer(PlayerMenueSelectorBase):
     """description of class"""
 

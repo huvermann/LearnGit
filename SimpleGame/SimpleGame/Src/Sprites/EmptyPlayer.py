@@ -1,6 +1,6 @@
-from Utils.PlayerEmptyBase import PlayerEmptyBase
+from Utils.player.PlayerEmptyBase import PlayerEmptyBase
 
 class EmptyPlayer(PlayerEmptyBase):
-    """description of class"""
+    """This is used for static screens like where the user can not use the player sprite."""
 
 
