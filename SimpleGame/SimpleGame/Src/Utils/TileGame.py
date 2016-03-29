@@ -1,4 +1,3 @@
-# Main File.
 import pygame
 import os, sys, getopt
 import logging
@@ -8,24 +7,47 @@ from Utils.GameState import GameState
 from Utils.ViewController import ViewController
 from Utils.ServiceLocator import ServiceLocator, ServiceNames
 from Utils.BeamPointRegistry import BeamPointRegistry
+import ctypes
 
-if not pygame.font: print ('Warning, fonts disabled')
-if not pygame.mixer: print ('Warning, sound disabled')
-
-class MainGame:
-    """The main game class"""
-    def __init__(self):
+class TileGame(object):
+    """The Main Game Class."""
+    def __init__(self, gameName, startViewName, iconName = "icon"):
         """Initialization of the main class."""
+        self.gamName = gameName
+        self.startViewName = startViewName
+        self.iconName = iconName
+
         logging.basicConfig(filename="gamelog.log", level=logging.DEBUG)
         logging.info("Started")
+        if not pygame.font: logging.warn('Warning, fonts disabled')
+        if not pygame.mixer: logging.warn('Warning, sound disabled')
+
         pygame.init()
-        logging.debug('Game started!')
         self.gameState = GameState()
+        self.__setIcon()
+        #self.screen = pygame.display.set_mode((1280,720), pygame.FULLSCREEN)
         self.screen = pygame.display.set_mode(self.gameState.size)
+        #self.screen = self.set_screen_prop()
         self.viewController = None
         self.viewController = ViewController()
         self.configure()
-        
+
+    def set_screen_prop(self):
+        """Only works on Windows."""
+        user32 = ctypes.windll.user32
+        screenSize =  user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
+        print( screenSize)
+        size = (screenSize)
+        pygame.display.set_caption("Window")
+        return pygame.display.set_mode((size) , pygame.FULLSCREEN)
+
+
+    def __setIcon(self):
+        """Set the window icon."""
+        img = Utils.DirHelper.getImageResourceFile(self.iconName)
+        pygame.display.set_caption("CoolVerine", img)
+        pygame.display.set_icon(pygame.image.load(img))
+        pass
 
     def configure(self):
         ServiceLocator.registerGlobalService(ServiceNames.Screen, self.screen)
@@ -34,13 +56,14 @@ class MainGame:
         ServiceLocator.registerGlobalService(ServiceNames.Gamestate, self.gameState)
         ServiceLocator.registerGlobalService(ServiceNames.BeamPoints, BeamPointRegistry())
         pass
+
     def cleanup(self):
         pygame.quit()
+        pass
 
     def run(self):
         """Run the game loop"""
-        # pygame.display.set_icon(pygame.image.load(Utils.DirHelper.getResourceFilePath("icon")))
-        pygame.display.set_caption("SimpleGame")
+        
         defaultStartView = "DemoStart"
         # Start-Screen
         viewName = self.parseViewNameFromCommandArgs()
@@ -67,13 +90,6 @@ class MainGame:
                 result = a
 
         return result
-
-if __name__ == "__main__":
-    game = MainGame()
-    game.run()
-    game.cleanup()
-
-
 
 
 

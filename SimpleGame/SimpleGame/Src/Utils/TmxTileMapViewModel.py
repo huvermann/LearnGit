@@ -9,7 +9,7 @@ from Tiled.TilesPainter import TilesPainter
 from Plugins.PluginFactory import createPluginInstance
 from Utils.MapObjectFactory import createObjectInstance
 from Utils.sprites.SpriteBase import SpriteBase
-from Utils.PlayerMenueSelectorBase import PlayerMenueSelectorBase
+from Utils.gui.PlayerMenueSelectorBase import PlayerMenueSelectorBase
 
 
 

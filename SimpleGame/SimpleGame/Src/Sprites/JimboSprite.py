@@ -1,4 +1,4 @@
-from Utils.PlayerBaseClass import PlayerBaseClass
+from Utils.player.PlayerBaseClass import PlayerBaseClass
 import pygame
 import json
 

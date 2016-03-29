@@ -321,7 +321,8 @@ class ViewModelBase2():
     def flipScreen(self):
         """Flip the screen."""
         pygame.display.flip()
-        self._state.clock.tick(80)
+        self._state.clock.tick(60)
+        
 
     def restartGame(self):
         """Go to savepoint and resume game."""

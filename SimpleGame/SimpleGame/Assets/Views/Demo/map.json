@@ -895,7 +895,8 @@
  "properties":
     {
      "Plugin1":"Plugin=DefaultScorePanel",
-     "Plugin2":"Plugin=ShowJump"
+     "Plugin2":"Plugin=ShowJump",
+     "Plugin3":"Plugin=FrameRateViewer"
     },
  "renderorder":"right-down",
  "tileheight":64,

@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>da9d3ad3-2ece-426a-a977-e83b691ddc1a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Src\Game.py</StartupFile>
+    <StartupFile>Src\start.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -33,7 +33,6 @@
     <Compile Include="Src\Actions\ExitAction.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Src\Game.py" />
     <Compile Include="Src\MapObjects\IsGameLostView.py">
       <SubType>Code</SubType>
     </Compile>
@@ -41,6 +40,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Plugins\DropDownSimulator.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Plugins\FrameRateViewer.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\SmallGame.py">
@@ -59,6 +61,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Sprites\MenueSelectorPlayer.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\start.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Tiled\MapScanner.py">
@@ -117,19 +122,10 @@
     <Compile Include="Src\SpriteBehaviors\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Src\SpriteIntelligence\BackAndForthIntelligence.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Src\SpriteIntelligence\CenterOnScreenIntelligence.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\SpriteIntelligence\DefaultSpriteIntelligence.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Src\SpriteIntelligence\DropdownAndMoveIntelligence.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Src\SpriteIntelligence\FallDownSpriteIntelligence.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\SpriteIntelligence\__init__.py">
@@ -275,13 +271,16 @@
     <Compile Include="Src\Utils\MapObjectFactory.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Src\Utils\MoveTimeCalculator.py">
+    <Compile Include="Src\Utils\player\MoveTimeCalculator.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Src\Utils\PlayerEmptyBase.py">
+    <Compile Include="Src\Utils\player\PlayerEmptyBase.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Src\Utils\PlayerMenueSelectorBase.py">
+    <Compile Include="Src\Utils\gui\PlayerMenueSelectorBase.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\player\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\SavePoint.py">
@@ -311,6 +310,9 @@
     <Compile Include="Src\Utils\sprites\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Utils\TileGame.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Src\Utils\TmxTileMapViewModel.py">
       <SubType>Code</SubType>
     </Compile>
@@ -338,13 +340,10 @@
     <Compile Include="Src\Utils\MapPosition.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Src\Utils\PlayerBaseClass.py">
+    <Compile Include="Src\Utils\player\PlayerBaseClass.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Src\Utils\PlayerMoveStateMachine.py" />
-    <Compile Include="Src\Utils\SpriteItemBase.py">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Src\Utils\player\PlayerMoveStateMachine.py" />
     <Compile Include="Src\Utils\UserEvents.py">
       <SubType>Code</SubType>
     </Compile>
@@ -621,6 +620,7 @@
     <Folder Include="Src\Tests\" />
     <Folder Include="Src\Utils\" />
     <Folder Include="Src\Utils\gui\" />
+    <Folder Include="Src\Utils\player\" />
     <Folder Include="Src\Utils\sprites\" />
     <Folder Include="Src\Views\" />
     <Folder Include="Tests\" />

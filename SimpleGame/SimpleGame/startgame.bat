@@ -1,3 +1,3 @@
 setlocal
 cd /d %~dp0
-.\PythonEnv\Scripts\python.exe .\Src\Game.py
+.\PythonEnv\Scripts\python.exe .\Src\start.py

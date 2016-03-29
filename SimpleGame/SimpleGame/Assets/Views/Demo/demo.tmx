@@ -3,6 +3,7 @@
  <properties>
   <property name="Plugin1" value="Plugin=DefaultScorePanel"/>
   <property name="Plugin2" value="Plugin=ShowJump"/>
+  <property name="Plugin3" value="Plugin=FrameRateViewer"/>
  </properties>
  <tileset firstgid="1" name="Map" tilewidth="64" tileheight="64" tilecount="120" columns="8">
   <image source="demo.png" trans="4a61f3" width="512" height="960"/>

@@ -22,7 +22,8 @@ class ViewController(object):
         """Changes the view by name."""
         if viewName in self.viewList:
             if self._currentView:
-                self._currentView.suspendView()
+                if self._currentView.viewName != viewName:
+                    self._currentView.suspendView()
 
             self.viewList[viewName].unSuspendView()
             self._currentView = self.viewList[viewName]
