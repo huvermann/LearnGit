@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>da9d3ad3-2ece-426a-a977-e83b691ddc1a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Src\Game.py</StartupFile>
+    <StartupFile>Src\start.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -33,7 +33,6 @@
     <Compile Include="Src\Actions\ExitAction.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Src\Game.py" />
     <Compile Include="Src\MapObjects\IsGameLostView.py">
       <SubType>Code</SubType>
     </Compile>
@@ -62,6 +61,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Sprites\MenueSelectorPlayer.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\start.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Tiled\MapScanner.py">
@@ -306,6 +308,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\sprites\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\TileGame.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\TmxTileMapViewModel.py">
