@@ -224,7 +224,6 @@
     <Compile Include="Src\Sprites\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Src\Tests\DrawTilesTests.py" />
     <Compile Include="Src\Tests\SpriteFactoryTests.py">
       <SubType>Code</SubType>
     </Compile>
@@ -272,6 +271,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\player\MoveTimeCalculator.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Utils\player\PlayerBase.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\player\PlayerEmptyBase.py">

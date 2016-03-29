@@ -22,6 +22,8 @@ class TileGame(object):
         if not pygame.font: logging.warn('Warning, fonts disabled')
         if not pygame.mixer: logging.warn('Warning, sound disabled')
 
+        os.environ['SDL_VIDEO_CENTERED'] = '1'
+
         pygame.init()
         self.gameState = GameState()
         self.__setIcon()
