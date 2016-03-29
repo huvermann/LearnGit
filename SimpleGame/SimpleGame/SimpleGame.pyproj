@@ -339,9 +339,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Src\Utils\player\PlayerMoveStateMachine.py" />
-    <Compile Include="Src\Utils\SpriteItemBase.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Src\Utils\UserEvents.py">
       <SubType>Code</SubType>
     </Compile>
