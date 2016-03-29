@@ -426,6 +426,7 @@
     <Content Include="Assets\Images\Icon.png" />
     <Content Include="Assets\Images\Man.png" />
     <Content Include="Assets\Images\readme.txt" />
+    <Content Include="Assets\Images\schleimicon.png" />
     <Content Include="Assets\Sound\146725__fins__laser.wav" />
     <Content Include="Assets\Sound\172205__fins__jumping.wav" />
     <Content Include="Assets\Sound\173859__jivatma07__j1game-over-mono.wav" />
