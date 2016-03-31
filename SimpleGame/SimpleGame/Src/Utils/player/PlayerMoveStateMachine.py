@@ -5,26 +5,11 @@ from Utils.ViewPointer import ViewPointer, ViewPoint
 from Tiled.TiledSpriteCollider import TiledSpriteCollider, CollisionResult, CollisionDetail, TileTouchState
 from Utils.player.MoveTimeCalculator import MoveTimeCalculator
 from Utils.JumpCalculator import JumpCalculator, JumpSizeMode
+from Utils.player.PlayerMoveState import PlayerMoveState
 import pygame
 
 
-class PlayerMoveState(object):
-    Standing = 1
-    StandingLeft = 2
-    StandingRight = 3
-    Falling = 4
-    FallingLeft = 5
-    FallingRight = 6
-    MoveLeft = 7
-    MoveRight = 8
-    JumpLeft = 9
-    JumpRight = 10
-    JumpUp = 11
-    ClimbUp = 12
-    ClimbDown = 13
-    Dying = 14
-    Killed = 15
-    invisible = 16
+
 
 
 

@@ -239,14 +239,14 @@
   </object>
  </objectgroup>
  <objectgroup name="Player" offsetx="0" offsety="32">
-  <object id="2" name="Player" type="JohnDoeSprite" gid="201" x="305.333" y="242.667" width="64" height="64"/>
+  <object id="2" name="Player" type="Player2" gid="201" x="305.333" y="242.667" width="64" height="64"/>
  </objectgroup>
  <objectgroup color="#005500" name="Objects" offsetx="0" offsety="32">
   <object id="27" name="MusicPlayer" type="MusicPlayer" x="1686" y="34" width="32" height="32">
    <properties>
     <property name="Loop" value="True"/>
     <property name="Song1" value="m4rt3z_m4rt3z---Primal-Snap-320.mp3"/>
-    <property name="Start" value="True"/>
+    <property name="Start" value="False"/>
    </properties>
   </object>
   <object id="29" name="SoundList" type="SoundList" x="1782" y="33" width="32" height="32">

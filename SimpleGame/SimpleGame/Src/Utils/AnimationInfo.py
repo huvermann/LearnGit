@@ -89,6 +89,22 @@ class AnimationInfo(object):
     def calculatePositionIndex(self, position):
         return (position // (self.StepWith * self.ImageCount)) % self.ImageCount
 
+    def getImageFromAnimation(self, time, position):
+        result = None
+        index = None
+        if self.AnimationType == AnimationTypes.TimeBased:
+            index = self.calculateTimeIndex(time)
+        elif self.AnimationType == AnimationTypes.PositionBased:
+            index = self.calculatePositionIndex(position.left)
+        elif self.AnimationType == AnimationTypes.VerticalPositionBased:
+            index = self.calculatePositionIndex(position.top)
+        elif self.AnimationType == AnimationTypes.TerminatedAnimation:
+            index = self.getAnimationTerminated(time)
+        if index != None:
+            result = self.getAnimationPictureByIndex(index)
+
+        return result
+
 
     @staticmethod
     def loadAnimationResourceFile(spritename, filename):
