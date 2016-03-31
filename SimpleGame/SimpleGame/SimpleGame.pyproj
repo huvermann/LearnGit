@@ -482,6 +482,8 @@
     <Content Include="Assets\Controls\Gameover\Game_over.pyxel" />
     <Content Include="Assets\Controls\Gameover\game_over2.png" />
     <Content Include="Assets\Controls\Gameover\Game_over_animation.png" />
+    <Content Include="Assets\Sprites\Granade\granate.png" />
+    <Content Include="Assets\Sprites\Granade\granate_timer.png" />
     <Content Include="Assets\Sprites\Heart\heart.pyxel" />
     <Content Include="Assets\Sprites\Heart\Heart_Ani.png" />
     <Content Include="Assets\Sprites\Jimbo\Jimbo.pyxel" />
@@ -505,6 +507,10 @@
     <Content Include="Assets\Sprites\John_Doe\tot.png" />
     <Content Include="Assets\Sprites\John_Doe\walk_right.png" />
     <Content Include="Assets\Sprites\John_Doe\walk_left.png" />
+    <Content Include="Assets\Sprites\Key\Schlüssel_blau.png" />
+    <Content Include="Assets\Sprites\Key\Schlüssel_gelb.png" />
+    <Content Include="Assets\Sprites\Key\Schlüssel_grün.png" />
+    <Content Include="Assets\Sprites\Key\Schlüssel_rot.png" />
     <Content Include="Assets\Sprites\LifeLostMessage\graveStone.png" />
     <Content Include="Assets\Sprites\LifeLostMessage\LifeLostMessage.png" />
     <Content Include="Assets\Sprites\Monster_Bloob\MonsterBloob.pyxel" />
@@ -514,6 +520,8 @@
     <Content Include="Assets\Sprites\Private\privat_standing_front.png" />
     <Content Include="Assets\Sprites\Private\privat_walk_left.png" />
     <Content Include="Assets\Sprites\Private\privat_walk_right.png" />
+    <Content Include="Assets\Sprites\Schatzkiste\Schatzkiste.png" />
+    <Content Include="Assets\Sprites\Schatzkiste\Schatzkiste_offen.png" />
     <Content Include="Assets\Sprites\StartMenue\Credits.png" />
     <Content Include="Assets\Sprites\StartMenue\DemoStartButtons.png" />
     <Content Include="Assets\Sprites\StartMenue\Exit.png" />
@@ -594,6 +602,9 @@
     <Folder Include="Assets\Sprites\John_Doe\" />
     <Folder Include="Assets\Sprites\Commander\" />
     <Folder Include="Assets\Sprites\Monster_Bloob\" />
+    <Folder Include="Assets\Sprites\Granade\" />
+    <Folder Include="Assets\Sprites\Key\" />
+    <Folder Include="Assets\Sprites\Schatzkiste\" />
     <Folder Include="Assets\Sprites\Optionen\" />
     <Folder Include="Assets\Sprites\StartMenue\" />
     <Folder Include="Assets\Sprites\Targedpoint\" />
