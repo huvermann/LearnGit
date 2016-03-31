@@ -49,7 +49,6 @@ class MoveStateMachine(object):
         if joystick != None:
             if joystick in [JoystickEvents.MoveLeft, JoystickEvents.MoveRight]:
                 self._changeToMoving(time, joystick)
-
         pass
 
     def _checkFalling(self, time):
@@ -67,13 +66,31 @@ class MoveStateMachine(object):
             if joystick == JoystickEvents.KeyReleased:
                 # Update the position
                 self._parent.updatePosition(time, self._moveState)
-                self._moveState = PlayerMoveState.Standing
+                if self._moveState == PlayerMoveState.MoveLeft:
+                    self._moveState = PlayerMoveState.StandingLeft
+                elif self._moveState == PlayerMoveState.MoveRight:
+                    self._moveState = PlayerMoveState.StandingRight
+                else:
+                    self._moveState = PlayerMoveState.Standing
 
             if joystick == JoystickEvents.JumpButton:
                 
                 self._changeToJumping(time, joystick)
-        #Todo: check if player can fall down
-        #Todo: check if player crashes into wall
+        #check if player can fall down
+        if self._mapScanner.getWayToGround() > 1:
+            self._changeToFalling(time)
+        #check if player crashes into wall
+        else:
+            if self._moveState == PlayerMoveState.MoveLeft:
+                if self._mapScanner.measureWayToLeft() > -2:
+                    print(self._mapScanner.measureWayToLeft())
+                    self._parent.updatePosition(time, self._moveState)
+                    self._moveState = PlayerMoveState.StandingLeft
+            elif self._moveState == PlayerMoveState.MoveRight:
+                if self._mapScanner.measureWayToRight() < 2:
+                    self._parent.updatePosition(time, self._moveState)
+                    self._moveState = PlayerMoveState.StandingRight
+
         pass
 
     def _checkJumping(self, time):
@@ -107,7 +124,12 @@ class MoveStateMachine(object):
         self._parent.x = self._targetPosition[1][0]
         self._parent.y = self._targetPosition[1][1]
         self._targetPosition = None
-        self._moveState = PlayerMoveState.Standing
+        if self._moveState in [PlayerMoveState.FallingLeft, PlayerMoveState.JumpLeft, PlayerMoveState.MoveLeft, PlayerMoveState.StandingLeft]:
+            self._moveState = PlayerMoveState.StandingLeft
+        elif self._moveState in [PlayerMoveState.FallingRight, PlayerMoveState.JumpRight, PlayerMoveState.MoveRight, PlayerMoveState.StandingRight]:
+            self._moveState = PlayerMoveState.StandingRight
+        else:
+            self._moveState = PlayerMoveState.Standing
         pass
 
     def _changeToMoving(self, time, joystick):
