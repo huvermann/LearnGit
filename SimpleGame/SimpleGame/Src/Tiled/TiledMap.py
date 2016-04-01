@@ -40,6 +40,7 @@ class TiledObjectItem():
         self.height = None
         self.visible = None
         self.properties = None
+        self.propertyTypes = None
         self.rotation = None
         self._configure(config)
         pass
@@ -56,7 +57,16 @@ class TiledObjectItem():
         self.height = configure['height']
         self.visible = configure['visible']
         self.rotation = configure['rotation']
-        self.properties = configure['properties']
+        if 'properties' in configure:
+            self.properties = configure['properties']
+        else:
+            self.properties = {}
+
+        if 'propertytypes' in configure:
+            self.propertyTypes = configure['propertytypes']
+        else:
+            self.propertyTypes = {}
+
 
         pass
 
@@ -142,7 +152,8 @@ class TileSet():
         self.imagewidth = config['imagewidth']
         self.imageheight = config['imageheight']
         self.name = config['name']
-        self.properties = config['properties']
+        if 'properties' in config:
+            self.properties = config['properties']
         self.transparentcolor = hex_to_rgb(config['transparentcolor'])
         if "tileproperties" in config:
             self.tileproperties = config['tileproperties']
