@@ -85,7 +85,7 @@ class MapScanner(object):
                 leftCols -= 1
                 if x1 + leftCols -1 <= 0:
                     endOfWay = True
-        result = (leftCols) * self.tileWidth - xshift
+        result = leftCols * self.tileWidth + xshift
         return result
 
     def measureWayToRight(self):
@@ -115,9 +115,86 @@ class MapScanner(object):
                 rightCols += 1
                 if x1 + rightCols + 1 >= self._map.width:
                     endOfWay = True
-        result = (rightCols) * self.tileWidth - xshift - 1
+        result = (rightCols) * self.tileWidth + xshift - 1
         return result
 
+
+    def getWayToNextWallOnRight(self):
+        result = 0
+        posTopRight = (self._sprite.x + self._topRight[0], self._sprite.y + self._topRight[0])
+        posBottomRight = (self._sprite.x + self._bottomRight[0], self._sprite.y + self._bottomRight[1])
+
+        x1, y1 = self.getTileAddress(posTopRight)
+        x2, y2 = self.getTileAddress(posBottomRight)
+        rightCols = 0
+        endOfWay = False
+        while not endOfWay:
+            upperTile = self._map.getTideIndex(x1 + rightCols, y1)
+            lowerTide = self._map.getTideIndex(x2 + rightCols, y2)
+            if (self.isSolidTile(upperTile) or self.isSolidTile(lowerTide)):
+                endOfWay = True
+            else:
+                rightCols += 1
+                if x1 + rightCols + 1 >= self._map.width:
+                    endOfWay = True
+        result = rightCols * self.tileWidth
+        print("Way to Wall: {0}".format(result))
+        return result
+
+    def getWayToNextWallOnLeft(self):
+        result = 0
+        posTopLeft = (self._sprite.x + self._topLeft[0], self._sprite.y + self._topLeft[0])
+        posBottomLeft = (self._sprite.x + self._bottomLeft[0], self._sprite.y + self._bottomLeft[1])
+        xshift = posTopLeft[0] % self.tileWidth
+
+        x1, y1 = self.getTileAddress(posTopLeft)
+        x2, y2 = self.getTileAddress(posBottomLeft)
+
+        leftCols = 0
+        endOfWay = False
+        while not endOfWay:
+            upperTile = self._map.getTideIndex(x1 + leftCols, y1)
+            lowerTide = self._map.getTideIndex(x2 + leftCols, y2)
+            if (self.isSolidTile(upperTile) or self.isSolidTile(lowerTide)):
+                endOfWay = True
+            else:
+                leftCols -= 1
+                if x1 + leftCols -1 <= 0:
+                    endOfWay = True
+                    
+        result = leftCols * self.tileWidth + 16
+        print("Way to left Wall: {0}".format(result)) 
+
+        return result
+
+    #def calculateJumpTime(self, vector):
+    #    result = 0
+    #    calculator = self._sprite.moveCalculator
+    #    left = self._sprite.x
+    #    top = self._sprite.y
+    #    endOfWay = False
+    #    while not endOfWay:
+    #        time += 10
+    #        x = calculator.calcX(time) * vector + left
+    #        y = calculator.calcY(time) + top
+    #        if vector == 1:
+    #            posTop = (self._sprite.x + self._topRight[0], self._sprite.y + self._topRight[0])
+    #            posBottom = (self._sprite.x + self._bottomRight[0], self._sprite.y + self._bottomRight[1])
+    #        else:
+    #            posTop = (left + self._topLeft[0], top + self._topLeft[0])
+    #            posBottom = (left + self._bottomLeft[0], top + self._bottomLeft[1])
+
+    #        x1, y1 = self.getTileAddress(posTop)
+    #        x2, y2 = self.getTileAddress(posBottom)
+    #        upperTile = self._map.getTideIndex(x1, y1)
+    #        lowerTile = self._map.getTileIndex(x2, y2)
+
+
+
+
+
+            
+        return result
 
 
 

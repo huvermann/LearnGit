@@ -49,6 +49,9 @@ class MoveStateMachine(object):
         if joystick != None:
             if joystick in [JoystickEvents.MoveLeft, JoystickEvents.MoveRight]:
                 self._changeToMoving(time, joystick)
+
+            if joystick == JoystickEvents.JumpButton:
+                self._changeToJumping(time, joystick)
         pass
 
     def _checkFalling(self, time):
@@ -82,12 +85,11 @@ class MoveStateMachine(object):
         #check if player crashes into wall
         else:
             if self._moveState == PlayerMoveState.MoveLeft:
-                if self._mapScanner.measureWayToLeft() > -2:
-                    print(self._mapScanner.measureWayToLeft())
+                if self._mapScanner.getWayToNextWallOnLeft() > -2:
                     self._parent.updatePosition(time, self._moveState)
                     self._moveState = PlayerMoveState.StandingLeft
             elif self._moveState == PlayerMoveState.MoveRight:
-                if self._mapScanner.measureWayToRight() < 2:
+                if self._mapScanner.getWayToNextWallOnRight() < 2:
                     self._parent.updatePosition(time, self._moveState)
                     self._moveState = PlayerMoveState.StandingRight
 
@@ -96,6 +98,11 @@ class MoveStateMachine(object):
     def _checkJumping(self, time):
         # check if timeout
         # if timeout update position and  set state to standing
+        print("Check jumping")
+        if time >= self._targetPosition[0]:
+            # Sprite reached point
+
+            self._changeToStanding(time)
         pass
 
     def _checkClimbing(self, time):
@@ -142,16 +149,29 @@ class MoveStateMachine(object):
         pass
 
     def _changeToJumping(self, time, joystick):
+        def calculateBounce(time, sprite, vector):
+            jumptime = sprite.moveCalculator.calcJumpTouchdownTime()
+            x = sprite.moveCalculator.calcX(jumptime) * vector
+            result = (time + jumptime, (sprite.x + x, sprite.y))
+            return result
+
         # update latest position
         self._parent.updatePosition(time, self._moveState)
+        self.savePosition(time)
+        vector = None
+        if self._moveState in [PlayerMoveState.MoveLeft, PlayerMoveState.StandingLeft]:
+            vector = -1
+            jumpState = PlayerMoveState.JumpLeft
+        elif self._moveState in [PlayerMoveState.MoveRight, PlayerMoveState.StandingRight]:
+            vector = 1
+            jumpState = PlayerMoveState.JumpRight
         #Calculate the jump
+        if vector:
+            self._targetPosition = calculateBounce(time, self._parent, vector)
+            self._moveState = jumpState
+
         #Change the move state
         pass
-
-
-
-
-
 
 
     @property

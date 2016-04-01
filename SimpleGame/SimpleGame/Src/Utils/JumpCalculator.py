@@ -70,6 +70,10 @@ class JumpCalculator(object):
     def calcClimbing(self, time):
         return int(time * self._walkSpeed)
 
+    def calcJumpTouchdownTime(self):
+        t = 2 * self.v0 / self.g * 1000
+        return t
+
 
     @property
     def jumpUpSpeed(self):

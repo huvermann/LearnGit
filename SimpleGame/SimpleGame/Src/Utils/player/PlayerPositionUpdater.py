@@ -25,7 +25,7 @@ class PlayerPositionUpdater(object):
         elif moveState in []:
             self._climbing(time, moveState)
 
-        elif moveState in []:
+        elif moveState in [PlayerMoveState.JumpLeft, PlayerMoveState.JumpRight]:
             self._jumping(time, moveState)
         pass
 
@@ -59,6 +59,18 @@ class PlayerPositionUpdater(object):
 
     def _jumping(self, time, moveState):
         """Player is jumping."""
+        if moveState == PlayerMoveState.JumpLeft:
+            vector = -1
+        else:
+            vector = 1
+
+        startTime, startPosition = self._player.moveStartInfo
+        duration = time - startTime
+        movex = self._player.moveCalculator.calcX(duration) * vector
+        movey = self._player.moveCalculator.calcY(duration)
+        self._player.x = startPosition[0] + movex
+        self._player.y = startPosition[1] - movey
+
         pass
 
 
